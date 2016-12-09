@@ -1,0 +1,10 @@
+{
+  "name": "cviewer",
+  "version": "0.0.1",
+  "description": "Rust Presentation on reveal",
+  "license": "GNU GPL2",
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "reveal.js": "*"
+  }
+}
