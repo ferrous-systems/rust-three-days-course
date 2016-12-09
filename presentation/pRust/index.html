@@ -24,108 +24,55 @@
     <body>
         <div class="reveal">
             <div class="slides">
-                <section>
-                    <h1>pRUST</h1>
-                    <p>
-                        <small>Crafted By</small> <a href="https://twitter.com/bnemlaghi">Bechir Nemlaghi</a><small> with love!</small>
-                    </p>
-                </section>
-                
-                <section>
-                    <h3>What is this</h3>
-                    <section>
-                        <p>
-                            <b>pRUST</b> is for now a POC of an interactive way to present
-                            RUST, the memory safe language, it is meant to evolve into
-                            a <b>reveal plugin</b>.
-                        </p>
-                    </section>
-                    <section>
-                        <p>
-                            <b>pRUST</b> allow the execution of demonstrated code whitin
-                            the presentation.
-                        </p>
-                    </section>
-                    <section>
-                        <a href="https://www.rust-lang.org/" target="_blank">Find more about Rust</a>
-                    </section>
-                </section>
-                
-                <section>
-                    <h3>How it work</h3>
-                    <p>
-                        All you have to do is to use this template, add <b>rust</b>
-                        class in any code you want to be executabe.
-                    </p>
-                    <pre><code data-trim class="hljs html">&lt;pre&gt;&lt;code data-trim class="hljs rust"&gt;rust code here&lt;/code&gt;&lt;/pre&gt;</code></pre>
-                </section>
-
-                <section>
-                    <h3>Demo</h3>
-                    <pre><code data-trim class="hljs rust">
-// This is a comment
-fn main() {
-    println!("Hello World!");
-}
-                    </code></pre>
-                </section>
-
-                <section>
-                    <h3>Remote source</h3>
-                    <section>
-                        <pre><code data-source="https://gist.githubusercontent.com/chikoski/9d29be8f0f61b0b567e3/raw/a3d9cce23703f451f8f538816c1a0a7a1457680b/concat.rs" data-trim class="hljs rust">
-                        </code></pre>
-                    </section>
-                    <section>
-                        <p>
-                            To use hosted/shared source, you can use this snippet, adding the url of your code
-                            in the data-source attribute.
-                        </p>
-                        <pre><code data-trim class="hljs html">&lt;pre&gt;&lt;code data-source="https://site.org/code/source" data-trim class="hljs rust"&gt;&lt;/code&gt;&lt;/pre&gt;</code></pre>
-                    </section>
-                </section>
-
-                <section>
-                    <h3>Editable</h3>
-                    <pre><code data-trim contenteditable class="hljs rust">
-fn main() {
-    let mut count = 0u32;
-    println!("Let's count until infinity!");
-    // Infinite loop
-    loop {
-        count += 1;
-        if count == 3 {
-            println!("three");
-            // Skip the rest of this iteration
-            continue;
-        }
-        println!("{}", count);
-        if count == 5 {
-            println!("OK, that's enough");
-            // Exit this loop
-            break;
-        }
-    }
-}
-                    </code></pre>
-                </section>
-                
-                <section>
-                    <h3>To be added</h3>
-                    <ul>
-                        <li class="fragment grow">Implement as reveal plugin</li>
-                        <li class="fragment grow">Highlight compilation errors</li>
-                        <li class="fragment grow">Undo/Redo code change</li>
-                        <li class="fragment grow">VanillaJS implementation</li>
-                    </ul>
-                </section>
             </div>
         </div>
+
+        <template id="markdown-section">
+				    <section data-markdown="content_ja.md"
+			               data-separator="^\n---\n$"
+                     data-separator-vertical="^\n----\n$"
+                     data-separator-notes="^Note:"
+								     class="markdown-slide"
+				    </section>
+		    </template>
+		    <template id="locale-selector">
+				    <div class="locale-selector">
+					      <select>
+						        <option value="">Choose your language</option>
+						        <option value="de-DE">Deutsch</option>
+						        <option value="en-US">English</option>
+					      </select>
+				    </div>			
+        </template>
 
         <script src="components/reveal.js/lib/js/head.min.js"></script>
         <script src="components/reveal.js/js/reveal.js"></script>
 
         <script src="js/revealInit.js"></script>
         <script src="js/playRust.js"></script>
+        <script src="js/locale-selector.js"></script>
+        <script>
+			   LocaleSelector.initialize({
+				     templates: {
+					       slide: document.querySelector("#markdown-section"),
+					       selector: document.querySelector("#locale-selector")
+				     },
+				     el: document.querySelector(".slides"),
+				     locales: {
+					       "en-US": "content_en.md",
+					       "de-DE": "content_de.md"
+				     },
+				     default: "de-DE",
+				     reveal: {
+					       history: true,
+					       dependencies: [
+						         { src: 'components/reveal.js/plugin/markdown/marked.js' },
+						         { src: 'components/reveal.js/plugin/markdown/markdown.js' },
+						         { src: 'components/reveal.js/plugin/notes/notes.js', async: true },
+						         { src: 'components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { fetchAllCode(); hljs.initHighlightingOnLoad(); addButtons(); } }
+					       ]
+				     }
+			   });
+		    </script>
     </body>
 </html>
