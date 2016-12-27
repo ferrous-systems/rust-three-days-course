@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/joint.css" />
+        <script src="js/jquery.js"></script>
+        <script src="js/lodash.js"></script>
+        <script src="js/backbone.js"></script>
+        <script src="js/joint.js"></script>
+        <script src="js/stack.js"></script>
+    </head>
+    <body>
+        <div id="memory"></div>
+
+        <script type="text/javascript">
+
+         var graph = new joint.dia.Graph;
+
+         var paper = new joint.dia.Paper({
+             el: $('#memory'),
+             width: 600,
+             height: 200,
+             model: graph,
+             gridSize: 1
+         });
+
+         var field = new joint.shapes.memory.Field({
+             size: { width: 70, height: 30 },
+             name: "foo",
+             type: "u8"
+         });
+
+         var struct = new joint.shapes.memory.Struct({
+             position: { x: 50, y: 100 },
+             size: { width: 70, height: 30 },
+             name: "Foo"
+         });
+
+         struct.embed(field);
+
+         graph.addCells([struct, field]);
+        </script>
+    </body>
+</html>
