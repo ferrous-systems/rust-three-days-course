@@ -6,7 +6,7 @@ joint.shapes.memory.Field = joint.shapes.basic.Generic.extend({
         '<g class="scalable">',
         '<rect class="field-name-rect"/><rect class="field-type-rect"/><rect class="field-size-rect"/>',
         '</g>',
-        '<text class="field-name-text"/><text class="field-type-text"/><text class="field-type-text"/>',
+        '<text class="field-name-text"/><text class="field-type-text"/><text class="field-size-text"/>',
         '</g>'
     ].join(''),
 
@@ -26,18 +26,18 @@ joint.shapes.memory.Field = joint.shapes.basic.Generic.extend({
                 'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
             },
             '.field-type-text': {
-                'ref': '.field-type-rect', 'ref-y': 5, 'ref-x': 5,
+                'ref': '.field-type-rect', 'ref-y': .5, 'ref-x': .5, 'text-anchor': 'middle', 'y-alignment': 'middle',
                 'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
             },
             '.field-size-text': {
-                'ref': '.field-type-rect', 'ref-y': 5, 'ref-x': 5,
+                'ref': '.field-size-rect', 'ref-y': .5, 'ref-x': .5, 'text-anchor': 'middle', 'y-alignment': 'middle',
                 'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
             }
         },
 
         name: [],
         type: [],
-        size: "?"
+        fieldSize: "?"
     }, joint.shapes.basic.Generic.prototype.defaults),
 
 
@@ -60,8 +60,8 @@ joint.shapes.memory.Field = joint.shapes.basic.Generic.extend({
         return this.get('type');
     },
 
-    getSize: function() {
-        return this.get('size');
+    getFieldSize: function() {
+        return this.get('fieldSize');
     },
 
     updateRectangles: function() {
@@ -69,9 +69,9 @@ joint.shapes.memory.Field = joint.shapes.basic.Generic.extend({
         var attrs = this.get('attrs');
 
         var rects = [
-            { type: 'name', text: this.getFieldName() },
-            { type: 'type', text: this.getTypeName() },
-            { type: 'size', text: this.getSize() }
+            { type: 'name', text: this.getFieldName(), offset: 0 },
+            { type: 'type', text: this.getTypeName(), offset: 200 },
+            { type: 'size', text: this.getFieldSize(), offset: 400 }
         ];
 
         var offsetY = 0;
@@ -82,7 +82,7 @@ joint.shapes.memory.Field = joint.shapes.basic.Generic.extend({
 
             attrs['.field-' + rect.type + '-text'].text = lines.join('\n');
             attrs['.field-' + rect.type + '-rect'].height = rectHeight;
-            attrs['.field-' + rect.type + '-rect'].transform = 'translate(0,' + offsetY + ')';
+            attrs['.field-' + rect.type + '-rect'].transform = 'translate(' + rect.offset + ',0)';
 
             offsetY += rectHeight;
         });
@@ -120,14 +120,9 @@ joint.shapes.memory.Struct = joint.shapes.basic.Generic.extend({
             rect: { 'width': 200 },
 
             '.type-name-rect': { 'stroke': 'black', 'stroke-width': 2, 'fill': '#3498db' },
-            '.type-fields-rect': { 'stroke': 'black', 'stroke-width': 2, 'fill': '#3498db' },
 
             '.type-name-text': {
-                'ref': '.type-name-rect', 'ref-y': .5, 'ref-x': .5, 'text-anchor': 'middle', 'y-alignment': 'middle', 'font-weight': 'bold',
-                'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
-            },
-            '.type-fields-text': {
-                'ref': '.type-fields-rect', 'ref-y': 5, 'ref-x': 5,
+                'ref': '.type-name-rect', 'ref-y': .3, 'ref-x': .1, 'font-weight': 'bold',
                 'fill': 'black', 'font-size': 12, 'font-family': 'Times New Roman'
             }
         },
@@ -156,8 +151,7 @@ joint.shapes.memory.Struct = joint.shapes.basic.Generic.extend({
         var attrs = this.get('attrs');
 
         var rects = [
-            { type: 'name', text: this.getClassName() },
-            { type: 'fields', text: this.get('fields') }
+            { type: 'name', text: this.getClassName() }
         ];
 
         var offsetY = 0;

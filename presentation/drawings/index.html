@@ -24,20 +24,62 @@
          });
 
          var field = new joint.shapes.memory.Field({
-             size: { width: 70, height: 30 },
+             size: { width: 100, height: 20 },
              name: "foo",
-             type: "u8"
+             type: "u8",
+             fieldSize: "8"
+         });
+
+         var field2 = new joint.shapes.memory.Field({
+             size: { width: 100, height: 20 },
+             name: "bar",
+             type: "&Bar",
+             fieldSize: "usize"
          });
 
          var struct = new joint.shapes.memory.Struct({
-             position: { x: 50, y: 100 },
-             size: { width: 70, height: 30 },
+             position: { x: 50, y: 10 },
+             size: { width: 170, height: 30 },
              name: "Foo"
          });
 
-         struct.embed(field);
+         var field3 = new joint.shapes.memory.Field({
+             size: { width: 100, height: 20 },
+             name: "foo",
+             type: "u8",
+             fieldSize: "8"
+         });
 
-         graph.addCells([struct, field]);
+         var struct2 = new joint.shapes.memory.Struct({
+             position: { x: 50, y: 50 },
+             size: { width: 170, height: 30 },
+             name: "Bar"
+         });
+
+            
+         var link = new joint.dia.Link({
+            source: { id: field2.id },
+            target: { id: struct2.id }
+            });
+
+         link.set('router', {
+            name: 'manhattan',
+            args: {
+                startDirections: ['right'],
+                endDirections: ['left'],
+            }
+         });
+
+
+         struct.embed(field);
+         struct.embed(field2);
+         struct2.embed(field3);
+
+         graph.addCells([struct, field, field2, struct2, field3, link]);
+         field.position(70, 0, { parentRelative: true });
+         field2.position(70, 20, { parentRelative: true });
+         field3.position(70, 0, { parentRelative: true });
+
         </script>
     </body>
 </html>
