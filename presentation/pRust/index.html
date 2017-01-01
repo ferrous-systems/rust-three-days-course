@@ -28,7 +28,7 @@
         </div>
 
         <template id="markdown-section">
-				    <section data-markdown="content_ja.md"
+				    <section data-markdown="content_de.md"
 			               data-separator="^\n---\n$"
                      data-separator-vertical="^\n----\n$"
                      data-separator-notes="^Note:"
@@ -42,7 +42,7 @@
 						        <option value="de-DE">Deutsch</option>
 						        <option value="en-US">English</option>
 					      </select>
-				    </div>			
+				    </div>
         </template>
 
         <script src="components/reveal.js/lib/js/head.min.js"></script>
@@ -52,6 +52,13 @@
         <script src="js/playRust.js"></script>
         <script src="js/locale-selector.js"></script>
         <script>
+         var urlParams = new URLSearchParams(window.location.search);
+         var chapter;
+         if (urlParams.has("chapter")) {
+             chapter = urlParams.get("chapter");
+         } else {
+             chapter = "intro";
+         }
 			   LocaleSelector.initialize({
 				     templates: {
 					       slide: document.querySelector("#markdown-section"),
@@ -59,8 +66,8 @@
 				     },
 				     el: document.querySelector(".slides"),
 				     locales: {
-					       "en-US": "content_en.md",
-					       "de-DE": "content_de.md"
+					       "en-US": chapter + "_en.md",
+					       "de-DE": chapter + "_de.md"
 				     },
 				     default: "de-DE",
 				     reveal: {
