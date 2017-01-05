@@ -71,10 +71,19 @@ Der Rust-Compiler übernimmt das kompilieren und linken von Rust-Code.
 
 ---
 
-## Ownership
+## Funktionstest
+
+```rust
+fn main() {
+    println!("Hello, World!");
+}
+```
 
 ---
 
-## Borrowing
+```sh
+$ rustc hello_world.rs
+$ ./hello_world
+Hello, World!
+```
 
----

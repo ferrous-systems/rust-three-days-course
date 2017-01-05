@@ -6,6 +6,10 @@ function addButtons() {
     $(block).before(buttons);
     $(block).after(result);
   });
+  $('pre code.lang-rust').each(function(i, block){
+    $(block).before(buttons);
+    $(block).after(result);
+  });
   $('.reset').each(function (n) {
     $(this).context._code = $(this).siblings('code').text();
   });
