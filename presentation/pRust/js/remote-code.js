@@ -1,5 +1,6 @@
 fetchAllCode = function(){ 
 	Array.prototype.slice.call(document.querySelectorAll('code[data-source]')).forEach(function(codeContainer){
+      console.log("Here");
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", codeContainer.dataset.source, true);
 		xhr.overrideMimeType("text/plain; charset=x-user-defined");

@@ -10,6 +10,17 @@ Florian Gilcher <florian.gilcher@asquera.de>
 
 ---
 
+## SVG
+
+<pre class="diagram">
++------+ top
+|      |
+|      |
++------+ bottom
+</pre>
+
+---
+
 ## Kurze Übersicht
 
 * Rust ist eine neue Systemprogrammiersprache von Mozilla.
