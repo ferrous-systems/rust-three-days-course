@@ -1,4 +1,4 @@
-# Installation
+# Die Toolchain
 
 Florian Gilcher <florian.gilcher@asquera.de>
 
@@ -47,7 +47,7 @@ die Dokumentation zur Komplettierung und Offlineverwendung runter.
 
 ---
 
-## Die Toolchain
+## Inhalt einer Toolchain
 
 * rustc
 * cargo
@@ -86,4 +86,43 @@ $ rustc hello_world.rs
 $ ./hello_world
 Hello, World!
 ```
+
+---
+
+## Cargo
+
+```sh
+$ cargo --help
+```
+
+---
+
+Cargo ist Rusts Build- und Codeverwaltungs-Toolchain.
+
+Cargo wird mit rustc ausgeliefert, ist aber nicht fest an einer rustc-Version gebunden.
+
+---
+
+## Nochmal mit cargo
+
+```sh
+$ cargo new hello-world --bin
+$ cd hello-world
+$ cat hello-world
+fn main() {
+    println!("Hello, world!");
+}
+$ cargo build
+   Compiling hello-world v0.1.0 (file:///Users/skade/Code/rust/scratchpad/hello-world)
+    Finished debug [unoptimized + debuginfo] target(s) in 0.35 secs
+$ cargo run
+    Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
+     Running `target/debug/hello-world`
+Hello, world!
+```
+
+## Ein wenig umschauen
+
+* Was steht in Cargo.toml?
+* Was steht in Cargo.lock?
 
