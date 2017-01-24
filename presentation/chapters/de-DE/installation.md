@@ -121,8 +121,21 @@ $ cargo run
 Hello, world!
 ```
 
+---
+
 ## Ein wenig umschauen
 
 * Was steht in Cargo.toml?
 * Was steht in Cargo.lock?
+
+---
+
+## Cargo verwaltet auch Tools
+
+---
+
+```sh
+$ cargo +nightly install clippy
+$ cargo +nightly install rustfmt
+```
 
