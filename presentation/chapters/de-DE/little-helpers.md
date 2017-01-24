@@ -3,3 +3,79 @@
 ---
 
 Strings in Rust sind ein Thema für sich.
+
+Daher werden sie später in einem eigenen Abschnitt behandelt.
+
+---
+
+## Strings ohne Nachdenken
+
+```rust
+fn main() {
+    let hello = String::from("Hello World");
+    println!("{}", hello);
+}
+```
+
+---
+
+## Code Style
+
+* 4 Spaces
+* Keine tabs
+* Blockklammern in eine eigene Zeile
+
+---
+
+## println!()
+
+```rust
+fn main() {
+    let hello = String::from("Hello World");
+    println("{}", hello); // string display
+    println("{:?}", hello); // Debug
+}
+```
+
+---
+
+## Use the heap, Luke!
+
+Wir verwenden für die ersten Schritte:
+
+* String
+* Vec (Vektoren)
+* Plain structs
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let hello = String::from("Hello World");
+    let vec = vec![1,2,3];
+    let point = Point { x: 1, y: 2};
+}
+```
+
+---
+
+## \#[derive(Debug)]
+
+```rust
+#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let point = Box::new(Point { x: 1, y: 2});
+    println!("{:?}", point);
+}
+```
+
+Funktioniert für alle Datenstrukturen.
+

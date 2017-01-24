@@ -1,0 +1,121 @@
+# Datenstrukturen
+
+---
+
+## Structs
+
+---
+
+## Definition
+
+```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+```
+
+---
+
+## Allokation
+
+```rust
+fn main() {
+    let p = Point { x: 1, y: 1 };
+}
+```
+
+---
+
+## Feldzugriff
+
+```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+fn main() {
+    let p = Point { x: 1, y: 2 };
+    println!("{}", p.x);
+    println!("{}", p.y);
+}
+```
+
+---
+
+## Tupel
+
+```rust
+fn main() {
+    let p = (1, 2);
+    println!("{}", p.0);
+    println!("{}", p.1);
+}
+```
+
+---
+
+## Benannte Tupel ("tuple structs")
+
+```rust
+struct Point(i32,i32);
+
+fn main() {
+    let p = Point(1, 2);
+    println!("{}", p.0);
+    println!("{}", p.1);
+}
+```
+
+---
+
+## Enums
+
+```rust
+enum Direction {
+    Right,
+    Left,
+    Up,
+    Down,
+}
+
+fn main() {
+    let direction = Direction::Left;
+}
+```
+
+Die einzelnen Ausformungen von Enums heissen "Variante".
+
+---
+
+## Enums mit Werten
+
+```rust
+enum Movement {
+    Right(i32),
+    Left(i32),
+    Up(i32),
+    Down(i32),
+}
+
+fn main() {
+    let movement = Movement::Left(12);
+}
+```
+
+---
+
+## Enums mit strukturierten Varianten
+
+```rust
+enum Actions {
+    StickAround,
+    MoveTo { x: i32, y: 32},
+}
+
+fn main() {
+    let action = Actions::MoveTo { x: 0, y: 0 };
+}
+```
+
