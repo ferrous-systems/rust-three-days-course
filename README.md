@@ -10,9 +10,7 @@ In Deutsch (und hoffentlich bald Englisch).
 * Installation
 * cargo
 * Beispiel: Hallo Welt
-* Funktionen
-* Ownership
-* Borrowing
+* Kurze Schmerzbegrenzung
 * Datenstrukturen
   * Structs
   * Enums
@@ -20,3 +18,6 @@ In Deutsch (und hoffentlich bald Englisch).
   * Tuple-Structs
   * Unit Structs
   * Unit type
+* Ownership
+* Funktionen
+* Borrowing
