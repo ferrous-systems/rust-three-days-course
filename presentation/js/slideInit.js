@@ -12,8 +12,8 @@ LocaleSelector.initialize({
     },
     el: document.querySelector(".slides"),
     locales: {
-        "en-US": "chapters/en-US/" + chapter + ".md",
-        "de-DE": "chapters/de-DE/" + chapter + ".md"
+        "en-US": "chapters/en-US/" + chapter + ".chapter",
+        "de-DE": "chapters/de-DE/" + chapter + ".chapter"
     },
     default: "de-DE",
     reveal: {
