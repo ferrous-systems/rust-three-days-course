@@ -6,7 +6,7 @@ Generics sind fundamental für Rust.
 
 ---
 
-# Generische Structs
+## Generische Structs
 
 ```rust
 struct Point<Precision> {
@@ -16,15 +16,76 @@ struct Point<Precision> {
 
 fn main() {
     let point = Point { x: 1u32, y: 2 };
+    let point: Point<i32> { x: 1, y: 2 };
 }
+```
 
 ---
 
-# Generische Enums
+## Typinferenz
+
+Rust findet bei ausreichender Informationslage selbst
+die Typen aller Variablen und Generics heraus.
+
+Dies gilt nur _innerhalb_ von Funktionsgrenzen.
+
+Signaturen müssen immer voll angegeben werden.
+
+---
+
+## Generische Enums
+
+```rust
+enum Either<T, X> {
+    Left(T),
+    Right(X)
+}
+
+fn main() {
+    let alternative: Either<i32, f64> = Either::Left(i32);
+}
+```
+
+---
+
+## Wichtige generische Enums
+
+---
+
+## Option
 
 ```rust
 enum Option<T> {
     Some(T),
     None
 }
+
+fn main() {
+    let args = std::os::args;
+    println!("{:?} {:?}", args.at(0), args.at(1))
+}
 ```
+
+Beschreibt einen Wert, der nicht zwingend vorhanden sein muss.
+
+None ist ein Wert, sollte als nicht mit `null` verwechselt werden.
+
+---
+
+## Result
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+fn main() {
+    let file = std::fs::File::open("I don't exist!");
+    println!("{:?}", file);
+}
+```
+
+Beschreibt, ob eine Operation erfolgreich war und gibt entweder
+den Wert oder einen Fehlerwert zurück.
+

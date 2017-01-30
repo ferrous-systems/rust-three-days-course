@@ -106,6 +106,10 @@ fn main() {
 
 ---
 
+## null
+
+Gibts nicht.
+
 ## Enums mit strukturierten Varianten
 
 ```rust
@@ -118,4 +122,10 @@ fn main() {
     let action = Actions::MoveTo { x: 0, y: 0 };
 }
 ```
+
+---
+
+## Sind Varianten Typen?
+
+Nein. Momentan(!) nicht.
 
