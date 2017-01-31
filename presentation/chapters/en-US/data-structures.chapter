@@ -90,7 +90,7 @@ fn main() {
 }
 ```
 
-The different choices of Enums are called "variations."
+The different choices of Enums are called "variants."
 
 ---
 

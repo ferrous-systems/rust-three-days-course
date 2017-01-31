@@ -26,7 +26,7 @@ fn main() {
 
 Rust finds the types of all variables and generics with sufficient information.
 
-This only applies _inside_ of functional limits.
+This only applies _inside_ of function limits.
 
 Signatures must always be fully entered.
 
