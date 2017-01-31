@@ -1,0 +1,127 @@
+# Fehlerbehandlung
+
+---
+
+Die Fehlerbehandlung ist explizit in Rust.
+
+Jede Funktion, von der erwartet wird, dass sie ausfällt, deklariert dies, indem sie ein `Result<T, E>` zurückgibt.
+
+**Es gibt keine Ausnahmen.**
+
+---
+
+```rust
+fn this_can_fail(succeeds: bool) -> Result<String, String> {
+    if succeeds {
+        Ok(String::from("Es funktionierte!"))
+    } else {
+        Err(String::from("Es hat nicht funktioniert!"))
+    }
+}
+
+fn main() {
+    let outcome = this_can_fail(true);
+}
+```
+
+---
+
+## Ergebnisse Müssen Verwendet Werden
+
+```
+warning: unused variable: `outcome`, #[warn(unused_variables)] on by default
+  --> <anon>:10:9
+   |
+10 |     let outcome = this_can_fail(true);
+   |         ^^^^^^^
+```
+
+---
+
+## Ergebnisse Verwenden Mit `match`
+
+```rust
+fn main() {
+    match this_can_fail(false) {
+        Ok(val) => println!("Funktioniert: {}", val),
+        Err(err) => println!("Gescheitert: {}", err),
+    }
+}
+```
+
+---
+
+## Verwenden Von Ergebnissen Mit Bedingungen
+
+Auf Erfolg prüfen mit `is_ok()`, Fehler mit `is_err()`:
+
+```rust
+fn main() {
+    if this_can_fail(false).is_ok() {
+        println!("It worked!");
+    } else {
+        println!("It didn't work!")
+    }
+}
+```
+
+---
+
+## Ergebnisse mit `?` Verwenden
+
+Verwenden `?` In Funktionen mit mehreren möglichen Ausfälle.
+
+```rust
+fn multiple_possible_failures() -> Result<String,String> {
+    this_can_fail(true)?;
+    println!("Nach dem ersten Ausfall");
+    this_can_fail(false)?;
+    println!("Nach dem zweiten Potentialausfall");
+    Ok(String::from("Alles erledigt"))
+}
+
+fn main() {
+    multiple_possible_failures();
+}
+```
+
+---
+
+## Ergebnisse mit `?` Verwenden
+
+Ausgabe:
+
+```
+Nach dem ersten Ausfall
+```
+
+Beachten Sie die vorzeitige Abfahrt.
+
+---
+
+## Ergebnisse sind Wrappertypen
+
+Es ist möglich, ein `Result<T, E>` in ein `Result<U, E>` zu ändern, ohne es zu entpacken.
+
+Das Transformieren eines `Result<T, E>` in ein `Result<T, X>` ist ebenfalls möglich.
+
+<pre class="diagram">
++-----+   +-----+   +-----+
+| T,E |-->| U,E |-->| U,X |
++-----+   +-----+   +-----+
+</pre>
+
+---
+
+## Ergebniswerte umwandeln
+
+```rust
+fn main() {
+    let some_result = this_can_fail(true);
+    // Dies wird nur ausgeführt, wenn `some_result` eine `Ok`-Variante ist.
+    let mapped_result = some_result.map(|val| val.len());
+    println!("{:?}", mapped_result);
+}
+```
+
+`map_err()` ist ebenfalls verfügbar.

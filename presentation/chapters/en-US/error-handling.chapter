@@ -1,0 +1,127 @@
+# Error Handling
+
+---
+
+Error handling is explicit in Rust.
+
+Any function which is expected to fail declares this by returning a `Result<T,E>`.
+
+**There are no exceptions.**
+
+---
+
+```rust
+fn this_can_fail(succeeds: bool) -> Result<String, String> {
+    if succeeds {
+        Ok(String::from("It worked!"))
+    } else {
+        Err(String::from("It didn't work!"))
+    }
+}
+
+fn main() {
+    let outcome = this_can_fail(true);
+}
+```
+
+---
+
+## Results Must Be Used
+
+```
+warning: unused variable: `outcome`, #[warn(unused_variables)] on by default
+  --> <anon>:10:9
+   |
+10 |     let outcome = this_can_fail(true);
+   |         ^^^^^^^
+```
+
+---
+
+## Using Results With `match`
+
+```rust
+fn main() {
+    match this_can_fail(false) {
+        Ok(val) => println!("Worked: {}", val),
+        Err(err) => println!("Failed: {}", err),
+    }
+}
+```
+
+---
+
+## Using Results With Conditionals
+
+Check for success with `is_ok()`, errors with `is_err()`:
+
+```rust
+fn main() {
+    if this_can_fail(false).is_ok() {
+        println!("It worked!");
+    } else {
+        println!("It didn't work!")
+    }
+}
+```
+
+---
+
+## Using Results With `?`
+
+Use `?` in functions with multiple possible failures. 
+
+```rust
+fn multiple_possible_failures() -> Result<String,String> {
+    this_can_fail(true)?;
+    println!("After first potential failure");
+    this_can_fail(false)?;
+    println!("After second potential failure");
+    Ok(String::from("All done"))
+}
+
+fn main() {
+    multiple_possible_failures();
+}
+```
+
+---
+
+## Using Results With `?`
+
+Output:
+
+```
+After first potential failure
+```
+
+Note the early exit.
+
+---
+
+## Results Are Wrapper Types
+
+It's possible to change a `Result<T,E>` into a `Result<U,E>` without unwrapping it.
+
+Transforming a `Result<T,E>` into a `Result<T,X>` is also possible.
+
+<pre class="diagram">
++-----+   +-----+   +-----+
+| T,E |-->| U,E |-->| U,X |
++-----+   +-----+   +-----+
+</pre>
+
+---
+
+## Mapping Result Values
+
+```rust
+fn main() {
+    let some_result = this_can_fail(true);
+    // This is only run if `some_result` is an `Ok` variant.
+    let mapped_result = some_result.map(|val| val.len());
+    println!("{:?}", mapped_result);
+}
+```
+
+`map_err()` is also available.
