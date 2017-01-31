@@ -1,0 +1,52 @@
+# Mutabilität
+
+---
+
+Variablen sind standardmäßig immutabel, können aber mutabel gemacht werden.
+
+```rust
+let some_immutable = true;
+let mut some_mutable = false;
+some_mutable = true;
+```
+
+---
+
+## Mutabel, Immutabel
+
+Mit 'variable shadowing' ist es möglich, die Mutabilität einer Variable nach Deklaration zu wechseln.
+
+```rust
+let some_immutable = true;
+let mut some_immutable = some_immutable;
+some_immutable = false;
+let some_immutable = some_immutable;
+```
+
+---
+
+## Mutabel, Immutabel
+
+Eine andere Methode, mit einem Block:
+
+```rust
+let some_immutable = {
+    let mut some_mutable = true;
+    some_mutable = false;
+    some_mutable
+};
+```
+
+---
+
+## In Funktionen
+
+In Funktionsdeklarationen gelten auch Mutationsregeln.
+
+```rust
+fn add_to_vec(vec: &mut Vec<String>, message: String) {
+    // `message` ist immutabel.
+    // `vec` ist mutabel.
+    vec.push(message);
+}
+```
