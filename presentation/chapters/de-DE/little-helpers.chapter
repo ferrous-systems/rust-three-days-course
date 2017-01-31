@@ -44,8 +44,8 @@ fn main() {
 Wir verwenden für die ersten Schritte:
 
 * String
-* Vec (Vektoren)
-* Plain structs
+* `Vec<T>` (Vektoren)
+* Plain `struct`s
 
 ```rust
 struct Point {
