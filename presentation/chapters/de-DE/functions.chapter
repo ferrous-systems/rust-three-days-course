@@ -28,7 +28,7 @@ fn generic_argument<T>(arg: T) {}
 
 ## Rückgabewert
 
-Rückgabewert ist optional. Signaturen müssen vollständig sein.
+der Rückgabewert ist optional. Signaturen müssen vollständig sein.
 
 ```rust
 fn return_nothing() {}
