@@ -26,9 +26,9 @@ fn generic_argument<T>(arg: T) {}
 
 ---
 
-## Rückkehr
+## Rückgabewert
 
-Rückkehr ist optional. Signaturen müssen vollständig sein.
+Rückgabewert ist optional. Signaturen müssen vollständig sein.
 
 ```rust
 fn return_nothing() {}
@@ -60,9 +60,9 @@ fn transmute<T, U>(arg: T) -> U {
 
 ---
 
-## Mit Grenzen
+## Mit Anforderungen
 
-Generische Funktionen können auch Grenzen haben. 
+Generische Funktionen können auch anforderungen haben.
 
 Diese sind äquivalent:
 
@@ -80,5 +80,5 @@ fn where_clause<T>(arg: T) -> String where T: Display {
 
 # Bemerkungen
 
-* Typen, die nicht das Merkmal `Copy` haben, werden verbraucht, wenn sie übergeben werden.
+* Typen, die nicht das Merkmal Copy besitzen, werden verbraucht, wenn sie übergeben werden.
 * Rückkehr Referenzen können die Klärung Lebenszeiten (siehe später).
