@@ -4,7 +4,7 @@
 
 Error handling is explicit in Rust.
 
-Any function which is expected to fail declares this by returning a `Result<T,E>`.
+Any function with known error conditions returns a `Result<T,E>`.
 
 **There are no exceptions.**
 

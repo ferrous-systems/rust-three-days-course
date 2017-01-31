@@ -2,11 +2,11 @@
 
 ---
 
-Die Fehlerbehandlung ist explizit in Rust.
+Fehlerbehandlung in Rust ist explizit.
 
-Jede Funktion, von der erwartet wird, dass sie ausfällt, deklariert dies, indem sie ein `Result<T, E>` zurückgibt.
+Eine Funktion, die bekannte Fehlerbedingungen hat, gibt einen Wert vom Typ `Result<T,E>` zurück.
 
-**Es gibt keine Ausnahmen.**
+**Es gibt keine Ausnahmebehandlung.**
 
 ---
 
@@ -26,7 +26,7 @@ fn main() {
 
 ---
 
-## Ergebnisse Müssen Verwendet Werden
+## Ergebnisse müssen verwendet werden
 
 ```
 warning: unused variable: `outcome`, #[warn(unused_variables)] on by default
@@ -38,7 +38,7 @@ warning: unused variable: `outcome`, #[warn(unused_variables)] on by default
 
 ---
 
-## Ergebnisse Verwenden Mit `match`
+## Ergebnisse verwenden mit `match`
 
 ```rust
 fn main() {
@@ -51,7 +51,7 @@ fn main() {
 
 ---
 
-## Verwenden Von Ergebnissen Mit Bedingungen
+## Verwenden von ergebnissen mit Bedingungen
 
 Auf Erfolg prüfen mit `is_ok()`, Fehler mit `is_err()`:
 
@@ -76,7 +76,7 @@ fn multiple_possible_failures() -> Result<String,String> {
     this_can_fail(true)?;
     println!("Nach dem ersten Ausfall");
     this_can_fail(false)?;
-    println!("Nach dem zweiten Potentialausfall");
+    println!("Nach dem zweiten Potential ausfall");
     Ok(String::from("Alles erledigt"))
 }
 
@@ -99,7 +99,7 @@ Beachten Sie die vorzeitige Abfahrt.
 
 ---
 
-## Ergebnisse sind Wrappertypen
+## Ergebnisse sind wrappertypen
 
 Es ist möglich, ein `Result<T, E>` in ein `Result<U, E>` zu ändern, ohne es zu entpacken.
 
