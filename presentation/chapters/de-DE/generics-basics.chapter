@@ -68,7 +68,7 @@ fn main() {
 
 Beschreibt einen Wert, der nicht zwingend vorhanden sein muss.
 
-None ist ein Wert, sollte als nicht mit `null` verwechselt werden.
+`None` ist ein Wert, sollte als nicht mit `null` verwechselt werden.
 
 ---
 

@@ -1,0 +1,88 @@
+# Simple Generics
+
+---
+
+Generics are fundamental for Rust.
+
+---
+
+## Generic Structs
+
+```rust
+struct Point<Precision> {
+    x: Precision,
+    y: Precision
+}
+
+fn main() {
+    let point = Point { x: 1u32, y: 2 };
+    let point: Point<i32> { x: 1, y: 2 };
+}
+```
+
+---
+
+## Type Inference
+
+Rust finds the types of all variables and generics with sufficient information.
+
+This only applies _inside_ of functional limits.
+
+Signatures must always be fully entered.
+
+---
+
+## Generic Enums
+
+```rust
+enum Either<T, X> {
+    Left(T),
+    Right(X)
+}
+
+fn main() {
+    let alternative: Either<i32, f64> = Either::Left(i32);
+}
+```
+
+---
+
+## Important Generic Enums
+
+---
+
+## Option
+
+```rust
+enum Option<T> {
+    Some(T),
+    None
+}
+
+fn main() {
+    let args = std::os::args;
+    println!("{:?} {:?}", args.at(0), args.at(1))
+}
+```
+
+Describes a value which does not have to be present.
+
+`None` is a value, and should not be confused with `null`.
+
+---
+
+## Result
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+fn main() {
+    let file = std::fs::File::open("I don't exist!");
+    println!("{:?}", file);
+}
+```
+
+Describes whether an operation was successful and returns either the value or an error.
