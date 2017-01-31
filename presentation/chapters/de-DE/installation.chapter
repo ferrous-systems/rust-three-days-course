@@ -12,6 +12,8 @@ https://www.rust-lang.org/en-US/install.html
 
 Rustup ist das Standard-Tool zum Managen von Rusts compiler-Toolchain.
 
+http://rustup.rs/
+
 ---
 
 ## Wichtige Kommandos
@@ -99,7 +101,7 @@ $ cargo --help
 
 Cargo ist Rusts Build- und Codeverwaltungs-Toolchain.
 
-Cargo wird mit rustc ausgeliefert, ist aber nicht fest an einer rustc-Version gebunden.
+Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an einer `rustc`-Version gebunden.
 
 ---
 
@@ -131,8 +133,6 @@ Hello, world!
 ---
 
 ## Cargo verwaltet auch Tools
-
----
 
 ```sh
 $ cargo +nightly install clippy
