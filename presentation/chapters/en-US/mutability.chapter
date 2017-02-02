@@ -1,0 +1,52 @@
+# Mutability
+
+---
+
+Variables are immutable by default, but can be made mutable.
+
+```rust
+let some_immutable = true;
+let mut some_mutable = false;
+some_mutable = true;
+```
+
+---
+
+## Mutability On, Mutability Off
+
+It is possible to toggle mutability after declaration with 'Variable Shadowing.'
+
+```rust
+let some_immutable = true;
+let mut some_immutable = some_immutable;
+some_immutable = false;
+let some_immutable = some_immutable;
+```
+
+---
+
+## Mutability On, Mutability Off
+
+A different method, using a block:
+
+```rust
+let some_immutable = {
+    let mut some_mutable = true;
+    some_mutable = false;
+    some_mutable
+};
+```
+
+---
+
+## In Functions
+
+Mutability rules apply in function declarations as well.
+
+```rust
+fn add_to_vec(vec: &mut Vec<String>, message: String) {
+    // `message` is immutable.
+    // `vec` can be mutabled.
+    vec.push(message);
+}
+```
