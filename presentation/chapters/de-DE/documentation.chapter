@@ -1,0 +1,96 @@
+# Dokumentation
+
+---
+
+## `rustdoc`
+
+Rust bietet ein Standarddokumentationswerkzeug namens 'rustdoc`. Es wird häufig durch `cargo doc` verwendet.
+
+Deshalb ist Rust-Code fast immer in einem gemeinsamen Format dokumentiert.
+
+---
+
+## `std` Dokumentation
+
+Die Standard-Bibliotheksdokumentation wird unter https://doc.rust-lang.org/std/ gehostet.
+
+Eine lokale Offline-Version kann geöffnet werden mit:
+
+```bash
+rustup doc --std
+```
+
+---
+
+## Crate Dokumentation
+
+Dokumentation für Crates unter http://crates.io/ finden Sie unter https://docs.rs/.
+
+Einige Crates können auch andere Dokumente über den Link "Dokumentation" auf ihrer Liste in http://crates.io/ gefunden haben.
+
+---
+
+## Beispiel: Ein Modul
+
+<iframe src="https://doc.rust-lang.org/std/vec/" width=100% height=400></iframe>
+
+---
+
+## Beispiel: Ein Modul
+
+Diese Seite dokumentiert das `vec` Modul.
+
+Es beginnt mit einigen Beispielen, dann listet alle `struct`s, Eigenschaften oder Funktionen, die das Modul exportiert.
+
+---
+
+## Wie wird es generiert?
+
+`rustdoc` kann Rust-Code und Markdown-Dokumente lesen.
+
+`//!` Und `///` Kommentare werden als Markdown gelesen.
+
+```rust
+//! Moduldokumentationskommentare wie der Abschnitt 'Examples' von `std::vec`.
+
+/// Dokumente Funktionen, `struct`s und Eigenschaften.
+/// Hier wird eine Funktion dokumentiert
+fn function_with_documentation() {}
+
+// Dieser Kommentar wird nicht als Dokumentation angezeigt.
+// Die Funktion wird noch angezeigt.
+fn function_without_documentation() {}
+```
+
+---
+
+## Beispiel: Komponenten
+
+<iframe src="https://doc.rust-lang.org/std/string/#structs" width=100% height=400></iframe>
+
+---
+
+## Beispiel: Funktionen
+
+<iframe src="https://doc.rust-lang.org/std/string/struct.String.html#method.new" width=100% height=400></iframe>
+
+---
+
+## Codebeispiele
+
+Standardmäßig werden Codeblöcke in der Dokumentation getestet.
+
+<pre><code>
+/// ```rust
+/// assert_eq!(always_true(), true)
+/// ```
+fn always_true() -> bool { true }
+</code></pre>
+
+---
+
+## Navigation
+
+Die Argumente und Rückgabetypen von Funktionen sind Links zu ihren jeweiligen Typen.
+
+Die Seitenleiste auf der linken Seite bietet eine schnelle Navigation zu anderen Teilen des Moduls.
