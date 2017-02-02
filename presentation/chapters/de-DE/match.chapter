@@ -2,10 +2,9 @@
 
 ---
 
-Um die Varianten von Enums zu prüfen, wird match verwendet.
+Um die Varianten von Enums zu prüfen, wird `match` verwendet.
 
 ---
-
 
 ```rust
 fn main() {
@@ -30,6 +29,7 @@ fn main() {
     }
 }
 ```
+
 ---
 
 Matches müssen alle Varianten abdecken.
@@ -37,7 +37,6 @@ Matches müssen alle Varianten abdecken.
 ---
 
 ## ignorieren weiterer Varianten
-
 
 ```rust
 fn main() {
@@ -61,4 +60,3 @@ fn main() {
 ```
 
 Lösung: matchen oder weiterreichen.
-

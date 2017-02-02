@@ -20,6 +20,11 @@ struct Point {
 ## Allokation
 
 ```rust
+struct Point {
+    x: i32,
+    y: i32,
+}
+
 fn main() {
     let p = Point { x: 1, y: 1 };
 }
@@ -106,10 +111,6 @@ fn main() {
 
 ---
 
-## null
-
-Gibts nicht.
-
 ## Enums mit strukturierten Varianten
 
 ```rust
@@ -125,7 +126,12 @@ fn main() {
 
 ---
 
+## `null`
+
+Gibts nicht.
+
+---
+
 ## Sind Varianten Typen?
 
 Nein. Momentan(!) nicht.
-

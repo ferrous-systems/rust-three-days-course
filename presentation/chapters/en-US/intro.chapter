@@ -4,8 +4,26 @@ Florian Gilcher <florian.gilcher@asquera.de>
 
 ---
 
-## Foobar
+## Short Introduction
+
+* Rust is a new programming language from Mozilla Research.
 
 ---
 
-## Batz
+## Focus
+
+* Safety
+* Speed
+* Concurrency
+
+---
+
+## All Rights Reserved
+
+---
+
+## Content
+
+* [Intro](index.html)
+* [Installation](index.html?chapter=installation&locale=en-US#)
+

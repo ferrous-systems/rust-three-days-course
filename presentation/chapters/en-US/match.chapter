@@ -1,0 +1,62 @@
+# Control Flow With Match
+
+---
+
+Use `match` to check the variants of Enums.
+
+---
+
+```rust
+fn main() {
+    let args = std::env::args;
+    
+    match args.at(1) {
+        Some(arg) => { println!("Submitted Argument: {}", arg)},
+        None => { println!("No Argument submitted!") }
+    }
+}
+```
+
+---
+
+```rust
+fn main() {
+    let maybe_file = std::fs::File::open("Is not there!");
+    
+    match maybe_file {
+        Ok(f) => { println!("File opened! Debug: {:?}", f) },
+        Err(e) => { println!("File not opened! Error: {:?}", e) }
+    }
+}
+```
+
+---
+
+Matches must cover all variants.
+
+---
+
+## Ignore Other Variants
+
+```rust
+fn main() {
+    let maybe_file = std::fs::File::open("Is not there!");
+    
+    match maybe_file {
+        Err(e) => { println!("File not opened! Error: {:?}", e) }
+        _ => {}
+    }
+}
+```
+
+---
+
+Results have a special marking: They must not be ignored!
+
+```rust
+fn main() {
+    let maybe_file = std::fs::File::open("Is not there!");
+}
+```
+
+Solution: Match or pass along.
