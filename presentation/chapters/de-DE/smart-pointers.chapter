@@ -90,4 +90,9 @@ Nutzen Sie `Arc` nicht "auf Verdacht" - `rustc` lehnt Code ab, der `Rc` über Th
 
 ## `std::borrow::Cow`
 
-Kuhverleih. Standard. Auffem Dorf.
+* Copy-on-write
+* Abstrahiert über Leihe und Besitz
+* Klont enthaltene Daten nur bei Notwendigkeit
+* https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples
+
+---
