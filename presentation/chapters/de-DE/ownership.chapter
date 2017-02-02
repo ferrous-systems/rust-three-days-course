@@ -1,0 +1,205 @@
+# Ownership
+
+Ownership ist die Basis für das Speichermanagement von Rust.
+
+---
+
+## Regeln
+
+* Jedes Stück Daten wird genau einmal besessen
+* Besitz kann abgegeben werden
+* Der Besitzer ist für das Entfernen der Daten aus dem Speicher verantwortlich.
+* Der Besitzer hat volle Gewalt über die Daten und kann sie mutieren
+
+---
+
+Diese Regeln:
+* sind fundamental für Rusts Typsystem!
+* werden beim Übersetzen angewandt.
+* sind aber auch sonst praktisch.
+
+
+---
+
+## Beispiel
+
+```rust
+#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {}", dot);
+}
+```
+
+---
+
+
+<pre class="diagram">
+    main              pacman
++----------+
+|          |
+|    dot   |---+
+|          |   |
++----------+   |    +----------+
+               |    |          |
+               +----|   dot    |
+                    |          |
+                    +----------+
+
+                      Deallokation
+</pre>
+
+---
+
+Was passiert, wenn wir `dot` versuchen, nochmal zu verwenden?
+
+---
+
+```rust
+#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {}", dot);
+}
+```
+
+---
+
+## Oops!
+
+---
+
+Dieser Vorgang nennt sich im Rust-Lingo `konsumieren`. `pacman` konsumiert `dot`.
+
+Danach kann der Wert nicht mehr verwendet werden.
+
+---
+
+## Hintergrund
+
+Wen wir `pacman` mit `dot` aufrufen, werden die Daten in die Argumente von `pacman` bewegt (move). Dabei geht der Besitz an `pacman` über. Aus Sicherheitsgründen darf `main` die Daten danach nicht mehr manipulieren.
+
+TODO: maybe explain better...
+
+---
+
+## Mit moves umgehen: explizit klonen
+
+Was tun, wenn dieses Verhalten nicht erwünscht ist? Wir können eine zweite Version der Daten anlegen!
+
+---
+
+```rust
+#[derive(Debug, Clone)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot.clone());
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {}", dot);
+}
+```
+
+---
+
+<pre class="diagram">
+    main              pacman
++----------+
+|          |
+|    dot   |---+
+|          |   |
++----------+   |    +----------+
+     |         |    |          |
+     |         +----|   dot    |
+     |              |          |
+     |              +----------+
+     |
+     |                Deallokation
+     |                
++----------+
+|          |
+|  clone   |---+
+|          |   |
++----------+   |    +----------+
+               |    |          |
+               +----|   dot    |
+                    |          |
+                    +----------+
+
+                      Deallokation
+
+</pre>
+
+TODO: proper Diagram for this
+
+---
+
+Klonen ist für Daten vorgesehen, bei denen der Vorgang der Duplizierung komplex ist.
+
+---
+
+# Mit moves umgehen: kopieren statt moves
+
+```rust
+#[derive(Debug, Clone, Copy)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {}", dot);
+}
+```
+
+---
+
+Kopien sind für Daten vorgesehen, die im Speicher schnell kopierbar sind (memcopy) und auch kopiert werden dürfen (Gegenbeispiel: File-Pointer).
+
+---
+
+Daten, die Copy sind, folgen den Ownership-Regeln, sie werden allerdings kopiert, wenn Ownership abgeben würde.
+
+---
+
+# Warnung
+
+Die Terminologie um moves ähnelt der von C++, deswegen sollte man die Rust-Terminologie verwenden: Besitz, Besitzabgabe und konsumieren.
+
+---
+
+# Praktische Beispiel
+
+TODO: Append Vector to itself, attempt to copy File pointer...
