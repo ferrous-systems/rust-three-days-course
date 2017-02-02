@@ -28,7 +28,7 @@ fn generic_argument<T>(arg: T) {}
 
 ## Rückgabewert
 
-der Rückgabewert ist optional. Signaturen müssen vollständig sein.
+der Rückgabewert ist optional.
 
 ```rust
 fn return_nothing() {}
@@ -41,3 +41,7 @@ fn maybe_return_a_random(should: bool) -> Option<i32> {
     if should { Some(4) } else { None }
 }
 ```
+
+---
+
+Signaturen müssen immer vollständig sein!
