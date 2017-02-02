@@ -89,3 +89,19 @@ fn main() {
 Beschreibt, ob eine Operation erfolgreich war und gibt entweder
 den Wert oder einen Fehlerwert zurück.
 
+---
+
+## Generische Funktionen
+
+Generische Funktionen haben Typparameter.
+
+```rust
+fn accept_any_type<T>(arg: T) {
+    // ...
+}
+
+fn transmute<T, U>(arg: T) -> U {
+    // ...
+}
+```
+

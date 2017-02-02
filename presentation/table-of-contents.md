@@ -2,6 +2,7 @@
 * [Installation](index.html?chapter=installation)
 * [Mutabilität](index.html?chapter=mutability)
 * [Datenstrukturen](index.html?chapter=data-structures)
+* [Funktionen](index.html?chapter=functions)
 * [Einfache Generics](index.html?chapter=generics-basics)
 * [Match](index.html?chapter=match)
 * [Testing](index.html?chapter=testing)
