@@ -60,3 +60,18 @@ fn main() {
 ```
 
 Lösung: matchen oder weiterreichen.
+
+---
+
+`match` funktioniert nicht nur auf enums:
+
+```rust
+fn main() {
+    let number = 4;
+    
+    match number {
+        0 => println!("Number is 0"),
+        _ => println!("Number is something else")
+    }
+}
+```
