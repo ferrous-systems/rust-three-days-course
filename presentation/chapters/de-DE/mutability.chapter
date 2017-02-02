@@ -1,0 +1,37 @@
+# Mutabilität
+
+Moderne Programmiersprachen unterscheiden sich meist in ihrer Haltung zur Mutabilität von Daten.
+
+Wo landet Rust?
+
+---
+
+## Ein Beispiel
+
+```rust
+fn main() {
+    let answer = 42;
+    answer = 32;
+}
+```
+
+---
+
+## Richtig
+
+```rust
+fn main() {
+    let mut answer = 42;
+    answer = 32;
+}
+```
+
+---
+
+Rust verlangt, mutable Daten zu deklarieren.
+
+Mutabilität ist immer direkt aus dem Code ersichtlich.
+
+---
+
+Mutabilität ist fundamental wichtig für Rust und wird uns regelmässig wieder begegnen.
