@@ -57,7 +57,8 @@ It starts with some examples, then lists any `struct`s, traits, or functions the
 /// Here it documents a function.
 fn function_with_documentation() {}
 
-// Shows in documentation too, but not with a comment.
+// This comment will not appear as documentation.
+// The function still shows.
 fn function_without_documentation() {}
 ```
 

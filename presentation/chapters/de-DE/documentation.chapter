@@ -6,7 +6,7 @@
 
 Rust bietet ein Standarddokumentationswerkzeug namens 'rustdoc`. Es wird häufig durch `cargo doc` verwendet.
 
-Aufgrund dieser Rust-Code ist fast immer in einem gemeinsamen Format dokumentiert.
+Deshalb ist Rust-Code fast immer in einem gemeinsamen Format dokumentiert.
 
 ---
 
@@ -54,10 +54,11 @@ Es beginnt mit einigen Beispielen, dann listet alle `struct`s, Eigenschaften ode
 //! Moduldokumentationskommentare wie der Abschnitt 'Examples' von `std::vec`.
 
 /// Dokumente Funktionen, `struct`s und Eigenschaften.
-/// Hier dokumentiert es eine Funktion.
+/// Hier wird eine Funktion dokumentiert
 fn function_with_documentation() {}
 
-// Zeigt auch in der Dokumentation, aber nicht mit einem Kommentar.
+// Dieser Kommentar wird nicht als Dokumentation angezeigt.
+// Die Funktion wird noch angezeigt.
 fn function_without_documentation() {}
 ```
 
