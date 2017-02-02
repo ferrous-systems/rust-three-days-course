@@ -12,20 +12,6 @@ fn add(first: i32, second: i32) -> i32 {
 
 ---
 
-## Argumente
-
-```rust
-fn by_value(arg: i32) {}
-
-fn by_reference(arg: &i32) {}
-
-fn by_mutable_reference(arg: &mut i32) {}
-
-fn generic_argument<T>(arg: T) {}
-```
-
----
-
 ## Rückgabewert
 
 der Rückgabewert ist optional.
