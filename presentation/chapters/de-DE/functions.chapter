@@ -1,0 +1,84 @@
+# Funktionen
+
+---
+
+## Deklaration
+
+```rust
+fn add(first: i32, second: i32) -> i32 {
+    first + second
+}
+```
+
+---
+
+## Argumente
+
+```rust
+fn by_value(arg: i32) {}
+
+fn by_reference(arg: &i32) {}
+
+fn by_mutable_reference(arg: &mut i32) {}
+
+fn generic_argument<T>(arg: T) {}
+```
+
+---
+
+## Rückgabewert
+
+der Rückgabewert ist optional. Signaturen müssen vollständig sein.
+
+```rust
+fn return_nothing() {}
+
+fn return_a_random() -> i32 {
+    4 // Garantiert zufällig, gewählt durch Würfelwurf
+}
+
+fn maybe_return_a_random(should: bool) -> Option<i32> {
+    if should { Some(4) } else { None }
+}
+```
+
+---
+
+## Generische Funktionen
+
+Generische Funktionen haben Typparameter.
+
+```rust
+fn accept_any_type<T>(arg: T) {
+    // ...
+}
+
+fn transmute<T, U>(arg: T) -> U {
+    // ...
+}
+```
+
+---
+
+## Mit Anforderungen
+
+Generische Funktionen können auch anforderungen haben.
+
+Diese sind äquivalent:
+
+```rust
+fn with_bound<T: Display>(arg: T) -> String {
+    // ...
+}
+
+fn where_clause<T>(arg: T) -> String where T: Display {
+    // ...
+}
+```
+
+---
+
+# Bemerkungen
+
+* Typen, die nicht das Merkmal Copy besitzen, werden verbraucht, wenn sie übergeben werden.
+* Rückkehr Referenzen können die Klärung Lebenszeiten (siehe später).

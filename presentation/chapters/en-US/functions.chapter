@@ -1,0 +1,82 @@
+# Functions
+
+---
+
+## Declaration
+
+```rust
+fn add(first: i32, second: i32) -> i32 {
+    first + second
+}
+```
+
+---
+
+## Arguments
+
+```rust
+fn by_value(arg: i32) {}
+
+fn by_reference(arg: &i32) {}
+
+fn by_mutable_reference(arg: &mut i32) {}
+```
+
+---
+
+## Returning
+
+Returning is optional. Signatures must be complete.
+
+```rust
+fn return_nothing() {}
+
+fn return_a_random() -> i32 {
+    4 // Guaranteed random, chosen by dice roll
+}
+
+fn maybe_return_a_random(should: bool) -> Option<i32> {
+    if should { Some(4) } else { None }
+}
+```
+
+---
+
+## Generic Functions
+
+Generic functions have type parameters.
+
+```rust
+fn accept_any_type<T>(arg: T) {
+    // ...
+}
+
+fn transmute<T, U>(arg: T) -> U {
+    // ...
+}
+```
+
+---
+
+## With Bounds
+
+Generic functions can also have bounds. 
+
+These are equivalent:
+
+```rust
+fn with_bound<T: Display>(arg: T) -> String {
+    // ...
+}
+
+fn where_clause<T>(arg: T) -> String where T: Display {
+    // ...
+}
+```
+
+---
+
+# Remarks
+
+* Types which do not have the `Copy` trait are consumed when passed by value.
+* Returning references may involve clarifying lifetimes (discussed later.)
