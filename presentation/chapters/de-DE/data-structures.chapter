@@ -126,12 +126,12 @@ fn main() {
 
 ---
 
-## `null`
-
-Gibts nicht.
-
----
-
 ## Sind Varianten Typen?
 
 Nein. Momentan(!) nicht.
+
+---
+
+## `null`
+
+Gibts nicht.
