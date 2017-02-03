@@ -1,5 +1,7 @@
 # Mutabilität
 
+---
+
 Moderne Programmiersprachen unterscheiden sich meist in ihrer Haltung zur Mutabilität von Daten.
 
 Wo landet Rust?
