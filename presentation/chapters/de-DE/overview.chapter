@@ -67,7 +67,7 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 ## Sicher
 
-* Rust ist Speichersicher
+* Rust ist speichersicher
 * Keine illegalen Speicherzugriffe
 * Speicherbereinigung ist automatisiert
 * Achtung: Speicherlecks sind in dieser Definition _sicher_!
@@ -85,8 +85,22 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 ## Schnell
 
-* Obige Eigenschaften werden zur Kompilierzeit garantiert
+* Obige Eigenschaften werden zur Kompilierzeit garantiert und haben keine Laufzeitkosten!
 * Optimierender Compiler basierend auf LLVM
 * Features mit Laufzeitkosten sind explizit und werden nicht "aus Versehen" aktiviert
 * Keine Reflektion (Vampirsprache)
 * Statische Aufrufe als Standard
+
+---
+
+## Pragmatisch
+
+* Subsprache für unsichere Speicherzugriffe
+* Gute Techniken zum verstecken dieser
+* Gute Einbindung über das Platform-FFI
+* Sehr gute Fehlermeldungen
+* Rust unterstützt bei vielen schwierigen Dingen und vertraut einem beim Rest.
+
+---
+
+
