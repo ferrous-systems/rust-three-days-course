@@ -14,7 +14,7 @@ Daher möchte ich Sie bitten, sich in Vorbereitung auf den Kurs mit folgenden Fr
 * Mit welcher der folgenden Sprachen würden Sie sich am meisten identifizieren?
   - C/C++
   - Haskell/ML
-  - Ruby/Python/Perl
+  - Ruby/Python/Perl/Java
 
 Wir werden diese Fragen am Anfang des Kurses in der Gruppe besprechen, das gibt mir dann den Raum, über die Tage hinweg darauf einzugehen.
 
