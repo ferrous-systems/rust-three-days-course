@@ -4,6 +4,7 @@
 * [Datenstrukturen](index.html?chapter=data-structures)
 * [Funktionen](index.html?chapter=functions)
 * [Ownership](index.html?chapter=ownership)
+* [Borrowing](index.html?chapter=borrowing)
 * [Einfache Generics](index.html?chapter=generics-basics)
 * [Match](index.html?chapter=match)
 * [Testing](index.html?chapter=testing)

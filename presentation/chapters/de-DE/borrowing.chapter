@@ -1,0 +1,132 @@
+# Borrowing
+
+---
+
+## Was man besitzt, kann man ausleihen
+
+---
+
+Ownership gibt eine solide Grundsemantik, wird aber auf die Dauer unpraktisch.
+
+---
+
+Weiterverwenden von Daten nach einem Funktionsaufruf ist mit Ownership nicht möglich, wenn die Funktion Besitz nicht wieder zurück gibt.
+
+---
+
+Stattdessen: Ausleihen!
+
+---
+
+```rust
+#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32 
+}
+
+fn main() {
+    let mut point = Point { x: 1, y: 2 };
+    inspect(&point);
+    point.x = 2;
+    inspect(&point);
+}
+
+fn inspect(p: &Point) {
+    println!("{:?}", p);
+}
+```
+
+---
+
+<pre class="diagram">
+    main              inspect
++----------+
+|          |
+|    point |----+
+|          |    |
+|          |    |    +----------+
+|          |    |    |          |
+|          |    +----|   &point |
+|          |         |          |
+|          |         +----------+
++----------+
+  🗑
+</pre>
+
+TODO: Diagram verbessern, mit dotted lines und so
+
+---
+
+Einfaches ausleihen ist beliebig oft möglich.
+
+---
+
+Was, wenn wir die Daten aber verändern möchten?
+
+---
+
+```rust
+#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32 
+}
+
+fn main() {
+    let mut point = Point { x: 1, y: 2 };
+    inspect(&point);
+    move_point(&mut point, 3, 3);
+    inspect(&point);
+}
+
+fn move_point(p: &mut Point, x: i32, y: i32) {
+    p.x = x;
+    p.y = y;
+}
+
+fn inspect(p: &Point) {
+    println!("{:?}", p);
+}
+```
+
+---
+
+Mutable Ausleihen sind exklusiv.
+
+---
+
+## Zusammenfassung
+
+Daten können entweder:
+* Beliebig oft immutable ausgeliehen werden
+* Oder exakt einmal mutabel
+
+Ownership bleibt im Aufrufskontext, genauso wie die Deallokation
+
+---
+
+Was verhindert das?
+
+---
+
+# Sehen sie das Problem?
+
+```rust
+fn push_all(on: &mut Vec<u8>, from: &Vec<u8>) {
+
+}
+```
+
+TODO: weitere Beispiele
+
+
+---
+
+Wichtig hierbei:
+* zu jedem Typ `T` gibt es einen Typ `&T`
+* zu jedem Typ `T` gibt es einen Typ `&mut T`
+* `&&T` ist ein legaler Typ
+* `& &mut T` ist kein legaler Typ. Warum?
+
+---

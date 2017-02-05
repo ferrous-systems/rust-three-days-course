@@ -55,7 +55,7 @@ fn pacman(dot: Dot) {
                     |          |
                     +----------+
 
-                      Deallokation
+                      🗑
 </pre>
 
 ---
