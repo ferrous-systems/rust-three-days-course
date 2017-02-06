@@ -1,0 +1,178 @@
+# Implementationen und Traits
+
+---
+
+Rust bietet die Möglichkeit, Funktionen an Typen zu binden.
+
+---
+
+# Warnung
+
+Das sieht manchmal aus wie objektorientierte Programmierung, ist es aber nicht.
+
+Insbesondere Laufzeitpolymorphismus, Nachrichten, Klassen, Subtypen und Methodenüberladung fehlen. 
+
+---
+
+## Einfache Implementierungen: assoziierte Funktion
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Point {
+    fn new(x: i32, y: i32) -> Point {
+        Point { x: x, y: y }
+    }
+}
+
+fn main() {
+    let point = Point::new(1,2);
+}
+```
+
+---
+
+## Anmerkung
+
+`new` ist hier eine reine Konvention!
+
+---
+
+## Python lässt grüßen
+
+```rust
+#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Point {
+    fn new(x: i32, y: i32) -> Point {
+        Point { x: x, y: y }
+    }
+    
+    fn from_pair(pair: (i32, i32)) -> Point {
+        Point { x: pair.0, y: pair.1 }
+    }
+    
+    fn into_pair(self) -> (i32, i32) {
+       (self.x, self.y)
+    }
+    
+    fn inspect(&self) {
+        println!("Current point value: {:?}", self); 
+    }
+    
+    fn move(&mut self, x: i32, y: i32) {
+        self.x = x;
+        self.y = y;
+    }
+    
+    fn x(&self) -> &i32 {
+        &self.x
+    }
+    
+    fn x_mut(&self) -> &mut i32 {
+        &mut self
+    }
+    
+    fn y(&self) -> &i32 {
+        &self.y
+    }
+    
+    fn y_mut(&self) -> &mut i32 {
+        &mut self
+    }
+    
+}
+
+fn main() {
+    let p = Point::new(1,2);
+    p.inspect();
+    p.move(2,3);
+    p.inspect();
+    let mut x = p.x_mut();
+    *x = 5;
+    p.inspect();
+}
+```
+
+---
+
+## Borrowing und Ownership von `self`
+
+Ist nicht anders als normal, aber am Anfang etwas ungewohnt.
+
+* Borrowing durch eine Funktion hindurch _leiht gleichzeitig self aus_.
+* Dies gilt insbesondere für mutables ausleihen!
+* `self` ohne `&` gibt Ownership auf den Wert aus dem aufrufenden Kontext ab.
+
+---
+
+## Interessante Unterschiede zu gängigem OO
+
+* Werte können sich selbst ersetzen
+* Werte, zum Beispiel Iteratoren und Builder können Methoden haben, die `self` konsumieren und damit invalidiert werden.
+* Das löst das Problem, Iteratoren zu invalidieren.
+
+---
+
+## Eigenheiten
+
+* Implementierungen können mehrfach vorkommen 
+
+---
+
+## Self
+
+`Self` ist in Rust ein besonderer Typ. Er referenziert immer den Typ, auf den sich die Implementierung bezieht.
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+impl Point {
+    fn new(x: i32, y: i32) -> Self {
+        Point { x: x, y: y }
+    }
+}
+```
+
+---
+
+## Traits
+
+Traits sind Rusts Variante, über Typen zu abstrahieren.
+
+---
+
+Wir haben schon einen Trait kennen gelernt: Debug.
+
+---
+
+Traits definieren Funktionen, die Typen implementieren müssen. Sie konnen dann generisch verwendet werden.
+
+---
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+trait Distance {
+    fn distance(self, other: Self) -> i32;
+}
+
+impl Distance for Point {
+    fn distance(self, other: Point) -> i32 {
+      // TODO: fill in the blanks
+    }
+}
+```

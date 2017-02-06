@@ -203,3 +203,9 @@ Die Terminologie um moves ähnelt der von C++, deswegen sollte man die Rust-Term
 # Praktische Beispiel
 
 TODO: Append Vector to itself, attempt to copy File pointer...
+
+---
+
+# Quiz
+
+Es gibt in Rust eine Funktion `drop`, die die sofortige Deallokation eines Wertes erzwingt. Wie ist ihre Signatur?

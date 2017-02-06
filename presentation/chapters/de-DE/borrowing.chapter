@@ -130,3 +130,22 @@ Wichtig hierbei:
 * `& &mut T` ist kein legaler Typ. Warum?
 
 ---
+
+## Borrows sind Referenzen
+
+Das heisst, sie müssen manchmal dereferenziert werden.
+
+```rust
+fn main() {
+    let number: &mut i32 = 4;
+    *number = 10;
+    println!("{}", number);
+}
+```
+
+---
+
+## Borrows sind lexikalisch
+
+
+TODO: Beispiel
