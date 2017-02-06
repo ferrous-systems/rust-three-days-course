@@ -4,7 +4,7 @@ ich freue mich, Sie demnächst zu unserem Rust-Kurs begrüßen zu können.
 
 Wir werden uns drei Tage mit der Programmiersprache und dem Umfeld beschäftigen. Rust ist eine komplexe Programmiersprache - wir werden also nicht alles im Detail schaffen. Daher wird sich der Kurs auf gutes und sattelfestes Grundwissen konzentrieren. Es ist aber Raum für komplexe Fragen vorgesehen.
 
-Sie werden aber nicht ohne Erwartungen an diesen Kurs ankommen und sicherlich einige Fragen haben, die Ihnen unter den Nägeln brennen.
+Sie werden aber nicht ohne Erwartungen an diesen Kurs ankommen und sicherlich einige Fragen haben, die Ihnen unter den Nägeln brennen. Genauso bin ich ganz gespannt, was denn denn alles ist.
 
 Daher möchte ich Sie bitten, sich in Vorbereitung auf den Kurs mit folgenden Fragen zu beschäftigen:
 
@@ -13,11 +13,12 @@ Daher möchte ich Sie bitten, sich in Vorbereitung auf den Kurs mit folgenden Fr
 * Wenn Sie bereits mit Rust gearbeitet haben: was ist ihnen schwer gefallen?
 * Mit welcher der folgenden Sprachen würden Sie sich am meisten identifizieren?
   - C/C++
+  - Objective-C/Swift
   - Haskell/ML
   - Ruby/Python/Perl/Java
 
-Wir werden diese Fragen am Anfang des Kurses in der Gruppe besprechen, das gibt mir dann den Raum, über die Tage hinweg darauf einzugehen.
+Wir werden diese Fragen am Anfang des Kurses in der Gruppe besprechen, sie helfen mir dabei, in den folgenden Tagen besser auf sie einzugehen.
 
-Am Ende möchte ich Sie bitten, alle Fragen und Wünsch möglichst früh zu äussern. Ich weiss auch nicht immer alles mit einem Beispiel aus dem Hinterkopf, je früher ich Bescheid weiss, umso mehr Zeit habe ich, diese Frage in den Folgetagen zu beantworten.
+Am Ende möchte ich Sie bitten, alle Fragen und Wünsche möglichst früh zu äussern. Ich weiss auch nicht immer alles mit einem Beispiel aus dem Hinterkopf, je früher ich Bescheid weiss, umso mehr Zeit habe ich, diese Frage in den Folgetagen zu beantworten.
 
 Mit besten Grüßen,
