@@ -1,0 +1,154 @@
+# Iteratoren
+
+---
+
+Rusts Iteratoren sind:
+
+* Lazy
+* Pervasive
+* Potentiell unendlich
+
+---
+
+## Woher kommen sie?
+
+* Kollektionen wie `Vec<T>` haben eine `iter()`-Funktion, die einen Iterator erzeugt.
+* Dinge wie `std::net::TcpListener` bieten einen Iterator über `TcpStream`s mit `incoming()` an.
+* Iteratoren können auch auf andere Strukturen implementiert werden.
+
+---
+
+## Allgemeine Verwendung
+
+---
+
+## `next()`
+
+Iteratoren können manuell verwendet werden:
+
+```rust
+fn main() {
+    let items = vec![0, 1, 2];
+    let iterator = items.iter();
+    assert_eq!(iterator.next(), Some(0));
+    assert_eq!(iterator.next(), Some(1));
+    assert_eq!(iterator.next(), Some(1));
+    assert_eq!(iterator.next(), None);
+}
+```
+
+---
+
+## `map()`
+
+Elemente können während der Auswertung transformiert werden:
+
+```rust
+fn main() {
+    let fizzbuzz = (0..10_000)
+        .map(|x| match x {
+            x if x % 15 == 0 => String::from("Fizzbuzz"),
+            x if x % 3  == 0 => String::from("Fizz"),
+            x if x % 5  == 0 => String::from("Buzz"),
+            x => format!("{}", x),
+        });
+    for item in fizzbuzz {
+        println!("{}", item);
+    }
+}
+```
+
+---
+
+## `filter()`
+
+Werte können ausgefiltert und ihre weitere Berechnung übersprungen werden:
+
+```rust
+fn main() {
+    let evens = (0..10_000)
+        .filter(|x| x % 2 == 0);
+    for item in evens {
+        println!("{}", item);
+    }
+}
+```
+
+---
+
+## `fold()`
+
+Reduzieren einer Folge auf einen einzelnen Wert:
+
+```rust
+fn factorial(val: usize) -> usize {
+    (1..val).rev().fold(1, |acc, x| acc * x)
+}
+
+fn main() {
+    println!("{}", factorial(10));
+}
+```
+
+---
+
+## `cycle()` & `take()`
+
+Iteratoren wiederholen und früh beenden:
+
+```rust
+fn main() {
+    // Limit the output to 30 to avoid infinite runtime.
+    for item in (0..10).cycle().take(30) {
+        println!("{}", item);
+    }
+}
+```
+
+---
+
+## `zip()` & `unzip()`
+
+Iteratoren zusammenfügen und wieder trennen:
+
+```rust
+fn main() {
+    let first = 0..10;
+    let second = 10..20;
+    
+    let (first_again, _): (Vec<_>, Vec<_>) = first
+        .zip(second)
+        .inspect(|x| println!("Inspect: {:?}", x))
+        .unzip();
+    
+    for item in first_again {
+        println!("{}", item);
+    }
+}
+```
+
+---
+
+## `max()` & `min()`
+
+```rust
+fn main() {
+    println!("{}", (0..50).max().unwrap());
+    println!("{}", (0..50).min().unwrap());
+}
+```
+
+---
+
+## Gotcha
+
+Das geht nicht:
+
+```rust
+fn main() {
+    let mut iter = vec![1,2,3].iter();
+    println!("{:?}", iter.next());
+}
+```
+
+Warum? (Denken Sie über scoping & Besitz nach!)
