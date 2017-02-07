@@ -10,7 +10,7 @@ Am häufigsten sind `String` und `&str`.
 
 ## `String`
 
-* *Besitzt* die Daten und können frei mutiert werden.
+* *Besitzt* die Daten und kann frei mutiert werden. 
 * Existiert als Zeiger auf einige Bytes, eine Länge und eine Kapazität.
 * Existiert auf dem *Heap*.
 * Implementiert `Copy` nicht, sondern implementiert `Clone`.
@@ -25,7 +25,7 @@ Am häufigsten sind `String` und `&str`.
 
 ---
 
-## Schaffung
+## Allokation
 
 ```rust
 fn main() {
@@ -42,7 +42,7 @@ fn main() {
 
 ## Wann verwenden?
 
-* `String` ist die *einfachste* zu verwenden, wenn beim Starten. Verfeinern Sie später.
+* `String` ist am *einfachsten* zu verwenden, gerade am Anfang. Verfeinern geht später immernoch.
 * `String` besitzt seine Daten, funktioniert also gut als Feld eines `struct` oder Enums.
 
 * `&'static str` funktioniert gut für konstante Werte.
@@ -50,7 +50,7 @@ fn main() {
 
 ---
 
-## `Deref` Zwang
+## `Deref` Konvertierung
 
 Nur weil mehrere Typen existieren nicht bedeutet, sie können nicht in Harmonie arbeiten.
 
@@ -85,13 +85,13 @@ Diese Typen repräsentieren *systembasierte native* Strings. Dies ist erforderli
 
 ---
 
-## Hinter den `OsString` Szenen
+## Hinter den Kulissen von `OsString`
 
 * Unix-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise als UTF-8 interpretiert werden.
 * Windows-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise UTF-16 interpretiert werden.
 * Rust-Strings sind immer gültig UTF-8, und können Nullen enthalten.
 
-`OsString` und `OsStr` überbrücken diese Lücke und ermöglichen eine günstige Konvergenz zu und von `String` und `str`.
+`OsString` und `OsStr` überbrücken diese Lücke und ermöglichen eine günstige Konvertierung zu und von `String` und `str`.
 
 ---
 
@@ -101,7 +101,7 @@ Diese Typen sind gültige C-kompatible Strings.
 
 Sie werden überwiegend bei FFI mit externem Code verwendet.
 
-Es wird dringend empfohlen, dass Sie *all* der Dokumentation dieser Typen lesen, bevor Sie sie verwenden.
+Es wird dringend empfohlen, die gesamte Dokumentation dieser Typen vor der Verwendung zu lesen.
 
 ---
 
