@@ -1,0 +1,204 @@
+# Standardtypen
+
+---
+
+Es gibt mehrere Pervasive Typen in Rust.
+
+Diese Typen sind nicht einzigartig oder speziell, sie verwenden nur den verfügbaren Typ ssytem.
+
+---
+
+## Überblick
+
+* `Option<T>` - Entfernt die Notwendigkeit einer `null` primitiv.
+* `Result<T,E>` - Entfernt die Notwendigkeit für Ausnahmen.
+* `Vec<T>` - Wachsende Arrays.
+* `HashMap<K,V>` - Schlüsselwertspeicher.
+
+---
+
+## `Option<T>`
+
+```rust
+enum Option<T> {
+    Some(T),
+    None
+}
+```
+
+Options sind Wrapper-Typen, und müssen ausgepackt werden, um verwendet werden.
+
+---
+
+## `Option<T>`
+
+Jede Funktion, die nicht immer einen Wert zurückgibt, gibt eine `Option<T>` zurück.
+
+```rust
+fn main() {
+    let values = vec![1, 2, 3];
+    println!("{:?}", values.get(0)); // Some(1)
+    println!("{:?}", values.get(4)); // None
+}
+```
+
+---
+
+## `Option<T>`: Nutzen
+
+Der Programmierer *immer* weiß, wo ein `None` erscheinen kann und kann entscheiden, wie die Situation behandelt werden soll.
+
+Dieses Merkmal hilft *entfernen Sie das Geheimnis* aus dem Coding-Prozess, und hilft im Vertrauen.
+
+---
+
+## `Option<T>`: Unwrapping
+
+`unwrap()` wird die Anwendung in Panik bringen, wenn der Wert `None` ist.
+
+Dies wird nur bei Tests und Prototypen empfohlen.
+
+```rust
+fn main() {
+    let nothing: Option<usize> = None;
+    nothing.unwrap();
+}
+```
+
+---
+
+## `Option<T>`: Sicherheit
+
+`match` ist eine von mehreren Möglichkeiten zur Sicherheit Arbeit mit `option`s.
+
+```rust
+fn main() {
+    let maybe_a_value = Some(1);
+    match maybe_a_value {
+        Some(v) => println!("{}", v),
+        None    => println!("None"),
+    }
+}
+```
+
+Egal, was der Wert von `maybe_a_value`, wird das Programm niemals abstürzen.
+
+---
+
+## `Option<T>`: Fragen
+
+Entfernt diese Art vollständig die Notwendigkeit für ein `null`-Primitiv?
+
+Was sind die Vorteile?
+
+---
+
+## `Result<T,E>`
+
+```rust
+enum Result<T,E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+Results sind Wrappertypen, die entweder den erfolgreichen Wert oder den Fehlerwert enthalten.
+
+---
+
+## `Result<T,E>`: Verwendung
+
+Ergebnisse können über `unwrap()` ebenso wie `Option`-Typen abgewickelt werden und können auf die gleiche Weise behandelt werden.
+
+```rust
+fn main() {
+    if let Err(e) = File::open("nein") {
+        println!("{:?}", e);
+    }
+}
+```
+
+Die Behandlung komplexer Fehlerszenarien wird in einem späteren Kapitel behandelt.
+
+---
+
+## `Result<T,E>`: Fragen
+
+Entfernt dieser Typ vollständig die Notwendigkeit von Ausnahmen?
+
+Was sind die Vorteile?
+
+---
+
+## `Vec<T>`
+
+Besessene, veränderliche, anregbare Arrays. Auf dem Haufen.
+
+```rust
+stuct Vec<T> {
+    items: T,
+    length: usize,
+    capacity: usize,
+}
+```
+
+---
+
+## `Vec<T>`: Allokation
+
+Zuweisen mit `Vec :: new ()` oder dem `vec! []` Makro.
+
+```rust
+fn main() {
+    let explicit_type = Vec::<usize>::new();
+    let mut implicit_type = Vec::new();
+    implicit_type.push(1);
+    let macro_created = vec![1, 2, 3];
+}
+```
+
+---
+
+## `Vec<T>`: Als Scheibe
+
+`Vec<T>` implementiert `Deref<Target=[T]>`, so kann es leicht als eine Scheibe verwendet werden.
+
+```rust
+fn main() {
+    let items = vec![1, 2, 3];
+    let ref_to_items: &[usize] = &items;
+}
+```
+
+---
+
+## `HashMap<K,V>`
+
+HashMaps sind Schlüsselwertspeicher. Schlüssel müssen `Hash` implementieren.
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut kv_store = HashMap::new();
+    kv_store.insert("key", true);
+    println!("{}", kv_store.get("key"));
+}
+```
+
+---
+
+## `HashMap<K,V>`: `entry()`
+
+Manipulieren ein Schlüssel entsprechender Eintrag vorhanden.
+
+```rust
+use std::collections::HashMap;
+
+fn main() {
+    let mut kv_store = HashMap::new();
+    let mut value = kv_store.entry("key").or_insert(true);
+    *value = false;
+}
+```
+
