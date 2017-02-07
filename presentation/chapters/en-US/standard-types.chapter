@@ -134,7 +134,7 @@ What are the benefits?
 
 Owned, mutable, growable arrays. Located on the heap.
 
-```struct
+```rust
 stuct Vec<T> {
     items: T,
     length: usize,
@@ -188,7 +188,7 @@ fn main() {
 
 ---
 
-## `HashMap<K,V>`: Entry
+## `HashMap<K,V>`: `entry()`
 
 Manipulate a key's cooresponding entry in place.
 
