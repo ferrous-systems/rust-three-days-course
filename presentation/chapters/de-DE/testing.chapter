@@ -2,9 +2,9 @@
 
 ---
 
-Testen sind fundamental für Rust.
+Testen ist fundamental für Rust.
 
-Einheit, Integration und Dokumentation Tests alle kommen builtin.
+Unit-, Integrations und Dokumentations-Tests werden direkt mitgeliefert.
 
 ---
 
@@ -12,22 +12,22 @@ Einheit, Integration und Dokumentation Tests alle kommen builtin.
 
 Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
-* Unmittelbar neben der getesteten Funktionalität. (Gerätetest)
+* Unittest neben der getesteten Funktionalität. (Gerätetest)
 * In einem `Tests`-Modul. (Privater Integrationstest)
 * In der Dokumentation. (Dokumentationsprüfung)
 * Im Verzeichnis `tests/`. (Öffentlicher Integrationstest)
 
 ---
 
-## Gerätetest
+## Unittest
 
 * Erlaubt Testfunktionalität im gleichen Modul und Umgebung.
 * Typisch direkt in der Nähe der Funktionalität.
-* Gut für die Prüfung, um sicherzustellen, dass eine einzelne Aktion *funktioniert*.
+* Gut um sicherzustellen, ob dass eine einzelne Aktion *funktioniert*.
 
 ---
 
-## Gerätetest
+## Unittest
 
 ```rust
 enum Direction { North, South, East, West }
@@ -48,7 +48,7 @@ fn is_north_works() {
 
 ---
 
-## Gerätetest
+## Unittest
 
 ```bash
 $ cargo test
@@ -108,7 +108,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
 
 ## Dokumentationstests
 
-* Erlaubt das Testen der öffentlichen Funktionalität.
+* Erlauben das Testen der öffentlichen Funktionalität.
 * Wird im `rustdoc`-Ausgang angezeigt.
 * Zur Demonstration erwarteter Anwendungsfälle und Beispiele.
 
@@ -146,7 +146,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
 
 ## Integrationstests
 
-* Tests, als ob die Kiste eine externe Abhängigkeit ist.
+* Tests, als ob die Bibliothek eine externe Abhängigkeit ist.
 * Für längere oder volle Funktionstests vorgesehen.
 
 ---
