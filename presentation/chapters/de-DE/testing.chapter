@@ -1,0 +1,208 @@
+# Testen
+
+---
+
+Testen ist fundamental für Rust.
+
+Unit-, Integrations und Dokumentations-Tests werden direkt mitgeliefert.
+
+---
+
+## Organisationstests
+
+Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
+
+* Unittest neben der getesteten Funktionalität. (Gerätetest)
+* In einem `Tests`-Modul. (Privater Integrationstest)
+* In der Dokumentation. (Dokumentationsprüfung)
+* Im Verzeichnis `tests/`. (Öffentlicher Integrationstest)
+
+---
+
+## Unittest
+
+* Erlaubt Testfunktionalität im gleichen Modul und Umgebung.
+* Typisch direkt in der Nähe der Funktionalität.
+* Gut um sicherzustellen, ob dass eine einzelne Aktion *funktioniert*.
+
+---
+
+## Unittest
+
+```rust
+enum Direction { North, South, East, West }
+
+fn is_north(dir: Direction) -> bool {
+    match dir {
+        Direction::North => true,
+        _ => false,
+    }
+}
+
+#[test]
+fn is_north_works() {
+    assert!(is_north(Direction::North) == true);
+    assert!(is_north(Direction::South) == false);
+}
+```
+
+---
+
+## Unittest
+
+```bash
+$ cargo test
+running 1 test
+test is_north_works ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+```
+
+---
+
+## `tests` Untermodul
+
+* Ermöglicht das Testen, als ob die Funktionalität an anderer Stelle im Projekt verwendet wird.
+* Für die Prüfung privater APIs und Funktionalität.
+* Gut für die Prüfung erwarteter Prozesse und Anwendungsfälle.
+
+---
+
+## `tests` Untermodul
+
+```rust
+enum Direction { North, South, East, West }
+
+fn is_north(dir: Direction) -> bool {
+    match dir {
+        Direction::North => true,
+        _ => false,
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{is_north, Direction};
+    
+    #[test]
+    fn is_north_works() {
+        assert!(is_north(Direction::North) == true);
+        assert!(is_north(Direction::South) == false);
+    }
+}
+```
+
+---
+
+## `tests` Untermodul
+
+```bash
+$ cargo test
+running 1 test
+test tests::is_north_works ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+```
+
+---
+
+## Dokumentationstests
+
+* Erlauben das Testen der öffentlichen Funktionalität.
+* Wird im `rustdoc`-Ausgang angezeigt.
+* Zur Demonstration erwarteter Anwendungsfälle und Beispiele.
+
+---
+
+## Dokumentationstests
+
+<pre><code>
+/// ```rust
+/// use example::Direction;
+/// let way_home = Direction::North;
+/// ```
+pub enum Direction { North, South, East, West }
+</code></pre>
+
+---
+
+## Dokumentationstests
+
+```bash
+$ cargo test
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
+
+   Doc-tests example
+
+running 1 test
+test Direction_0 ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+```
+
+---
+
+## Integrationstests
+
+* Tests, als ob die Bibliothek eine externe Abhängigkeit ist.
+* Für längere oder volle Funktionstests vorgesehen.
+
+---
+
+## Integrationstests
+
+`/tests/basic.rs`:
+
+```rust
+extern crate example;
+use example::{is_north, Direction};
+
+#[test]
+fn is_north_works() {
+    assert!(is_north(Direction::North) == true);
+    assert!(is_north(Direction::South) == false);
+}
+```
+
+---
+
+## Integrationstests
+
+`/tests/basic.rs`:
+
+```rust
+extern crate example;
+use example::{is_north, Direction};
+
+#[test]
+fn is_north_works() {
+    assert!(is_north(Direction::North) == true);
+    assert!(is_north(Direction::South) == false);
+}
+```
+
+---
+
+## Integrationstests
+
+```bash
+$ cargo test
+running 1 test
+test is_north_works ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
+
+     Running target/debug/deps/example-9f39afa5d2a1c6bf
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
+
+   Doc-tests example
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
+```
