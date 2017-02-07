@@ -1,0 +1,147 @@
+# Strings
+
+---
+
+There are several different kinds of strings in Rust.
+
+Most common are `String` and `&str`.
+
+---
+
+## `String`
+
+* *Owns* the data it stores, and can be mutated freely.
+* Exists as a pointer to some bytes, a length, and a capacity.
+* Exists on the *heap*.
+* Does not implement `Copy`, but implements `Clone`.
+
+---
+
+## `&str`
+
+* An immutable reference to a string slice.
+* Only seen as a borrowed value.
+* May be anywhere, on the heap, stack, or in program memory.
+
+---
+
+## Creation
+
+```rust
+fn main() {
+    // &'static str
+    let this = "Hello";
+    // String
+    let that: String = String::from("Hello");
+    // &str
+    let other = that.as_str();
+}
+```
+
+---
+
+## When to Use What?
+
+* `String` is the *easiest* to use when starting out. Refine later.
+* `String` owns its data, so works well as a field of a `struct` or Enum.
+
+* `&'static str` works well for constant values.
+* `&str` is typically used in function arguments.
+
+---
+
+## `Deref` Coercion
+
+Just because multiple types exist doesn't mean they can't work in harmony.
+
+```rust
+fn print_me(message: &str) { println!("{}", message); }
+
+fn main() {
+    print_me("Foo");
+    let a_string = String::from("Bar");
+    print_me(&a_string);
+    print_me(a_string.as_str())
+}
+```
+
+This is because `String`s implement `Deref<Target=str>`.
+
+---
+
+## Exotic String types
+
+* `OsStr` and `OsString` may show up when working with file systems or system calls.
+
+* `CStr` and `CString` may show up when working with FFI.
+
+The differences between `*Str` and `*String` are generally the same as the normal types.
+
+---
+
+## `OsString` & `OsStr`
+
+These types represent *platform native* strings. This is necessary because Unix and Windows strings have different characteristics.
+
+---
+
+## Behind the `OsString` Scenes
+
+* Unix strings are often arbitrary non-zero sequences, usually interpreted as UTF-8.
+* Windows strings are often arbitrary non-zero sequences, usually interpreted as UTF-16.
+* Rust strings are always valid UTF-8, and may contain zeros.
+
+`OsString` and `OsStr` bridge this gap and allow for cheap converstion to and from `String` and `str`.
+
+---
+
+## `CString` & `CStr`
+
+These types represent valid C compatible strings.
+
+They are predominantly used when doing FFI with external code.
+
+It is strongly recommended you read *all* of the documentation on these types before using them.
+
+---
+
+## Common String Tasks
+
+Concatenation:
+
+```rust
+fn main() {
+    let part_one = String::from("Hello ");
+    let part_two = String::from("there ");
+    let whole = part_one + &part_two + "world!";
+    println!("{}", whole);
+}
+```
+
+---
+
+## Common String Tasks
+
+Splitting:
+
+```rust
+fn main() {
+    let words = "Cow says moo";
+    let each: Vec<_> = words.split(" ").collect();
+    println!("{:?}", each);
+}
+```
+
+---
+
+## Common String Tasks
+
+Replacing:
+
+```rust
+fn main() {
+    let words = "Cow says moo";
+    let replaced = words.replace("moo", "roar");
+    println!("{}", replaced);
+}
+```
