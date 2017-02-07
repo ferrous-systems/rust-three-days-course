@@ -152,7 +152,7 @@ Traits sind Rusts Variante, über Typen zu abstrahieren.
 
 ---
 
-Wir haben schon einen Trait kennen gelernt: Debug.
+Wir haben schon einen Trait kennen gelernt: `Debug`.
 
 ---
 
