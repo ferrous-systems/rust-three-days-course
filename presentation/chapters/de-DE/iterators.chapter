@@ -4,7 +4,7 @@
 
 Rusts Iteratoren sind:
 
-* Faul
+* Lazy
 * Pervasive
 * Potentiell unendlich
 
@@ -12,8 +12,8 @@ Rusts Iteratoren sind:
 
 ## Woher kommen sie?
 
-* Sammlungen wie `Vec<T>` haben eine `iter()`-Funktion, die einen Iterator erzeugt.
-* Dinge wie `std::net::TcpListener` die einen Iterator von `TcpStream`s bietet.
+* Kollektionen wie `Vec<T>` haben eine `iter()`-Funktion, die einen Iterator erzeugt.
+* Dinge wie `std::net::TcpListener` bieten einen Iterator über `TcpStream`s mit `incoming()` an.
 * Iteratoren können auch auf andere Strukturen implementiert werden.
 
 ---
@@ -24,7 +24,7 @@ Rusts Iteratoren sind:
 
 ## `next()`
 
-Iteratoren kann manuell fortgeschritten:
+Iteratoren können manuell verwendet werden:
 
 ```rust
 fn main() {
@@ -41,7 +41,7 @@ fn main() {
 
 ## `map()`
 
-Transformieren Sie Elemente, wie sie ausgewertet werden:
+Elemente können während der Auswertung transformiert werden:
 
 ```rust
 fn main() {
@@ -62,7 +62,7 @@ fn main() {
 
 ## `filter()`
 
-Filtern Sie unerwünschte Werte aus und überspringen Sie weitere Berechnungen:
+Werte können ausgefiltert und ihre weitere Berechnung übersprungen werden:
 
 ```rust
 fn main() {
@@ -78,7 +78,7 @@ fn main() {
 
 ## `fold()`
 
-Reduzieren, um eine Folge von Werten nach unten auf einen einzelnen Wert:
+Reduzieren einer Folge auf einen einzelnen Wert:
 
 ```rust
 fn factorial(val: usize) -> usize {
@@ -109,7 +109,7 @@ fn main() {
 
 ## `zip()` & `unzip()`
 
-Join Iteratoren, und teilen Sie sie wieder auseinander:
+Iteratoren zusammenfügen und wieder trennen:
 
 ```rust
 fn main() {
@@ -151,4 +151,4 @@ fn main() {
 }
 ```
 
-Warum? (Denken Sie über scoping & Besitz!)
+Warum? (Denken Sie über scoping & Besitz nach!)
