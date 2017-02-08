@@ -1,0 +1,216 @@
+# Imports, Module und Sichtbarkeit
+
+---
+
+## Imports
+
+Alle zu verwendenden Objekte sind zu deklarieren. Dies ist ähnlich wie bei Java und Haskell.
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let f = File::open("test");
+}
+```
+
+---
+
+## Modul-Imports
+
+Man kann auch das Modul importieren und dann qualifiziert verwenden:
+
+```rust
+use std::fs;
+
+fn main() {
+    let f = fs::File::open("test");
+}
+```
+
+---
+
+## Glob-Imports
+
+Genauso kann ein Modul komplett importiert werden:
+
+```rust
+use std::fs::*;
+
+fn main() {
+    let f = File::open("test");
+}
+```
+
+Das ist jedoch _generell_ ungern gesehen.
+
+---
+
+## Prelude
+
+Eine Ausnahme stellt die sogenannte "Prelude" dar: dies ist ein spezielles Modul in der Standardbibliothek, das automatisch komplett importiert wird.
+
+---
+
+## Andere Preludes
+
+Auch bieten einige Bibliotheken `prelude`-Module an, so zum Beispiel `std::io`.
+
+```rust
+use std::io::prelude::*;
+
+fn main() {
+    // TODO: std::io-Beispiel
+}
+```
+
+Hier ist der Glob gerne gesehen.
+
+---
+
+## Umbenennen beim Import
+
+```rust
+use std::fs as file_system;
+
+fn main() {
+    let f = file_system::File::open("test");
+}
+```
+
+---
+
+## Module
+
+Das Modulsystem von Rust ist ähnlich dem von Python.
+
+---
+
+* Jede Quelldatei ist automatisch ein Modul
+* Submodule können entweder in derselben Datei oder in einer anderen sein
+* Bibliotheken nennen sich "Crates" und enthalten Module
+
+---
+
+Per Konvention ist das Hauptmodul einer Bibliothek in einer Datei `src/lib.rs`, das Hauptmodul einer einzelnen Applikation in `src/main.rs` und das Hauptmodul mehrerer Applikationen in `src/bin/*rs`.
+
+---
+
+Eine beispielhafte Applikation: 
+
+```rust
+fn main() {
+    workload::work();
+}
+
+mod workload {
+    fn work() {
+        println!("hard at work!");
+    }
+}
+```
+
+TODO: testen
+
+---
+
+## Das Modul in eine eigene Datei verschieben
+
+Genauso könnte unsere Applikation aber auch folgendes Layout haben:
+
+```rust
+|
+|-src
+  |- main.rs
+  |- workload.rs
+```
+
+---
+
+## Ein großes Modul als eigenes Verzeichnis
+
+```rust
+|
+|-src
+  |- main.rs
+  |- workload
+     |- mod.rs
+```
+
+---
+
+In beiden Fällen muss das Modul im darüber liegenden Modul bekannt gemacht werden:
+
+```rust
+mod workload;
+
+fn main() {
+    workload::work();
+}
+```
+
+---
+
+Bei letzterem Ansatz können dann wieder Module relativ zu `mod.rs` angelegt werden.
+
+---
+
+## Sichtbarkeit
+
+In Rust ist alles standardmässig privat. Öffentlich verfügbare Typen werden mit `pub` markiert.
+
+Öffentliche Typen und Funktionen in einem öffentlich erreichbaren Modul-Pfad werden exportiert.
+
+---
+
+## Beispiel
+
+```rust
+pub mod workload;
+
+pub trait Distance {
+    fn distance(&self, other: Self);
+}
+
+pub fn foo() {
+
+}
+```
+
+---
+
+## Structs
+
+Structs sind an dieser Stelle etwas komplexer: sie exportieren ihre Felder nicht, was deren Verwendung und die Konstruktion des Strucs nicht ermöglicht.
+
+Genauso werden Struct-Funktionen nicht standardmässig exportiert.
+
+---
+
+```rust
+pub Point {
+    x: i32,
+    y: i32
+}
+
+impl Point {
+    pub new() -> Point {
+       Point { x: 1, y: 2 };
+    }
+}
+```
+
+---
+
+```rust
+pub Point {
+    pub x: i32,
+    pub y: i32
+}
+
+---
+
+Ich rate generell aus 2 Gründen vom exportieren von Feldern ab:
+* Eine Stukturveränderung ist ein automatischer Bruch des externen Interfaces
+* Der Compiler optimiert Accessor-Funktionen normalerweise auf Feldzugriff hinunter.
+

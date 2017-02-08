@@ -156,7 +156,7 @@ Wir haben schon einen Trait kennen gelernt: `Debug`.
 
 ---
 
-Traits definieren Funktionen, die Typen implementieren müssen. Sie konnen dann generisch verwendet werden.
+Traits definieren Funktionen, die Typen implementieren müssen. Sie können dann generisch verwendet werden.
 
 ---
 
@@ -171,8 +171,136 @@ trait Distance {
 }
 
 impl Distance for Point {
+    // diese Distanzfunktion ist falsch
     fn distance(self, other: Point) -> i32 {
-      // TODO: fill in the blanks
+        (self.x - other.x) + (self.y - other.y)
     }
 }
+
+fn main() {
+    let p1 = Point { x: 1, y: 1 };
+    let p2 = Point { x: 2, y: 2 };
+    println!("{}", p1.distance(p2));
+}
 ```
+
+---
+
+## Self
+
+`Self` ist ein besonderer Typ: er ist immer der Typ, der gerade implementiert wird.
+
+---
+
+## Generische Traits
+
+Traits können generisch sein.
+
+---
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+trait Distance<OtherShape> {
+    fn distance(&self, other: &OtherShape) -> i32;
+}
+
+impl Distance<Point> for Point {
+    // diese Distanzfunktion ist falsch
+    fn distance(&self, other: &Point) -> i32 {
+        (self.x - other.x) + (self.y - other.y)
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 1, y: 1 };
+    let p2 = Point { x: 2, y: 2 };
+    println!("{}", p1.distance(p2));
+}
+```
+
+---
+
+Das Arbeiten mit generischen Traits ist Standard.
+
+---
+
+# Typinferenz von Traits
+
+Typinferenz von Traits ist sehr fortgeschritten, die Anzahl der benötigten Informationen kann aber komplex werden. Manchmal braucht der Compiler Hilfe bei der Lösung.
+
+Hierzu gibt es mehrere Techniken.
+
+---
+
+# UFCS
+
+Unified Function Call Syntax
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+trait Distance<OtherShape> {
+    fn distance(&self, other: &OtherShape) -> i32;
+}
+
+impl Distance<Point> for Point {
+    // diese Distanzfunktion ist falsch
+    fn distance(&self, other: &Point) -> i32 {
+        (self.x - other.x) + (self.y - other.y)
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 1, y: 1 };
+    let p2 = Point { x: 2, y: 2 };
+    println!("{}", <p1 as Distance<Point>>.distance(p2));
+}
+```
+
+---
+
+# Assoziierte Typen
+
+Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht gelassen werden.
+
+---
+
+```
+struct Point {
+    x: i32,
+    y: i32
+}
+
+trait MyAddition<Other> {
+    type Output;
+    
+    fn add(&self, other: &Other) -> Self::Output;
+}
+
+impl MyAddition<Point> {
+    type Output = Point;
+ 
+    fn add(&self, other: &Point) -> Point {
+        Point { x: self.x + other.x, y: self.y + other.y }
+    }
+}
+
+fn main() {
+    let p1 = Point { x: 1, y: 2 };
+    let p2 = Point { x: 1, y: 2 };
+    println!("{:?}", p1.add(p2))    
+}
+```
+
+---
+
+## Grübelaufgabe: Warum nicht `MyAddition<Other,Output>`?
+
+TODO: Das mal austesten 

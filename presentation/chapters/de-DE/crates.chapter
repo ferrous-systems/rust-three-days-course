@@ -1,0 +1,46 @@
+# Crates
+
+Rust nennt Bibliotheken "crates". Management von Bibliotheken mit `cargo` ist üblich, aber nicht notwendig.
+
+---
+
+## Einbindung von Bibliotheken
+
+Bibliotheken werden durch das `extern crate`-statement eingebunden.
+
+```rust
+extern crate serde;
+extern crate serde_json;
+
+fn main() {
+    ///TODO: Usage-Example"
+}
+```
+
+Dies importiert das "SERialisation/DEserialisation"-Framework.
+
+---
+
+## Einbinden von Macros
+
+Da Macros immer global für die gesamte Bibliothek gelten, müssen sie folgendermaßen eingebunden werden:
+
+```
+#[macro_use] extern crate serde_macros;
+```
+
+Dies importiert die Macro-Sätze von serde, die die Arbeit stark vereinfachen.
+
+---
+
+Crates können wie normale use-statements umbenannt werden:
+
+```rust
+extern crate serde_json as json;
+```
+
+---
+
+## crates.io
+
+Veröffentlichte Bibliotheken finden sich auf [crates.io](https://crates.io), ihre Dokumentation wird automatisch auf [docs.rs](https://docs.rs) veröffentlicht.
