@@ -304,3 +304,7 @@ fn main() {
 ## Grübelaufgabe: Warum nicht `MyAddition<Other,Output>`?
 
 TODO: Das mal austesten 
+
+---
+
+TODO: Default-Implementierungen, Trait Inheritance, generische Trait-Implementierungen (impl FooTrait for T)

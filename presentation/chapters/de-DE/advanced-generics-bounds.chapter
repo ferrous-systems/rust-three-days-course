@@ -1,0 +1,74 @@
+# Nochmal Generics: Beschränkungen
+
+---
+
+Manchmal möchten wir Typen auf bestimmte Aspekte beschränken, aber trotzdem generisch programmieren.
+
+Hierzu können wir Typparameter beschränken.
+
+---
+
+Dies kann überall geschehen, wo Typparameter auftauchen.
+
+---
+
+Beispiel: `println!("{:?}")` benötigt `Debug`
+
+```rust
+fn print_everything<T: Debug>(to_print: T) {
+    println!("{:?}", to_print);
+}
+
+fn print_everything2<T>(to_print: T)
+    where T: Debug
+{
+    println!("{:?}", to_print);
+}
+```
+
+---
+
+Beispiel: Ein generisches Struct soll nur debugbare Werte enthalten
+
+```rust
+struct MyStruct<T: Debug> {
+    inner: T
+}
+```
+
+---
+
+Beschränkungen können sich auch auf das Ziel von Implementierungen beziehen:
+
+```rust
+impl<X,T> MyTrait<X> for T
+    where T: Debug,
+          X: Debug {
+}
+```
+
+---
+
+Genauso kann der Trait dies direkt verlangen:
+
+```rust
+trait MyTrait<X: Debug> {
+    //...
+}
+```
+
+---
+
+Rust erlaubt keine negativen Bedingungen (Trait A und _nicht_ Typ B)
+---
+
+## Ausnahme: `Sized`
+
+Wenn nicht anders angegeben, kriegen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
+
+```rust
+fn take_unsized<T: ?Sized>(t: &T) {
+    //...
+}
+```
+

@@ -103,4 +103,8 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 ---
 
+## Spracheigenschaften
+
+* Rust basiert auf Ausdrücken. Jeder Ausdruck hat einen Wert, dieser kann zugewiesen oder zurück gegeben werden.
+TODO: MOAR
 
