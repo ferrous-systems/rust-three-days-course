@@ -2,11 +2,11 @@ Hallo,
 
 ich freue mich, Sie demnächst zu unserem Rust-Kurs begrüßen zu können.
 
-Wir werden uns drei Tage mit der Programmiersprache und dem Umfeld beschäftigen. Rust ist eine komplexe Programmiersprache - wir werden also nicht alles im Detail schaffen. Daher wird sich der Kurs auf gutes und sattelfestes Grundwissen konzentrieren. Es ist aber Raum für komplexe Fragen vorgesehen.
+Wir werden uns drei Tage mit der Programmiersprache und dem Umfeld beschäftigen. Rust ist eine komplexe Programmiersprache - wir werden also nicht alles im Detail schaffen. Daher wird sich der Kurs auf gutes und sattelfestes Allgemeinwissen konzentrieren. Es ist auch Raum für komplexe Fragen vorgesehen.
 
-Sie werden aber nicht ohne Erwartungen an diesen Kurs ankommen und sicherlich einige Fragen haben, die Ihnen unter den Nägeln brennen. Genauso bin ich ganz gespannt, was denn denn alles ist.
+Sie werden nicht ohne Erwartungen an diesen Kurs ankommen und sicherlich einige Fragen haben, die Ihnen unter den Nägeln brennen. Genauso bin ich ganz gespannt, was denn denn alles ist.
 
-Daher möchte ich Sie bitten, sich in Vorbereitung auf den Kurs mit folgenden Fragen zu beschäftigen:
+Daher möchte ich Sie bitten, sich in Vorbereitung auf den Kurs kurz mit folgenden Fragen zu beschäftigen:
 
 * Wofür möchte ich Rust einsetzen?
 * Welche Frage(n) wollte ich schon immer mal beantwortet haben?
