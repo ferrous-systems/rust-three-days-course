@@ -72,3 +72,40 @@ fn take_unsized<T: ?Sized>(t: &T) {
 }
 ```
 
+---
+
+Das hat ergonomische Gründe, da Typ-Parameter häufig in Funktionsparametern verwendet werden und dort meist eine bekannte Größe haben müssen.
+
+---
+
+Bounds können überall auftauchen, was sich ausnutzen lässt, um Typen de-facto zu beschränken.
+
+```rust
+struct Wrapper<T> {
+    inner: T
+}
+
+impl<T> Wrapper<T> {
+    fn new(inner: T) -> Wrapper<T> where T: Debug {
+        Wrapper { inner: inner }
+    }
+
+    fn inspect(&self) where T: Debug {
+        println!("{:?}", &self);
+    }
+}
+```
+
+---
+
+Das kann überraschend praktisch sein, da sich verschiedene Bedingungen bei Aufruf und Konstruktion besser ausdrücken lassen.
+
+---
+
+Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsfunktionen:
+
+```rust
+fn open_file<P: AsRef<Path>>(pathlike: P) {
+    let path = pathlike.as_ref();
+}
+```

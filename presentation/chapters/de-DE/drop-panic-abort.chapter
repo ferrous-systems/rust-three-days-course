@@ -1,0 +1,106 @@
+# Drop, panic und abort
+
+Was passiert eigentlich genau, wenn wir Typen droppen?
+
+---
+
+## Drop-Reihenfolge
+
+Die Drop-Reihenfolge in Rust ist momentan _nicht_ standardisiert. Es gibt jedoch gute Gründe, sie so zu standardisieren, wie sie gerade ist. //TODO: RFC einfügen
+
+---
+
+## Drop-Reihenfolge
+
+* Werte werden fallen gelassen, wenn ihr Scope zuende ist
+* Die Reihenfolge ist _genau umgekehrt wie ihre Einführung_
+* Nicht gebundene Werte droppen _sofort_
+
+---
+
+// TODO: Beispiel von lobste.rs
+
+---
+
+## Destruktoren
+
+Manchmal müssen vor der Deallokation bestimmte Aktionen ausgeführt werden.
+
+Hierzu kann der Trait `Drop` implementiert werden.
+
+---
+
+```rust
+struct LevelDB {
+    handle: *leveldb_database_t
+}
+
+impl Drop for LevelDB {
+    fn drop(&self) {
+        unsafe { leveldb_close(self.handle) };
+    }
+}
+```
+
+---
+
+## Vorsicht!
+
+Destruktoren können keine Fehler zurückgeben.
+
+---
+
+## Auch möglich
+
+Explizite Löschung des Werts durch eine konsumierende Funktion. Dies kann (momentan) nicht erzwungen werden.
+
+---
+
+## Panics
+
+Rust besitzt einen weiteren Fehlermechanismus: `panic!`
+
+```rust
+fn main() {
+    panicing_function();
+}
+
+fn panicing_function() {
+    panic!("gosh, don't call me!");
+}
+```
+
+---
+
+Im Falle einer Panic passiert Folgendes:
+* Der Programmablauf hält sofort an
+* Der Stack wird aufgerollt
+* Alle von der Panic betroffenen Werte werden fallengelassen
+
+---
+
+Panics gleichen mechanisch C++-Exceptions, sollten aber nur zur Behandlung schlimmer Fehler verwendet werden. Sie können nicht (normalerweise) gefangen werden.
+
+Der betroffene Thread stellt die Arbeit ein.
+
+---
+
+## Das Fangen von Panics
+
+Panics über FFI-Grenzen hinweg sind undefiniertes Verhalten. Daher gibt es Fälle, in denen sie aus Rust heraus gefangen werden sollten: hierzu gibt es //TODO: stdlib-funktion raussuchen
+
+---
+
+Generell sollte _immer_ `Result` verwendet werden.
+
+---
+
+## Abort
+
+In manchen Umgebungen macht panic! keinen Sinn. In diesem Fall besitzen `rustc` und `cargo` einen Schalter, mit dem `panic!` einen sofortigen Programmabbruch hervorruft.
+
+---
+
+## Doppelte panics!
+
+Sollte beim behandeln einer panic innerhalb eines Threads eine weitere Auftreten (z.B. beim Ausführen eines Destruktors), tritt undefiniertes Verhalten auf und das Programm bricht sofort ab.

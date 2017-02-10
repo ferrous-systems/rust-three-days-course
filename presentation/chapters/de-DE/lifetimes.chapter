@@ -1,3 +1,135 @@
 # Lebenszeiten
 
-## Lebenszeiten sind Typen!
+---
+
+Rusts Lebenszeiten sind berühmt-berüchtigt dafür, schwer zu sein.
+
+---
+
+Das ist nicht notwendig.
+
+---
+
+## Lebenszeiten
+
+* Beschreiben die Zeit, die alle Daten im Speicher verbringen
+* Sind deskriptiv - sie können nichts erzwingen
+* Lebenszeiten sind Typen!
+
+---
+
+## Motivation
+
+```rust
+struct Container<T> {
+    inner: &T
+}
+
+impl<T> Container<T> {
+    fn borrow_inner(&self) -> &T {
+        self.inner
+    }
+}
+
+fn inner_drops_before_wrapper() {
+    let n: i32 = 42;
+    let w = Container { inner: &n };
+    drop(n);
+}
+
+
+fn wrapper_drops_with_active_borrow() {
+    let n: i32 = 42;
+    let w = Container { inner: &n };
+    let borrowed_n = w.borrow_inner();
+    drop(w);
+}
+```
+
+---
+
+Dieser Code würde - würde er funktionieren - Speicherverletzungen auslösen.
+
+---
+
+Korrekte müsste die Struct-Definition heissen:
+
+```rust
+struct Container<'a, T> {
+    inner: &'a T
+}
+```
+
+---
+
+Wrapper ist nun:
+* Generisch sowohl über den Typ T
+* als auch eine Lebenszeit 'a (seine eigene)
+* die durch das Ausleihen gebundenen Werte müssen _mindestens ebensolang_ leben
+
+---
+
+Merke:
+
+Lebenszeiten beschreiben Mindestbedingungen.
+
+---
+
+## Kombination von Lebenszeiten
+
+```rust
+struct Container<'a, T> {
+    inner: &'a T
+}
+
+struct Worker<'a, T> {
+    workload: &'a T
+}
+
+fn create_worker<'a, 'b: 'a, T>(container: &Container<'b, T>) -> Worker<'a, T> {
+    Worker { workload: container.inner }
+}
+```
+
+TODO: Main-Funktion, eventuell mal an den Referenzen rumspielen?
+
+---
+
+Lingo: `Container outlives Worker`
+
+---
+
+Viel mehr als "dies muss länger (oder ebensolange) leben als das" können Lebenszeiten nicht.
+
+---
+
+Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
+
+---
+
+## `'static`
+
+`'static` ist eine Lebenszeit, die länger lebt als alle anderen. Das ist nicht unbedingt unendlich!
+
+---
+
+`'static` sind:
+
+* In der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
+* Heap-allokierte Werte (z.B. der Inhalt von `Box`)
+  - sofern diese nicht an Werte gebunden sind, die kürzer leben! 
+* Globals 
+
+---
+
+`'static` ist nichts ehrrühriges. In nebenläufigen Programmen ist es durchaus sehr häufig.
+
+---
+
+Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in gernerischem Code:
+
+```rust
+fn inspect<'a, T: Debug + 'a>(t: T) {
+    //...
+}
+```

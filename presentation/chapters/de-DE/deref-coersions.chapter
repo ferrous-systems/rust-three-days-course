@@ -1,0 +1,53 @@
+# Deref-Conversions
+
+---
+
+## Motivation
+
+Warum funktioniert eigentlich folgendes?
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let boxed_p = Box::new(Point { x: i32, y: i32 });
+    println!("{}", boxed_p.x);
+}
+```
+
+Box hat doch garkein Feld "x"!
+
+---
+
+## Auto-Dereferenzierungen
+
+Rust dereferenziert unter bestimmten Umständen automatisch. Wie alles andere, muss das explizit angefordert werden über:
+
+* Einen Aufruf oder Feldzugriff via den `.`-Operator
+* Eine explizite Dereferenzierung mit `*`
+* Letzteres führt manchmal zu dem hässlichen `&*`-Pattern
+
+---
+
+Dies macht vor allem Wrapper-Typen sehr ergonomisch!
+
+---
+
+Dahinter stecken die `Deref` und `DerefMut`-Traits.
+
+//TODO: link
+
+```rust
+impl<T> Deref for Box<T> {
+    type Target = T;
+    
+    fn deref(&self) -> &T {
+        self.inner
+    }
+}
+```
+
+Dieser Aufruf wird eingefügt, wenn Dereferenzierungen angefordert werden.

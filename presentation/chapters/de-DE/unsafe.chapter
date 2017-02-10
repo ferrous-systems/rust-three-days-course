@@ -1,0 +1,67 @@
+## Unsicheres Rust
+
+Rusts Typsystem bietet viele Garantien, diese machen manchmal jedoch Lösungen schwerer und unmöglich.
+
+Daher hat Rust das Konzept von `unsicherem Code`.
+
+---
+
+Unsicherer Code darf:
+* Beliebige Speicherzugriffe durchführen
+* Rohe Pointer dereferenzieren
+* Externe Funktionen aufrufen
+* Eigenschaften wie `Send` und `Sync` feststellen
+* Globale (unsynchronisierte) Variablen schreiben
+
+---
+
+Nicht unsicher sind:
+* Konvertierungen in rohe Pointer
+* Speicherlecks
+
+---
+
+Unsicherer Code sollte niemals:
+* Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird.
+  - Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen.
+* borrowck betrügen, z.B. Lebenszeiten eines Typens umändern
+  - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
+
+---
+
+## Rusts kleines Geheimnis
+
+Beim implementieren von Datenstrukturen ist unsafe recht häufig.
+
+Sicheres Rust ist keine gute Sprache zum schreiben von hoch optimierten Datenstrukturen.
+
+Macht aber nix, solange sie dann sicher verwendet werden können.
+
+---
+
+Unsicherer Code benötigt _immer_ eine Markierung durch `unsafe`.
+
+```rust
+fn main() {
+    let pointer_to_int = &mut i32;
+    let raw = pointer_to_int as *mut i32;
+    unsafe { deref_pointer(raw) };
+}
+
+unsafe deref_pointer<T: Debug>(p: *mut T) {
+    unsafe { println("{:?}", *p }
+}
+```
+
+---
+
+## Fallen von `unsafe`
+
+* Nicht jedes Beispiel ist so simpel. `unsafe` _muss_ die Invarianten von Rust einhalten!
+* Dies gilt vor allem für Ownership und mutables Borrowing
+   - `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -> double free
+   - `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann
+   
+---
+
+Rust erlaubt einem, sich in den Fuss zu schiessen, es möchte nur vorher, dass man die Waffe aus dem Holster nimmt und die Sicherung entriegelt.

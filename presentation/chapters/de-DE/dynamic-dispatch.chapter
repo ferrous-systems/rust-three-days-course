@@ -1,0 +1,89 @@
+# Dynamischer Dispatch
+
+Manchmal möchte (oder kann) man beim Übersetzen jeden Aufruf genau festlegen. Rust bietet hier 2 Möglichkeiten:
+
+TODO: rework this sentence
+
+---
+
+## Dispatch durch Enums
+
+Wenn die Anzahl der Möglichkeiten beschränkt ist, kann gerne zu einem Enum gegriffen werden:
+
+```rust
+enum Operation {
+    Get,
+    Set(String),
+    Count
+}
+
+fn execute(op: Operation) {
+    match op {
+        Operation::Get => execute_get(),
+        Operation::Set(s) => execute_set(s),
+        Operation::Count => execute_count()
+    }
+}
+```
+
+---
+
+## Alternative Form
+
+```rust
+
+```rust
+enum Operation {
+    Get,
+    Set(String),
+    Count
+}
+
+impl Operation {
+    fn execute(&self) {
+        match &self {
+            &Operation::Get => execute_get(),
+            &Operation::Set(s) => execute_set(s),
+            &Operation::Count => execute_count()
+        }
+    }
+}
+```
+
+
+---
+
+## Hinweis
+
+Verhindern Sie wiederholtes matchen auf denselben Enum, wenn nicht unbedingt notwendig.
+
+---
+
+## Trait-Objekte
+
+Referenzen oder rohe Pointer auf Traits, genauso wie Boxen, beschreiben sogenannte "Trait-Objekte".
+
+Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und die konkreten Daten.
+
+---
+
+## Einschränkungen
+
+* Es kann nur ein Trait pro Objekt verwendet werden
+* Dieser Trait muss bestimmten Regeln gehorchen
+
+---
+
+## Regeln für Objekt-Traits
+
+* Objektsichere Traits dürfen `Self` nicht als Ausgabetyp verwenden
+* Objektsichere Traits... TODO: was war die zweite Regel
+
+---
+
+## Weitere Eigenschaften
+
+* Da Trait-Objekte den Objekt-Typ zur Laufzeit halten, unterstützen sie Downcasts.
+
+/// TODO: Beispiel
+
