@@ -2,17 +2,19 @@
 
 ---
 
-Es gibt zwei besondere Merkmale in Rust für Concurrency Semantik.
+Rusts Unterstützung für Nebenläufigkeit basiert auf 2 Traits:
 
 * `Senden` markiert eine Struktur sicher zu *senden* zwischen Threads.
 * `Sync` kennzeichnet eine Struktur, die für *share* zwischen Threads sicher ist.
-     + (`&T` ist` Send`)
+     + (`&T` ist` Send`, wenn `T` `Sync`)
+
+Beide sind sogenannte "Marker".
 
 ---
 
-Diese Traits sind das, was Rust verwendet Daten Rennen zu verhindern.
+Rust nutzt diese Traits, um Datenrennen zu verhindern.
 
-Sie sind *automatisch abgeleitet* für alle Arten, wenn angemessen.
+Sie sind - wenn möglich - *automatisch abgeleitet*.
 
 ---
 
@@ -36,9 +38,9 @@ fn main() {
 
 ---
 
-Es gibt einige bemerkenswerte Typen, die nicht `Send` oder` Sync` sind.
+Es gibt einige wichtige Typen, die nicht `Send` oder` Sync` sind.
 
-Wie `Rc`, rohe Zeiger und `UnsafeCell`.
+Beispiele sind `Rc`, rohe Zeiger und `UnsafeCell`.
 
 ---
 
@@ -83,7 +85,7 @@ unsafe impl Send for Thing {}
 unsafe impl Sync for Thing {}
 ```
 
-In diesen Fällen ist die Aufgabe der Faden Sicherheit für den Implementierer überlassen.
+In diesen Fällen ist die Aufgabe der Implementierung, die Sicherheitsgarantien herzustellen.
 
 ---
 
@@ -95,7 +97,7 @@ Wenn ein Typ sowohl `Sync` als auch` Copy` implementiert, kann er `Send` auch im
 
 ## Beziehungen
 
-Ein Typ `&T` kann `Send` implementieren, wenn der Typ `T` auch `Send` implementiert.
+Ein Typ `&T` kann `Send` implementieren, wenn der Typ `T` auch `Sync` implementiert.
 
 ```rust
 unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
@@ -121,6 +123,8 @@ Was sind die Konsequenzen von `Send` und `Sync`?
 
 ## Konsequenzen
 
-Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das Fahren von Daten Rennen Bugs bis zu einem * compile Zeit * -Ebene.
+Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur * Übersetzungszeit *.
 
-Verhindern, dass diese Fehlerklasse die Produktionssysteme erreicht.
+Dies verhindert, dass diese Fehlerklasse die Produktionssysteme erreicht.
+
+`Send` und `Sync` sind unabhängig von der Art der Nebenläufigkeit (async, threaded, etc.).
