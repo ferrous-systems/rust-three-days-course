@@ -49,6 +49,22 @@ fn main() {
 
 ---
 
+## Structs ohne Felder
+
+Structs müssen keine Felder haben.
+
+```rust
+struct TCPProtocol;
+
+fn main() {
+    let proto = TCProtocol;
+}
+```
+
+Diese Structs haben zur Laufzeit keine Größe.
+
+---
+
 ## Tupel
 
 ```rust
@@ -123,6 +139,16 @@ fn main() {
     let action = Actions::MoveTo { x: 0, y: 0 };
 }
 ```
+
+---
+
+## Enums ohne Varianten
+
+```rust
+enum ExternalType {};
+```
+
+Enums ohne Varianten haben keine Speichergröße und können nicht in Rust erstellt werden. Sie eignen sich daher zum Einsatz im FFI, dazu später mehr.
 
 ---
 

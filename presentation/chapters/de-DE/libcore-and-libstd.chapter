@@ -1,0 +1,22 @@
+# libcore und libstd
+
+---
+
+Rust wird mit 2 Grundbibliotheken, libcore und libstd ausgeliefert.
+
+---
+
+libcore enthält alle Typen, die zum funktionieren der Sprache benötigt werden.
+
+libcore ist allokationsfrei.
+
+---
+
+libcore wird meist nicht direkt verwendet, da ihr öffentliches Interface von libstd reexportiert wird.
+
+---
+
+libstd liefert Standardfunktionen, zum Beispiel Interaktion mit dem Dateisystem. Sie hat darüber hinaus eine Abhängigkeit zu libc.
+
+
+ 

@@ -31,3 +31,7 @@ fn maybe_return_a_random(should: bool) -> Option<i32> {
 ---
 
 Signaturen müssen immer vollständig sein!
+
+---
+
+Funktionen sind auch Werte (in Form eines Funktionspointers), dazu später mehr.
