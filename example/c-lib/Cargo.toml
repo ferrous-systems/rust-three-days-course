@@ -1,0 +1,15 @@
+[package]
+name = "core"
+version = "0.1.0"
+authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
+
+build = "build.rs"
+
+[dependencies]
+libc = "0.2.14"
+
+[build-dependencies]
+rusty-cheddar = "0.3.0"
+
+[lib]
+crate-type = ["dylib", "staticlib"]
