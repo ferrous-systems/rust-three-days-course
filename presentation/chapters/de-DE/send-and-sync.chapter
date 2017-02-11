@@ -1,0 +1,130 @@
+# Send & Sync
+
+---
+
+Rusts Unterstützung für Nebenläufigkeit basiert auf 2 Traits:
+
+* `Senden` markiert eine Struktur sicher zu *senden* zwischen Threads.
+* `Sync` kennzeichnet eine Struktur, die für *share* zwischen Threads sicher ist.
+     + (`&T` ist` Send`, wenn `T` `Sync`)
+
+Beide sind sogenannte "Marker".
+
+---
+
+Rust nutzt diese Traits, um Datenrennen zu verhindern.
+
+Sie sind - wenn möglich - *automatisch abgeleitet*.
+
+---
+
+## Automatisch abgeleitet
+
+```rust
+use std::thread;
+
+#[derive(Debug)]
+struct Thing;
+
+// Can send between threads!
+fn main() {
+    let thing = Thing;
+    
+    thread::spawn(move || {
+        println!("{:?}", thing);
+    }).join();
+}
+```
+
+---
+
+Es gibt einige wichtige Typen, die nicht `Send` oder` Sync` sind.
+
+Beispiele sind `Rc`, rohe Zeiger und `UnsafeCell`.
+
+---
+
+## Beispiel: `Rc`
+
+```rust
+use std::rc::Rc;
+use std::thread;
+
+// Does not work!
+fn main() {
+    let only_one_thread = Rc::new(true);
+
+    thread::spawn(move || {
+        println!("{:?}", only_one_thread);
+    }).join();
+}
+```
+
+---
+
+## Beispiel: `Rc`
+
+```
+error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not satisfied
+ --> <anon>:7:5
+  |
+7 |     thread::spawn(move || {
+  |     ^^^^^^^^^^^^^ the trait `std::marker::Send` is not implemented for `std::rc::Rc<bool>`
+```
+
+---
+
+## Implementierung
+
+Es ist möglich, die Implementierung von `Send` und` Sync` einem Typ hinzuzufügen.
+
+```rust
+struct Thing(*mut String);
+
+unsafe impl Send for Thing {}
+unsafe impl Sync for Thing {}
+```
+
+In diesen Fällen ist die Aufgabe der Implementierung, die Sicherheitsgarantien herzustellen.
+
+---
+
+## Beziehungen
+
+Wenn ein Typ sowohl `Sync` als auch` Copy` implementiert, kann er `Send` auch implementieren.
+
+---
+
+## Beziehungen
+
+Ein Typ `&T` kann `Send` implementieren, wenn der Typ `T` auch `Sync` implementiert.
+
+```rust
+unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
+```
+
+---
+
+## Beziehungen
+
+Ein Typ `&mut T` kann `Send` implementieren, wenn der Typ `T` auch `Send` implementiert.
+
+```rust
+unsafe impl<'a, T: Send + ?Sized> Send for &'a mut T {}
+```
+
+---
+
+## Konsequenzen
+
+Was sind die Konsequenzen von `Send` und `Sync`?
+
+---
+
+## Konsequenzen
+
+Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur * Übersetzungszeit *.
+
+Dies verhindert, dass diese Fehlerklasse die Produktionssysteme erreicht.
+
+`Send` und `Sync` sind unabhängig von der Art der Nebenläufigkeit (async, threaded, etc.).

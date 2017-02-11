@@ -1,3 +1,192 @@
 # cargo
 
-TODO: Write
+---
+
+Cargo ist die Standard-Build-Toolchain für Rust.
+
+Jeder Release von `rustc` kommt mit einer bestimmten Version von Cargo.
+
+Grundsätzlich ist Cargo aber unabhängig von der `rustc`-Version.
+ 
+---
+
+## Projekte
+
+Ein Cargo-Projekt enthält (mindestens).
+
+* Ein Manifest (Cargo.toml)
+* Eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
+
+---
+
+Darüber hinaus kann ein Cargo-Projekt enthalten:
+
+* Tests (Standardverzeichnis `test`)
+* Benchmarks (Standardverzeichnis `benches`)
+* Ein Build-Script (Standardname `build.rs`)
+* Beispiele (Standardverzeichnis `examples`)
+
+---
+
+## Das Manifest
+
+Das [Cargo-Manifest](TODO: Link) ist in [TOML](TODO: Link) verfasst. Es enthält mindestens den Namen des Projekts.
+
+```toml
+[package]
+name = "tcp-mailbox"
+version = "0.1.0"
+authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
+
+[dependencies]
+futures = "0.1"
+tokio-core = "0.1"
+tokio-service = "0.1"
+tokio-proto = "0.1"
+clap = "2.20"
+```
+
+---
+
+## `cargo build`
+
+`cargo build` baut das gesamte Projekt und legt die Ergebnisse im Verzeichnis `target` ab.
+
+Standardmässig baut Cargo das Projekt mit dem Debug-Profil, also unoptimiert und mit Debug-Symbolen!
+
+`cargo build --release` nutzt das optimierende Profil.
+
+---
+
+## Anmerkung
+
+Nutzen Sie auf _jeden Fall_ `--release` für Benchmarks, gerade Iteratoren werden dadurch massiv schneller!
+
+---
+
+## `cargo run`
+
+Wenn das Projekt eine Applikation enthält, kann diese mit `cargo run -- [Argumente]` ausgeführt werden.
+
+Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist der Debug-Profil Standard.
+
+---
+
+## `cargo test`
+
+`cargo test` führt alle Tests aus. Einschränkend kann ein Testname oder ein Modulname übergeben werden.
+
+Tests nutzen normalerweise mit dem Debug-Profil.
+
+`cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele! 
+
+## `cargo bench`
+
+`cargo bench` führt alle Benchmarks aus.
+
+Hier ist das Release-Profil Standard. 
+
+---
+
+## Versionsausdrücke
+
+In der Rust-Community ist [SemVer](TODO: Link) der empfohlene Standard für Versionierung.
+
+* Die Major-Version muss stets angehoben werden, wenn das Interface bricht
+* Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
+* Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten
+
+---
+
+## Anmerkung
+
+Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher dürfen mit _jeder Minor-Version_ Interface-Brüche auftreten.
+
+---
+
+## Versionsausdrücke
+
+Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
+
+* `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
+* `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
+* `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
+* `>= 2 < 3`: Irgendeine Version der 2er-Serie (TODO: check)
+
+---
+
+## Versionsauflösung
+
+Beim ersten Bauen (oder durch `cargo update`) errechnet Cargo einen Versionsbaum, der die Bedingungen von Cargo.toml erfüllt. Er wird in einem sogenannten Lockfile (Cargo.lock) gespeichert.
+
+Es empfiehlt sich, den Lockfile _immer_ unter Versionskontrolle zu halten. (für wiederholbare Builds)
+
+---
+
+## Abhängigkeiten im Detail
+
+Cargo kennt 3 verschiedene Abhängigkeitssätze:
+
+* Normale Abhängigkeiten
+* Build-Abhängigkeiten
+* Test-Abhängigkeiten
+
+---
+
+## Beispiel
+
+```toml
+[dependencies]
+futures = "0.1"
+
+[build-dependencies]
+tango = "0.5"
+
+[test-dependencies]
+hamcrest = "0.5"
+```
+
+---
+
+## Detaillierte Abhängigkeiten
+
+```toml
+[dependencies.futures]
+version = "0.1"
+git = "https://github.com/skade/futures-rs.git"
+branch = "my-new-feature"
+```
+
+```toml
+[dependencies.futures]
+version = "0.1"
+git = "/my/local/path"
+branch = "my-new-feature"
+```
+
+---
+
+## Anmerkung
+
+Abhängigkeiten ausserhalb von crates.io sind verboten, wenn eine Bibliothek veröffentlicht werden soll!
+
+---
+
+## Lokale Pfade
+
+Es gibt die Möglichkeit, Bibliotheken temporär durch eine lokale zu ersetzen. Dies geschieht, indem der Pfad in `$PROJEKT_PFAD/.cargo/config` hinterlegt wird:
+
+```toml
+paths = ["/my/local/path", "/another/path"]
+```
+
+Hier gefundene Bibliotheken werden bevorzugt. Das erlaubt das einfache Testen von Patches.
+
+---
+
+## Profile
+
+Die Profile von Cargo (release, bench, test...) können angepasst werden. Details hierzu bietet die [Manifest-Dokumentation](TODO: ...)
+
+---
+
