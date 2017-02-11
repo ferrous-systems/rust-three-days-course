@@ -41,7 +41,7 @@ Matches müssen alle Varianten abdecken.
 ```rust
 fn main() {
     let maybe_file = std::fs::File::open("Gibt's nicht!");
-    
+
     match maybe_file {
         Err(e) => { println!("Datei nicht geöffnet! Fehler: {:?}", e) }
         _ => {}
@@ -68,7 +68,7 @@ Lösung: matchen oder weiterreichen.
 ```rust
 fn main() {
     let number = 4;
-    
+
     match number {
         0 => println!("Number is 0"),
         _ => println!("Number is something else")
