@@ -1,0 +1,88 @@
+# Die Rust-Community
+
+---
+
+Wo Hilfe und Ansprache finden?
+
+---
+
+## Generell
+
+Eine Mail an `community-team@rust-lang.org` ist nie falsch.
+
+---
+
+## Teams
+
+* Core
+* Language
+* Libraries
+* Compiler
+* Tooling
+* Community
+* Documentation
+* Moderation
+* Style
+
+---
+
+## Webseiten
+
+* [https://rust-lang.org](https://rust-lang.org)
+* [https://community.rs](https://community.rs)
+* [URLO users.rust-lang.org](https://users.rust-lang.org)
+* [IRLO internals.rust-lang.org](https://internals.rust-lang.org)
+* Semi-offiziell: Reddit /r/rust
+
+[Code of Conduct](https://www.rust-lang.org/en-US/conduct.html)
+
+---
+
+## IRC
+
+`irc.mozilla.org`:
+
+* #rust
+* #rust-beginners
+* #rust-embedded
+* #rust-community
+* #rust-docs
+
+---
+
+## Für Produktionsuser
+
+* Regelmässige Surveys durch das Projektteam
+* Regelmässige Interviews durch das Projektteam
+
+---
+
+## Änderungen
+
+Änderungen an der Sprache und Stdbibliothek benötigen einen RFC:
+
+* [RFCS](https://github.com/rust-lang/rfcs)
+
+---
+
+## Konferenzen
+
+* RustConf
+* RustFest
+* Rust Belt Rust
+
+---
+
+## Am Ball bleiben
+
+* [Community Calendar]( https://calendar.google.com/calendar/embed?src=apd9vmbc22egenmtu5l6c5jbfc@group.calendar.google.com)
+* [TWIR - This Week in Rust](https://this-week-in-rust.org/)
+* Und viele andere "this week in"-Newsletter
+
+---
+
+## Beitragen
+
+* `rustc` hat eine durchschnittliche Verweildauer von Patches von 6 Tagen(!).
+* Kleinere Fixes, gerade Dokufixes werden täglich gemerged.
+* Homu und Highfive freuen sich auf Sie!

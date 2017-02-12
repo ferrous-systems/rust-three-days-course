@@ -75,23 +75,37 @@ Lebenszeiten beschreiben Mindestbedingungen.
 
 ---
 
-## Kombination von Lebenszeiten
+## Mehrere Lebenszeiten in einer Signatur
 
 ```rust
-struct Container<'a, T> {
-    inner: &'a T
-}
-
-struct Worker<'a, T> {
-    workload: &'a T
-}
-
-fn create_worker<'a, 'b: 'a, T>(container: &Container<'b, T>) -> Worker<'a, T> {
-    Worker { workload: container.inner }
+fn pair<'a>(first: &'a str, second: &'a str) -> (&'a str, &'a str) {
+    (first, second)
 }
 ```
 
-TODO: Beispiel für 2 Lebenszeiten!
+---
+
+## Sublebenszeiten
+
+```rust
+struct Container<'a, T: 'a> {
+    inner: &'a T
+}
+
+struct Worker<'a, 'b: 'a, T: 'b> {
+    workload: &'a Container<'b, T>
+}
+
+fn create_worker<'a, 'b: 'a, T>(container: &'a Container<'b, T>) -> Worker<'a, 'b, T> {
+    Worker { workload: container }
+}
+
+fn main() {
+    let item = 42;
+    let c = Container { inner: &item };
+    let w = create_worker(&c);
+}
+```
 
 ---
 
@@ -136,6 +150,22 @@ fn inspect<'a, T: Debug + 'a>(t: T) {
 
 ---
 
+## Lifetime-Elision
+
+Im Standardfall werden Lebenszeiten in Signaturen eingefügt. Zum Beispiel entspricht:
+
+```rust
+fn foo(bar: &str) -> &str {
+    /// implementation
+}
+
+fn foo<'a>(bar: &'a str) -> &'a str {
+    /// implementation
+}
+```
+
+---
+
 ## Lebenszeiten und Bindings
 
 ```rust
@@ -145,4 +175,19 @@ let mut sink = io::BufWriter::new(io::stdout().lock());
 ```rust
 let stdout = io::stdout();
 let mut sink = io::BufWriter::new(stdout.lock());
+```
+
+## Lebenszeiten und Boxen
+
+Bei Boxen ist die Standardlebenszeit `'static`. Manchmal ist das zu lang, daher lässt sie sich überschreiben:
+
+```rust
+fn main() {
+    let v = vec![1,2,3];
+    let i = make_iter(&v);
+}
+
+fn make_iter<'a>(v: &'a Vec<u8>) -> Box<Iterator<Item=&u8> + 'a> {
+    Box::new(v.iter())
+}
 ```
