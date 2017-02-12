@@ -61,7 +61,11 @@ unsafe deref_pointer<T: Debug>(p: *mut T) {
 * Dies gilt vor allem für Ownership und mutables Borrowing
    - `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -> double free
    - `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann
-   
+
 ---
 
 Rust erlaubt einem, sich in den Fuss zu schiessen, es möchte nur vorher, dass man die Waffe aus dem Holster nimmt und die Sicherung entriegelt.
+
+---
+
+TODO: Beispiel mit split_at und split_at_mut

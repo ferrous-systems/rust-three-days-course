@@ -1,1 +1,82 @@
-TODO: array, slice, ints, floats
+# Basistypen
+
+---
+
+## ints
+
+Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
+
+* i8, u8
+* i16, u16
+* i32, u32
+* i64, u64
+* i128, u128 (bald)
+
+---
+
+## Architekturabhängige Zahlen
+
+Rust hat 2 architekturabhängige Zahlentypen:
+
+* isize, usize
+
+---
+
+## Casts
+
+Casts zwischen den Typen sind möglich, _auch verkürzende Casts_:
+
+```rust
+fn main() {
+    let foo = 3i64;
+    let bar = foo as i32;
+}
+```
+
+---
+
+Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Standard.
+
+---
+
+## Überlauf-Verhalten
+
+Überläufe Rust lösen im Debug-Modus eine Trap aus, im Release-Modus nicht!
+
+---
+
+## Floats
+
+Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
+
+```rust
+fn main() {
+    let float: f64 = 1f;
+}
+```
+
+---
+
+## Arrays
+
+Arrays fixer Größe haben folgende Notation:
+
+```rust
+fn main() {
+    let arr: [i32; 4] = [1,2,3,4];
+}
+```
+
+---
+
+## Arrays dynamischer Größe
+
+Arrays dynamischer Größe müssen in Rust als Slice abgebildet werden.
+
+Slices tragen einen Pointer auf einen Array und eine Länge. Slices können weder vergrößert noch verkleinert werden.
+
+```rust
+fn main() {
+    let arr: &[i32] = &[1,2,3,4];
+}
+```

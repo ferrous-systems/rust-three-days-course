@@ -80,6 +80,20 @@ fn main() {
 
 ---
 
+## Lokaler import
+
+Imports können auch direkt in Funktionen geschehen. Sie sind dann nur dort gültig.
+
+```rust
+fn main() {
+    use std::fs::File;
+
+    let f = File::open("test");
+}
+```
+
+---
+
 ## Module
 
 Das Modulsystem von Rust ist ähnlich dem von Python.
@@ -96,7 +110,7 @@ Per Konvention ist das Hauptmodul einer Bibliothek in einer Datei `src/lib.rs`, 
 
 ---
 
-Eine beispielhafte Applikation: 
+Eine beispielhafte Applikation:
 
 ```rust
 fn main() {
