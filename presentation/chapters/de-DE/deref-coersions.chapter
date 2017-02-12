@@ -62,13 +62,12 @@ Funktionen, die immutabel auf Strings oder Vektoren arbeiten, sollten eine immut
 ---
 
 ```rust
-fn main() {
-    let s: String = String::from("Hello World!");
-    show(&s);
-}
+fn print_me(message: &str) { println!("{}", message); }
 
-fn show(string: &str) {
-    println!("{}", string);
+fn main() {
+    print_me("Foo");
+    let a_string = String::from("Bar");
+    print_me(&a_string);
+    print_me(a_string.as_str())
 }
 ```
-

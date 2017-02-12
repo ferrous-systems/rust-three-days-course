@@ -212,8 +212,4 @@ fn use_file(f: File) {
 }
 ```
 
----
-
-# Quiz
-
-Es gibt in Rust eine Funktion `drop`, die die sofortige Deallokation eines Wertes erzwingt. Wie ist ihre Signatur?
+Was würde passieren, wenn wir File nach dem Aufruf von `use_file` noch verwenden?

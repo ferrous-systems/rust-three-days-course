@@ -1,2 +1,5 @@
 # Macros
 
+---
+
+Rust besitzt eine Macro-Sprache. Siehe [The Little Book Of Macros](http://doc.crates.io/manifest.html).

@@ -1,0 +1,27 @@
+# Nochmal Iteratoren
+
+---
+
+## Generische Iteratoren zurückgeben
+
+Momentan erlaubt Rust keine generischen Typen als Rückgabewerte. Hier müssen Trait-Objekte verwendet werden.
+
+```rust
+fn main() {
+    let v = vec![1,2,3];
+    let i = make_iter(&v);
+}
+
+fn make_iter<'a>(v: &'a Vec<u8>) -> Box<Iterator<Item=&u8> + 'a> {
+    Box::new(v.iter())
+}
+```
+
+Dieses Problem wird bald behoben.
+
+---
+
+## Iteratoren selbst implementieren
+
+TODO: Interne vs. externe iteratoren -> Nach Assozierten Typen
+

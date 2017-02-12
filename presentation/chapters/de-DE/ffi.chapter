@@ -245,6 +245,12 @@ Solche Optimierungen sollten mit `compile-fail` getestet werden!
 
 ---
 
+## compile-fail
+
+`compile-fail` ist eine Extraktion aus der `rustc`-Testsuite und erlaubt es, Erwartungen über Fehlermeldungen auszudrücken.
+
+---
+
 ## Callbacks
 
 ```rust

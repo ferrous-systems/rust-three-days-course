@@ -204,3 +204,13 @@ Die Profile von Cargo (release, bench, test...) können angepasst werden. Detail
 Cargo erlaubt es, mehrere Projekte zu einem Workspace zusammenzufassen. Diese teilen sich unter anderem ein `target`-Verzeichnis.
 
 Details siehe [Doku](http://doc.crates.io/manifest.html).
+
+---
+
+## Features
+
+---
+
+## rustc direkt aufrufen
+
+`cargo rustc` ruft `rustc` und erlaubt, weitere Parameter zu übergeben.

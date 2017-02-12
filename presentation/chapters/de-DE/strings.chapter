@@ -20,7 +20,7 @@ Am häufigsten sind `String` und `&str`.
 ## `&str`
 
 * Ein unveränderlicher Verweis auf einen String-Slice.
-* Nur als geliehener Wert gesehen.
+* Nur durch einen Pointer verwendbar.
 * Kann überall, auf dem Heap, Stack oder im Programmspeicher sein.
 
 ---
@@ -48,30 +48,12 @@ fn main() {
 * `&'static str` funktioniert gut für konstante Werte.
 * `&str` wird typischerweise in Funktionsargumenten verwendet.
 
----
-
-## `Deref` Konvertierung
-
-Nur weil mehrere Typen existieren nicht bedeutet, sie können nicht in Harmonie arbeiten.
-
-```rust
-fn print_me(message: &str) { println!("{}", message); }
-
-fn main() {
-    print_me("Foo");
-    let a_string = String::from("Bar");
-    print_me(&a_string);
-    print_me(a_string.as_str())
-}
-```
-
-Das liegt daran, dass `String` `Deref <Target = str>` implementiert.
 
 ---
 
 ## Exotische String-Typen
 
-* `OsStr` und `OsString` können bei der Arbeit mit Dateisystemen oder Systemaufrufen angezeigt werden.
+* `OsStr` und `OsString` können bei der Arbeit mit Dateisystemen oder Systemaufrufen vorkommen.
 
 * `CStr` und `CString` können bei der Arbeit mit FFI auftreten.
 
@@ -105,7 +87,7 @@ Es wird dringend empfohlen, die gesamte Dokumentation dieser Typen vor der Verwe
 
 ---
 
-## Gemeinsame String Aufgaben
+## Manipulieren von Strings
 
 Verkettung:
 
@@ -120,7 +102,7 @@ fn main() {
 
 ---
 
-## Gemeinsame String Aufgaben
+## Manipulieren von Strings
 
 Aufspaltung:
 
@@ -134,7 +116,7 @@ fn main() {
 
 ---
 
-## Gemeinsame String Aufgaben
+## Manipulieren von Strings
 
 Ersetzen:
 

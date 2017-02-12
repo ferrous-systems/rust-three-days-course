@@ -105,3 +105,16 @@ fn transmute<T, U>(arg: T) -> U {
 }
 ```
 
+---
+
+## Quiz
+
+`drop` ist die Funktion, die einen Wert sofort deallokiert. Wie sieht ihre Implementierung aus?
+
+---
+
+```rust
+#[inline]
+fn drop<T>(_: T) { // take ownership, drop out of scope }
+```
+

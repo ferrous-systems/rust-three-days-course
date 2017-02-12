@@ -62,7 +62,7 @@ fn something_using_the_path<P: AsRef<Path>>(p: P) {
 ```rust
 #[inline]
 pub fn first_layer_of_indirection<P: AsRef<Path>>(p: P) {
-    let path = Path.as_ref();
+    let path = p.as_ref();
     something_using_the_path(path);
 }
 
@@ -73,10 +73,11 @@ fn something_using_the_path(p: Path) {
 
 Rust inlined über Bibliotheksgrenzen hinweg.
 
+---
 
+## Helfer
 
-
-
-* Compile times, binary sizes and generics
-* Inline
-* Conditional compilation
+* Debugging: moderne GDB-Versionen unterstützen Rust
+* valgrind
+* rust-afl erlaubt Fuzzing mit American Fuzzy Lop
+* TODO: Code Coverage
