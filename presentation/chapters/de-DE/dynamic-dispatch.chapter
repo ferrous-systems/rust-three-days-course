@@ -1,8 +1,8 @@
 # Dynamischer Dispatch
 
-Manchmal möchte (oder kann) man beim Übersetzen jeden Aufruf genau festlegen. Rust bietet hier 2 Möglichkeiten:
+Manchmal möchte man sich zur Laufzeit für eine Code-Implementierung verlassen, statt den Compiler monomorphieren zu lassen.
 
-TODO: rework this sentence
+Hierzu gibt es 2 Möglichkeiten.
 
 ---
 
@@ -76,8 +76,10 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 
 ## Regeln für Objekt-Traits
 
-* Objektsichere Traits dürfen `Self` nicht als Ausgabetyp verwenden
-* Objektsichere Traits... TODO: was war die zweite Regel
+* Objektsichere Traits dürfen _nicht_ `Self: Sized` verlangen
+* Alle Methoden sind objektsicher
+    - sie haben keine Typ-Parameter
+    - sie verwnden nicht `Self`
 
 ---
 
@@ -85,5 +87,24 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 
 * Da Trait-Objekte den Objekt-Typ zur Laufzeit halten, unterstützen sie Downcasts.
 
-/// TODO: Beispiel
+```rust
+use std::fmt::Debug;
+use std::any::Any;
 
+// Logger function for any type that implements Debug.
+fn log<T: Any + Debug>(value: &T) {
+    let value_any = value as &Any;
+
+    // try to convert our value to a String.  If successful, we want to
+    // output the String's length as well as its value.  If not, it's a
+    // different type: just print it out unadorned.
+    match value_any.downcast_ref::<String>() {
+        Some(as_string) => {
+            println!("String ({}): {}", as_string.len(), as_string);
+        }
+        None => {
+            println!("{:?}", value);
+        }
+    }
+}
+```
