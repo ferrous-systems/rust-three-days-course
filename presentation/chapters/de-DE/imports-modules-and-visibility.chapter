@@ -58,9 +58,15 @@ Auch bieten einige Bibliotheken `prelude`-Module an, so zum Beispiel `std::io`.
 
 ```rust
 use std::io::prelude::*;
+use std::fs::File;
 
 fn main() {
-    // TODO: std::io-Beispiel
+    let mut f = File::open("foo.txt").unwrap();
+    let mut buffer = [0; 10];
+
+    f.read(&mut buffer).unwrap();
+
+    println!("The bytes: {:?}", buffer);
 }
 ```
 
