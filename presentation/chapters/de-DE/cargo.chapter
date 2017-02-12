@@ -84,7 +84,7 @@ Tests nutzen normalerweise mit dem Debug-Profil.
 
 `cargo bench` führt alle Benchmarks aus.
 
-Hier ist das Release-Profil Standard. 
+Hier ist das Release-Profil Standard.
 
 ---
 
@@ -189,4 +189,13 @@ Hier gefundene Bibliotheken werden bevorzugt. Das erlaubt das einfache Testen vo
 Die Profile von Cargo (release, bench, test...) können angepasst werden. Details hierzu bietet die [Manifest-Dokumentation](TODO: ...)
 
 ---
+
+## Targets
+
+* Profile und Abhängigkeiten lassen sich auch je nach Target konfigurieren
+* `cargo build --target ...` nutzt dieses Target
+* Es muss vorher installiert sein!
+* Eventuell Xargo verwenden!
+
+
 
