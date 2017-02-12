@@ -13,7 +13,11 @@ extern crate serde;
 extern crate serde_json;
 
 fn main() {
-    ///TODO: Usage-Example"
+    use serde_json::Value;
+
+    let data = r#" { "name": "John Doe", "age": 43, ... } "#;
+    let v: Value = serde_json::from_str(data)?;
+    println!("Please call {} at the number {}", v["name"], v["phones"][0]);
 }
 ```
 
@@ -44,3 +48,9 @@ extern crate serde_json as json;
 ## crates.io
 
 Veröffentlichte Bibliotheken finden sich auf [crates.io](https://crates.io), ihre Dokumentation wird automatisch auf [docs.rs](https://docs.rs) veröffentlicht.
+
+---
+
+## Crates und Programme
+
+`cargo install my_crate` installier die ausführbaren Programme einer Crate.

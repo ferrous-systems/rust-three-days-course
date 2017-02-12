@@ -119,4 +119,6 @@ pub extern "C" fn inspect_point(p: *mut Point) {
 
 ---
 
-TODO: Cheddar dokumentieren
+## Helfer
+
+* Cheddar - generiert C-Header von Rust-Libs.

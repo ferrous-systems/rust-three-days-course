@@ -343,4 +343,7 @@ Huch! Plötzlich habe ich einen mutablen und immutablen Pointer.
 
 ---
 
-TODO: bindgen dokumentieren
+## Helfer
+
+* [Servos bindgen](https://github.com/servo/rust-bindgen)
+* Sehr fortgeschritten, kann auch mit C++ umgehen.

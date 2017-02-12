@@ -6,7 +6,9 @@ Was passiert eigentlich genau, wenn wir Typen droppen?
 
 ## Drop-Reihenfolge
 
-Die Drop-Reihenfolge in Rust ist momentan _nicht_ standardisiert. Es gibt jedoch gute Gründe, sie so zu standardisieren, wie sie gerade ist. //TODO: RFC einfügen
+Die Drop-Reihenfolge in Rust ist momentan _nicht_ standardisiert. Es gibt jedoch gute Gründe, sie so zu standardisieren, wie sie gerade ist.
+
+[Diskussion](https://github.com/rust-lang/rfcs/issues/1857)
 
 ---
 
@@ -15,10 +17,6 @@ Die Drop-Reihenfolge in Rust ist momentan _nicht_ standardisiert. Es gibt jedoch
 * Werte werden fallen gelassen, wenn ihr Scope zuende ist
 * Die Reihenfolge ist _genau umgekehrt wie ihre Einführung_
 * Nicht gebundene Werte droppen _sofort_
-
----
-
-// TODO: Beispiel von lobste.rs
 
 ---
 
@@ -73,7 +71,7 @@ fn panicing_function() {
 ---
 
 Im Falle einer Panic passiert Folgendes:
-* Der Programmablauf hält sofort an
+* Der Thread hält sofort an
 * Der Stack wird aufgerollt
 * Alle von der Panic betroffenen Werte werden fallengelassen
 
@@ -87,7 +85,13 @@ Der betroffene Thread stellt die Arbeit ein.
 
 ## Das Fangen von Panics
 
-Panics über FFI-Grenzen hinweg sind undefiniertes Verhalten. Daher gibt es Fälle, in denen sie aus Rust heraus gefangen werden sollten: hierzu gibt es //TODO: stdlib-funktion raussuchen
+Panics über FFI-Grenzen hinweg sind undefiniertes Verhalten. Daher gibt es Fälle, in denen sie aus Rust heraus gefangen werden sollten: hierzu gibt es [std::panic::catch-unwind](https://doc.rust-lang.org/std/panic/fn.catch_unwind.html) und [std::panic::resume-unwind](https://doc.rust-lang.org/std/panic/fn.resume_unwind.html).
+
+---
+
+## Hooks
+
+[std::panic::set_hook](https://doc.rust-lang.org/std/panic/fn.set_hook.html) erlaubt einen Handler zu setzen, der _vor_ der Behandlung der Panic ausgeführt wird.
 
 ---
 
@@ -99,8 +103,10 @@ Generell sollte _immer_ `Result` verwendet werden.
 
 In manchen Umgebungen macht panic! keinen Sinn. In diesem Fall besitzen `rustc` und `cargo` einen Schalter, mit dem `panic!` einen sofortigen Programmabbruch hervorruft.
 
+Der Panic-Hook wird ausgeführt.
+
 ---
 
-## Doppelte panics!
+## Doppelte Panics
 
 Sollte beim behandeln einer panic innerhalb eines Threads eine weitere Auftreten (z.B. beim Ausführen eines Destruktors), tritt undefiniertes Verhalten auf und das Programm bricht sofort ab.
