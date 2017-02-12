@@ -96,9 +96,7 @@ Danach kann der Wert nicht mehr verwendet werden.
 
 ## Hintergrund
 
-Wen wir `pacman` mit `dot` aufrufen, werden die Daten in die Argumente von `pacman` bewegt (move). Dabei geht der Besitz an `pacman` über. Aus Sicherheitsgründen darf `main` die Daten danach nicht mehr manipulieren.
-
-TODO: maybe explain better...
+Wen wir `pacman` mit `dot` aufrufen, werden die Daten in die Argumente von `pacman` bewegt (move). Dabei geht der Besitz an `pacman` über. `main` besitzt die Daten danach nicht mehr und darf sie auch nicht mehr manipulieren.
 
 ---
 
@@ -132,31 +130,29 @@ fn pacman(dot: Dot) {
     main              pacman
 +----------+
 |          |
-|    dot   |---+
+|    dot   |-=-+
 |          |   |
-+----------+   |    +----------+
++----------+   :    +----------+
      |         |    |          |
-     |         +----|   dot    |
+     |         +=-=-|   dot    |
      |              |          |
      |              +----------+
      |
-     |                Deallokation
-     |                
+     |                🗑
+     |
 +----------+
 |          |
-|  clone   |---+
+|  clone   |-=-+
 |          |   |
-+----------+   |    +----------+
++----------+   :    +----------+
                |    |          |
-               +----|   dot    |
+               +-=-=|   dot    |
                     |          |
                     +----------+
 
-                      Deallokation
+                      🗑
 
 </pre>
-
-TODO: proper Diagram for this
 
 ---
 
@@ -200,9 +196,21 @@ Die Terminologie um moves ähnelt der von C++, deswegen sollte man die Rust-Term
 
 ---
 
-# Praktische Beispiel
+# Praktisches Beispiel
 
-TODO: Append Vector to itself, attempt to copy File pointer...
+```rust
+use std::fs::File;
+
+fn main() {
+    let file = File::open("test").unwrap();
+
+    use_file(file);
+}
+
+fn use_file(f: File) {
+    // File drops here
+}
+```
 
 ---
 
