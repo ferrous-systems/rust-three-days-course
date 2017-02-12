@@ -36,7 +36,7 @@ fn main() {
 FnOnce
 * Die Closure konsumiert ihre Umgebung
 FnMut
-* Die Closure verändert ihre Umgebung 
+* Die Closure verändert ihre Umgebung
 Fn
 * Die Closure referenziert ihre Umgebung immutabel
 
@@ -50,12 +50,40 @@ Es besteht eine Typbeziehung: Fn impliziert FnMut, FnMut impliziert FnOnce.
 
 ---
 
+## Notation von Closure-Argumenten
+
+```rust
+fn call_with_one<F>(some_closure: F) -> i32
+    where F: Fn(i32) -> i32 {
+
+    some_closure(1)
+}
+```
+
+---
+
 ## Moves und Closures
 
 Da die Closure-Umgebung implizit ist, müssen Werte explizit hineinbewegt werden.
 
 ```rust
 fn main() {
-    // TODO Beispiel für Move-Closure
+    let num = 5;
+
+    let owns_num = move |x: i32| x + num;
+}
+```
+
+---
+
+## Trait Objects und Closures
+
+Da Closures Traits implementieren, sind sie legale Trait-Objekte.
+
+```rust
+fn factory() -> Box<Fn(i32) -> i32> {
+    let num = 5;
+
+    Box::new(move |x| x + num)
 }
 ```
