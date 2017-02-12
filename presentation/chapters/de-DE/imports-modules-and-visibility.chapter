@@ -124,13 +124,11 @@ fn main() {
 }
 
 mod workload {
-    fn work() {
+    pub fn work() {
         println!("hard at work!");
     }
 }
 ```
-
-TODO: testen
 
 ---
 
