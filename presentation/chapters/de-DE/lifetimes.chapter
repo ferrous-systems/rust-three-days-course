@@ -91,7 +91,7 @@ fn create_worker<'a, 'b: 'a, T>(container: &Container<'b, T>) -> Worker<'a, T> {
 }
 ```
 
-TODO: Main-Funktion, eventuell mal an den Referenzen rumspielen?
+TODO: Beispiel für 2 Lebenszeiten!
 
 ---
 
