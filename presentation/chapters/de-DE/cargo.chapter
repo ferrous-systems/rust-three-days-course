@@ -21,7 +21,7 @@ Ein Cargo-Projekt enthält (mindestens).
 
 Darüber hinaus kann ein Cargo-Projekt enthalten:
 
-* Tests (Standardverzeichnis `test`)
+* Tests (Standardverzeichnis `tests`)
 * Benchmarks (Standardverzeichnis `benches`)
 * Ein Build-Script (Standardname `build.rs`)
 * Beispiele (Standardverzeichnis `examples`)
@@ -30,7 +30,7 @@ Darüber hinaus kann ein Cargo-Projekt enthalten:
 
 ## Das Manifest
 
-Das [Cargo-Manifest](TODO: Link) ist in [TOML](TODO: Link) verfasst. Es enthält mindestens den Namen des Projekts.
+Das [Cargo-Manifest](http://doc.crates.io/manifest.html) ist in [TOML](http://doc.crates.io/manifest.html) verfasst. Es enthält mindestens den Namen des Projekts.
 
 ```toml
 [package]
@@ -90,7 +90,7 @@ Hier ist das Release-Profil Standard.
 
 ## Versionsausdrücke
 
-In der Rust-Community ist [SemVer](TODO: Link) der empfohlene Standard für Versionierung.
+In der Rust-Community ist [SemVer](https://semver.org) der empfohlene Standard für Versionierung.
 
 * Die Major-Version muss stets angehoben werden, wenn das Interface bricht
 * Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
@@ -111,8 +111,8 @@ Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
 * `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
 * `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
 * `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
-* `>= 2 < 3`: Irgendeine Version der 2er-Serie (TODO: check)
 
+Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
 ---
 
 ## Versionsauflösung
@@ -186,7 +186,7 @@ Hier gefundene Bibliotheken werden bevorzugt. Das erlaubt das einfache Testen vo
 
 ## Profile
 
-Die Profile von Cargo (release, bench, test...) können angepasst werden. Details hierzu bietet die [Manifest-Dokumentation](TODO: ...)
+Die Profile von Cargo (release, bench, test...) können angepasst werden. Details hierzu bietet die [Manifest-Dokumentation](http://doc.crates.io/manifest.html)
 
 ---
 
@@ -197,5 +197,10 @@ Die Profile von Cargo (release, bench, test...) können angepasst werden. Detail
 * Es muss vorher installiert sein!
 * Eventuell Xargo verwenden!
 
+---
 
+## Workspaces
 
+Cargo erlaubt es, mehrere Projekte zu einem Workspace zusammenzufassen. Diese teilen sich unter anderem ein `target`-Verzeichnis.
+
+Details siehe [Doku](http://doc.crates.io/manifest.html).

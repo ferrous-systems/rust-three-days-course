@@ -2,8 +2,81 @@
 
 ---
 
-* Iteratoren
-* Drain
-* Swap
+## Iteratoren
+
+Sie sollten sich an die Iterator-API gewöhnen und sie verwenden.
+
+Iteratoren werden stark über kombinierte Operation hinweg optimiert.
+
+---
+
+## Eigenheiten durch Ownership
+
+Das Herausbewegen von Daten aus Kollektionen ist in Rust nicht möglich. Zumindest nicht, ohne einen Wert dort zu hinterlassen.
+
+Indiana Jones verwendet `std::mem::swap` oder `std::mem::replace`.
+
+---
+
+In manchen Fällen hilft hier "Drain", ein Iterator, der Werte Stück für Stück aus einer Kollektion ableitet und sie dabei verkleinert.
+
+
+---
+
+## Kompilierzeiten
+
+`rustc` ist nicht der schnellste Compiler, aber es werden viel Zeit in der Codegenerierung und Optimierung durch LLVM verbracht.
+
+`cargo check` führt nur die Typprüfung von Rust aus und übersetzt den Code nicht.
+
+Unterteilen des Projekts in mehrere Crates kann auch helfen, da Crates nur bei Änderung kompiliert werden.
+
+Gehen Sie vorsichtiger mit Generics um.
+
+---
+
+## Binärgröße senken
+
+* System-Allokator verwenden (nightly feature)
+* Wird libstd kaum verwenden, kann sie ersetzt werden
+* Anzahl der monomorphisierten Funktionen senken
+
+---
+
+## Richtig konvertieren
+
+Das "Durchschleifen" von generischen Parametern ist zu vermeiden, wenn diese zu etwas konkretem evaluiert werden können. 
+
+```rust
+pub fn first_layer_of_indirection<P: AsRef<Path>>(p: P) {
+    something_using_the_path(p);
+}
+
+fn something_using_the_path<P: AsRef<Path>>(p: P) {
+    //....
+}
+```
+
+---
+
+```rust
+#[inline]
+pub fn first_layer_of_indirection<P: AsRef<Path>>(p: P) {
+    let path = Path.as_ref();
+    something_using_the_path(path);
+}
+
+fn something_using_the_path(p: Path) {
+    //....
+}
+```
+
+Rust inlined über Bibliotheksgrenzen hinweg.
+
+
+
+
+
 * Compile times, binary sizes and generics
 * Inline
+* Conditional compilation
