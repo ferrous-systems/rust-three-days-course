@@ -272,7 +272,8 @@ Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht ge
 
 ---
 
-```
+```rust
+#[derive(Debug)]
 struct Point {
     x: i32,
     y: i32
@@ -280,13 +281,13 @@ struct Point {
 
 trait MyAddition<Other> {
     type Output;
-    
+
     fn add(&self, other: &Other) -> Self::Output;
 }
 
-impl MyAddition<Point> {
+impl MyAddition<Point> for Point {
     type Output = Point;
- 
+
     fn add(&self, other: &Point) -> Point {
         Point { x: self.x + other.x, y: self.y + other.y }
     }
@@ -295,17 +296,50 @@ impl MyAddition<Point> {
 fn main() {
     let p1 = Point { x: 1, y: 2 };
     let p2 = Point { x: 1, y: 2 };
-    println!("{:?}", p1.add(p2))    
+    println!("{:?}", p1.add(&p2))
 }
 ```
 
 ---
 
-## Grübelaufgabe: Warum nicht `MyAddition<Other,Output>`?
+## Generische Implenentierungen
 
-TODO: Das mal austesten 
+Traits können für Typparameter implementiert werden.
+
+```rust
+trait Double {
+    fn double(self) -> i64;
+}
+
+impl<T> Double for T where T: Into<i64> {
+    fn double(self) -> i64 {
+        let val: i64 = self.into();
+        val * 2
+    }
+}
+
+fn main() {
+    21.double();
+}
+```
 
 ---
 
-TODO: Default-Implementierungen, Trait Inheritance, generische Trait-Implementierungen (impl FooTrait for T)
+## Trait-Abhängigkeiten
 
+Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
+
+```rust
+trait Double : Into<i64> {
+    fn double(self) -> i64 {
+        let val: i64 = self.into();
+        val * 2
+    }
+}
+
+impl<T> Double for T where T: Into<i64> { }
+
+fn main() {
+    21.double();
+}
+```
