@@ -38,12 +38,10 @@ Dies macht vor allem Wrapper-Typen sehr ergonomisch!
 
 Dahinter stecken die `Deref` und `DerefMut`-Traits.
 
-//TODO: link
-
 ```rust
 impl<T> Deref for Box<T> {
     type Target = T;
-    
+
     fn deref(&self) -> &T {
         self.inner
     }
@@ -51,3 +49,26 @@ impl<T> Deref for Box<T> {
 ```
 
 Dieser Aufruf wird eingefügt, wenn Dereferenzierungen angefordert werden.
+
+---
+
+## Wichtige Auto-Dereferenzierungen
+
+* String -> &str
+* Vec<T> -> &[T]
+
+Funktionen, die immutabel auf Strings oder Vektoren arbeiten, sollten eine immutable Slice als Argument verwenden. Das Layout der Typen ist so gewählt, dass das _kostenfrei_ ist.
+
+---
+
+```rust
+fn main() {
+    let s: String = String::from("Hello World!");
+    show(&s);
+}
+
+fn show(string: &str) {
+    println!("{}", string);
+}
+```
+

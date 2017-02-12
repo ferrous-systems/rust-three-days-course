@@ -117,7 +117,7 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 * In der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
 * Heap-allokierte Werte (z.B. der Inhalt von `Box`)
-  - sofern diese nicht an Werte gebunden sind, die kürzer leben! 
+  - sofern diese nicht an Werte gebunden sind, die kürzer leben!
 * Globals 
 
 ---
@@ -132,4 +132,17 @@ Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Beding
 fn inspect<'a, T: Debug + 'a>(t: T) {
     //...
 }
+```
+
+---
+
+## Lebenszeiten und Bindings
+
+```rust
+let mut sink = io::BufWriter::new(io::stdout().lock());
+```
+
+```rust
+let stdout = io::stdout();
+let mut sink = io::BufWriter::new(stdout.lock());
 ```
