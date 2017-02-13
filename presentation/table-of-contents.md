@@ -14,6 +14,7 @@
 * [Strings](index.html?chapter=strings)
 * [Fehlerbehandlung](index.html?chapter=error-handling)
 * [Iteratoren](index.html?chapter=iterators)
+* [Kleine Helfer](index.html?chapter=little-helpers)
 
 Erste Implementierungsaufgabe: Hallo Welt -> TCP-Welt
 
