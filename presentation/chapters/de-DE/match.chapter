@@ -8,11 +8,25 @@ Um die Varianten von Enums zu prüfen, wird `match` verwendet.
 
 ```rust
 fn main() {
-    let args = std::env::args;
-    
-    match args.at(1) {
+    let mut args = std::env::args();
+
+    match args.nth(1) {
         Some(arg) => { println!("Argument übergeben: {}", arg)},
         None => { println!("Kein Argument übergeben") }
+    }
+}
+```
+
+---
+
+## Alternative: if-let
+
+```rust
+fn main() {
+    let mut args = std::env::args();
+
+    if let Some(arg) = args.nth(1) {
+       println!("Argument übergeben: {}", arg);
     }
 }
 ```
@@ -22,7 +36,7 @@ fn main() {
 ```rust
 fn main() {
     let maybe_file = std::fs::File::open("Gibt's nicht!");
-    
+
     match maybe_file {
         Ok(f) => { println!("Datei geöffnet! Debug: {:?}", f) },
         Err(e) => { println!("Datei nicht geöffnet! Fehler: {:?}", e) }
@@ -36,7 +50,7 @@ Matches müssen alle Varianten abdecken.
 
 ---
 
-## ignorieren weiterer Varianten
+## Ignorieren weiterer Varianten
 
 ```rust
 fn main() {
@@ -73,5 +87,21 @@ fn main() {
         0 => println!("Number is 0"),
         _ => println!("Number is something else")
     }
+}
+```
+
+---
+
+`match` und `if` Ausdrücke:
+
+```rust
+fn main() {
+    let mut args = std::env::args();
+
+    let value = if let Some(arg) = args.at(1) {
+                    arg
+                } else {
+                    "default!".to_string()
+                };
 }
 ```

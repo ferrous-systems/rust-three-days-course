@@ -213,3 +213,28 @@ fn use_file(f: File) {
 ```
 
 Was würde passieren, wenn wir File nach dem Aufruf von `use_file` noch verwenden?
+
+---
+
+## Knobelfrage
+
+`drop` ist die Funktion, die einen Wert sofort verwirft. Wie sieht ihre Implementierung aus?
+
+```rust
+use std::fs::File;
+
+fn main() {
+    let file = File::open("test").unwrap();
+    let buffer = read_from(&file);
+    drop(file);
+    // do something long
+}
+```
+---
+
+```rust
+#[inline]
+fn drop<T>(_: T) {
+  // take ownership, drop out of scope
+}
+```

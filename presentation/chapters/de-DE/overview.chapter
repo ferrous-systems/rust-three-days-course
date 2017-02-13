@@ -109,3 +109,12 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 * Rust basiert auf Ausdrücken. Jeder Ausdruck hat einen Wert, dieser kann zugewiesen oder zurück gegeben werden.
 * "Pay what you use": Rust bietet zur Laufzeit teure Features an: Explizit und direkt sichtbar. Nicht verwendete Features kosten nichts.
 
+---
+
+## Woher kommen Rustaceans?
+
+Interessanterweise in etwa gleich von:
+
+* Dynamischen Sprachen (Rubyisten und Pythonista)
+* Funktionalen Sprachen wie Scala und Haskell
+* C/C++

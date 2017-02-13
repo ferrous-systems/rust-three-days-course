@@ -80,3 +80,15 @@ fn main() {
     let arr: &[i32] = &[1,2,3,4];
 }
 ```
+
+---
+
+## Der Unit-Type
+
+Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
+
+```rust
+fn main() -> () {
+    42;
+}
+```

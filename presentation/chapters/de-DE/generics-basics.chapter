@@ -91,6 +91,16 @@ den Wert oder einen Fehlerwert zurück.
 
 ---
 
+## Typische Results
+
+```rust
+Result<(), io::Error>
+Result<String, io::Error>
+Result<String, String>
+```
+
+---
+
 ## Generische Funktionen
 
 Generische Funktionen haben Typparameter.
@@ -102,21 +112,6 @@ fn accept_any_type<T>(arg: T) {
 
 fn transmute<T, U>(arg: T) -> U {
     // ...
-}
-```
-
----
-
-## Knobelfrage
-
-`drop` ist die Funktion, die einen Wert sofort verwirft. Wie sieht ihre Implementierung aus?
-
----
-
-```rust
-#[inline]
-fn drop<T>(_: T) {
-  // take ownership, drop out of scope
 }
 ```
 

@@ -177,3 +177,23 @@ fn do_something(slice: &[char]) {
 
 }
 ```
+
+---
+
+## Borrowing und Matches
+
+Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei nicht konsumieren.
+
+```rust
+fn call_me_maybe(maybe_number: &Option<&str>) {
+    match *maybe_number {
+        Some(ref s) => println!("calling {}", s),
+        None => println!("no number, not calling")
+    }
+}
+
+fn main() {
+    let number = Some("+491728122469");
+    call_me_maybe(&number);
+}
+```
