@@ -59,7 +59,9 @@ trait MyTrait<X: Debug> {
 
 ---
 
-Rust erlaubt keine negativen Bedingungen (Trait A und _nicht_ Typ B)
+Rust erlaubt keine negativen Bedingungen (Trait A und _nicht_ Trait B)
+
+
 ---
 
 ## Ausnahme: `Sized`
@@ -107,5 +109,50 @@ Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsf
 ```rust
 fn open_file<P: AsRef<Path>>(pathlike: P) {
     let path = pathlike.as_ref();
+}
+```
+
+
+---
+
+## Generische Implementierungen
+
+Traits können für Typparameter implementiert werden.
+
+```rust
+trait Double {
+    fn double(self) -> i64;
+}
+
+impl<T> Double for T where T: Into<i64> {
+    fn double(self) -> i64 {
+        let val: i64 = self.into();
+        val * 2
+    }
+}
+
+fn main() {
+    21.double();
+}
+```
+
+---
+
+## Trait-Abhängigkeiten
+
+Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
+
+```rust
+trait Double : Into<i64> {
+    fn double(self) -> i64 {
+        let val: i64 = self.into();
+        val * 2
+    }
+}
+
+impl<T> Double for T where T: Into<i64> { }
+
+fn main() {
+    21.double();
 }
 ```

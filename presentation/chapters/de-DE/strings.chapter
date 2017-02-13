@@ -77,7 +77,7 @@ Diese Typen repräsentieren *systembasierte native* Strings. Dies ist erforderli
 
 ---
 
-## `CString` und` CStr`
+## `CString` und `CStr`
 
 Diese Typen sind gültige C-kompatible Strings.
 

@@ -215,7 +215,8 @@ struct Database {
 }
 
 struct DatabaseIterator<'a> {
-    database: &'a Database
+    database: &'a Database,
+    iter: RawIterator
 }
 ```
 
@@ -235,7 +236,8 @@ struct Database {
 }
 
 struct DatabaseIterator<'a> {
-    database: PhantomData<&'a Database>
+    database: PhantomData<&'a Database>,
+    iter: RawIterator
 }
 ```
 
@@ -273,7 +275,7 @@ pub fn leveldb_comparator_destroy(c: *mut leveldb_comparator_t);
 
 ---
 
-## Irgendwas mit Generics, Traits und `mem::transmute`
+## Generics, Traits und rohe Boxen
 
 ```rust
 unsafe trait Comparator where Self::Sized {
@@ -301,12 +303,12 @@ Wichtig: Der Trait arbeitet auf Heap-Allokierten Werten.
 ## Verwendung
 
 ```rust
-pub fn create_comparator<K: Key, T: Comparator<K = K>>(x: Box<T>) -> *mut leveldb_comparator_t {
+pub fn create_comparator<T: Comparator>(x: Box<T>) -> *mut leveldb_comparator_t {
     unsafe {
         leveldb_comparator_create(Box::into_raw(x) as *mut c_void,
-                                  <T as InternalComparator>::destructor,
-                                  <T as InternalComparator>::compare,
-                                  <T as InternalComparator>::name)
+                                  <T as Comparator>::destructor,
+                                  <T as Comparator>::compare,
+                                  <T as Comparator>::name)
     }
 }
 ```

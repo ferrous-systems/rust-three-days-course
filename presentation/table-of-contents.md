@@ -5,11 +5,11 @@
 * [Mutabilität](index.html?chapter=mutability)
 * [Basistypen](index.html?chapter=basic-types)
 * [Datenstrukturen](index.html?chapter=data-structures)
+* [Match](index.html?chapter=match)
 * [Funktionen](index.html?chapter=functions)
 * [Ownership](index.html?chapter=ownership)
 * [Borrowing](index.html?chapter=borrowing)
 * [Einfache Generics](index.html?chapter=generics-basics)
-* [Match](index.html?chapter=match)
 * [Strings](index.html?chapter=strings)
 * [Fehlerbehandlung](index.html?chapter=error-handling)
 * [Iteratoren](index.html?chapter=iterators)
@@ -18,7 +18,9 @@ Erste Implementierungsaufgabe: Hallo Welt -> TCP-Welt
 
 * [Cargo im Detail](index.html?chapter=cargo)
 * [Traits](index.html?chapter=traits)
+* [Dynamischer Dispatch](index.html?chapter=dynamic-dispatch)
 * [Fortgeschrittene Generics](index.html?chapter=advanced-generics-bounds)
+* [Konvertierungen](index.html?chapter=conversion-patterns)
 * [Closures](index.html?chapter=closures)
 * [Deref](index.html?chapter=deref-coersions)
 * [Drop, Panic, Abort](index.html?chapter=drop-panic-abort)
@@ -37,7 +39,6 @@ Zweite Implementierungsaufgabe: Connected Mailbox
 
 Dritte Implementierungsaufgabe: Connected Mailbox mit Threads
 
-* [Dynamischer Dispatch](index.html?chapter=dynamic-dispatch)
 * [Dokumentation](index.html?chapter=documentation)
 * [Speicher](index.html?chapter=memory-considerations)
 * [Überblick über Embedded-Entwicklung](index.html?chapter=embedded)

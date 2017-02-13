@@ -41,15 +41,15 @@ Die Features werden hinter "Feature Flags" versteckt, die projektweit aktiviert 
 Einige Beispiele:
 
 * `asm`, die Inline assembly unterstützt
-* `no_std`, deaktiviert implizite` extern crate std`
-* `inclusive_range`, ähnlich dem stabilen` exclusive_range`
+* `no_std`, deaktiviert implizite `extern crate std`
+* `inclusive_range`, ähnlich dem stabilen `exclusive_range`
 * `conversative_impl_trait`, aktiviert die `impl Trait`-Rückgabesyntax
 
 ---
 
 ## Aktivieren von Funktionen
 
-Um eine Funktion zu aktivieren, fügen Sie die folgende Zeile in `src/main.rs` (für ausführbare Dateien) oder` src/lib.rs` (für Bibliotheken) ein:
+Um eine Funktion zu aktivieren, fügen Sie die folgende Zeile in `src/main.rs` (für ausführbare Dateien) oder `src/lib.rs` (für Bibliotheken) ein:
 
 ```rust
 #![feature(asm, no_std)]

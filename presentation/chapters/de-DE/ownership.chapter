@@ -60,7 +60,7 @@ fn pacman(dot: Dot) {
 
 ---
 
-Was passiert, wenn wir `dot` versuchen, nochmal zu verwenden?
+Was passiert, wenn versuchen, `dot` nochmal zu verwenden?
 
 ---
 
@@ -160,7 +160,7 @@ Klonen ist für Daten vorgesehen, bei denen der Vorgang der Duplizierung komplex
 
 ---
 
-# Mit moves umgehen: kopieren statt moves
+## Mit moves umgehen: kopieren statt moves
 
 ```rust
 #[derive(Debug, Clone, Copy)]
@@ -196,7 +196,7 @@ Die Terminologie um moves ähnelt der von C++, deswegen sollte man die Rust-Term
 
 ---
 
-# Praktisches Beispiel
+## Praktisches Beispiel
 
 ```rust
 use std::fs::File;

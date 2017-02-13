@@ -53,4 +53,4 @@ Veröffentlichte Bibliotheken finden sich auf [crates.io](https://crates.io), ih
 
 ## Crates und Programme
 
-`cargo install my_crate` installier die ausführbaren Programme einer Crate.
+`cargo install my_crate` installiert die ausführbaren Programme einer Crate.

@@ -107,7 +107,7 @@ fn main() {
 
 ---
 
-## &str, Box<str>, String
+## `&str`, `Box<str>`, `String`
 
 Verhalten sich wie Slices und Vektoren.
 
@@ -115,7 +115,7 @@ Verhalten sich wie Slices und Vektoren.
 
 ## Enums
 
-Enums benötigen die Größe ihres größten Werts, 1 Bit für eine Diskriminate, plus Padding.
+Enums benötigen die Größe ihres größten Werts, 1 Byte für eine Diskriminate, plus Padding.
 
 ```rust
 enum Test {
@@ -143,3 +143,5 @@ fn main() {
 ---
 
 Wenn 0 kein legaler Wert ist, nutzt Option diesen als `None`-Fall.
+
+Leider gibt es momentan keine Möglichkeit, dass dem Compiler zu kommunizieren.

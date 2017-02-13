@@ -4,7 +4,7 @@
 
 ## `rustdoc`
 
-Rust bietet ein Standarddokumentationswerkzeug namens 'rustdoc`. Es wird häufig durch `cargo doc` verwendet.
+Rust bietet ein Standarddokumentationswerkzeug namens `rustdoc`. Es wird häufig durch `cargo doc` verwendet.
 
 Deshalb ist Rust-Code fast immer in einem gemeinsamen Format dokumentiert.
 
@@ -94,3 +94,9 @@ fn always_true() -> bool { true }
 Die Argumente und Rückgabetypen von Funktionen sind Links zu ihren jeweiligen Typen.
 
 Die Seitenleiste auf der linken Seite bietet eine schnelle Navigation zu anderen Teilen des Moduls.
+
+---
+
+## Trait-Implementerungen
+
+Bei Trait-Implementierungen wird die Dokumentation mit in den Code gezogen, genauso wie alle Funktionen, die durch `Deref` erreichbar sind.

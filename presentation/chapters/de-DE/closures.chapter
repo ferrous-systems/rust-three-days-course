@@ -7,6 +7,7 @@ Rust hat Closures. Mehrere.
 
 Vorteil:
 * Hoch optimiert und nur mit den absolut benötigten Laufzeitkosten.
+
 Nachteil:
 * Den Typ zu bestimmen ist nicht immer einfach
 
@@ -71,19 +72,5 @@ fn main() {
     let num = 5;
 
     let owns_num = move |x: i32| x + num;
-}
-```
-
----
-
-## Trait Objects und Closures
-
-Da Closures Traits implementieren, sind sie legale Trait-Objekte.
-
-```rust
-fn factory() -> Box<Fn(i32) -> i32> {
-    let num = 5;
-
-    Box::new(move |x| x + num)
 }
 ```

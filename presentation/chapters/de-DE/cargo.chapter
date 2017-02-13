@@ -7,7 +7,7 @@ Cargo ist die Standard-Build-Toolchain für Rust.
 Jeder Release von `rustc` kommt mit einer bestimmten Version von Cargo.
 
 Grundsätzlich ist Cargo aber unabhängig von der `rustc`-Version.
- 
+
 ---
 
 ## Projekte
@@ -80,6 +80,8 @@ Tests nutzen normalerweise mit dem Debug-Profil.
 
 `cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele! 
 
+---
+
 ## `cargo bench`
 
 `cargo bench` führt alle Benchmarks aus.
@@ -113,6 +115,7 @@ Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
 * `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
 
 Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
+
 ---
 
 ## Versionsauflösung
@@ -209,8 +212,34 @@ Details siehe [Doku](http://doc.crates.io/manifest.html).
 
 ## Features
 
+`rustc` bietet die Möglichkeit, beim kompilieren bestimmte Code-Teile zu ignorieren. Das geschieht über Feature-flags.
+
+```rust
+#[cfg(experimental)]
+fn amazing_function() {
+
+}
+```
+
+---
+
+Diese lassen sich in `Cargo.toml` registrieren.
+
+TODO: Beispiel
+
+---
+
+Und dann als Abhängigkeit aktivieren:
+
+
+```toml
+[dependencies.my_lib]
+version = "0.1"
+features = ["experimental"]
+```
+
 ---
 
 ## rustc direkt aufrufen
 
-`cargo rustc` ruft `rustc` und erlaubt, weitere Parameter zu übergeben.
+`cargo rustc` ruft `rustc` direkt auf und erlaubt, weitere Parameter zu übergeben.

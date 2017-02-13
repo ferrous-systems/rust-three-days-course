@@ -28,7 +28,8 @@ Rust dereferenziert unter bestimmten Umständen automatisch. Wie alles andere, m
 
 * Einen Aufruf oder Feldzugriff via den `.`-Operator
 * Eine explizite Dereferenzierung mit `*`
-* Letzteres führt manchmal zu dem hässlichen `&*`-Pattern
+* Bei der Übergabe mit `&`
+* Führt manchmal zu einem hässlichen `&*`-Pattern
 
 ---
 

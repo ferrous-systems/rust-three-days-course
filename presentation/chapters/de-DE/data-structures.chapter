@@ -57,7 +57,7 @@ Structs müssen keine Felder haben.
 struct TCPProtocol;
 
 fn main() {
-    let proto = TCProtocol;
+    let proto = TCPProtocol;
 }
 ```
 
@@ -132,7 +132,7 @@ fn main() {
 ```rust
 enum Actions {
     StickAround,
-    MoveTo { x: i32, y: 32},
+    MoveTo { x: i32, y: i32},
 }
 
 fn main() {

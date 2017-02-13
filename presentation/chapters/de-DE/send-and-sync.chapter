@@ -4,9 +4,9 @@
 
 Rusts Unterstützung für Nebenläufigkeit basiert auf 2 Traits:
 
-* `Senden` markiert eine Struktur sicher zu *senden* zwischen Threads.
-* `Sync` kennzeichnet eine Struktur, die für *share* zwischen Threads sicher ist.
-     + (`&T` ist` Send`, wenn `T` `Sync`)
+* `Send` markiert eine Struktur als sicher zum *senden* zwischen Threads.
+* `Sync` kennzeichnet eine Struktur als sicher zum *teilen* zwischen Threads sicher ist.
+     + (`&T` ist `Send`, wenn `T` `Sync`)
 
 Beide sind sogenannte "Marker".
 
@@ -38,7 +38,7 @@ fn main() {
 
 ---
 
-Es gibt einige wichtige Typen, die nicht `Send` oder` Sync` sind.
+Es gibt einige wichtige Typen, die nicht `Send` oder `Sync` sind.
 
 Beispiele sind `Rc`, rohe Zeiger und `UnsafeCell`.
 
@@ -76,7 +76,7 @@ error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not sati
 
 ## Implementierung
 
-Es ist möglich, die Implementierung von `Send` und` Sync` einem Typ hinzuzufügen.
+Es ist möglich, die Implementierung von `Send` und `Sync` einem Typ hinzuzufügen.
 
 ```rust
 struct Thing(*mut String);
@@ -91,7 +91,7 @@ In diesen Fällen ist die Aufgabe der Implementierung, die Sicherheitsgarantien 
 
 ## Beziehungen
 
-Wenn ein Typ sowohl `Sync` als auch` Copy` implementiert, kann er `Send` auch implementieren.
+Wenn ein Typ sowohl `Sync` als auch `Copy` implementiert, kann er `Send` auch implementieren.
 
 ---
 

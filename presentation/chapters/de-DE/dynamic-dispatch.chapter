@@ -108,3 +108,17 @@ fn log<T: Any + Debug>(value: &T) {
     }
 }
 ```
+
+---
+
+## Trait Objects und Closures
+
+Da Closures Traits implementieren, sind sie legale Trait-Objekte.
+
+```rust
+fn factory() -> Box<Fn(i32) -> i32> {
+    let num = 5;
+
+    Box::new(move |x| x + num)
+}
+```

@@ -177,6 +177,8 @@ let stdout = io::stdout();
 let mut sink = io::BufWriter::new(stdout.lock());
 ```
 
+---
+
 ## Lebenszeiten und Boxen
 
 Bei Boxen ist die Standardlebenszeit `'static`. Manchmal ist das zu lang, daher lässt sie sich überschreiben:

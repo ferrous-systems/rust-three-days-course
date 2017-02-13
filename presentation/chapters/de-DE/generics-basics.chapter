@@ -16,7 +16,7 @@ struct Point<Precision> {
 
 fn main() {
     let point = Point { x: 1u32, y: 2 };
-    let point: Point<i32> { x: 1, y: 2 };
+    let point: Point<i32> = Point { x: 1, y: 2 };
 }
 ```
 
@@ -107,14 +107,16 @@ fn transmute<T, U>(arg: T) -> U {
 
 ---
 
-## Quiz
+## Knobelfrage
 
-`drop` ist die Funktion, die einen Wert sofort deallokiert. Wie sieht ihre Implementierung aus?
+`drop` ist die Funktion, die einen Wert sofort verwirft. Wie sieht ihre Implementierung aus?
 
 ---
 
 ```rust
 #[inline]
-fn drop<T>(_: T) { // take ownership, drop out of scope }
+fn drop<T>(_: T) {
+  // take ownership, drop out of scope
+}
 ```
 

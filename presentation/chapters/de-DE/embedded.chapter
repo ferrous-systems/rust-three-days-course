@@ -12,7 +12,8 @@
 
 Xargo: Cross-kompilierung mit libcore und libstd:
 [https://github.com/japaric/xargo](https://github.com/japaric/xargo)
-Cross: Cross-Testing der Resultate QEMU
+
+Cross: Cross-Testing der Resultate mit QEMU
 [https://github.com/japaric/cross](https://github.com/japaric/cross)
 
 ---
@@ -44,10 +45,11 @@ Tock, ein Betriebssystem für Cortex-M-Prozessoren: [tockos.org](tockos.org)
 * Inline-Assembly und ähnliches ist instabil
 * Core-Entwickler sind Desktop- und Serverentwickler und haben wenig Erfahrung
     - "Lieber erstmal garnicht, als schlecht!"
+* Wir brauchen hier unbedingt Vendor-buy-in
 
 ---
 
-## Lichtblicke
+## Lösung
 
 * Rust ist eine treibende Kraft hinter besserem Target-Support in LLVM
     - Mehrere Targets, unter anderem AVR, unterwegs in den nächsten Versionen

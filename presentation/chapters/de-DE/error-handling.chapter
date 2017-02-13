@@ -67,16 +67,16 @@ fn main() {
 
 ---
 
-## Ergebnisse mit `?` Verwenden
+## Ergebnisse mit `?` verwenden
 
-Verwenden `?` In Funktionen mit mehreren möglichen Ausfälle.
+`?` eignet sich für Funktionen mit mehreren möglichen Fehlerpunkten.
 
 ```rust
 fn multiple_possible_failures() -> Result<String,String> {
     this_can_fail(true)?;
-    println!("Nach dem ersten Ausfall");
+    println!("Nach dem ersten Fehler");
     this_can_fail(false)?;
-    println!("Nach dem zweiten Potential ausfall");
+    println!("Nach dem zweiten potentiellen Fehler");
     Ok(String::from("Alles erledigt"))
 }
 
@@ -87,7 +87,7 @@ fn main() {
 
 ---
 
-## Ergebnisse mit `?` Verwenden
+## Ergebnisse mit `?` verwenden
 
 Ausgabe:
 
@@ -96,6 +96,10 @@ Nach dem ersten Ausfall
 ```
 
 Beachten Sie die vorzeitige Rückkehr.
+
+---
+
+In früheren Rust-Versionen wurde statt `?` der `try!` Macro-Macro verwendet. 
 
 ---
 

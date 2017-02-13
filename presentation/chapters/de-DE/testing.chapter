@@ -8,11 +8,12 @@ Unit-, Integrations und Dokumentations-Tests werden direkt mitgeliefert.
 
 ---
 
-## Organisationstests
+## Organisation
+
 
 Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
-* Unittest neben der getesteten Funktionalität. (Gerätetest)
+* Direkt neben der getesteten Funktionalität. (Unittest)
 * In einem `Tests`-Modul. (Privater Integrationstest)
 * In der Dokumentation. (Dokumentationsprüfung)
 * Im Verzeichnis `tests/`. (Öffentlicher Integrationstest)

@@ -225,10 +225,11 @@ pub Point {
     pub x: i32,
     pub y: i32
 }
+```
 
 ---
 
-Ich rate generell aus 2 Gründen vom exportieren von Feldern ab:
+Generell ist aus 2 Gründen vom exportieren von Feldern abzuraten:
 * Eine Stukturveränderung ist ein automatischer Bruch des externen Interfaces
 * Der Compiler optimiert Accessor-Funktionen normalerweise auf Feldzugriff hinunter.
 

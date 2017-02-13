@@ -228,7 +228,7 @@ Das Arbeiten mit generischen Traits ist Standard.
 
 ---
 
-# Typinferenz von Traits
+## Typinferenz von Traits
 
 Typinferenz von Traits ist sehr fortgeschritten, die Anzahl der benötigten Informationen kann aber komplex werden. Manchmal braucht der Compiler Hilfe bei der Lösung.
 
@@ -236,7 +236,7 @@ Hierzu gibt es mehrere Techniken.
 
 ---
 
-# UFCS
+## UFCS
 
 Unified Function Call Syntax
 
@@ -266,7 +266,7 @@ fn main() {
 
 ---
 
-# Assoziierte Typen
+## Assoziierte Typen
 
 Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht gelassen werden.
 
@@ -297,49 +297,5 @@ fn main() {
     let p1 = Point { x: 1, y: 2 };
     let p2 = Point { x: 1, y: 2 };
     println!("{:?}", p1.add(&p2))
-}
-```
-
----
-
-## Generische Implenentierungen
-
-Traits können für Typparameter implementiert werden.
-
-```rust
-trait Double {
-    fn double(self) -> i64;
-}
-
-impl<T> Double for T where T: Into<i64> {
-    fn double(self) -> i64 {
-        let val: i64 = self.into();
-        val * 2
-    }
-}
-
-fn main() {
-    21.double();
-}
-```
-
----
-
-## Trait-Abhängigkeiten
-
-Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
-
-```rust
-trait Double : Into<i64> {
-    fn double(self) -> i64 {
-        let val: i64 = self.into();
-        val * 2
-    }
-}
-
-impl<T> Double for T where T: Into<i64> { }
-
-fn main() {
-    21.double();
 }
 ```

@@ -37,3 +37,7 @@ Mutabilität ist immer direkt aus dem Code ersichtlich.
 ---
 
 Mutabilität ist fundamental wichtig für Rust und wird uns regelmässig wieder begegnen.
+
+---
+
+Mutabilität ist eine Eigenschaft von Variablen und Bindungen, nicht der daran gebunden Daten.
