@@ -19,9 +19,3 @@ fn make_iter<'a>(v: &'a Vec<u8>) -> Box<Iterator<Item=&u8> + 'a> {
 
 Dieses Problem wird bald behoben.
 
----
-
-## Iteratoren selbst implementieren
-
-TODO: Interne vs. externe iteratoren -> Nach Assozierten Typen
-

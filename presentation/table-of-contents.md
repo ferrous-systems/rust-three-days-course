@@ -10,6 +10,7 @@
 * [Match](index.html?chapter=match)
 * [Ownership](index.html?chapter=ownership)
 * [Borrowing](index.html?chapter=borrowing)
+* [Stack und Heap](index.html?chapter=stack-and-heap)
 * [Strings](index.html?chapter=strings)
 * [Fehlerbehandlung](index.html?chapter=error-handling)
 * [Iteratoren](index.html?chapter=iterators)
