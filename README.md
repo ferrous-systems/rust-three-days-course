@@ -43,7 +43,7 @@ Currently, the largest issues are:
 
 ## Credits
 
-The development of this course was financed by [Asquera](https://asquera.de) for the courses giving at [Linuxhotel](https://linuxhotel.de).
+The development of this course was financed by [Asquera](https://asquera.de) for the courses given at [Linuxhotel](https://linuxhotel.de).
 
 They are open sourced as a contribution to the growth of the Rust language.
 
