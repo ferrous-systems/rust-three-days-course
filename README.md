@@ -20,7 +20,7 @@ The presentation material is split into many small to medium presentations for e
 
 The presentations are Reveal presentations with plugins for internationalisation and integration into the [Rust Playground](https://play.rust-lang.org).
 
-The path through the presentations is not fixed, to allow leeway during holding the course. Examples of the pathes we used can be found in the [paths](paths) directory. We recommend to create your own while preparing for giving the workshop.
+The path through the presentations is not fixed, to allow leeway during holding the course. Examples of the pathes we used can be found in the [courses](courses) directory. We recommend to create your own while preparing for giving the workshop.
 
 ## The examples
 
