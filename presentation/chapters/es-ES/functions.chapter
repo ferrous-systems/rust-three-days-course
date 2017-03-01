@@ -1,0 +1,82 @@
+# Funciones
+
+---
+
+## Declaración
+
+```rust
+fn add(first: i32, second: i32) -> i32 {
+    first + second
+}
+```
+
+---
+
+## Argumentos
+
+```rust
+fn por_valor(arg: i32) {}
+
+fn por_referencia(arg: &i32) {}
+
+fn por_referencia_mutable(arg: &mut i32) {}
+```
+
+---
+
+## Retornos
+
+Valores de retorno son opcionales.
+
+```rust
+fn no_regresa_nada() {}
+
+fn devuelve_numero_aleatorio() -> i32 {
+    4 // Aleatorio garantizado, elegido con un dado.
+}
+
+fn puede_devolver_un_numero_aleatorio(should: bool) -> Option<i32> {
+    if should { Some(4) } else { None }
+}
+```
+
+---
+
+## Funciones genéricas
+
+Las funciones genéricas tienen parámetros de tipos.
+
+```rust
+fn acepta_cualquier_tipo<T>(arg: T) {
+    // ...
+}
+
+fn transmuta<T, U>(arg: T) -> U {
+    // ...
+}
+```
+
+---
+
+## Con limites
+
+Las funciones genéricas pueden tener límites. 
+
+Estos son equivalentes:
+
+```rust
+fn con_limite<T: Display>(arg: T) -> String {
+    // ...
+}
+
+fn clausula_where<T>(arg: T) -> String where T: Display {
+    // ...
+}
+```
+
+---
+
+# Observaciones
+
+* Los tipos que no tienen el trait `Copy` son consumidos cuando se pasan por valor.
+* Devolver referencias puede involucrar clarificar `lifetimes` (discutidos más adelante).

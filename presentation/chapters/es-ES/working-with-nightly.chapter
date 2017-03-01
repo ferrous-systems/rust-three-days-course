@@ -1,0 +1,73 @@
+# Trabajando con Nightly
+
+---
+
+## ¿Por qué?
+
+* Las dependencias pueden requerir un nightly
+* Mensajes de compilación y errores pueden a veces ser mejores (a veces no)
+* Hay muchas funcionalidades que aun no son estables.
+* Plugins del compilador
+
+---
+
+## Cambios recientes
+
+En [Rust 1.15](https://blog.rust-lang.org/2017/02/02/Rust-1.15.html) la derivación personalizada fue hecha estable.
+
+Esta fue la razón por la que muchos proyectos usaban nightly.
+
+Se espera que el número de paquetes que requieren nightly se reduzca significativamente.
+
+---
+
+## Usando Nightly
+
+Use `rustup` para sobreescribir la version usada en un directorio específico.
+
+```bash
+cd /nightly_project
+rustup override set nightly
+```
+
+---
+
+## Características
+
+Las características son controladas detrás de "Feature Flags" que son habilitados a nivel de proyecto.
+
+Algunos ejemplos:
+
+* `asm` que provee soporte de ensamblador alineado.
+* `no_std` que deshabilita la inclusión implícita `extern crate std`
+* `inclusive_range`, similar al estable `exclusive_range`
+
+---
+
+## Habilitando características
+
+Para habilitar una característica, agregue la siguiente linea en `src/main.rs` (para ejecutables), o `src/lib.rs` (para librerías):
+
+```rust
+#![feature(asm, no_std)]
+```
+
+---
+
+## Plugins de compilador
+
+Los plugins del compilador agregar características adicionales a Rust. Por ejemplo:
+
+* (Anteriormente) derivación personalizada
+* Linters
+* Librerías como [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin)
+
+---
+
+## Habilitar plugins del compilador
+
+Para habilitar un plugin del compilador agregue la siguiente linea a `src/main.rs` (para ejecutables), o `src/lib.rs` (para librerías):
+
+```rust
+#![plugin(some_plugin)]
+```

@@ -1,0 +1,126 @@
+# Send & Sync
+
+---
+
+Existen dos traits especiales en Rust para la semántica de concurrencia.
+
+* `Send` marca a una estructura como segura para ser *enviada* entre hilos.
+* `Sync` marca a una estructura como segura para ser *compartida* entre hilos.
+    + (`&T` is `Send`)
+
+---
+
+Estos traits es lo que usa Rust para prevenir "data races".
+
+Son *automáticamente derivados* para todos los tipos si son apropiados.
+
+---
+
+## Derivación automática
+
+```rust
+use std::thread;
+
+#[derive(Debug)]
+struct Thing;
+
+// Can send between threads!
+fn main() {
+    let thing = Thing;
+    
+    thread::spawn(move || {
+        println!("{:?}", thing);
+    }).join();
+}
+```
+
+---
+
+Existen algunos tipos notables que no son `Send` o `Sync`.
+
+Como `Rc`, punteros crudos (raw pointers), y `UnsafeCell`.
+
+---
+
+## Ejemplo: `Rc`
+
+```rust
+use std::rc::Rc;
+use std::thread;
+
+// ¡No funciona!
+fn main() {
+    let only_one_thread = Rc::new(true);
+
+    thread::spawn(move || {
+        println!("{:?}", only_one_thread);
+    }).join();
+}
+```
+
+---
+
+## Ejemplo: `Rc`
+
+```
+error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not satisfied
+ --> <anon>:7:5
+  |
+7 |     thread::spawn(move || {
+  |     ^^^^^^^^^^^^^ the trait `std::marker::Send` is not implemented for `std::rc::Rc<bool>`
+```
+
+---
+
+## Implementando
+
+Es posible agregar la implementación de `Send` y `Sync` a un tipo.
+
+```rust
+struct Thing(*mut String);
+
+unsafe impl Send for Thing {}
+unsafe impl Sync for Thing {}
+```
+
+En estos casos, la tarea de la seguridad en threads se deja al implementador.
+
+---
+
+## Relaciones
+
+Si un tipo implementa `Sync` y `Copy` entonces también puede implementar `Send`.
+
+---
+
+## Relaciones
+
+Un tipo `&T` puede implementar `Send` si el tipo `T` también implementa `Send`.
+
+```rust
+unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
+```
+
+---
+
+## Relaciones
+
+Un tipo `&mut T` puede implementar `Send` si el tipo `T` también implementa `Send`.
+
+```rust
+unsafe impl<'a, T: Send + ?Sized> Send for &'a mut T {}
+```
+
+---
+
+## Consecuencias
+
+¿Cuáles son las consecuencias de tener `Send` and `Sync`?
+
+---
+
+## Consecuencias
+
+Cargando esta información al nivel del sistema de tipos permite detectar condiciones de carrera a un nivel de *timepo de compilación*.
+
+Previniendo esta clase de errores de llegar a sistemas en producción.

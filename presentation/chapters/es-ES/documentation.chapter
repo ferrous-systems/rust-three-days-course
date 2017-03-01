@@ -1,0 +1,96 @@
+# Documentación
+
+---
+
+## `rustdoc`
+
+Rust provee una herramienta de documentación estándar llamada `rustdoc`. Es comúnmente usada a través de `cargo doc`.
+
+Debido a esto el código de Rust es casi siempre documentado con un formato común.
+
+---
+
+## Documentación `std`
+
+La documentación de la librería estándar está hospedada en https://doc.rust-lang.org/std/.
+
+Una versión local offline puede ser abierta con:
+
+```bash
+rustup doc --std
+```
+
+---
+
+## Documentación de Crate
+
+La documentación de los `crates` o cajas disponibles en http://crates.io/ se puede encontrar en https://docs.rs/.
+
+Algunos crates pueden tambien tener otra documentación la cual puede ser encontrada en el link "Documentation" en su página dentro de http://crates.io/.
+
+---
+
+## Ejemplo: Un módulo
+
+<iframe src="https://doc.rust-lang.org/std/vec/" width=100% height=400></iframe>
+
+---
+
+## Ejemplo: Un módulo
+
+Esta página documenta el módulo `vec`.
+
+Inicia con algunos ejemplos, luego lista cada `struct`, traits o funciones que el modulo exporta.
+
+---
+
+## ¿Cómo es generada?
+
+`rustdoc` puede leer código Rust y documentos Markdown.
+
+Los comentarions `//!` y `///` son leídos como Markdown.
+
+```rust
+//! Comentario de documentación de módulo como la sección de ejemplos de `std::vec`.
+
+/// Documenta funciones, estructuras y traits.
+/// Aquí se documenta una función
+fn function_with_documentation() {}
+
+// Este comentario no aparecerá como documentación.
+// La función aún se muestra.
+fn function_without_documentation() {}
+```
+
+---
+
+## Ejemplo: Componentes
+
+<iframe src="https://doc.rust-lang.org/std/string/#structs" width=100% height=400></iframe>
+
+---
+
+## Ejemplo: Funciones
+
+<iframe src="https://doc.rust-lang.org/std/string/struct.String.html#method.new" width=100% height=400></iframe>
+
+---
+
+## Ejemplos de código
+
+Por defecto los bloques de código en la documentación son probados.
+
+<pre><code>
+/// ```rust
+/// assert_eq!(always_true(), true)
+/// ```
+fn always_true() -> bool { true }
+</code></pre>
+
+---
+
+## Navegación
+
+Los argumentos y tipos de retorno de funciones son ligas a sus respectivos tipos.
+
+La barra lateral de la izquierda ofrece una navegación rápida a otras partes del módulo.

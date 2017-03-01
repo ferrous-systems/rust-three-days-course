@@ -1,0 +1,88 @@
+# Genéricos simples
+
+---
+
+Los genéricos son fundamentales para Rust.
+
+---
+
+## Estructuras genéricas
+
+```rust
+struct Point<Precision> {
+    x: Precision,
+    y: Precision
+}
+
+fn main() {
+    let point = Point { x: 1u32, y: 2 };
+    let point: Point<i32> { x: 1, y: 2 };
+}
+```
+
+---
+
+## Inferencia de tipos
+
+Rust encuentra los tipos de todas las variables y genéricos con suficiente información.
+
+Esto sólo aplica _dentro_ de los límites de una función.
+
+Las firmas deben ser ingresadas completamente.
+
+---
+
+## Enums genéricos
+
+```rust
+enum Either<T, X> {
+    Left(T),
+    Right(X)
+}
+
+fn main() {
+    let alternative: Either<i32, f64> = Either::Left(i32);
+}
+```
+
+---
+
+## Enums genéricos importantes.
+
+---
+
+## Option
+
+```rust
+enum Option<T> {
+    Some(T),
+    None
+}
+
+fn main() {
+    let args = std::os::args;
+    println!("{:?} {:?}", args.at(0), args.at(1))
+}
+```
+
+Describe un valor que no necesariamente debe estar presente.
+
+`None` es un valor y no debe ser confundido con `null`.
+
+---
+
+## Result
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+fn main() {
+    let file = std::fs::File::open("I don't exist!");
+    println!("{:?}", file);
+}
+```
+
+Describe cuando una operación fue exitosa y devuelve ya sea el valor un error.

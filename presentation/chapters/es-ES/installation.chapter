@@ -1,0 +1,140 @@
+# Las herramientas o toolchain.
+
+Florian Gilcher <florian.gilcher@asquera.de>
+
+---
+
+https://www.rust-lang.org/en-US/install.html
+
+---
+
+## Rustup
+
+Rustup es la herramienta estándar para manejar el conjunto de herramientas de compilación de Rust.
+
+http://rustup.rs/
+
+---
+
+## Commandos importantes
+
+```sh
+# Instala un toolchain
+$ rustup install stable
+# Seleciona un toolchain por defecto
+$ rustup default stable
+# Ver la documentación en un navegador
+$ rustup doc [--std]
+# Listar los objetivos soportados
+$ rustup target list
+# Agregar un objetivo para instalar
+$ rustup target add <target>
+# Listar/agregar un componente
+$ rustup component list|add
+```
+
+---
+
+# Primeros pasos
+
+Ejecute los siguientes comandos:
+
+```sh
+$ rustup component add rust-src
+$ rustup component add rust-docs
+```
+
+Esto carga el codigo fuente y documentación de la librería estándar
+para su uso offline.
+
+---
+
+## Contenido del Toolchain
+
+* rustc
+* cargo
+* rustdoc
+* rust-(lldb|gdb)
+* libcore/libstd
+
+El debugger instalado depende de la plataforma.
+
+---
+
+## rustc
+
+```sh
+$ rustc --help
+```
+
+El compilador Rust construye y liga el código Rust.
+
+`rustc` está casi completamente desarrollado en Rust.
+
+---
+
+## Prueba funcional
+
+```rust
+fn main() {
+    println!("Hello, World!");
+}
+```
+
+---
+
+```sh
+$ rustc hello_world.rs
+$ ./hello_world
+Hello, World!
+```
+
+---
+
+## Cargo
+
+```sh
+$ cargo --help
+```
+
+---
+
+Cargo es la herramienta de Rust para construir y manejar paquetes.
+
+Cargo es instalada junto con `rustc`, pero no está ligada a una versión de `rustc`.
+
+---
+
+## Una vez más con Cargo
+
+```sh
+$ cargo new hello-world --bin
+$ cd hello-world
+$ cat hello-world
+fn main() {
+    println!("Hello, world!");
+}
+$ cargo build
+   Compiling hello-world v0.1.0 (file:///Users/skade/Code/rust/scratchpad/hello-world)
+    Finished debug [unoptimized + debuginfo] target(s) in 0.35 secs
+$ cargo run
+    Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
+     Running `target/debug/hello-world`
+Hello, world!
+```
+
+---
+
+## En un pequeño vistazo.
+
+* ¿Qué hay en Cargo.toml?
+* ¿Qué hay en Cargo.lock?
+
+---
+
+## Cargo también maneja herramientas.
+
+```sh
+$ cargo +nightly install clippy
+$ cargo +nightly install rustfmt
+```

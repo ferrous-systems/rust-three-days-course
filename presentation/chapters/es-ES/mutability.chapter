@@ -1,0 +1,39 @@
+# Mutabilidad
+
+---
+
+Los lenguajes de programación modernos difieren en su actitud hacia la mutabilidad de datos.
+
+¿Dónde se planta Rust?
+
+---
+
+## Un ejemplo
+
+```rust
+fn main() {
+    let answer = 42;
+    answer = 32;
+}
+```
+
+---
+
+## Correct
+
+```rust
+fn main() {
+    let mut answer = 42;
+    answer = 32;
+}
+```
+
+---
+
+En Rust la mutabilidad de datos debe ser declarada.
+
+La mutabilidad siempre es aparente leyendo el código.
+
+---
+
+La mutabilidad es fundamental para Rust y es una consideración común.
