@@ -54,40 +54,40 @@ impl Point {
     fn new(x: i32, y: i32) -> Point {
         Point { x: x, y: y }
     }
-    
+
     fn from_pair(pair: (i32, i32)) -> Point {
         Point { x: pair.0, y: pair.1 }
     }
-    
+
     fn into_pair(self) -> (i32, i32) {
        (self.x, self.y)
     }
-    
+
     fn inspect(&self) {
-        println!("Current point value: {:?}", self); 
+        println!("Current point value: {:?}", self);
     }
-    
+
     fn move(&mut self, x: i32, y: i32) {
         self.x = x;
         self.y = y;
     }
-    
+
     fn x(&self) -> &i32 {
         &self.x
     }
-    
+
     fn x_mut(&self) -> &mut i32 {
         &mut self
     }
-    
+
     fn y(&self) -> &i32 {
         &self.y
     }
-    
+
     fn y_mut(&self) -> &mut i32 {
         &mut self
     }
-    
+
 }
 
 fn main() {
@@ -109,7 +109,7 @@ No es diferente de lo normal, pero al principio un poco desconocido.
 
 * El préstamo en una función _simultáneamente cede self_.
 * Esto es especialmente aplicable para préstamos mutables.
-* `self` sin ` & ` devuelve la propiedad al valor del contexto llamante.
+* `self` sin ` & ` devuelve la propiedad al valor del contexto que la invoca.
 
 ---
 
@@ -123,7 +123,7 @@ No es diferente de lo normal, pero al principio un poco desconocido.
 
 ## Atributos
 
-* La implementación puede ocurrir múltiples veces
+* La implementación puede ocurrir múltiples veces.
 
 ---
 

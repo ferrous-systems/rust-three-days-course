@@ -10,9 +10,9 @@ Impulsan el poderoso sistema de tipos para conseguir tareas fundamentales.
 
 ## Visión general
 
-* `Option<T>` - Remueve la necesidad de la primitivia `null`.
+* `Option<T>` - Remueve la necesidad de la primitiva `null`.
 * `Result<T,E>` - Remueve la necesidad de excepciones.
-* `Vec<T>` - Arreglos incrementables.
+* `Vec<T>` - Arreglos de tamaño variable.
 * `HashMap<K,V>` - Almacenamiento en Llave-valor.
 
 ---
@@ -54,7 +54,7 @@ Esta característica ayuda a remover el *misterio* del proceso de desarrollo y a
 
 ## `Option<T>`: Desenvolviendo
 
-`unwrap()` creara un "panic" en la aplicación si el valor es `None`. 
+`unwrap()` creara un "panic" en la aplicación si el valor es `None`.
 
 Esto sólo es recomendado en pruebas y prototipos.
 
@@ -132,7 +132,7 @@ El manejo de escenarios con errores complejos será abordado en un capítulo pos
 
 ## `Vec<T>`
 
-Arreglos incrementables, mutables y propios localizados en el heap.
+Arreglos de tamaño variable, mutables y propios localizados en el heap.
 
 ```rust
 stuct Vec<T> {

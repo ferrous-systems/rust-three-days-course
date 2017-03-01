@@ -11,7 +11,7 @@ Los más comunes son `String` y `&str`.
 ## `String`
 
 * *Posee* el dato que almacena, y puede mutar libremente.
-* Existe como un puntero a algunos bytes, a longitu y capacidad.
+* Existe como un puntero a algunos bytes, a longitud y capacidad.
 * Existe en el *heap*.
 * No implementa `Copy`, pero implementa `Clone`.
 
@@ -42,7 +42,7 @@ fn main() {
 
 ## ¿Cuándo usar qué?
 
-* `String` es la forma *facil* de usar cuando se empieza. Refinar después.
+* `String` es la forma *fácil* de usar cuando se empieza. Refinar después.
 * `String` posee sus datos, así que funciona bien como un campo en una estructura o enum.
 
 * `&'static str` funciona bien para valores constantes.
@@ -75,7 +75,7 @@ Esto es porque `String`s implementa `Deref<Target=str>`.
 
 * `CStr` y `CString` pueden verse al trabajar con FFI.
 
-La diferencia entre `*Str` y `*String` es generalmente la misma que los typos normales.
+La diferencia entre `*Str` y `*String` es generalmente la misma que los tipos normales.
 
 ---
 
