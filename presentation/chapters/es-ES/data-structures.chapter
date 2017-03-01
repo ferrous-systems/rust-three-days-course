@@ -94,7 +94,7 @@ Las diferentes elecciones de un Enum son llamadas "variantes".
 
 ---
 
-## Enums con valores
+## Enums con valores como variantes
 
 ```rust
 enum Movement {

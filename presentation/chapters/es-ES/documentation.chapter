@@ -6,7 +6,7 @@
 
 Rust provee una herramienta de documentación estándar llamada `rustdoc`. Es comúnmente usada a través de `cargo doc`.
 
-Debido a esto el código de Rust es casi siempre documentado con un formato común.
+Debido a esto el código de Rust está casi siempre documentado con un formato común.
 
 ---
 
