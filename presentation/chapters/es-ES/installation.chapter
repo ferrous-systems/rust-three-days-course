@@ -16,7 +16,7 @@ http://rustup.rs/
 
 ---
 
-## Commandos importantes
+## Comandos importantes
 
 ```sh
 # Instala un toolchain
@@ -44,7 +44,7 @@ $ rustup component add rust-src
 $ rustup component add rust-docs
 ```
 
-Esto carga el codigo fuente y documentación de la librería estándar
+Esto carga el código fuente y documentación de la librería estándar
 para su uso offline.
 
 ---

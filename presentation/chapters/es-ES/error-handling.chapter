@@ -69,7 +69,7 @@ fn main() {
 
 ## Usando `Result` con `?`
 
-Use `?` en funciones con múltiples posibles fallos. 
+Use `?` en funciones con múltiples fallos posibles.
 
 ```rust
 fn multiple_possible_failures() -> Result<String,String> {
@@ -103,7 +103,7 @@ Note la salida temprana del programa.
 
 Es posible cambiar un `Result<T,E>` a `Result<U,E>` sin desenvolverlo.
 
-Transformar un `Result<T,E>` a `Result<T,X>` es tambien posible.
+Transformar un `Result<T,E>` a `Result<T,X>` es también posible.
 
 <pre class="diagram">
 +-----+   +-----+   +-----+
@@ -113,7 +113,7 @@ Transformar un `Result<T,E>` a `Result<T,X>` es tambien posible.
 
 ---
 
-## Mapando valores `Result`
+## Mapeando valores `Result`
 
 ```rust
 fn main() {

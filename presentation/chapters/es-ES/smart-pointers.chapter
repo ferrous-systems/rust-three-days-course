@@ -63,7 +63,7 @@ fn main() {
 
 * Es similar a `Rc`, sin embargo la existencia de los datos no es garantizada
 * Un sólo thread: El dato es garantizado para estar disponible durante el tiempo de la operación
-* _No_ es automáticamente desreferenciado
+* _No_ es automáticamente des reverenciado
 * `Rc` circulares son fugas de memoria, los punteros débiles previenen eso
 
 ---

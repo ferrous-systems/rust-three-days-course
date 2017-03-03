@@ -27,7 +27,7 @@ struct Thing;
 // Can send between threads!
 fn main() {
     let thing = Thing;
-    
+
     thread::spawn(move || {
         println!("{:?}", thing);
     }).join();
@@ -121,6 +121,6 @@ unsafe impl<'a, T: Send + ?Sized> Send for &'a mut T {}
 
 ## Consecuencias
 
-Cargando esta información al nivel del sistema de tipos permite detectar condiciones de carrera a un nivel de *timepo de compilación*.
+Cargando esta información al nivel del sistema de tipos permite detectar condiciones de carrera a un nivel de *tiempo de compilación*.
 
 Previniendo esta clase de errores de llegar a sistemas en producción.

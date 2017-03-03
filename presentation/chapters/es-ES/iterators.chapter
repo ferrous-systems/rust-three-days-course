@@ -4,9 +4,9 @@
 
 Los iteradores de Rust son:
 
-* Perezosos (lazy)
-* Penetrante (pervasive)
-* Potencialmente infinitos
+* Perezosos (lazy).
+* Penetrante (pervasive).
+* Potencialmente infinitos.
 
 ---
 
@@ -62,7 +62,7 @@ fn main() {
 
 ## `filter()`
 
-Filtra valores no deseados, saltando calculos adicionales en ellos:
+Filtra valores no deseados, saltando cálculos adicionales en ellos:
 
 ```rust
 fn main() {
@@ -115,12 +115,12 @@ Unen iteradores y los separan en partes también:
 fn main() {
     let first = 0..10;
     let second = 10..20;
-    
+
     let (first_again, _): (Vec<_>, Vec<_>) = first
         .zip(second)
         .inspect(|x| println!("Inspect: {:?}", x))
         .unzip();
-    
+
     for item in first_again {
         println!("{}", item);
     }
