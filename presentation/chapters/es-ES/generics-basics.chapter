@@ -85,4 +85,4 @@ fn main() {
 }
 ```
 
-Describe cuando una operación fue exitosa y devuelve ya sea el valor un error.
+Describe cuando una operación fue exitosa y devuelve ya sea el valor o un error.
