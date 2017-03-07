@@ -4,17 +4,17 @@
 
 Los iteradores de Rust son:
 
-* Perezosos (lazy).
-* Penetrante (pervasive).
-* Potencialmente infinitos.
+-   Perezosos (lazy).
+-   Penetrante (pervasive).
+-   Potencialmente infinitos.
 
 ---
 
 ## ¿De dónde vienen?
 
-* Colecciones como `Vec<T>` tienen una función `iter()` que produce un iterador.
-* Cosas como `std::net::TcpListener` produce un iterador de `TcpStream`s a través de su función `incoming()`.
-* Los iteradores pueden ser implementados en otras estructuras.
+-   Colecciones como `Vec<T>` tienen una función `iter()` que produce un iterador.
+-   Cosas como `std::net::TcpListener` produce un iterador de `TcpStream`s a través de su función `incoming()`.
+-   Los iteradores pueden ser implementados en otras estructuras.
 
 ---
 
@@ -26,16 +26,7 @@ Los iteradores de Rust son:
 
 Los iteradores puede ser manualmente incrementados:
 
-```rust
-fn main() {
-    let items = vec![0, 1, 2];
-    let iterator = items.iter();
-    assert_eq!(iterator.next(), Some(0));
-    assert_eq!(iterator.next(), Some(1));
-    assert_eq!(iterator.next(), Some(1));
-    assert_eq!(iterator.next(), None);
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,20 +34,7 @@ fn main() {
 
 Transforman elementos mientras son evaluados:
 
-```rust
-fn main() {
-    let fizzbuzz = (0..10_000)
-        .map(|x| match x {
-            x if x % 15 == 0 => String::from("Fizzbuzz"),
-            x if x % 3  == 0 => String::from("Fizz"),
-            x if x % 5  == 0 => String::from("Buzz"),
-            x => format!("{}", x),
-        });
-    for item in fizzbuzz {
-        println!("{}", item);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -64,15 +42,7 @@ fn main() {
 
 Filtra valores no deseados, saltando cálculos adicionales en ellos:
 
-```rust
-fn main() {
-    let evens = (0..10_000)
-        .filter(|x| x % 2 == 0);
-    for item in evens {
-        println!("{}", item);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -80,15 +50,7 @@ fn main() {
 
 Reduce una secuencia de valores a un valor único:
 
-```rust
-fn factorial(val: usize) -> usize {
-    (1..val).rev().fold(1, |acc, x| acc * x)
-}
-
-fn main() {
-    println!("{}", factorial(10));
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -96,14 +58,7 @@ fn main() {
 
 Causan que los iteradores se repitan y finalicen tempranamente:
 
-```rust
-fn main() {
-    // Limita la salida a 30 para evitar un ciclo infinito.
-    for item in (0..10).cycle().take(30) {
-        println!("{}", item);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -111,21 +66,7 @@ fn main() {
 
 Unen iteradores y los separan en partes también:
 
-```rust
-fn main() {
-    let first = 0..10;
-    let second = 10..20;
-
-    let (first_again, _): (Vec<_>, Vec<_>) = first
-        .zip(second)
-        .inspect(|x| println!("Inspect: {:?}", x))
-        .unzip();
-
-    for item in first_again {
-        println!("{}", item);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -133,12 +74,7 @@ fn main() {
 
 Devuelve el valor mínimo o máximo de un iterador.
 
-```rust
-fn main() {
-    println!("{}", (0..50).max().unwrap());
-    println!("{}", (0..50).min().unwrap());
-}
-```
+<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -146,11 +82,5 @@ fn main() {
 
 Esto no funciona
 
-```rust
-fn main() {
-    let mut iter = vec![1,2,3].iter();
-    println!("{:?}", iter.next());
-}
-```
-
+<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust"></code></pre>
 ¿Por qué? Piense acerca del alcance y propiedad (scoping & ownership!)

@@ -4,10 +4,10 @@
 
 ## ¿Por qué?
 
-* Las dependencias pueden requerir un nightly.
-* Mensajes de compilación y errores pueden a veces ser mejores (a veces no).
-* Hay muchas funcionalidades que aun no son estables.
-* Plugins del compilador.
+-   Las dependencias pueden requerir un nightly.
+-   Mensajes de compilación y errores pueden a veces ser mejores (a veces no).
+-   Hay muchas funcionalidades que aun no son estables.
+-   Plugins del compilador.
 
 ---
 
@@ -25,10 +25,7 @@ Se espera que el número de paquetes que requieren nightly se reduzca significat
 
 Use `rustup` para sobreescribir la versión usada en un directorio específico.
 
-```bash
-cd /nightly_project
-rustup override set nightly
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/1.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
@@ -38,9 +35,9 @@ Las características son controladas detrás de "Feature Flags" que son habilita
 
 Algunos ejemplos:
 
-* `asm` que provee soporte de ensamblador alineado.
-* `no_std` que deshabilita la inclusión implícita `extern crate std`
-* `inclusive_range`, similar al estable `exclusive_range`
+-   `asm` que provee soporte de ensamblador alineado.
+-   `no_std` que deshabilita la inclusión implícita `extern crate std`
+-   `inclusive_range`, similar al estable `exclusive_range`
 
 ---
 
@@ -48,9 +45,7 @@ Algunos ejemplos:
 
 Para habilitar una característica, agregue la siguiente linea en `src/main.rs` (para ejecutables), o `src/lib.rs` (para librerías):
 
-```rust
-#![feature(asm, no_std)]
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -58,9 +53,9 @@ Para habilitar una característica, agregue la siguiente linea en `src/main.rs` 
 
 Los plugins del compilador agregan características adicionales a Rust. Por ejemplo:
 
-* (Anteriormente) derivación personalizada
-* Linters
-* Librerías como [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin)
+-   (Anteriormente) derivación personalizada
+-   Linters
+-   Librerías como [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin)
 
 ---
 
@@ -68,6 +63,5 @@ Los plugins del compilador agregan características adicionales a Rust. Por ejem
 
 Para habilitar un plugin del compilador agregue la siguiente linea a `src/main.rs` (para ejecutables), o `src/lib.rs` (para librerías):
 
-```rust
-#![plugin(some_plugin)]
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/3.rs" data-trim="hljs rust"></code></pre>
+

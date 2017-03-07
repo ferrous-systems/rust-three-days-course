@@ -4,23 +4,13 @@
 
 ## Declaración
 
-```rust
-fn add(first: i32, second: i32) -> i32 {
-    first + second
-}
-```
+<pre><code data-source="chapters/shared/code/functions/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Argumentos
 
-```rust
-fn por_valor(arg: i32) {}
-
-fn por_referencia(arg: &i32) {}
-
-fn por_referencia_mutable(arg: &mut i32) {}
-```
+<pre><code data-source="chapters/shared/code/functions/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -28,17 +18,7 @@ fn por_referencia_mutable(arg: &mut i32) {}
 
 Valores de retorno son opcionales.
 
-```rust
-fn no_regresa_nada() {}
-
-fn devuelve_numero_aleatorio() -> i32 {
-    4 // Aleatorio garantizado, elegido con un dado.
-}
-
-fn puede_devolver_un_numero_aleatorio(should: bool) -> Option<i32> {
-    if should { Some(4) } else { None }
-}
-```
+<pre><code data-source="chapters/shared/code/functions/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -46,37 +26,22 @@ fn puede_devolver_un_numero_aleatorio(should: bool) -> Option<i32> {
 
 Las funciones genéricas tienen parámetros de tipos.
 
-```rust
-fn acepta_cualquier_tipo<T>(arg: T) {
-    // ...
-}
-
-fn transmuta<T, U>(arg: T) -> U {
-    // ...
-}
-```
+<pre><code data-source="chapters/shared/code/functions/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Con limites
 
-Las funciones genéricas pueden tener límites. 
+Las funciones genéricas pueden tener límites.
 
 Estos son equivalentes:
 
-```rust
-fn con_limite<T: Display>(arg: T) -> String {
-    // ...
-}
-
-fn clausula_where<T>(arg: T) -> String where T: Display {
-    // ...
-}
-```
+<pre><code data-source="chapters/shared/code/functions/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 # Observaciones
 
-* Los tipos que no tienen el trait `Copy` son consumidos cuando se pasan por valor.
-* Devolver referencias puede involucrar clarificar `lifetimes` (discutidos más adelante).
+-   Los tipos que no tienen el trait `Copy` son consumidos cuando se pasan por valor.
+-   Devolver referencias puede involucrar clarificar `lifetimes` (discutidos más adelante).
+

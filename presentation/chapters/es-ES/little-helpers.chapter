@@ -10,32 +10,21 @@ Así que serán cubiertas en una sección separada más adelante.
 
 ## Cadenas sin pensar
 
-```rust
-fn main() {
-    let hello = String::from("Hello World");
-    println!("{}", hello);
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Estilo de código
 
-* 4 espacios
-* No tabuladores
-* Los bloques se rompen con una línea separada.
+-   4 espacios
+-   No tabuladores
+-   Los bloques se rompen con una línea separada.
 
 ---
 
 ## println!()
 
-```rust
-fn main() {
-    let hello = String::from("Hello World");
-    println("{}", hello); // Muestra la cadena
-    println("{:?}", hello); // Debug
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,38 +32,15 @@ fn main() {
 
 Usaremos para los primeros pasos:
 
-* `String`
-* `Vec<T>` (Vectors)
-* Plain `struct`s
+-   `String`
+-   `Vec<T>` (Vectors)
+-   Plain `struct`s
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let hello = String::from("Hello World");
-    let vec = vec![1,2,3];
-    let point = Point { x: 1, y: 2};
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## \#[derive(Debug)]
+## \#\[derive(Debug)\]
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let point = Box::new(Point { x: 1, y: 2});
-    println!("{:?}", point);
-}
-```
-
+<pre><code data-source="chapters/shared/code/little-helpers/4.rs" data-trim="hljs rust"></code></pre>
 Funciona para todas las estructuras de datos.

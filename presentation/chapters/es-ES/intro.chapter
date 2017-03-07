@@ -6,15 +6,15 @@ Florian Gilcher <florian.gilcher@asquera.de>
 
 ## Introducción rápida
 
-* Rust es un nuevo lenguaje de programación de Mozilla Research.
+-   Rust es un nuevo lenguaje de programación de Mozilla Research.
 
 ---
 
 ## Se enfoca en
 
-* Seguridad
-* Rapidez
-* Concurrencia
+-   Seguridad
+-   Rapidez
+-   Concurrencia
 
 ---
 
@@ -24,6 +24,6 @@ Florian Gilcher <florian.gilcher@asquera.de>
 
 ## Contenido
 
-* [Intro](index.html)
-* [Instalación](index.html?chapter=installation&locale=en-US#)
+-   [Intro](index.html)
+-   [Instalación](index.html?chapter=installation&locale=en-US#)
 

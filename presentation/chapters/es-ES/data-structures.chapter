@@ -8,121 +8,50 @@
 
 ## Definición
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Asignación
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-fn main() {
-    let p = Point { x: 1, y: 1 };
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Acceso a campos
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-fn main() {
-    let p = Point { x: 1, y: 2 };
-    println!("{}", p.x);
-    println!("{}", p.y);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Tuplas
 
-```rust
-fn main() {
-    let p = (1, 2);
-    println!("{}", p.0);
-    println!("{}", p.1);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Tupla estructura
 
-```rust
-struct Point(i32,i32);
-
-fn main() {
-    let p = Point(1, 2);
-    println!("{}", p.0);
-    println!("{}", p.1);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enumeraciones o Enums
 
-```rust
-enum Direction {
-    Right,
-    Left,
-    Up,
-    Down,
-}
-
-fn main() {
-    let direction = Direction::Left;
-}
-```
-
+<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust"></code></pre>
 Las diferentes elecciones de un Enum son llamadas "variantes".
 
 ---
 
 ## Enums con valores como variantes
 
-```rust
-enum Movement {
-    Right(i32),
-    Left(i32),
-    Up(i32),
-    Down(i32),
-}
-
-fn main() {
-    let movement = Movement::Left(12);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enums con estructuras como variantes.
 
-```rust
-enum Actions {
-    StickAround,
-    MoveTo { x: i32, y: 32},
-}
-
-fn main() {
-    let action = Actions::MoveTo { x: 0, y: 0 };
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

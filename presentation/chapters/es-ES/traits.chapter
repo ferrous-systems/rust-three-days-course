@@ -16,22 +16,7 @@ En particular el polimorfismo en tiempo de ejecución, mensajes, clases, subtipo
 
 ## Simple implementación: funciones asociadas.
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-}
-
-fn main() {
-    let point = Point::new(1,2);
-}
-```
+<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,63 +28,7 @@ El uso de `new` es pura convención.
 
 ## Python dice Hola
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-
-    fn from_pair(pair: (i32, i32)) -> Point {
-        Point { x: pair.0, y: pair.1 }
-    }
-
-    fn into_pair(self) -> (i32, i32) {
-       (self.x, self.y)
-    }
-
-    fn inspect(&self) {
-        println!("Current point value: {:?}", self);
-    }
-
-    fn move(&mut self, x: i32, y: i32) {
-        self.x = x;
-        self.y = y;
-    }
-
-    fn x(&self) -> &i32 {
-        &self.x
-    }
-
-    fn x_mut(&self) -> &mut i32 {
-        &mut self
-    }
-
-    fn y(&self) -> &i32 {
-        &self.y
-    }
-
-    fn y_mut(&self) -> &mut i32 {
-        &mut self
-    }
-
-}
-
-fn main() {
-    let p = Point::new(1,2);
-    p.inspect();
-    p.move(2,3);
-    p.inspect();
-    let mut x = p.x_mut();
-    *x = 5;
-    p.inspect();
-}
-```
+<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -107,23 +36,23 @@ fn main() {
 
 No es diferente de lo normal, pero al principio un poco desconocido.
 
-* El préstamo en una función _simultáneamente cede self_.
-* Esto es especialmente aplicable para préstamos mutables.
-* `self` sin ` & ` devuelve la propiedad al valor del contexto que la invoca.
+-   El préstamo en una función *simultáneamente cede self*.
+-   Esto es especialmente aplicable para préstamos mutables.
+-   `self` sin `&` devuelve la propiedad al valor del contexto que la invoca.
 
 ---
 
 ## Interesantes diferencias con la POO
 
-* Los valores se pueden reemplazar a sí mismos.
-* Valores, por ejemplo, iteradores y constructores pueden tener métodos que consumen `self` y son así invalidados.
-* Esto resuelve el problema de invertir iteradores.
+-   Los valores se pueden reemplazar a sí mismos.
+-   Valores, por ejemplo, iteradores y constructores pueden tener métodos que consumen `self` y son así invalidados.
+-   Esto resuelve el problema de invertir iteradores.
 
 ---
 
 ## Atributos
 
-* La implementación puede ocurrir múltiples veces.
+-   La implementación puede ocurrir múltiples veces.
 
 ---
 
@@ -131,18 +60,7 @@ No es diferente de lo normal, pero al principio un poco desconocido.
 
 `Self` es un tipo especial en Rust. Siempre hace referencia al tipo del cual la implementación se refiere.
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Self {
-        Point { x: x, y: y }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/traits/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -160,19 +78,5 @@ Traits definen funciones que los tipos deben implementar. Pueden ser usados gen�
 
 ---
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
+<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust"></code></pre>
 
-trait Distance {
-    fn distance(self, other: Self) -> i32;
-}
-
-impl Distance for Point {
-    fn distance(self, other: Point) -> i32 {
-      // TODO: fill in the blanks
-    }
-}
-```

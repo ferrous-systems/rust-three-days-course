@@ -12,105 +12,58 @@ Pruebas de unidad, integración y documentación vienen integradas.
 
 Las pruebas típicamente terminan en uno de estos 4 posibles lugares:
 
-* Inmediatamente junto a la funcionalidad probada. (Prueba de unidad)
-* En un submódulo de pruebas llamado `tests`. (Pruebas de integración privadas)
-* En documentación. (Pruebas de documentación)
-* El directorio `tests/`. (Pruebas de integración públicas)
+-   Inmediatamente junto a la funcionalidad probada. (Prueba de unidad)
+-   En un submódulo de pruebas llamado `tests`. (Pruebas de integración privadas)
+-   En documentación. (Pruebas de documentación)
+-   El directorio `tests/`. (Pruebas de integración públicas)
 
 ---
 
 ## Pruebas unitarias
 
-* Permiten probar la funcionalidad en el mismo módulo y ambiente.
-* Típicamente existen inmediatamente después de la funcionalidad.
-* Son buenas para probar y estar seguros que una sola acción *funciona*.
+-   Permiten probar la funcionalidad en el mismo módulo y ambiente.
+-   Típicamente existen inmediatamente después de la funcionalidad.
+-   Son buenas para probar y estar seguros que una sola acción *funciona*.
 
 ---
 
 ## Pruebas unitarias
 
-```rust
-enum Direction { North, South, East, West }
-
-fn is_north(dir: Direction) -> bool {
-    match dir {
-        Direction::North => true,
-        _ => false,
-    }
-}
-
-#[test]
-fn is_north_works() {
-    assert!(is_north(Direction::North) == true);
-    assert!(is_north(Direction::South) == false);
-}
-```
+<pre><code data-source="chapters/shared/code/testing/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Pruebas unitarias
 
-```bash
-$ cargo test
-running 1 test
-test is_north_works ... ok
-
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
-```
+<pre><code data-source="chapters/shared/code/testing/2.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
 ## Submódulo `tests`
 
-* Permite probar si la funcionalidad puede ser usada en otro punto del proyecto.
-* Para probar APIs privadas y funcionalidad.
-* Buenas para probar procesos esperados y casos de uso.
+-   Permite probar si la funcionalidad puede ser usada en otro punto del proyecto.
+-   Para probar APIs privadas y funcionalidad.
+-   Buenas para probar procesos esperados y casos de uso.
 
 ---
 
 ## Submódulo `tests`
 
-```rust
-enum Direction { North, South, East, West }
-
-fn is_north(dir: Direction) -> bool {
-    match dir {
-        Direction::North => true,
-        _ => false,
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use super::{is_north, Direction};
-
-    #[test]
-    fn is_north_works() {
-        assert!(is_north(Direction::North) == true);
-        assert!(is_north(Direction::South) == false);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/testing/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Submódulo `tests`
 
-```bash
-$ cargo test
-running 1 test
-test tests::is_north_works ... ok
-
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
-```
+<pre><code data-source="chapters/shared/code/testing/4.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
 ## Pruebas de documentación
 
-* Permiten probar funcionalidad pública.
-* Se muestra en la salida de `rustdoc`.
-* Para demostrar casos de uso y ejemplos.
+-   Permiten probar funcionalidad pública.
+-   Se muestra en la salida de `rustdoc`.
+-   Para demostrar casos de uso y ejemplos.
 
 ---
 
@@ -128,26 +81,14 @@ pub enum Direction { North, South, East, West }
 
 ## Pruebas de documentación
 
-```bash
-$ cargo test
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
-
-   Doc-tests example
-
-running 1 test
-test Direction_0 ... ok
-
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
-```
+<pre><code data-source="chapters/shared/code/testing/5.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
 ## Pruebas de integración
 
-* Prueban el crate como una dependencia externa.
-* Destinada para pruebas largas o de funcionalidad completa.
+-   Prueban el crate como una dependencia externa.
+-   Destinada para pruebas largas o de funcionalidad completa.
 
 ---
 
@@ -155,16 +96,7 @@ test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
 
 `/src/lib.rs`:
 
-```rust
-pub enum Direction { North, South, East, West }
-
-pub fn is_north(dir: Direction) -> bool {
-    match dir {
-        Direction::North => true,
-        _ => false,
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/testing/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -172,37 +104,11 @@ pub fn is_north(dir: Direction) -> bool {
 
 `/tests/basic.rs`:
 
-```rust
-extern crate example;
-use example::{is_north, Direction};
-
-#[test]
-fn is_north_works() {
-    assert!(is_north(Direction::North) == true);
-    assert!(is_north(Direction::South) == false);
-}
-```
+<pre><code data-source="chapters/shared/code/testing/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Pruebas de integración
 
-```bash
-$ cargo test
-running 1 test
-test is_north_works ... ok
+<pre><code data-source="chapters/shared/code/testing/8.bash" data-trim="hljs bash"></code></pre>
 
-test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured
-
-     Running target/debug/deps/example-9f39afa5d2a1c6bf
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
-
-   Doc-tests example
-
-running 0 tests
-
-test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured
-```

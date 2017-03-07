@@ -12,29 +12,16 @@ Todos ellos tienen algo en común: Todos son manejados mediante "ownership".
 
 Conteo de referencias en tiempo de ejecución dentro de un thread.
 
-```rust
-use std::rc::Rc;
-
-struct Point {
-   x: i32,
-   y: i32,
-}
-
-fn main() {
-    let rced_point = Rc::new(Point { x: 1, y: 1});
-    let first_handle = rced_point.clone();
-    let second_handle = rced_point.clone();
-}
-```
+<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Semántica
 
-* `Rc` es un manejador en el dato contenido
-* El manejador puede ser clonado.
-* Si el ultimo manejador cae, tambien el dato lo hace.
-* `Rc<T>` implementa `Deref<Target=T>`
+-   `Rc` es un manejador en el dato contenido
+-   El manejador puede ser clonado.
+-   Si el ultimo manejador cae, tambien el dato lo hace.
+-   `Rc<T>` implementa `Deref<Target=T>`
 
 ---
 
@@ -42,36 +29,23 @@ fn main() {
 
 Puntero débil a un dato.
 
-```rust
-use std::rc::Rc;
-
-struct Point {
-   x: i32,
-   y: i32,
-}
-
-fn main() {
-    let rced_point = Rc::new(Point { x: 1, y: 1});
-    let first_handle = rced_point.clone();
-    let weak = Rc::downgrade(first_handle);
-}
-```
+<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Semántica
 
-* Es similar a `Rc`, sin embargo la existencia de los datos no es garantizada
-* Un sólo thread: El dato es garantizado para estar disponible durante el tiempo de la operación
-* _No_ es automáticamente des reverenciado
-* `Rc` circulares son fugas de memoria, los punteros débiles previenen eso
+-   Es similar a `Rc`, sin embargo la existencia de los datos no es garantizada
+-   Un sólo thread: El dato es garantizado para estar disponible durante el tiempo de la operación
+-   *No* es automáticamente des reverenciado
+-   `Rc` circulares son fugas de memoria, los punteros débiles previenen eso
 
 ---
 
 ## Uso
 
-* Frecuentemente es usando en estructuras de datos que requieren referencias cruzadas
-* Altos costos de tiempo de ejecución para mayor flexibilidad
+-   Frecuentemente es usando en estructuras de datos que requieren referencias cruzadas
+-   Altos costos de tiempo de ejecución para mayor flexibilidad
 
 ---
 
@@ -89,8 +63,8 @@ No utilice `Arc` en una corazonada. `rustc` rechaza codigo usando `Rc` a través
 
 ## `std::borrow::Cow`
 
+-   Copia-al-escribir
+-   Abstrae por encima de préstamo y propiedad (Borrowing and Ownership)
+-   Clona datos sólo cuando es necesario
+-   https://doc.rust-lang.org/std/borrow/enum.Cow.html\#examples
 
-* Copia-al-escribir
-* Abstrae por encima de préstamo y propiedad (Borrowing and Ownership)
-* Clona datos sólo cuando es necesario
-* https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples

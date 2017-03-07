@@ -16,9 +16,7 @@ La documentación de la librería estándar está hospedada en https://doc.rust-
 
 Una versión local offline puede ser abierta con:
 
-```bash
-rustup doc --std
-```
+<pre><code data-source="chapters/shared/code/documentation/1.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
@@ -32,7 +30,8 @@ Algunos crates pueden tambien tener otra documentación la cual puede ser encont
 
 ## Ejemplo: Un módulo
 
-<iframe src="https://doc.rust-lang.org/std/vec/" width=100% height=400></iframe>
+<iframe src="https://doc.rust-lang.org/std/vec/" width="100%" height="400">
+</iframe>
 
 ---
 
@@ -50,29 +49,21 @@ Inicia con algunos ejemplos, luego lista cada `struct`, traits o funciones que e
 
 Los comentarions `//!` y `///` son leídos como Markdown.
 
-```rust
-//! Comentario de documentación de módulo como la sección de ejemplos de `std::vec`.
-
-/// Documenta funciones, estructuras y traits.
-/// Aquí se documenta una función
-fn function_with_documentation() {}
-
-// Este comentario no aparecerá como documentación.
-// La función aún se muestra.
-fn function_without_documentation() {}
-```
+<pre><code data-source="chapters/shared/code/documentation/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Ejemplo: Componentes
 
-<iframe src="https://doc.rust-lang.org/std/string/#structs" width=100% height=400></iframe>
+<iframe src="https://doc.rust-lang.org/std/string/#structs" width="100%" height="400">
+</iframe>
 
 ---
 
 ## Ejemplo: Funciones
 
-<iframe src="https://doc.rust-lang.org/std/string/struct.String.html#method.new" width=100% height=400></iframe>
+<iframe src="https://doc.rust-lang.org/std/string/struct.String.html#method.new" width="100%" height="400">
+</iframe>
 
 ---
 
