@@ -8,16 +8,7 @@ Rust allokiert standardmässig auf dem Stack.
 
 ## Stack-Allokation
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let point = Point { x: 1, y: 1};
-}
-```
+<pre><code data-source="chapters/shared/code/stack-and-heap/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -25,17 +16,7 @@ fn main() {
 
 Heap-Allokation wird in Rust durch den Typ `Box` dargestellt.
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let point = Point { x: 1, y: 1};
-    let point_on_heap = Box::new(point);
-}
-```
+<pre><code data-source="chapters/shared/code/stack-and-heap/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,33 +24,16 @@ fn main() {
 
 `Box` wird besessen, die Daten können allerdings ausgeliehen werden.
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let point = Point { x: 1, y: 1};
-    let point_on_heap = Box::new(point);
-    print_point(&point_on_heap);
-}
-
-fn print_point(p: &Point) {
-    println!("{:?}", p);
-}
-```
+<pre><code data-source="chapters/shared/code/stack-and-heap/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Placement in
 
-Momentan ist es _nicht_ möglich, Daten direkt an einer gewünschten Stelle zu allokieren. Das nötige Feature nennt sich "Placement in".
+Momentan ist es *nicht* möglich, Daten direkt an einer gewünschten Stelle zu allokieren. Das nötige Feature nennt sich "Placement in".
 
 [Details zum Stand hier](https://internals.rust-lang.org/t/lang-team-minutes-feature-status-report-placement-in-and-box/4646)
 
 ---
 
 In den meisten Fällen optimiert LLVM dies aber eh schon raus.
-

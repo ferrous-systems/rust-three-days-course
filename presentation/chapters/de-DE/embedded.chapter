@@ -4,17 +4,15 @@
 
 ## Anlaufstellen
 
-[http://www.rust-embedded.org/](http://www.rust-embedded.org/)
+<http://www.rust-embedded.org/>
 
 ---
 
 ## Stack
 
-Xargo: Cross-kompilierung mit libcore und libstd:
-[https://github.com/japaric/xargo](https://github.com/japaric/xargo)
+Xargo: Cross-kompilierung mit libcore und libstd: <https://github.com/japaric/xargo>
 
-Cross: Cross-Testing der Resultate mit QEMU
-[https://github.com/japaric/cross](https://github.com/japaric/cross)
+Cross: Cross-Testing der Resultate mit QEMU <https://github.com/japaric/cross>
 
 ---
 
@@ -22,11 +20,11 @@ Cross: Cross-Testing der Resultate mit QEMU
 
 Discovery: Discovering microcontrollers through Rust.
 
-[https://github.com/japaric/discovery](https://github.com/japaric/discovery)
+<https://github.com/japaric/discovery>
 
 Copper: Microcontroller programmieren mit Rust und Cortex-M.
 
-[https://japaric.github.io/copper/](https://japaric.github.io/copper/)
+<https://japaric.github.io/copper/>
 
 ---
 
@@ -38,20 +36,21 @@ Tock, ein Betriebssystem für Cortex-M-Prozessoren: [tockos.org](tockos.org)
 
 ## Probleme
 
-* LLVM-Target-Support
-    - LLVM war bisher gut auf Platformen, auf denen Apple unterwegs ist
-    - Das heisst nicht, das LLVM in irgendeiner Art feindlich wäre!
-* Ungelöste Ansätze in Rust, insbesondere Bitfields
-* Inline-Assembly und ähnliches ist instabil
-* Core-Entwickler sind Desktop- und Serverentwickler und haben wenig Erfahrung
-    - "Lieber erstmal garnicht, als schlecht!"
-* Wir brauchen hier unbedingt Vendor-buy-in
+-   LLVM-Target-Support
+    -   LLVM war bisher gut auf Platformen, auf denen Apple unterwegs ist
+    -   Das heisst nicht, das LLVM in irgendeiner Art feindlich wäre!
+-   Ungelöste Ansätze in Rust, insbesondere Bitfields
+-   Inline-Assembly und ähnliches ist instabil
+-   Core-Entwickler sind Desktop- und Serverentwickler und haben wenig Erfahrung
+    -   "Lieber erstmal garnicht, als schlecht!"
+-   Wir brauchen hier unbedingt Vendor-buy-in
 
 ---
 
 ## Lösung
 
-* Rust ist eine treibende Kraft hinter besserem Target-Support in LLVM
-    - Mehrere Targets, unter anderem AVR, unterwegs in den nächsten Versionen
-* Enthusiastische Embedded-Community
-* Rust hat einen sehr guten Community-Prozess für Features, die Core nicht lösen kann
+-   Rust ist eine treibende Kraft hinter besserem Target-Support in LLVM
+    -   Mehrere Targets, unter anderem AVR, unterwegs in den nächsten Versionen
+-   Enthusiastische Embedded-Community
+-   Rust hat einen sehr guten Community-Prozess für Features, die Core nicht lösen kann
+

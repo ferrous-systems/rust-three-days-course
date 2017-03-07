@@ -12,29 +12,16 @@ Generell ist ihnen gemein: sie werden über Ownership gemanagt.
 
 Laufzeit-Reference-Counter innerhalb eines Threads.
 
-```rust
-use std::rc::Rc;
-
-struct Point {
-   x: i32,
-   y: i32,
-}
-
-fn main() {
-    let rced_point = Rc::new(Point { x: 1, y: 1});
-    let first_handle = rced_point.clone();
-    let second_handle = rced_point.clone();
-}
-```
+<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Semantik
 
-* `Rc` ist ein Handle auf die enthaltenen Daten
-* Das Handle kann geklont werden
-* Wenn das letzte Handle droppt, droppen die Daten mit
-* `Rc<T>` implementiert `Deref<Target=T>`
+-   `Rc` ist ein Handle auf die enthaltenen Daten
+-   Das Handle kann geklont werden
+-   Wenn das letzte Handle droppt, droppen die Daten mit
+-   `Rc<T>` implementiert `Deref<Target=T>`
 
 ---
 
@@ -42,43 +29,29 @@ fn main() {
 
 Schwacher Pointer auf Daten.
 
-```rust
-use std::rc::Rc;
-
-struct Point {
-   x: i32,
-   y: i32,
-}
-
-fn main() {
-    let rced_point = Rc::new(Point { x: 1, y: 1});
-    let first_handle = rced_point.clone();
-    let weak = Rc::downgrade(first_handle);
-}
-```
+<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Semantik
 
-* Ähnlich `Rc`, die Existenz der Daten ist aber nicht garantiert
-* Single-Threaded: Die Daten sind garantiert über die Zeit einer Operation verfügbar
-* Wird _nicht_ automatisch dereferenziert
-* `Rc`-Kreise sind Speicherlecks, Weak-Pointer verhindern das
+-   Ähnlich `Rc`, die Existenz der Daten ist aber nicht garantiert
+-   Single-Threaded: Die Daten sind garantiert über die Zeit einer Operation verfügbar
+-   Wird *nicht* automatisch dereferenziert
+-   `Rc`-Kreise sind Speicherlecks, Weak-Pointer verhindern das
 
 ---
 
 ## Nutzen
 
-* Häufig in Datenstrukturen gebraucht, die komplexe Querreferenzierungen brauchen
-* Höhere Laufzeitkosten für mehr Flexibilität
+-   Häufig in Datenstrukturen gebraucht, die komplexe Querreferenzierungen brauchen
+-   Höhere Laufzeitkosten für mehr Flexibilität
 
 ---
 
 ## `std::sync::Arc<T>`
 
-Ein teurer `Rc`, der über Threadgrenzen hinweg funktioniert, da ein atomarer Zähler
-zum Inkrementieren verwendet wird.
+Ein teurer `Rc`, der über Threadgrenzen hinweg funktioniert, da ein atomarer Zähler zum Inkrementieren verwendet wird.
 
 ---
 
@@ -90,7 +63,8 @@ Nutzen Sie `Arc` nicht "auf Verdacht" - `rustc` lehnt Code ab, der `Rc` über Th
 
 ## `std::borrow::Cow`
 
-* Copy-on-write
-* Abstrahiert über Leihe und Besitz
-* Klont enthaltene Daten nur bei Notwendigkeit
-* https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples
+-   Copy-on-write
+-   Abstrahiert über Leihe und Besitz
+-   Klont enthaltene Daten nur bei Notwendigkeit
+-   https://doc.rust-lang.org/std/borrow/enum.Cow.html\#examples
+

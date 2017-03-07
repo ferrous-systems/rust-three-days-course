@@ -6,29 +6,11 @@ Use `match` to check the variants of Enums.
 
 ---
 
-```rust
-fn main() {
-    let args = std::env::args;
-    
-    match args.at(1) {
-        Some(arg) => { println!("Submitted Argument: {}", arg)},
-        None => { println!("No Argument submitted!") }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/match/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-```rust
-fn main() {
-    let maybe_file = std::fs::File::open("Is not there!");
-    
-    match maybe_file {
-        Ok(f) => { println!("File opened! Debug: {:?}", f) },
-        Err(e) => { println!("File not opened! Error: {:?}", e) }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -38,25 +20,11 @@ Matches must cover all variants.
 
 ## Ignore Other Variants
 
-```rust
-fn main() {
-    let maybe_file = std::fs::File::open("Is not there!");
-    
-    match maybe_file {
-        Err(e) => { println!("File not opened! Error: {:?}", e) }
-        _ => {}
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 Results have a special marking: They must not be ignored!
 
-```rust
-fn main() {
-    let maybe_file = std::fs::File::open("Is not there!");
-}
-```
-
+<pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust"></code></pre>
 Solution: Match or pass along.

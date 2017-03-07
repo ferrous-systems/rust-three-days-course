@@ -8,19 +8,7 @@ Rust nennt Bibliotheken "crates". Management von Bibliotheken mit `cargo` ist ü
 
 Bibliotheken werden durch das `extern crate`-statement eingebunden.
 
-```rust
-extern crate serde;
-extern crate serde_json;
-
-fn main() {
-    use serde_json::Value;
-
-    let data = r#" { "name": "John Doe", "age": 43, ... } "#;
-    let v: Value = serde_json::from_str(data)?;
-    println!("Please call {} at the number {}", v["name"], v["phones"][0]);
-}
-```
-
+<pre><code data-source="chapters/shared/code/crates/1.rs" data-trim="hljs rust"></code></pre>
 Dies importiert das "SERialisation/DEserialisation"-Framework.
 
 ---
@@ -29,19 +17,14 @@ Dies importiert das "SERialisation/DEserialisation"-Framework.
 
 Da Macros immer global für die gesamte Bibliothek gelten, müssen sie folgendermaßen eingebunden werden:
 
-```
-#[macro_use] extern crate serde_macros;
-```
-
+<pre><code data-source="chapters/shared/code/crates/2.output" data-trim="hljs output"></code></pre>
 Dies importiert die Macro-Sätze von serde, die die Arbeit stark vereinfachen.
 
 ---
 
 Crates können wie normale use-statements umbenannt werden:
 
-```rust
-extern crate serde_json as json;
-```
+<pre><code data-source="chapters/shared/code/crates/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

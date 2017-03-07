@@ -6,42 +6,22 @@ Ownership ist die Basis für das Speichermanagement von Rust.
 
 ## Regeln
 
-* Jedes Stück Daten wird genau einmal besessen
-* Besitz kann abgegeben werden
-* Der Besitzer ist für das Entfernen der Daten aus dem Speicher verantwortlich.
-* Der Besitzer hat volle Gewalt über die Daten und kann sie mutieren
+-   Jedes Stück Daten wird genau einmal besessen
+-   Besitz kann abgegeben werden
+-   Der Besitzer ist für das Entfernen der Daten aus dem Speicher verantwortlich.
+-   Der Besitzer hat volle Gewalt über die Daten und kann sie mutieren
 
 ---
 
-Diese Regeln:
-* sind fundamental für Rusts Typsystem!
-* werden beim Übersetzen angewandt.
-* sind aber auch sonst praktisch.
-
+Diese Regeln: \* sind fundamental für Rusts Typsystem! \* werden beim Übersetzen angewandt. \* sind aber auch sonst praktisch.
 
 ---
 
 ## Beispiel
 
-```rust
-#[derive(Debug)]
-struct Dot {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let dot = Dot { x: 1, y: 2 };
-    pacman(dot);
-}
-
-fn pacman(dot: Dot) {
-    println!("Eating {}", dot);
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
-
 
 <pre class="diagram">
     main              pacman
@@ -64,23 +44,7 @@ Was passiert, wenn versuchen, `dot` nochmal zu verwenden?
 
 ---
 
-```rust
-#[derive(Debug)]
-struct Dot {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let dot = Dot { x: 1, y: 2 };
-    pacman(dot);
-    pacman(dot);
-}
-
-fn pacman(dot: Dot) {
-    println!("Eating {}", dot);
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -106,23 +70,7 @@ Was tun, wenn dieses Verhalten nicht erwünscht ist? Wir können eine zweite Ver
 
 ---
 
-```rust
-#[derive(Debug, Clone)]
-struct Dot {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let dot = Dot { x: 1, y: 2 };
-    pacman(dot.clone());
-    pacman(dot);
-}
-
-fn pacman(dot: Dot) {
-    println!("Eating {}", dot);
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -162,23 +110,7 @@ Klonen ist für Daten vorgesehen, bei denen der Vorgang der Duplizierung komplex
 
 ## Mit moves umgehen: kopieren statt moves
 
-```rust
-#[derive(Debug, Clone, Copy)]
-struct Dot {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let dot = Dot { x: 1, y: 2 };
-    pacman(dot);
-    pacman(dot);
-}
-
-fn pacman(dot: Dot) {
-    println!("Eating {}", dot);
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -198,20 +130,7 @@ Die Terminologie um moves ähnelt der von C++, deswegen sollte man die Rust-Term
 
 ## Praktisches Beispiel
 
-```rust
-use std::fs::File;
-
-fn main() {
-    let file = File::open("test").unwrap();
-
-    use_file(file);
-}
-
-fn use_file(f: File) {
-    // File drops here
-}
-```
-
+<pre><code data-source="chapters/shared/code/ownership/5.rs" data-trim="hljs rust"></code></pre>
 Was würde passieren, wenn wir File nach dem Aufruf von `use_file` noch verwenden?
 
 ---
@@ -220,22 +139,9 @@ Was würde passieren, wenn wir File nach dem Aufruf von `use_file` noch verwende
 
 `drop` ist die Funktion, die einen Wert sofort verwirft. Wie sieht ihre Implementierung aus?
 
-```rust
-use std::fs::File;
-
-fn main() {
-    let file = File::open("test").unwrap();
-    let buffer = read_from(&file);
-    drop(file);
-    // do something long
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-```rust
-#[inline]
-fn drop<T>(_: T) {
-  // take ownership, drop out of scope
-}
-```
+<pre><code data-source="chapters/shared/code/ownership/7.rs" data-trim="hljs rust"></code></pre>
+

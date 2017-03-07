@@ -18,20 +18,7 @@ http://rustup.rs/
 
 ## Important Commands
 
-```sh
-# Install a toolchain
-$ rustup install stable
-# Select a standard toolchain
-$ rustup default stable
-# View the documentation in the browser
-$ rustup doc [--std]
-# List supported targets
-$ rustup target list
-# Add a target to install
-$ rustup target add <target>
-# List/Add a component
-$ rustup component list|add
-```
+<pre><code data-source="chapters/shared/code/installation/1.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -39,23 +26,18 @@ $ rustup component list|add
 
 Execute the following commands:
 
-```sh
-$ rustup component add rust-src
-$ rustup component add rust-docs
-```
-
-This loads the sources of the default library and documentation
-for completion and offline use.
+<pre><code data-source="chapters/shared/code/installation/2.sh" data-trim="hljs sh"></code></pre>
+This loads the sources of the default library and documentation for completion and offline use.
 
 ---
 
 ## Content of the Toolchain
 
-* rustc
-* cargo
-* rustdoc
-* rust-(lldb|gdb)
-* libcore/libstd
+-   rustc
+-   cargo
+-   rustdoc
+-   rust-(lldb|gdb)
+-   libcore/libstd
 
 The debugger installed is platform dependent.
 
@@ -63,10 +45,7 @@ The debugger installed is platform dependent.
 
 ## rustc
 
-```sh
-$ rustc --help
-```
-
+<pre><code data-source="chapters/shared/code/installation/3.sh" data-trim="hljs sh"></code></pre>
 The Rust compiler builds and links Rust code.
 
 `rustc` is almost completely written in Rust.
@@ -75,27 +54,17 @@ The Rust compiler builds and links Rust code.
 
 ## Functional Test
 
-```rust
-fn main() {
-    println!("Hello, World!");
-}
-```
+<pre><code data-source="chapters/shared/code/installation/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-```sh
-$ rustc hello_world.rs
-$ ./hello_world
-Hello, World!
-```
+<pre><code data-source="chapters/shared/code/installation/5.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
 ## Cargo
 
-```sh
-$ cargo --help
-```
+<pre><code data-source="chapters/shared/code/installation/6.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -107,35 +76,18 @@ Cargo is installed along with `rustc`, but is not tightly bound to a `rustc` ver
 
 ## Once more with Cargo
 
-```sh
-$ cargo new hello-world --bin
-$ cd hello-world
-$ cat hello-world
-fn main() {
-    println!("Hello, world!");
-}
-$ cargo build
-   Compiling hello-world v0.1.0 (file:///Users/skade/Code/rust/scratchpad/hello-world)
-    Finished debug [unoptimized + debuginfo] target(s) in 0.35 secs
-$ cargo run
-    Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
-     Running `target/debug/hello-world`
-Hello, world!
-```
+<pre><code data-source="chapters/shared/code/installation/7.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
 ## A Little Look Around
 
-* What is in Cargo.toml?
-* What is in Cargo.lock?
+-   What is in Cargo.toml?
+-   What is in Cargo.lock?
 
 ---
 
 ## Cargo Also Manages Tools
 
-```sh
-$ cargo +nightly install clippy
-$ cargo +nightly install rustfmt
-```
+<pre><code data-source="chapters/shared/code/installation/8.sh" data-trim="hljs sh"></code></pre>
 

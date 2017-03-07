@@ -4,9 +4,9 @@
 
 Rusts Unterstützung für Nebenläufigkeit basiert auf 2 Traits:
 
-* `Send` markiert eine Struktur als sicher zum *senden* zwischen Threads.
-* `Sync` kennzeichnet eine Struktur als sicher zum *teilen* zwischen Threads sicher ist.
-     + (`&T` ist `Send`, wenn `T` `Sync`)
+-   `Send` markiert eine Struktur als sicher zum *senden* zwischen Threads.
+-   `Sync` kennzeichnet eine Struktur als sicher zum *teilen* zwischen Threads sicher ist.
+    -   (`&T` ist `Send`, wenn `T` `Sync`)
 
 Beide sind sogenannte "Marker".
 
@@ -20,21 +20,7 @@ Sie sind - wenn möglich - *automatisch abgeleitet*.
 
 ## Automatisch abgeleitet
 
-```rust
-use std::thread;
-
-#[derive(Debug)]
-struct Thing;
-
-// Can send between threads!
-fn main() {
-    let thing = Thing;
-    
-    thread::spawn(move || {
-        println!("{:?}", thing);
-    }).join();
-}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -46,31 +32,13 @@ Beispiele sind `Rc`, rohe Zeiger und `UnsafeCell`.
 
 ## Beispiel: `Rc`
 
-```rust
-use std::rc::Rc;
-use std::thread;
-
-// Does not work!
-fn main() {
-    let only_one_thread = Rc::new(true);
-
-    thread::spawn(move || {
-        println!("{:?}", only_one_thread);
-    }).join();
-}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Beispiel: `Rc`
 
-```
-error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not satisfied
- --> <anon>:7:5
-  |
-7 |     thread::spawn(move || {
-  |     ^^^^^^^^^^^^^ the trait `std::marker::Send` is not implemented for `std::rc::Rc<bool>`
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/3.output" data-trim="hljs output"></code></pre>
 
 ---
 
@@ -78,13 +46,7 @@ error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not sati
 
 Es ist möglich, die Implementierung von `Send` und `Sync` einem Typ hinzuzufügen.
 
-```rust
-struct Thing(*mut String);
-
-unsafe impl Send for Thing {}
-unsafe impl Sync for Thing {}
-```
-
+<pre><code data-source="chapters/shared/code/send-and-sync/4.rs" data-trim="hljs rust"></code></pre>
 In diesen Fällen ist die Aufgabe der Implementierung, die Sicherheitsgarantien herzustellen.
 
 ---
@@ -99,9 +61,7 @@ Wenn ein Typ sowohl `Sync` als auch `Copy` implementiert, kann er `Send` auch im
 
 Ein Typ `&T` kann `Send` implementieren, wenn der Typ `T` auch `Sync` implementiert.
 
-```rust
-unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -109,9 +69,7 @@ unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
 
 Ein Typ `&mut T` kann `Send` implementieren, wenn der Typ `T` auch `Send` implementiert.
 
-```rust
-unsafe impl<'a, T: Send + ?Sized> Send for &'a mut T {}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -123,7 +81,7 @@ Was sind die Konsequenzen von `Send` und `Sync`?
 
 ## Konsequenzen
 
-Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur * Übersetzungszeit *.
+Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur \* Übersetzungszeit \*.
 
 Dies verhindert, dass diese Fehlerklasse die Produktionssysteme erreicht.
 

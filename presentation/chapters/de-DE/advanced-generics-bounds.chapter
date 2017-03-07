@@ -14,53 +14,29 @@ Dies kann überall geschehen, wo Typparameter auftauchen.
 
 Beispiel: `println!("{:?}")` benötigt `Debug`
 
-```rust
-fn print_everything<T: Debug>(to_print: T) {
-    println!("{:?}", to_print);
-}
-
-fn print_everything2<T>(to_print: T)
-    where T: Debug
-{
-    println!("{:?}", to_print);
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 Beispiel: Ein generisches Struct soll nur debugbare Werte enthalten
 
-```rust
-struct MyStruct<T: Debug> {
-    inner: T
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 Beschränkungen können sich auch auf das Ziel von Implementierungen beziehen:
 
-```rust
-impl<X,T> MyTrait<X> for T
-    where T: Debug,
-          X: Debug {
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 Genauso kann der Trait dies direkt verlangen:
 
-```rust
-trait MyTrait<X: Debug> {
-    //...
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Rust erlaubt keine negativen Bedingungen (Trait A und _nicht_ Trait B)
-
+Rust erlaubt keine negativen Bedingungen (Trait A und *nicht* Trait B)
 
 ---
 
@@ -68,11 +44,7 @@ Rust erlaubt keine negativen Bedingungen (Trait A und _nicht_ Trait B)
 
 Wenn nicht anders angegeben, kriegen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
 
-```rust
-fn take_unsized<T: ?Sized>(t: &T) {
-    //...
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -82,21 +54,7 @@ Das hat ergonomische Gründe, da Typ-Parameter häufig in Funktionsparametern ve
 
 Bounds können überall auftauchen, was sich ausnutzen lässt, um Typen de-facto zu beschränken.
 
-```rust
-struct Wrapper<T> {
-    inner: T
-}
-
-impl<T> Wrapper<T> {
-    fn new(inner: T) -> Wrapper<T> where T: Debug {
-        Wrapper { inner: inner }
-    }
-
-    fn inspect(&self) where T: Debug {
-        println!("{:?}", &self);
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -106,12 +64,7 @@ Das kann überraschend praktisch sein, da sich verschiedene Bedingungen bei Aufr
 
 Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsfunktionen:
 
-```rust
-fn open_file<P: AsRef<Path>>(pathlike: P) {
-    let path = pathlike.as_ref();
-}
-```
-
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -119,22 +72,7 @@ fn open_file<P: AsRef<Path>>(pathlike: P) {
 
 Traits können für Typparameter implementiert werden.
 
-```rust
-trait Double {
-    fn double(self) -> i64;
-}
-
-impl<T> Double for T where T: Into<i64> {
-    fn double(self) -> i64 {
-        let val: i64 = self.into();
-        val * 2
-    }
-}
-
-fn main() {
-    21.double();
-}
-```
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -142,17 +80,5 @@ fn main() {
 
 Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
 
-```rust
-trait Double : Into<i64> {
-    fn double(self) -> i64 {
-        let val: i64 = self.into();
-        val * 2
-    }
-}
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust"></code></pre>
 
-impl<T> Double for T where T: Into<i64> { }
-
-fn main() {
-    21.double();
-}
-```

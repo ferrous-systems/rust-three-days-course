@@ -4,12 +4,11 @@
 
 ## Warum?
 
-* Abhängigkeiten können nightly verlangen
-* Kompilierzeiten und Fehlermeldungen sind manchmal besser (manchmal nicht)
-* Es gibt mehrere Funktionen, die noch nicht stabil sind
-* Der stabile Compiler erlaubt strikt keinen Zugriff auf unfertige Features
-* Compiler-Plugins
-
+-   Abhängigkeiten können nightly verlangen
+-   Kompilierzeiten und Fehlermeldungen sind manchmal besser (manchmal nicht)
+-   Es gibt mehrere Funktionen, die noch nicht stabil sind
+-   Der stabile Compiler erlaubt strikt keinen Zugriff auf unfertige Features
+-   Compiler-Plugins
 
 ---
 
@@ -27,10 +26,7 @@ Es wird erwartet, daß die Anzahl von Paketen, die nightly erfordern, signifikan
 
 `rustup` kann verwendet werden, um die Version in einem bestimmten Verzeichnis verwendet außer Kraft zu setzen.
 
-```bash
-cd /nightly_project
-rustup override set nightly
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/1.bash" data-trim="hljs bash"></code></pre>
 
 ---
 
@@ -40,10 +36,10 @@ Die Features werden hinter "Feature Flags" versteckt, die projektweit aktiviert 
 
 Einige Beispiele:
 
-* `asm`, die Inline assembly unterstützt
-* `no_std`, deaktiviert implizite `extern crate std`
-* `inclusive_range`, ähnlich dem stabilen `exclusive_range`
-* `conversative_impl_trait`, aktiviert die `impl Trait`-Rückgabesyntax
+-   `asm`, die Inline assembly unterstützt
+-   `no_std`, deaktiviert implizite `extern crate std`
+-   `inclusive_range`, ähnlich dem stabilen `exclusive_range`
+-   `conversative_impl_trait`, aktiviert die `impl Trait`-Rückgabesyntax
 
 ---
 
@@ -51,9 +47,7 @@ Einige Beispiele:
 
 Um eine Funktion zu aktivieren, fügen Sie die folgende Zeile in `src/main.rs` (für ausführbare Dateien) oder `src/lib.rs` (für Bibliotheken) ein:
 
-```rust
-#![feature(asm, no_std)]
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -61,19 +55,17 @@ Um eine Funktion zu aktivieren, fügen Sie die folgende Zeile in `src/main.rs` (
 
 Compiler-Plugins ergänzen Rust um zusätzliche Funktionen. Beispielsweise:
 
-* (Früher) Eigene Derive-Funktionen
-* Linter, wie `clippy`
-* Bibliotheken wie [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin), die Syntax-Erweiterungen darstellen
+-   (Früher) Eigene Derive-Funktionen
+-   Linter, wie `clippy`
+-   Bibliotheken wie [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin), die Syntax-Erweiterungen darstellen
 
 ---
 
 ## Aktivieren von Compiler-Plugins
 
-Um ein Compiler-Plugin zu aktivieren, fügen Sie folgende Zeile in `src/main.rs` (für ausführbare Dateien) oder` src/lib.rs` (für Bibliotheken) ein:
+Um ein Compiler-Plugin zu aktivieren, fügen Sie folgende Zeile in `src/main.rs` (für ausführbare Dateien) oder`src/lib.rs` (für Bibliotheken) ein:
 
-```rust
-#![plugin(some_plugin)]
-```
+<pre><code data-source="chapters/shared/code/working-with-nightly/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

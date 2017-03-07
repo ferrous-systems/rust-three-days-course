@@ -2,7 +2,7 @@
 
 ---
 
-Rust unterstützt das Platform-ABI und kann direkt mit dynamischen oder statischen Bibliotheken interagieren _und_ solche produzieren.
+Rust unterstützt das Platform-ABI und kann direkt mit dynamischen oder statischen Bibliotheken interagieren *und* solche produzieren.
 
 ---
 
@@ -22,108 +22,63 @@ Es entstehen keine Konvertierungskosten.
 
 ## Reihenfolge
 
-* Wir folgen der Reihenfolge des Header-Files
-* Erst low-level-Bindings
-* Dann (minimale) sichere Bindings.
-* Dann eine kleine Abstraktion
+-   Wir folgen der Reihenfolge des Header-Files
+-   Erst low-level-Bindings
+-   Dann (minimale) sichere Bindings.
+-   Dann eine kleine Abstraktion
 
 ---
 
 ## Hilfreiche Helper
 
-```rust
-#![allow(non_camel_case_types, non_upper_case_globals, non_snake_case)]
-```
-
+<pre><code data-source="chapters/shared/code/ffi/1.rs" data-trim="hljs rust"></code></pre>
 Rust linted Code-Stil, aber C-Stil ist nunmal kein Rust-Stil.
 
 ---
 
 ## System-libc
 
-```rust
-extern crate libc;
-
-use libc::{c_char, c_int, c_uchar, c_void};
-use libc::size_t;
-```
+<pre><code data-source="chapters/shared/code/ffi/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Opake Typen
 
-Hier werden leere Enums verwendet, da sie nicht konstruiert werden oder
-gelesen werden können - sie besitzen keine Varianten!
+Hier werden leere Enums verwendet, da sie nicht konstruiert werden oder gelesen werden können - sie besitzen keine Varianten!
 
-```rust
-pub enum leveldb_t {}
-pub enum leveldb_comparator_t {}
-pub enum leveldb_options_t {}
-```
+<pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enums
 
-```rust
-#[repr(C)]
-#[derive(Copy,Clone)]
-pub enum Compression {
-  No = 0,
-  Snappy = 1
-}
-```
-
-Das Layout von Enums und Structs ist in Rust (momentan) dem Compiler überlassen.
-`#[repr(C)]` weist den Compiler an, stattdessen das Platform-Layout zu verwenden.
+<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
+Das Layout von Enums und Structs ist in Rust (momentan) dem Compiler überlassen. `#[repr(C)]` weist den Compiler an, stattdessen das Platform-Layout zu verwenden.
 
 ---
 
 ## Externe Funktionen
 
-```rust
-extern "C" {
-    pub fn leveldb_open(options: *const leveldb_options_t, name: *const c_char, errptr: *mut *mut c_char) -> *mut leveldb_t;
-    pub fn leveldb_close(db: *mut leveldb_t);
-    //....
-}
-```
+<pre><code data-source="chapters/shared/code/ffi/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Callbacks
 
-```rust
-pub fn leveldb_comparator_create(
-    state: *mut c_void,
-    destructor: extern fn(*mut c_void),
-    compare: extern fn(*mut c_void, *const c_char, size_t, *const c_char, size_t) -> c_int,
-    name: extern fn(*mut c_void) -> *const c_char
-) -> *mut leveldb_comparator_t;
-pub fn leveldb_comparator_destroy(c: *mut leveldb_comparator_t);
-```
+<pre><code data-source="chapters/shared/code/ffi/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Utility-Funktionen
 
-```rust
-// Utility
-pub fn leveldb_free(ptr: *mut c_void);
-```
-
+<pre><code data-source="chapters/shared/code/ffi/7.rs" data-trim="hljs rust"></code></pre>
 Wichtig: Wer allokiert, deallokiert!
 
 ---
 
 ## Was zur Hölle
 
-```
-// Versioning
-pub fn leveldb_major_version() -> c_int;
-pub fn leveldb_minor_version() -> c_int;
-```
-
+<pre><code data-source="chapters/shared/code/ffi/8.output" data-trim="hljs output"></code></pre>
 Warum ist die Versionsnummer bitte architekturabhängig?
 
 ---
@@ -136,29 +91,15 @@ Wir binden die Funktionen, aber sicher ist hier garnichts.
 
 ## Binden roher Pointer mit Lifecycle-Management
 
-```rust
-#[allow(missing_docs)]
-struct RawDB {
-    ptr: *mut leveldb_t,
-}
-
-#[allow(missing_docs)]
-impl Drop for RawDB {
-    fn drop(&mut self) {
-        unsafe {
-            leveldb_close(self.ptr);
-        }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/ffi/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Warum so?
 
-* Structs mit einem Feld verschwinden zur Laufzeit
-* Isoliert das Lifecyclemanagement des Pointers vom Rest des Codes
-* In älteren Versionen von Rust verändert `Drop` das Layout des Structs
+-   Structs mit einem Feld verschwinden zur Laufzeit
+-   Isoliert das Lifecyclemanagement des Pointers vom Rest des Codes
+-   In älteren Versionen von Rust verändert `Drop` das Layout des Structs
 
 ---
 
@@ -172,23 +113,7 @@ impl Drop for RawDB {
 
 ## Handhabung von leveldb-Fehlern
 
-```rust
-use std::ptr;
-
-let error = ptr::null_mut();
-
-let db = unsafe {
-    leveldb_open(options,
-                          name,
-                          &mut error)
-};
-
-if error == ptr::null_mut() {
-    Ok(Database::new(...))
-} else {
-    Err(Error::new_from_i8(error))
-}
-```
+<pre><code data-source="chapters/shared/code/ffi/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -208,18 +133,7 @@ Lebenszeiten ermöglichen es, Pointer-Invalidierung sicher zu gestalten.
 
 ## Beispiel
 
-
-```rust
-struct Database {
-    //...
-}
-
-struct DatabaseIterator<'a> {
-    database: &'a Database,
-    iter: RawIterator
-}
-```
-
+<pre><code data-source="chapters/shared/code/ffi/11.rs" data-trim="hljs rust"></code></pre>
 Der Iterator muss droppen, bevor die Datenbank droppt.
 
 Diese Invariante gibt leveldb für `leveldb_t` und `leveldb_iterator_t` vor.
@@ -228,19 +142,7 @@ Diese Invariante gibt leveldb für `leveldb_t` und `leveldb_iterator_t` vor.
 
 ## Trick: das geht auch ohne Speicherverbrauch
 
-```rust
-use std::marker::PhantomData;
-
-struct Database {
-    //...
-}
-
-struct DatabaseIterator<'a> {
-    database: PhantomData<&'a Database>,
-    iter: RawIterator
-}
-```
-
+<pre><code data-source="chapters/shared/code/ffi/12.rs" data-trim="hljs rust"></code></pre>
 PhantomData ist ein 0 Byte großer Typ, der so tut als sei eine Referenz zu Database da.
 
 Solche Optimierungen sollten mit `compile-fail` getestet werden!
@@ -255,63 +157,28 @@ Solche Optimierungen sollten mit `compile-fail` getestet werden!
 
 ## Callbacks
 
-```rust
-pub fn leveldb_comparator_create(
-    state: *mut c_void,
-    destructor: extern fn(*mut c_void),
-    compare: extern fn(*mut c_void, *const c_char, size_t, *const c_char, size_t) -> c_int,
-    name: extern fn(*mut c_void) -> *const c_char
-) -> *mut leveldb_comparator_t;
-pub fn leveldb_comparator_destroy(c: *mut leveldb_comparator_t);
-```
+<pre><code data-source="chapters/shared/code/ffi/13.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Probleme
 
-* `state: *c_void` eine Art, in C Polymorphismus auszudrücken
-* Wie sorge ich dafür, dass `c_void` überall gleich ist?
-* Wie sorge ich dafür, dass `c_void` polymorph ist?
+-   `state: *c_void` eine Art, in C Polymorphismus auszudrücken
+-   Wie sorge ich dafür, dass `c_void` überall gleich ist?
+-   Wie sorge ich dafür, dass `c_void` polymorph ist?
 
 ---
 
 ## Generics, Traits und rohe Boxen
 
-```rust
-unsafe trait Comparator where Self::Sized {
-    /// Return the name of the Comparator
-    extern "C" fn name(state: *mut c_void) -> *const c_char;
-    /// compare two keys. This must implement a total ordering.
-    extern "C" fn compare(state: *mut c_void,
-                          a: *const i8,
-                          a_len: size_t,
-                          b: *const i8,
-                          b_len: size_t)
-                          -> i32;
-
-    extern "C" fn destructor(state: *mut c_void) {
-        let _x: Box<Self> = unsafe { Box::from_raw(state as *mut Self) };
-         // let the Box fall out of scope and run the T's destructor
-    }
-}
-```
-
+<pre><code data-source="chapters/shared/code/ffi/14.rs" data-trim="hljs rust"></code></pre>
 Wichtig: Der Trait arbeitet auf Heap-Allokierten Werten.
 
 ---
 
 ## Verwendung
 
-```rust
-pub fn create_comparator<T: Comparator>(x: Box<T>) -> *mut leveldb_comparator_t {
-    unsafe {
-        leveldb_comparator_create(Box::into_raw(x) as *mut c_void,
-                                  <T as Comparator>::destructor,
-                                  <T as Comparator>::compare,
-                                  <T as Comparator>::name)
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/ffi/15.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -319,39 +186,20 @@ pub fn create_comparator<T: Comparator>(x: Box<T>) -> *mut leveldb_comparator_t 
 
 Konvertierung von Slices ist ähnlich einfach:
 
-```rust
-fn main() {
-    let slice = &[1,2,3];
-    let ptr = slice.as_ptr();
-    let length = slice.len();
-    let slice_again = unsafe {
-        std::slice::from_raw_parts(ptr, length)
-    };
-}
-```
-
+<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust"></code></pre>
 Bitte auch hier auf Besitzsemantik achten.
 
 ---
 
 ## Falle
 
-```rust
-fn main() {
-    let slice = &[1,2,3];
-    let ptr = slice.as_ptr();
-    let length = slice.len();
-    let slice_again = unsafe {
-        std::slice::from_raw_parts_mut(ptr as *mut i32, length)
-    };
-}
-```
-
+<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust"></code></pre>
 Huch! Plötzlich habe ich einen mutablen und immutablen Pointer.
 
 ---
 
 ## Helfer
 
-* [Servos bindgen](https://github.com/servo/rust-bindgen)
-* Sehr fortgeschritten, kann auch mit C++ umgehen.
+-   [Servos bindgen](https://github.com/servo/rust-bindgen)
+-   Sehr fortgeschritten, kann auch mit C++ umgehen.
+

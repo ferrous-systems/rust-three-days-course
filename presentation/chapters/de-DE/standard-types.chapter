@@ -12,22 +12,16 @@ Diese Typen sind nicht einzigartig oder speziell, sie verwenden nur den verfügb
 
 ## Überblick
 
-* `Option<T>` - Entfernt die Notwendigkeit einer `null` primitiv.
-* `Result<T,E>` - Entfernt die Notwendigkeit für Ausnahmen.
-* `Vec<T>` - Wachsende Arrays.
-* `HashMap<K,V>` - Schlüsselwertspeicher.
+-   `Option<T>` - Entfernt die Notwendigkeit einer `null` primitiv.
+-   `Result<T,E>` - Entfernt die Notwendigkeit für Ausnahmen.
+-   `Vec<T>` - Wachsende Arrays.
+-   `HashMap<K,V>` - Schlüsselwertspeicher.
 
 ---
 
 ## `Option<T>`
 
-```rust
-enum Option<T> {
-    Some(T),
-    None
-}
-```
-
+<pre><code data-source="chapters/shared/code/standard-types/1.rs" data-trim="hljs rust"></code></pre>
 Options sind Wrapper-Typen, und müssen ausgepackt werden, um verwendet werden.
 
 ---
@@ -36,13 +30,7 @@ Options sind Wrapper-Typen, und müssen ausgepackt werden, um verwendet werden.
 
 Jede Funktion, die nicht immer einen Wert zurückgibt, gibt eine `Option<T>` zurück.
 
-```rust
-fn main() {
-    let values = vec![1, 2, 3];
-    println!("{:?}", values.get(0)); // Some(1)
-    println!("{:?}", values.get(4)); // None
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -60,12 +48,7 @@ Dieses Merkmal hilft *entfernen Sie das Geheimnis* aus dem Coding-Prozess, und h
 
 Dies wird nur bei Tests und Prototypen empfohlen.
 
-```rust
-fn main() {
-    let nothing: Option<usize> = None;
-    nothing.unwrap();
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -73,16 +56,7 @@ fn main() {
 
 `match` ist eine von mehreren Möglichkeiten zur Sicherheit Arbeit mit `option`s.
 
-```rust
-fn main() {
-    let maybe_a_value = Some(1);
-    match maybe_a_value {
-        Some(v) => println!("{}", v),
-        None    => println!("None"),
-    }
-}
-```
-
+<pre><code data-source="chapters/shared/code/standard-types/4.rs" data-trim="hljs rust"></code></pre>
 Egal, was der Wert von `maybe_a_value`, wird das Programm niemals abstürzen.
 
 ---
@@ -97,13 +71,7 @@ Was sind die Vorteile?
 
 ## `Result<T,E>`
 
-```rust
-enum Result<T,E> {
-    Ok(T),
-    Err(E),
-}
-```
-
+<pre><code data-source="chapters/shared/code/standard-types/5.rs" data-trim="hljs rust"></code></pre>
 Results sind Wrappertypen, die entweder den erfolgreichen Wert oder den Fehlerwert enthalten.
 
 ---
@@ -112,14 +80,7 @@ Results sind Wrappertypen, die entweder den erfolgreichen Wert oder den Fehlerwe
 
 Ergebnisse können über `unwrap()` ebenso wie `Option`-Typen abgewickelt werden und können auf die gleiche Weise behandelt werden.
 
-```rust
-fn main() {
-    if let Err(e) = File::open("nein") {
-        println!("{:?}", e);
-    }
-}
-```
-
+<pre><code data-source="chapters/shared/code/standard-types/6.rs" data-trim="hljs rust"></code></pre>
 Die Behandlung komplexer Fehlerszenarien wird in einem späteren Kapitel behandelt.
 
 ---
@@ -136,13 +97,7 @@ Was sind die Vorteile?
 
 Besessene, veränderliche, anregbare Arrays. Auf dem Haufen.
 
-```rust
-stuct Vec<T> {
-    items: T,
-    length: usize,
-    capacity: usize,
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -150,14 +105,7 @@ stuct Vec<T> {
 
 Zuweisen mit `Vec :: new ()` oder dem `vec! []` Makro.
 
-```rust
-fn main() {
-    let explicit_type = Vec::<usize>::new();
-    let mut implicit_type = Vec::new();
-    implicit_type.push(1);
-    let macro_created = vec![1, 2, 3];
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -165,12 +113,7 @@ fn main() {
 
 `Vec<T>` implementiert `Deref<Target=[T]>`, so kann es leicht als eine Scheibe verwendet werden.
 
-```rust
-fn main() {
-    let items = vec![1, 2, 3];
-    let ref_to_items: &[usize] = &items;
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -178,15 +121,7 @@ fn main() {
 
 HashMaps sind Schlüsselwertspeicher. Schlüssel müssen `Hash` implementieren.
 
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut kv_store = HashMap::new();
-    kv_store.insert("key", true);
-    println!("{}", kv_store.get("key"));
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -194,13 +129,5 @@ fn main() {
 
 Manipulieren ein Schlüssel entsprechender Eintrag vorhanden.
 
-```rust
-use std::collections::HashMap;
-
-fn main() {
-    let mut kv_store = HashMap::new();
-    let mut value = kv_store.entry("key").or_insert(true);
-    *value = false;
-}
-```
+<pre><code data-source="chapters/shared/code/standard-types/11.rs" data-trim="hljs rust"></code></pre>
 

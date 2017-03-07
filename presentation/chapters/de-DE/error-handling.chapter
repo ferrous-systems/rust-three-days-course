@@ -10,44 +10,19 @@ Eine Funktion, die bekannte Fehlerbedingungen hat, gibt einen Wert vom Typ `Resu
 
 ---
 
-```rust
-fn this_can_fail(succeeds: bool) -> Result<String, String> {
-    if succeeds {
-        Ok(String::from("Es funktionierte!"))
-    } else {
-        Err(String::from("Es hat nicht funktioniert!"))
-    }
-}
-
-fn main() {
-    let outcome = this_can_fail(true);
-}
-```
+<pre><code data-source="chapters/shared/code/error-handling/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Ergebnisse müssen verwendet werden
 
-```
-warning: unused variable: `outcome`, #[warn(unused_variables)] on by default
-  --> <anon>:10:9
-   |
-10 |     let outcome = this_can_fail(true);
-   |         ^^^^^^^
-```
+<pre><code data-source="chapters/shared/code/error-handling/2.output" data-trim="hljs output"></code></pre>
 
 ---
 
 ## Ergebnisse verwenden mit `match`
 
-```rust
-fn main() {
-    match this_can_fail(false) {
-        Ok(val) => println!("Funktioniert: {}", val),
-        Err(err) => println!("Gescheitert: {}", err),
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/error-handling/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -55,15 +30,7 @@ fn main() {
 
 Auf Erfolg prüfen mit `is_ok()`, Fehler mit `is_err()`:
 
-```rust
-fn main() {
-    if this_can_fail(false).is_ok() {
-        println!("It worked!");
-    } else {
-        println!("It didn't work!")
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/error-handling/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -71,19 +38,7 @@ fn main() {
 
 `?` eignet sich für Funktionen mit mehreren möglichen Fehlerpunkten.
 
-```rust
-fn multiple_possible_failures() -> Result<String,String> {
-    this_can_fail(true)?;
-    println!("Nach dem ersten Fehler");
-    this_can_fail(false)?;
-    println!("Nach dem zweiten potentiellen Fehler");
-    Ok(String::from("Alles erledigt"))
-}
-
-fn main() {
-    multiple_possible_failures();
-}
-```
+<pre><code data-source="chapters/shared/code/error-handling/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -91,15 +46,12 @@ fn main() {
 
 Ausgabe:
 
-```
-Nach dem ersten Ausfall
-```
-
+<pre><code data-source="chapters/shared/code/error-handling/6.output" data-trim="hljs output"></code></pre>
 Beachten Sie die vorzeitige Rückkehr.
 
 ---
 
-In früheren Rust-Versionen wurde statt `?` der `try!` Macro-Macro verwendet. 
+In früheren Rust-Versionen wurde statt `?` der `try!` Macro-Macro verwendet.
 
 ---
 
@@ -119,13 +71,5 @@ Das Transformieren eines `Result<T, E>` in ein `Result<T, X>` ist ebenfalls mög
 
 ## Ergebniswerte umwandeln
 
-```rust
-fn main() {
-    let some_result = this_can_fail(true);
-    // Dies wird nur ausgeführt, wenn `some_result` eine `Ok`-Variante ist.
-    let mapped_result = some_result.map(|val| val.len());
-    println!("{:?}", mapped_result);
-}
-```
-
+<pre><code data-source="chapters/shared/code/error-handling/7.rs" data-trim="hljs rust"></code></pre>
 `map_err()` ist ebenfalls verfügbar.

@@ -8,7 +8,8 @@ Rust besitzt eine Macro-Sprache. Siehe [The Little Book Of Macros](http://doc.cr
 
 ## Wichtige Macros
 
-* `try!(result)` Behandlung von Results
-* `println!(pattern, [werte])` Einfaches Schreiben auf stdout
-* `format!(patter, [werte])` wie `println!`, gibt aber Strings zurück
-* `write!(buf, string)` Einfaches Schreiben von Strings in Buffer
+-   `try!(result)` Behandlung von Results
+-   `println!(pattern, [werte])` Einfaches Schreiben auf stdout
+-   `format!(patter, [werte])` wie `println!`, gibt aber Strings zurück
+-   `write!(buf, string)` Einfaches Schreiben von Strings in Buffer
+

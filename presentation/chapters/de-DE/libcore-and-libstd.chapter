@@ -17,6 +17,3 @@ libcore wird meist nicht direkt verwendet, da ihr öffentliches Interface von li
 ---
 
 libstd liefert Standardfunktionen, zum Beispiel Interaktion mit dem Dateisystem. Sie hat darüber hinaus eine Abhängigkeit zu libc.
-
-
- 

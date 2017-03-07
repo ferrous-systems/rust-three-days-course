@@ -8,44 +8,19 @@
 
 ## Definition
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Allokation
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-fn main() {
-    let p = Point { x: 1, y: 1 };
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Feldzugriff
 
-```rust
-struct Point {
-    x: i32,
-    y: i32,
-}
-
-fn main() {
-    let p = Point { x: 1, y: 2 };
-    println!("{}", p.x);
-    println!("{}", p.y);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -53,101 +28,45 @@ fn main() {
 
 Structs müssen keine Felder haben.
 
-```rust
-struct TCPProtocol;
-
-fn main() {
-    let proto = TCPProtocol;
-}
-```
-
+<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust"></code></pre>
 Diese Structs haben zur Laufzeit keine Größe.
 
 ---
 
 ## Tupel
 
-```rust
-fn main() {
-    let p = (1, 2);
-    println!("{}", p.0);
-    println!("{}", p.1);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Benannte Tupel ("tuple structs")
 
-```rust
-struct Point(i32,i32);
-
-fn main() {
-    let p = Point(1, 2);
-    println!("{}", p.0);
-    println!("{}", p.1);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enums
 
-```rust
-enum Direction {
-    Right,
-    Left,
-    Up,
-    Down,
-}
-
-fn main() {
-    let direction = Direction::Left;
-}
-```
-
+<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust"></code></pre>
 Die einzelnen Ausformungen von Enums heissen "Variante".
 
 ---
 
 ## Enums mit Werten
 
-```rust
-enum Movement {
-    Right(i32),
-    Left(i32),
-    Up(i32),
-    Down(i32),
-}
-
-fn main() {
-    let movement = Movement::Left(12);
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enums mit strukturierten Varianten
 
-```rust
-enum Actions {
-    StickAround,
-    MoveTo { x: i32, y: i32},
-}
-
-fn main() {
-    let action = Actions::MoveTo { x: 0, y: 0 };
-}
-```
+<pre><code data-source="chapters/shared/code/data-structures/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Enums ohne Varianten
 
-```rust
-enum ExternalType {};
-```
-
+<pre><code data-source="chapters/shared/code/data-structures/10.rs" data-trim="hljs rust"></code></pre>
 Enums ohne Varianten haben keine Speichergröße und können nicht in Rust erstellt werden. Sie eignen sich daher zum Einsatz im FFI, dazu später mehr.
 
 ---

@@ -20,7 +20,6 @@ Indiana Jones verwendet `std::mem::swap` oder `std::mem::replace`.
 
 In manchen Fällen hilft hier "Drain", ein Iterator, der Werte Stück für Stück aus einer Kollektion ableitet und sie dabei verkleinert.
 
-
 ---
 
 ## Kompilierzeiten
@@ -37,47 +36,29 @@ Gehen Sie vorsichtiger mit Generics um.
 
 ## Binärgröße senken
 
-* System-Allokator verwenden (nightly feature)
-* Wird libstd kaum verwenden, kann sie ersetzt werden
-* Anzahl der monomorphisierten Funktionen senken
+-   System-Allokator verwenden (nightly feature)
+-   Wird libstd kaum verwenden, kann sie ersetzt werden
+-   Anzahl der monomorphisierten Funktionen senken
 
 ---
 
 ## Richtig konvertieren
 
-Das "Durchschleifen" von generischen Parametern ist zu vermeiden, wenn diese zu etwas konkretem evaluiert werden können. 
+Das "Durchschleifen" von generischen Parametern ist zu vermeiden, wenn diese zu etwas konkretem evaluiert werden können.
 
-```rust
-pub fn first_layer_of_indirection<P: AsRef<Path>>(p: P) {
-    something_using_the_path(p);
-}
-
-fn something_using_the_path<P: AsRef<Path>>(p: P) {
-    //....
-}
-```
+<pre><code data-source="chapters/shared/code/effective-rust/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-```rust
-#[inline]
-pub fn first_layer_of_indirection<P: AsRef<Path>>(p: P) {
-    let path = p.as_ref();
-    something_using_the_path(path);
-}
-
-fn something_using_the_path(p: Path) {
-    //....
-}
-```
-
+<pre><code data-source="chapters/shared/code/effective-rust/2.rs" data-trim="hljs rust"></code></pre>
 Rust inlined über Bibliotheksgrenzen hinweg.
 
 ---
 
 ## Helfer
 
-* Debugging: moderne GDB-Versionen unterstützen Rust
-* valgrind
-* rust-afl erlaubt Fuzzing mit American Fuzzy Lop
-* TODO: Code Coverage
+-   Debugging: moderne GDB-Versionen unterstützen Rust
+-   valgrind
+-   rust-afl erlaubt Fuzzing mit American Fuzzy Lop
+-   TODO: Code Coverage
+

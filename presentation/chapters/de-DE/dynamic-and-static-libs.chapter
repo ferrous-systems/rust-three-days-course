@@ -8,98 +8,33 @@ Einmal umgekehrt: Rust aus C verwenden.
 
 ## Bibliothek
 
-```rust
-#[derive(Debug)]
-#[repr(C)]
-pub struct Point {
-    x: i32,
-    y: i32
-}
-
-#[no_mangle]
-pub extern "C" fn new_point(x: i32, y: i32) -> *mut Point {
-    let p = Box::new(Point { x: x, y: y });
-    Box::into_raw(p)
-}
-
-#[no_mangle]
-pub extern "C" fn destroy_point(p: *mut Point) {
-    let _: Box<Point> = unsafe { Box::from_raw(p) };
-}
-
-#[no_mangle]
-pub extern "C" fn inspect_point(p: *mut Point) {
-    unsafe {
-        let point: Box<Point> = Box::from_raw(p);
-        point.inspect();
-    };
-}
-```
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## C-Header (Auszug)
 
-```c
-#include <stdint.h>
-#include <stdbool.h>
-
-typedef struct Point {
-	int32_t x;
-	int32_t y;
-} Point;
-
-Point* new_point(int32_t x, int32_t y);
-
-void destroy_point(Point* p);
-
-void inspect(Point* p);
-```
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/2.c" data-trim="hljs c"></code></pre>
 
 ---
 
 ## Cargo
 
-```toml
-[lib]
-crate-type = ["dylib", "staticlib"]
-```
-
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/3.toml" data-trim="hljs toml"></code></pre>
 `cargo build` baut nun statt einer rlib eine dynamische und eine statische lib.
 
 ---
 
 ## Verwendung
 
-```c
-#include "../include/point.h"
-
-int main (int argc, char const *argv[])
-{
-        Point* p = new_point(1,1);
-        inspect_point(p);
-        p->x = 2;
-        inspect_point(p);
-        destroy_point(p);
-}
-```
-
-```sh
-gcc -L target/debug/ -I include -lc -lm -lSystem -lcore test/test.c -o point
-```
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/4.c" data-trim="hljs c"></code></pre>
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/5.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
 ## Ausführen
 
-```sh
-$ ./point
-Point { x: 1, y: 1 }
-Point { x: 2, y: 1 }
-point(98132,0x7fffb30293c0) malloc: *** error for object 0x7fa635c02980: pointer being freed was not allocated
-*** set a breakpoint in malloc_error_break to debug
-Abort trap: 6
-```
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/6.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -107,19 +42,11 @@ Abort trap: 6
 
 Passen Sie gut mit Ownership auf!
 
-```rust
-#[no_mangle]
-pub extern "C" fn inspect_point(p: *mut Point) {
-    unsafe {
-        let point: Box<Point> = Box::from_raw(p);
-        point.inspect();
-        std::mem::forget(point);
-    };
-}
-```
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Helfer
 
-* Cheddar - generiert C-Header von Rust-Libs.
+-   Cheddar - generiert C-Header von Rust-Libs.
+

@@ -10,32 +10,21 @@ Daher werden sie später in einem eigenen Abschnitt behandelt.
 
 ## Strings ohne Nachdenken
 
-```rust
-fn main() {
-    let hello = String::from("Hello World");
-    println!("{}", hello);
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Code Style
 
-* 4 Spaces
-* Keine tabs
-* Blockklammern in eine eigene Zeile
+-   4 Spaces
+-   Keine tabs
+-   Blockklammern in eine eigene Zeile
 
 ---
 
 ## println!()
 
-```rust
-fn main() {
-    let hello = String::from("Hello World");
-    println("{}", hello); // string display
-    println("{:?}", hello); // Debug
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,38 +32,15 @@ fn main() {
 
 Wir verwenden für die ersten Schritte:
 
-* String
-* `Vec<T>` (Vektoren)
-* Plain `struct`s
+-   String
+-   `Vec<T>` (Vektoren)
+-   Plain `struct`s
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let hello = String::from("Hello World");
-    let vec = vec![1,2,3];
-    let point = Point { x: 1, y: 2};
-}
-```
+<pre><code data-source="chapters/shared/code/little-helpers/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## \#[derive(Debug)]
+## \#\[derive(Debug)\]
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let point = Box::new(Point { x: 1, y: 2});
-    println!("{:?}", point);
-}
-```
-
+<pre><code data-source="chapters/shared/code/little-helpers/4.rs" data-trim="hljs rust"></code></pre>
 Funktioniert für alle Datenstrukturen.

@@ -10,46 +10,15 @@ Hierzu gibt es 2 Möglichkeiten.
 
 Wenn die Anzahl der Möglichkeiten beschränkt ist, kann gerne zu einem Enum gegriffen werden:
 
-```rust
-enum Operation {
-    Get,
-    Set(String),
-    Count
-}
-
-fn execute(op: Operation) {
-    match op {
-        Operation::Get => execute_get(),
-        Operation::Set(s) => execute_set(s),
-        Operation::Count => execute_count()
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Alternative Form
 
-```rust
+\`\`\`rust
 
-```rust
-enum Operation {
-    Get,
-    Set(String),
-    Count
-}
-
-impl Operation {
-    fn execute(&self) {
-        match &self {
-            &Operation::Get => execute_get(),
-            &Operation::Set(s) => execute_set(s),
-            &Operation::Count => execute_count()
-        }
-    }
-}
-```
-
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -69,45 +38,25 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 
 ## Einschränkungen
 
-* Es kann nur ein Trait pro Objekt verwendet werden
-* Dieser Trait muss bestimmten Regeln gehorchen
+-   Es kann nur ein Trait pro Objekt verwendet werden
+-   Dieser Trait muss bestimmten Regeln gehorchen
 
 ---
 
 ## Regeln für Objekt-Traits
 
-* Objektsichere Traits dürfen _nicht_ `Self: Sized` verlangen
-* Alle Methoden sind objektsicher
-    - sie haben keine Typ-Parameter
-    - sie verwnden nicht `Self`
+-   Objektsichere Traits dürfen *nicht* `Self: Sized` verlangen
+-   Alle Methoden sind objektsicher
+    -   sie haben keine Typ-Parameter
+    -   sie verwnden nicht `Self`
 
 ---
 
 ## Weitere Eigenschaften
 
-* Da Trait-Objekte den Objekt-Typ zur Laufzeit halten, unterstützen sie Downcasts.
+-   Da Trait-Objekte den Objekt-Typ zur Laufzeit halten, unterstützen sie Downcasts.
 
-```rust
-use std::fmt::Debug;
-use std::any::Any;
-
-// Logger function for any type that implements Debug.
-fn log<T: Any + Debug>(value: &T) {
-    let value_any = value as &Any;
-
-    // try to convert our value to a String.  If successful, we want to
-    // output the String's length as well as its value.  If not, it's a
-    // different type: just print it out unadorned.
-    match value_any.downcast_ref::<String>() {
-        Some(as_string) => {
-            println!("String ({}): {}", as_string.len(), as_string);
-        }
-        None => {
-            println!("{:?}", value);
-        }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -115,10 +64,5 @@ fn log<T: Any + Debug>(value: &T) {
 
 Da Closures Traits implementieren, sind sie legale Trait-Objekte.
 
-```rust
-fn factory() -> Box<Fn(i32) -> i32> {
-    let num = 5;
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/4.rs" data-trim="hljs rust"></code></pre>
 
-    Box::new(move |x| x + num)
-}
-```

@@ -4,47 +4,47 @@
 
 ## Ein wenig Geschichte
 
-* Rust wurde vor 9 Jahren erfunden
- - Experimentalprojekt von Graydon Hoare
-* Von Mozilla adoptiert
-* Version 0.4 wurde 2012 der Öffentlichkeit vorgestellt
-* War ein wenig Go-like
+-   Rust wurde vor 9 Jahren erfunden
+-   Experimentalprojekt von Graydon Hoare
+-   Von Mozilla adoptiert
+-   Version 0.4 wurde 2012 der Öffentlichkeit vorgestellt
+-   War ein wenig Go-like
 
 ---
 
 ## Fokussierung
 
-* Rust hat von 2012 bis 2014 stark an Features verloren
-* Garbage Collector, Evented Runtime, komplexes error-handling
-    - war alles mal da, ist heute nicht mehr
-* Orientierung zu einer verwendbaren Systemsprache
+-   Rust hat von 2012 bis 2014 stark an Features verloren
+-   Garbage Collector, Evented Runtime, komplexes error-handling
+    -   war alles mal da, ist heute nicht mehr
+-   Orientierung zu einer verwendbaren Systemsprache
 
 ---
 
 ## Entwicklung
 
-* Immer begleitet von einem Großprojekt (z.B. Servo)
-* Auch in Frühzeiten mit regelmässigen Releases, Deprecations, RFCs.
-* Gute praktische Softwareentwicklung
+-   Immer begleitet von einem Großprojekt (z.B. Servo)
+-   Auch in Frühzeiten mit regelmässigen Releases, Deprecations, RFCs.
+-   Gute praktische Softwareentwicklung
 
 ---
 
 ## Release-Modus
 
-* Nächtliche Releases
-* Alle 6 Wochen wird der aktuelle Stand zu einem Beta-Release
-* Nach 6 Wochen Testing wird Beta zu Stable
-* Garantierte Rückwärtskompatibilität
-* Erleichtert durch kleinere Iterationen
+-   Nächtliche Releases
+-   Alle 6 Wochen wird der aktuelle Stand zu einem Beta-Release
+-   Nach 6 Wochen Testing wird Beta zu Stable
+-   Garantierte Rückwärtskompatibilität
+-   Erleichtert durch kleinere Iterationen
 
 ---
 
 ## Ziele
 
-* Explizit über implizit
-* vorhersagbares Laufzeitverhalten
-* Stabile Softwareentwicklung in großen Projekten
-* Pragmatismus und Integrierbarkeit
+-   Explizit über implizit
+-   vorhersagbares Laufzeitverhalten
+-   Stabile Softwareentwicklung in großen Projekten
+-   Pragmatismus und Integrierbarkeit
 
 ---
 
@@ -60,54 +60,54 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 ## Die drei Worte
 
-* Sicher
-* Nebenläufig
-* Schnell
+-   Sicher
+-   Nebenläufig
+-   Schnell
 
 ---
 
 ## Sicher
 
-* Rust ist speichersicher
-* Keine illegalen Speicherzugriffe
-* Speicherbereinigung ist automatisiert
-* Achtung: Speicherlecks sind in dieser Definition _sicher_!
+-   Rust ist speichersicher
+-   Keine illegalen Speicherzugriffe
+-   Speicherbereinigung ist automatisiert
+-   Achtung: Speicherlecks sind in dieser Definition *sicher*!
 
 ---
 
 ## Nebenläufig
 
-* "Nebenläufigkeit ohne Angst"
-* Typsystem erkennt konkurrierenden Zugriff auf Daten und verlangt Synchronisierung
-* Umgekehrt: Rust erkennt, wenn unsynchronisierter Zugriff möglich ist!
-* Schutz vor Daten-Races
+-   "Nebenläufigkeit ohne Angst"
+-   Typsystem erkennt konkurrierenden Zugriff auf Daten und verlangt Synchronisierung
+-   Umgekehrt: Rust erkennt, wenn unsynchronisierter Zugriff möglich ist!
+-   Schutz vor Daten-Races
 
 ---
 
 ## Schnell
 
-* Obige Eigenschaften werden zur Kompilierzeit garantiert und haben keine Laufzeitkosten!
-* Optimierender Compiler basierend auf LLVM
-* Features mit Laufzeitkosten sind explizit und werden nicht "aus Versehen" aktiviert
-* Keine Reflektion (Vampirsprache)
-* Statische Aufrufe als Standard
+-   Obige Eigenschaften werden zur Kompilierzeit garantiert und haben keine Laufzeitkosten!
+-   Optimierender Compiler basierend auf LLVM
+-   Features mit Laufzeitkosten sind explizit und werden nicht "aus Versehen" aktiviert
+-   Keine Reflektion (Vampirsprache)
+-   Statische Aufrufe als Standard
 
 ---
 
 ## Pragmatisch
 
-* Subsprache für unsichere Speicherzugriffe
-* Gute Techniken zum verstecken dieser
-* Gute Einbindung über das Platform-FFI
-* Sehr gute Fehlermeldungen
-* Rust unterstützt bei vielen schwierigen Dingen und vertraut einem beim Rest.
+-   Subsprache für unsichere Speicherzugriffe
+-   Gute Techniken zum verstecken dieser
+-   Gute Einbindung über das Platform-FFI
+-   Sehr gute Fehlermeldungen
+-   Rust unterstützt bei vielen schwierigen Dingen und vertraut einem beim Rest.
 
 ---
 
 ## Spracheigenschaften
 
-* Rust basiert auf Ausdrücken. Jeder Ausdruck hat einen Wert, dieser kann zugewiesen oder zurück gegeben werden.
-* "Pay what you use": Rust bietet zur Laufzeit teure Features an: Explizit und direkt sichtbar. Nicht verwendete Features kosten nichts.
+-   Rust basiert auf Ausdrücken. Jeder Ausdruck hat einen Wert, dieser kann zugewiesen oder zurück gegeben werden.
+-   "Pay what you use": Rust bietet zur Laufzeit teure Features an: Explizit und direkt sichtbar. Nicht verwendete Features kosten nichts.
 
 ---
 
@@ -115,16 +115,17 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 Interessanterweise in etwa gleich von:
 
-* Dynamischen Sprachen (Rubyisten und Pythonista)
-* Funktionalen Sprachen wie Scala und Haskell
-* C/C++
+-   Dynamischen Sprachen (Rubyisten und Pythonista)
+-   Funktionalen Sprachen wie Scala und Haskell
+-   C/C++
 
 ---
 
 ## Bekannte User
 
-* Mozilla Firefox
-* Mozilla Servo
-* Gnome
-* Dropbox
-* [Rust Friends](http://rust-lang.org/friends.html)
+-   Mozilla Firefox
+-   Mozilla Servo
+-   Gnome
+-   Dropbox
+-   [Rust Friends](http://rust-lang.org/friends.html)
+

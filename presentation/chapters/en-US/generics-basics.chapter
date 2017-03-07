@@ -8,17 +8,7 @@ Generics are fundamental for Rust.
 
 ## Generic Structs
 
-```rust
-struct Point<Precision> {
-    x: Precision,
-    y: Precision
-}
-
-fn main() {
-    let point = Point { x: 1u32, y: 2 };
-    let point: Point<i32> { x: 1, y: 2 };
-}
-```
+<pre><code data-source="chapters/shared/code/generics-basics/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -26,7 +16,7 @@ fn main() {
 
 Rust finds the types of all variables and generics with sufficient information.
 
-This only applies _inside_ of function limits.
+This only applies *inside* of function limits.
 
 Signatures must always be fully entered.
 
@@ -34,16 +24,7 @@ Signatures must always be fully entered.
 
 ## Generic Enums
 
-```rust
-enum Either<T, X> {
-    Left(T),
-    Right(X)
-}
-
-fn main() {
-    let alternative: Either<i32, f64> = Either::Left(i32);
-}
-```
+<pre><code data-source="chapters/shared/code/generics-basics/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -53,18 +34,7 @@ fn main() {
 
 ## Option
 
-```rust
-enum Option<T> {
-    Some(T),
-    None
-}
-
-fn main() {
-    let args = std::os::args;
-    println!("{:?} {:?}", args.at(0), args.at(1))
-}
-```
-
+<pre><code data-source="chapters/shared/code/generics-basics/3.rs" data-trim="hljs rust"></code></pre>
 Describes a value which does not have to be present.
 
 `None` is a value, and should not be confused with `null`.
@@ -73,16 +43,5 @@ Describes a value which does not have to be present.
 
 ## Result
 
-```rust
-enum Result<T, E> {
-    Ok(T),
-    Err(E)
-}
-
-fn main() {
-    let file = std::fs::File::open("I don't exist!");
-    println!("{:?}", file);
-}
-```
-
+<pre><code data-source="chapters/shared/code/generics-basics/4.rs" data-trim="hljs rust"></code></pre>
 Describes whether an operation was successful and returns either the value or an error.

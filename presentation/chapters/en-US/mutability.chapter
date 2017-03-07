@@ -10,23 +10,13 @@ Where does Rust land?
 
 ## An Example
 
-```rust
-fn main() {
-    let answer = 42;
-    answer = 32;
-}
-```
+<pre><code data-source="chapters/shared/code/mutability/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Correct
 
-```rust
-fn main() {
-    let mut answer = 42;
-    answer = 32;
-}
-```
+<pre><code data-source="chapters/shared/code/mutability/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

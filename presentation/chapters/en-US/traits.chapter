@@ -16,22 +16,7 @@ In particular, run-time polymorphism, messages, classes, subtypes, and method ov
 
 ## Simple implementations: associated function
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-}
-
-fn main() {
-    let point = Point::new(1,2);
-}
-```
+<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,63 +28,7 @@ fn main() {
 
 ## Python Says Hello
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-    
-    fn from_pair(pair: (i32, i32)) -> Point {
-        Point { x: pair.0, y: pair.1 }
-    }
-    
-    fn into_pair(self) -> (i32, i32) {
-       (self.x, self.y)
-    }
-    
-    fn inspect(&self) {
-        println!("Current point value: {:?}", self); 
-    }
-    
-    fn move(&mut self, x: i32, y: i32) {
-        self.x = x;
-        self.y = y;
-    }
-    
-    fn x(&self) -> &i32 {
-        &self.x
-    }
-    
-    fn x_mut(&self) -> &mut i32 {
-        &mut self
-    }
-    
-    fn y(&self) -> &i32 {
-        &self.y
-    }
-    
-    fn y_mut(&self) -> &mut i32 {
-        &mut self
-    }
-    
-}
-
-fn main() {
-    let p = Point::new(1,2);
-    p.inspect();
-    p.move(2,3);
-    p.inspect();
-    let mut x = p.x_mut();
-    *x = 5;
-    p.inspect();
-}
-```
+<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -107,23 +36,23 @@ fn main() {
 
 It is not unlike normal, but at the beginning somewhat unfamiliar.
 
-* Borrowing through one function _simultaneously grants self_.
-* This is especially applicable for mutable borrows!
-* `self` without` & `returns ownership to the value from the calling context.
+-   Borrowing through one function *simultaneously grants self*.
+-   This is especially applicable for mutable borrows!
+-   `self` without`&`returns ownership to the value from the calling context.
 
 ---
 
 ## Interesting Differences to Common OO
 
-* Values can replace themselves
-* Values, for example, iterators and builders can have methods that consume `self` and are thus invalidated.
-* This solves the problem of inverting iterators.
+-   Values can replace themselves
+-   Values, for example, iterators and builders can have methods that consume `self` and are thus invalidated.
+-   This solves the problem of inverting iterators.
 
 ---
 
 ## Attributes
 
-* Implementations can occur multiple times
+-   Implementations can occur multiple times
 
 ---
 
@@ -131,18 +60,7 @@ It is not unlike normal, but at the beginning somewhat unfamiliar.
 
 `Self` is a special type in Rust. It always references the type to which the implementation refers.
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Self {
-        Point { x: x, y: y }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/traits/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -160,19 +78,5 @@ Traits define functions types must implement. They can then be used generically.
 
 ---
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
+<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust"></code></pre>
 
-trait Distance {
-    fn distance(self, other: Self) -> i32;
-}
-
-impl Distance for Point {
-    fn distance(self, other: Point) -> i32 {
-      // TODO: fill in the blanks
-    }
-}
-```

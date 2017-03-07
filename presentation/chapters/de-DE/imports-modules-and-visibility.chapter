@@ -6,13 +6,7 @@
 
 Alle zu verwendenden Objekte sind zu deklarieren. Dies ist ähnlich wie bei Java und Haskell.
 
-```rust
-use std::fs::File;
-
-fn main() {
-    let f = File::open("test");
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -20,13 +14,7 @@ fn main() {
 
 Man kann auch das Modul importieren und dann qualifiziert verwenden:
 
-```rust
-use std::fs;
-
-fn main() {
-    let f = fs::File::open("test");
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -34,15 +22,8 @@ fn main() {
 
 Genauso kann ein Modul komplett importiert werden:
 
-```rust
-use std::fs::*;
-
-fn main() {
-    let f = File::open("test");
-}
-```
-
-Das ist jedoch _generell_ ungern gesehen.
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust"></code></pre>
+Das ist jedoch *generell* ungern gesehen.
 
 ---
 
@@ -56,33 +37,14 @@ Eine Ausnahme stellt die sogenannte "Prelude" dar: dies ist ein spezielles Modul
 
 Auch bieten einige Bibliotheken `prelude`-Module an, so zum Beispiel `std::io`.
 
-```rust
-use std::io::prelude::*;
-use std::fs::File;
-
-fn main() {
-    let mut f = File::open("foo.txt").unwrap();
-    let mut buffer = [0; 10];
-
-    f.read(&mut buffer).unwrap();
-
-    println!("The bytes: {:?}", buffer);
-}
-```
-
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust"></code></pre>
 Hier ist der Glob gerne gesehen.
 
 ---
 
 ## Umbenennen beim Import
 
-```rust
-use std::fs as file_system;
-
-fn main() {
-    let f = file_system::File::open("test");
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -90,13 +52,7 @@ fn main() {
 
 Imports können auch direkt in Funktionen geschehen. Sie sind dann nur dort gültig.
 
-```rust
-fn main() {
-    use std::fs::File;
-
-    let f = File::open("test");
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -106,9 +62,9 @@ Das Modulsystem von Rust ist ähnlich dem von Python.
 
 ---
 
-* Jede Quelldatei ist automatisch ein Modul
-* Submodule können entweder in derselben Datei oder in einer anderen sein
-* Bibliotheken nennen sich "Crates" und enthalten Module
+-   Jede Quelldatei ist automatisch ein Modul
+-   Submodule können entweder in derselben Datei oder in einer anderen sein
+-   Bibliotheken nennen sich "Crates" und enthalten Module
 
 ---
 
@@ -118,17 +74,7 @@ Per Konvention ist das Hauptmodul einer Bibliothek in einer Datei `src/lib.rs`, 
 
 Eine beispielhafte Applikation:
 
-```rust
-fn main() {
-    workload::work();
-}
-
-mod workload {
-    pub fn work() {
-        println!("hard at work!");
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -136,36 +82,19 @@ mod workload {
 
 Genauso könnte unsere Applikation aber auch folgendes Layout haben:
 
-```rust
-|
-|-src
-  |- main.rs
-  |- workload.rs
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Ein großes Modul als eigenes Verzeichnis
 
-```rust
-|
-|-src
-  |- main.rs
-  |- workload
-     |- mod.rs
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 In beiden Fällen muss das Modul im darüber liegenden Modul bekannt gemacht werden:
 
-```rust
-mod workload;
-
-fn main() {
-    workload::work();
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -183,17 +112,7 @@ In Rust ist alles standardmässig privat. Öffentlich verfügbare Typen werden m
 
 ## Beispiel
 
-```rust
-pub mod workload;
-
-pub trait Distance {
-    fn distance(&self, other: Self);
-}
-
-pub fn foo() {
-
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/11.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -205,31 +124,12 @@ Genauso werden Struct-Funktionen nicht standardmässig exportiert.
 
 ---
 
-```rust
-pub Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    pub new() -> Point {
-       Point { x: 1, y: 2 };
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/12.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-```rust
-pub Point {
-    pub x: i32,
-    pub y: i32
-}
-```
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/13.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Generell ist aus 2 Gründen vom exportieren von Feldern abzuraten:
-* Eine Stukturveränderung ist ein automatischer Bruch des externen Interfaces
-* Der Compiler optimiert Accessor-Funktionen normalerweise auf Feldzugriff hinunter.
-
+Generell ist aus 2 Gründen vom exportieren von Feldern abzuraten: \* Eine Stukturveränderung ist ein automatischer Bruch des externen Interfaces \* Der Compiler optimiert Accessor-Funktionen normalerweise auf Feldzugriff hinunter.

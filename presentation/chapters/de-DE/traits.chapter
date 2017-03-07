@@ -10,28 +10,13 @@ Rust bietet die Möglichkeit, Funktionen an Typen zu binden.
 
 Das sieht manchmal aus wie objektorientierte Programmierung, ist es aber nicht.
 
-Insbesondere Laufzeitpolymorphismus, Nachrichten, Klassen, Subtypen und Methodenüberladung fehlen. 
+Insbesondere Laufzeitpolymorphismus, Nachrichten, Klassen, Subtypen und Methodenüberladung fehlen.
 
 ---
 
 ## Einfache Implementierungen: assoziierte Funktion
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-}
-
-fn main() {
-    let point = Point::new(1,2);
-}
-```
+<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -43,63 +28,7 @@ fn main() {
 
 ## Python lässt grüßen
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-    
-    fn from_pair(pair: (i32, i32)) -> Point {
-        Point { x: pair.0, y: pair.1 }
-    }
-    
-    fn into_pair(self) -> (i32, i32) {
-       (self.x, self.y)
-    }
-    
-    fn inspect(&self) {
-        println!("Current point value: {:?}", self); 
-    }
-    
-    fn move(&mut self, x: i32, y: i32) {
-        self.x = x;
-        self.y = y;
-    }
-    
-    fn x(&self) -> &i32 {
-        &self.x
-    }
-    
-    fn x_mut(&self) -> &mut i32 {
-        &mut self
-    }
-    
-    fn y(&self) -> &i32 {
-        &self.y
-    }
-    
-    fn y_mut(&self) -> &mut i32 {
-        &mut self
-    }
-    
-}
-
-fn main() {
-    let p = Point::new(1,2);
-    p.inspect();
-    p.move(2,3);
-    p.inspect();
-    let mut x = p.x_mut();
-    *x = 5;
-    p.inspect();
-}
-```
+<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -107,23 +36,23 @@ fn main() {
 
 Ist nicht anders als normal, aber am Anfang etwas ungewohnt.
 
-* Borrowing durch eine Funktion hindurch _leiht gleichzeitig self aus_.
-* Dies gilt insbesondere für mutables ausleihen!
-* `self` ohne `&` gibt Ownership auf den Wert aus dem aufrufenden Kontext ab.
+-   Borrowing durch eine Funktion hindurch *leiht gleichzeitig self aus*.
+-   Dies gilt insbesondere für mutables ausleihen!
+-   `self` ohne `&` gibt Ownership auf den Wert aus dem aufrufenden Kontext ab.
 
 ---
 
 ## Interessante Unterschiede zu gängigem OO
 
-* Werte können sich selbst ersetzen
-* Werte, zum Beispiel Iteratoren und Builder können Methoden haben, die `self` konsumieren und damit invalidiert werden.
-* Das löst das Problem, Iteratoren zu invalidieren.
+-   Werte können sich selbst ersetzen
+-   Werte, zum Beispiel Iteratoren und Builder können Methoden haben, die `self` konsumieren und damit invalidiert werden.
+-   Das löst das Problem, Iteratoren zu invalidieren.
 
 ---
 
 ## Eigenheiten
 
-* Implementierungen können mehrfach vorkommen 
+-   Implementierungen können mehrfach vorkommen
 
 ---
 
@@ -131,18 +60,7 @@ Ist nicht anders als normal, aber am Anfang etwas ungewohnt.
 
 `Self` ist in Rust ein besonderer Typ. Er referenziert immer den Typ, auf den sich die Implementierung bezieht.
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-impl Point {
-    fn new(x: i32, y: i32) -> Self {
-        Point { x: x, y: y }
-    }
-}
-```
+<pre><code data-source="chapters/shared/code/traits/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -160,29 +78,7 @@ Traits definieren Funktionen, die Typen implementieren müssen. Sie können dann
 
 ---
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-trait Distance {
-    fn distance(self, other: Self) -> i32;
-}
-
-impl Distance for Point {
-    // diese Distanzfunktion ist falsch
-    fn distance(self, other: Point) -> i32 {
-        (self.x - other.x) + (self.y - other.y)
-    }
-}
-
-fn main() {
-    let p1 = Point { x: 1, y: 1 };
-    let p2 = Point { x: 2, y: 2 };
-    println!("{}", p1.distance(p2));
-}
-```
+<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -198,29 +94,7 @@ Traits können generisch sein.
 
 ---
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-trait Distance<OtherShape> {
-    fn distance(&self, other: &OtherShape) -> i32;
-}
-
-impl Distance<Point> for Point {
-    // diese Distanzfunktion ist falsch
-    fn distance(&self, other: &Point) -> i32 {
-        (self.x - other.x) + (self.y - other.y)
-    }
-}
-
-fn main() {
-    let p1 = Point { x: 1, y: 1 };
-    let p2 = Point { x: 2, y: 2 };
-    println!("{}", p1.distance(p2));
-}
-```
+<pre><code data-source="chapters/shared/code/traits/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -240,29 +114,7 @@ Hierzu gibt es mehrere Techniken.
 
 Unified Function Call Syntax
 
-```rust
-struct Point {
-    x: i32,
-    y: i32
-}
-
-trait Distance<OtherShape> {
-    fn distance(&self, other: &OtherShape) -> i32;
-}
-
-impl Distance<Point> for Point {
-    // diese Distanzfunktion ist falsch
-    fn distance(&self, other: &Point) -> i32 {
-        (self.x - other.x) + (self.y - other.y)
-    }
-}
-
-fn main() {
-    let p1 = Point { x: 1, y: 1 };
-    let p2 = Point { x: 2, y: 2 };
-    println!("{}", <p1 as Distance<Point>>.distance(p2));
-}
-```
+<pre><code data-source="chapters/shared/code/traits/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -272,30 +124,5 @@ Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht ge
 
 ---
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
+<pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust"></code></pre>
 
-trait MyAddition<Other> {
-    type Output;
-
-    fn add(&self, other: &Other) -> Self::Output;
-}
-
-impl MyAddition<Point> for Point {
-    type Output = Point;
-
-    fn add(&self, other: &Point) -> Point {
-        Point { x: self.x + other.x, y: self.y + other.y }
-    }
-}
-
-fn main() {
-    let p1 = Point { x: 1, y: 2 };
-    let p2 = Point { x: 1, y: 2 };
-    println!("{:?}", p1.add(&p2))
-}
-```

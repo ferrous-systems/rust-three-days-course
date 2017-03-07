@@ -6,11 +6,11 @@
 
 Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
 
-* i8, u8
-* i16, u16
-* i32, u32
-* i64, u64
-* i128, u128 (bald)
+-   i8, u8
+-   i16, u16
+-   i32, u32
+-   i64, u64
+-   i128, u128 (bald)
 
 ---
 
@@ -18,20 +18,15 @@ Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
 
 Rust hat 2 architekturabhängige Zahlentypen:
 
-* isize, usize
+-   isize, usize
 
 ---
 
 ## Casts
 
-Casts zwischen den Typen sind möglich, _auch verkürzende Casts_:
+Casts zwischen den Typen sind möglich, *auch verkürzende Casts*:
 
-```rust
-fn main() {
-    let foo = 3i64;
-    let bar = foo as i32;
-}
-```
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -49,11 +44,7 @@ Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Sta
 
 Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
 
-```rust
-fn main() {
-    let float: f64 = 1f;
-}
-```
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -61,11 +52,7 @@ fn main() {
 
 Arrays fixer Größe haben folgende Notation:
 
-```rust
-fn main() {
-    let arr: [i32; 4] = [1,2,3,4];
-}
-```
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -75,11 +62,7 @@ Arrays dynamischer Größe müssen in Rust als Slice abgebildet werden.
 
 Slices tragen einen Pointer auf einen Array und eine Länge. Slices können weder vergrößert noch verkleinert werden.
 
-```rust
-fn main() {
-    let arr: &[i32] = &[1,2,3,4];
-}
-```
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -87,8 +70,5 @@ fn main() {
 
 Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
 
-```rust
-fn main() -> () {
-    42;
-}
-```
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust"></code></pre>
+

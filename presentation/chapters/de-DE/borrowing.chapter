@@ -18,24 +18,7 @@ Stattdessen: Ausleihen!
 
 ---
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32 
-}
-
-fn main() {
-    let mut point = Point { x: 1, y: 2 };
-    inspect(&point);
-    point.x = 2;
-    inspect(&point);
-}
-
-fn inspect(p: &Point) {
-    println!("{:?}", p);
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -64,29 +47,7 @@ Was, wenn wir die Daten aber verändern möchten?
 
 ---
 
-```rust
-#[derive(Debug)]
-struct Point {
-    x: i32,
-    y: i32
-}
-
-fn main() {
-    let mut point = Point { x: 1, y: 2 };
-    inspect(&point);
-    move_point(&mut point, 3, 3);
-    inspect(&point);
-}
-
-fn move_point(p: &mut Point, x: i32, y: i32) {
-    p.x = x;
-    p.y = y;
-}
-
-fn inspect(p: &Point) {
-    println!("{:?}", p);
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -96,9 +57,7 @@ Mutable Ausleihen sind exklusiv.
 
 ## Zusammenfassung
 
-Daten können entweder:
-* Beliebig oft immutable ausgeliehen werden
-* Oder exakt einmal mutabel
+Daten können entweder: \* Beliebig oft immutable ausgeliehen werden \* Oder exakt einmal mutabel
 
 Ownership bleibt im Aufrufskontext, genauso wie die Deallokation
 
@@ -110,19 +69,11 @@ Was verhindert das?
 
 ## Sehen Sie ein potentielles Problem?
 
-```rust
-fn push_all(on: &mut Vec<u8>, from: &Vec<u8>) {
-
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Wichtig hierbei:
-* zu jedem Typ `T` gibt es einen Typ `&T`
-* zu jedem Typ `T` gibt es einen Typ `&mut T`
-* `&&T` ist ein legaler Typ
-* `& &mut T` ist kein legaler Typ. Warum?
+Wichtig hierbei: \* zu jedem Typ `T` gibt es einen Typ `&T` \* zu jedem Typ `T` gibt es einen Typ `&mut T` \* `&&T` ist ein legaler Typ \* `& &mut T` ist kein legaler Typ. Warum?
 
 ---
 
@@ -130,53 +81,19 @@ Wichtig hierbei:
 
 Das heisst, sie müssen manchmal dereferenziert werden.
 
-```rust
-fn main() {
-    let number: &mut i32 = 4;
-    *number = 10;
-    println!("{}", number);
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Borrows sind lexikalisch
 
-```rust
-fn main() {
-    let mut data = vec!['a', 'b', 'c'];
-    let slice = &mut data[..];
-    do_something(slice);
-    data.push('d');
-    data.push('e');
-    data.push('f');
-}
-
-fn do_something(slice: &[char]) {
-
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Funktioniert
 
-```rust
-fn main() {
-    let mut data = vec!['a', 'b', 'c'];
-    {
-        let slice = &mut data[..];
-        do_something(slice);
-    }
-    data.push('d');
-    data.push('e');
-    data.push('f');
-}
-
-fn do_something(slice: &[char]) {
-
-}
-```
+<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -184,16 +101,5 @@ fn do_something(slice: &[char]) {
 
 Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei nicht konsumieren.
 
-```rust
-fn call_me_maybe(maybe_number: &Option<&str>) {
-    match *maybe_number {
-        Some(ref s) => println!("calling {}", s),
-        None => println!("no number, not calling")
-    }
-}
+<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>
 
-fn main() {
-    let number = Some("+491728122469");
-    call_me_maybe(&number);
-}
-```

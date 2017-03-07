@@ -14,17 +14,17 @@ Grundsätzlich ist Cargo aber unabhängig von der `rustc`-Version.
 
 Ein Cargo-Projekt enthält (mindestens).
 
-* Ein Manifest (Cargo.toml)
-* Eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
+-   Ein Manifest (Cargo.toml)
+-   Eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
 
 ---
 
 Darüber hinaus kann ein Cargo-Projekt enthalten:
 
-* Tests (Standardverzeichnis `tests`)
-* Benchmarks (Standardverzeichnis `benches`)
-* Ein Build-Script (Standardname `build.rs`)
-* Beispiele (Standardverzeichnis `examples`)
+-   Tests (Standardverzeichnis `tests`)
+-   Benchmarks (Standardverzeichnis `benches`)
+-   Ein Build-Script (Standardname `build.rs`)
+-   Beispiele (Standardverzeichnis `examples`)
 
 ---
 
@@ -32,19 +32,7 @@ Darüber hinaus kann ein Cargo-Projekt enthalten:
 
 Das [Cargo-Manifest](http://doc.crates.io/manifest.html) ist in [TOML](http://doc.crates.io/manifest.html) verfasst. Es enthält mindestens den Namen des Projekts.
 
-```toml
-[package]
-name = "tcp-mailbox"
-version = "0.1.0"
-authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
-
-[dependencies]
-futures = "0.1"
-tokio-core = "0.1"
-tokio-service = "0.1"
-tokio-proto = "0.1"
-clap = "2.20"
-```
+<pre><code data-source="chapters/shared/code/cargo/1.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
@@ -60,7 +48,7 @@ Standardmässig baut Cargo das Projekt mit dem Debug-Profil, also unoptimiert un
 
 ## Anmerkung
 
-Nutzen Sie auf _jeden Fall_ `--release` für Benchmarks, gerade Iteratoren werden dadurch massiv schneller!
+Nutzen Sie auf *jeden Fall* `--release` für Benchmarks, gerade Iteratoren werden dadurch massiv schneller!
 
 ---
 
@@ -78,7 +66,7 @@ Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin 
 
 Tests nutzen normalerweise mit dem Debug-Profil.
 
-`cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele! 
+`cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele!
 
 ---
 
@@ -94,15 +82,15 @@ Hier ist das Release-Profil Standard.
 
 In der Rust-Community ist [SemVer](https://semver.org) der empfohlene Standard für Versionierung.
 
-* Die Major-Version muss stets angehoben werden, wenn das Interface bricht
-* Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
-* Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten
+-   Die Major-Version muss stets angehoben werden, wenn das Interface bricht
+-   Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
+-   Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten
 
 ---
 
 ## Anmerkung
 
-Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher dürfen mit _jeder Minor-Version_ Interface-Brüche auftreten.
+Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher dürfen mit *jeder Minor-Version* Interface-Brüche auftreten.
 
 ---
 
@@ -110,9 +98,9 @@ Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher d�
 
 Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
 
-* `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
-* `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
-* `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
+-   `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
+-   `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
+-   `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
 
 Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
 
@@ -122,7 +110,7 @@ Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
 
 Beim ersten Bauen (oder durch `cargo update`) errechnet Cargo einen Versionsbaum, der die Bedingungen von Cargo.toml erfüllt. Er wird in einem sogenannten Lockfile (Cargo.lock) gespeichert.
 
-Es empfiehlt sich, den Lockfile _immer_ unter Versionskontrolle zu halten. (für wiederholbare Builds)
+Es empfiehlt sich, den Lockfile *immer* unter Versionskontrolle zu halten. (für wiederholbare Builds)
 
 ---
 
@@ -130,42 +118,22 @@ Es empfiehlt sich, den Lockfile _immer_ unter Versionskontrolle zu halten. (für
 
 Cargo kennt 3 verschiedene Abhängigkeitssätze:
 
-* Normale Abhängigkeiten
-* Build-Abhängigkeiten
-* Test-Abhängigkeiten
+-   Normale Abhängigkeiten
+-   Build-Abhängigkeiten
+-   Test-Abhängigkeiten
 
 ---
 
 ## Beispiel
 
-```toml
-[dependencies]
-futures = "0.1"
-
-[build-dependencies]
-tango = "0.5"
-
-[test-dependencies]
-hamcrest = "0.5"
-```
+<pre><code data-source="chapters/shared/code/cargo/2.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
 ## Detaillierte Abhängigkeiten
 
-```toml
-[dependencies.futures]
-version = "0.1"
-git = "https://github.com/skade/futures-rs.git"
-branch = "my-new-feature"
-```
-
-```toml
-[dependencies.futures]
-version = "0.1"
-git = "/my/local/path"
-branch = "my-new-feature"
-```
+<pre><code data-source="chapters/shared/code/cargo/3.toml" data-trim="hljs toml"></code></pre>
+<pre><code data-source="chapters/shared/code/cargo/4.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
@@ -179,10 +147,7 @@ Abhängigkeiten ausserhalb von crates.io sind verboten, wenn eine Bibliothek ver
 
 Es gibt die Möglichkeit, Bibliotheken temporär durch eine lokale zu ersetzen. Dies geschieht, indem der Pfad in `$PROJEKT_PFAD/.cargo/config` hinterlegt wird:
 
-```toml
-paths = ["/my/local/path", "/another/path"]
-```
-
+<pre><code data-source="chapters/shared/code/cargo/5.toml" data-trim="hljs toml"></code></pre>
 Hier gefundene Bibliotheken werden bevorzugt. Das erlaubt das einfache Testen von Patches.
 
 ---
@@ -195,10 +160,10 @@ Die Profile von Cargo (release, bench, test...) können angepasst werden. Detail
 
 ## Targets
 
-* Profile und Abhängigkeiten lassen sich auch je nach Target konfigurieren
-* `cargo build --target ...` nutzt dieses Target
-* Es muss vorher installiert sein!
-* Eventuell Xargo verwenden!
+-   Profile und Abhängigkeiten lassen sich auch je nach Target konfigurieren
+-   `cargo build --target ...` nutzt dieses Target
+-   Es muss vorher installiert sein!
+-   Eventuell Xargo verwenden!
 
 ---
 
@@ -214,12 +179,7 @@ Details siehe [Doku](http://doc.crates.io/manifest.html).
 
 `rustc` bietet die Möglichkeit, beim kompilieren bestimmte Code-Teile zu ignorieren. Das geschieht über Feature-flags.
 
-```rust
-#[cfg(experimental)]
-fn amazing_function() {
-
-}
-```
+<pre><code data-source="chapters/shared/code/cargo/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -231,12 +191,7 @@ TODO: Beispiel
 
 Und dann als Abhängigkeit aktivieren:
 
-
-```toml
-[dependencies.my_lib]
-version = "0.1"
-features = ["experimental"]
-```
+<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
 
 ---
 

@@ -12,39 +12,15 @@ Das ist nicht notwendig.
 
 ## Lebenszeiten
 
-* Beschreiben die Zeit, die alle Daten im Speicher verbringen
-* Sind deskriptiv - sie können nichts erzwingen
-* Lebenszeiten sind Typen!
+-   Beschreiben die Zeit, die alle Daten im Speicher verbringen
+-   Sind deskriptiv - sie können nichts erzwingen
+-   Lebenszeiten sind Typen!
 
 ---
 
 ## Motivation
 
-```rust
-struct Container<T> {
-    inner: &T
-}
-
-impl<T> Container<T> {
-    fn borrow_inner(&self) -> &T {
-        self.inner
-    }
-}
-
-fn inner_drops_before_wrapper() {
-    let n: i32 = 42;
-    let w = Container { inner: &n };
-    drop(n);
-}
-
-
-fn wrapper_drops_with_active_borrow() {
-    let n: i32 = 42;
-    let w = Container { inner: &n };
-    let borrowed_n = w.borrow_inner();
-    drop(w);
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -54,18 +30,11 @@ Dieser Code würde - würde er funktionieren - Speicherverletzungen auslösen.
 
 Korrekte müsste die Struct-Definition heissen:
 
-```rust
-struct Container<'a, T> {
-    inner: &'a T
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Wrapper ist nun:
-* Generisch sowohl über den Typ T
-* als auch eine Lebenszeit 'a (seine eigene)
-* die durch das Ausleihen gebundenen Werte müssen _mindestens ebensolang_ leben
+Wrapper ist nun: \* Generisch sowohl über den Typ T \* als auch eine Lebenszeit 'a (seine eigene) \* die durch das Ausleihen gebundenen Werte müssen *mindestens ebensolang* leben
 
 ---
 
@@ -77,35 +46,13 @@ Lebenszeiten beschreiben Mindestbedingungen.
 
 ## Mehrere Lebenszeiten in einer Signatur
 
-```rust
-fn pair<'a>(first: &'a str, second: &'a str) -> (&'a str, &'a str) {
-    (first, second)
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Sublebenszeiten
 
-```rust
-struct Container<'a, T: 'a> {
-    inner: &'a T
-}
-
-struct Worker<'a, 'b: 'a, T: 'b> {
-    workload: &'a Container<'b, T>
-}
-
-fn create_worker<'a, 'b: 'a, T>(container: &'a Container<'b, T>) -> Worker<'a, 'b, T> {
-    Worker { workload: container }
-}
-
-fn main() {
-    let item = 42;
-    let c = Container { inner: &item };
-    let w = create_worker(&c);
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -129,10 +76,10 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 `'static` sind:
 
-* In der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
-* Heap-allokierte Werte (z.B. der Inhalt von `Box`)
-  - sofern diese nicht an Werte gebunden sind, die kürzer leben!
-* Globals 
+-   In der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
+-   Heap-allokierte Werte (z.B. der Inhalt von `Box`)
+-   sofern diese nicht an Werte gebunden sind, die kürzer leben!
+-   Globals
 
 ---
 
@@ -142,11 +89,7 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in gernerischem Code:
 
-```rust
-fn inspect<'a, T: Debug + 'a>(t: T) {
-    //...
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -154,28 +97,14 @@ fn inspect<'a, T: Debug + 'a>(t: T) {
 
 Im Standardfall werden Lebenszeiten in Signaturen eingefügt. Zum Beispiel entspricht:
 
-```rust
-fn foo(bar: &str) -> &str {
-    /// implementation
-}
-
-fn foo<'a>(bar: &'a str) -> &'a str {
-    /// implementation
-}
-```
+<pre><code data-source="chapters/shared/code/lifetimes/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Lebenszeiten und Bindings
 
-```rust
-let mut sink = io::BufWriter::new(io::stdout().lock());
-```
-
-```rust
-let stdout = io::stdout();
-let mut sink = io::BufWriter::new(stdout.lock());
-```
+<pre><code data-source="chapters/shared/code/lifetimes/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -183,13 +112,5 @@ let mut sink = io::BufWriter::new(stdout.lock());
 
 Bei Boxen ist die Standardlebenszeit `'static`. Manchmal ist das zu lang, daher lässt sie sich überschreiben:
 
-```rust
-fn main() {
-    let v = vec![1,2,3];
-    let i = make_iter(&v);
-}
+<pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust"></code></pre>
 
-fn make_iter<'a>(v: &'a Vec<u8>) -> Box<Iterator<Item=&u8> + 'a> {
-    Box::new(v.iter())
-}
-```

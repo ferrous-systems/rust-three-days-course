@@ -4,11 +4,7 @@
 
 ## Deklaration
 
-```rust
-fn add(first: i32, second: i32) -> i32 {
-    first + second
-}
-```
+<pre><code data-source="chapters/shared/code/functions/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -16,17 +12,7 @@ fn add(first: i32, second: i32) -> i32 {
 
 der Rückgabewert ist optional.
 
-```rust
-fn return_nothing() {}
-
-fn return_a_random() -> i32 {
-    4 // Garantiert zufällig, gewählt durch Würfelwurf
-}
-
-fn maybe_return_a_random(should: bool) -> Option<i32> {
-    if should { Some(4) } else { None }
-}
-```
+<pre><code data-source="chapters/shared/code/functions/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

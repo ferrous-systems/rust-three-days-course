@@ -10,52 +10,42 @@ Am häufigsten sind `String` und `&str`.
 
 ## `String`
 
-* *Besitzt* die Daten und kann frei mutiert werden. 
-* Existiert als Zeiger auf einige Bytes, eine Länge und eine Kapazität.
-* Existiert auf dem *Heap*.
-* Implementiert `Copy` nicht, sondern implementiert `Clone`.
+-   *Besitzt* die Daten und kann frei mutiert werden.
+-   Existiert als Zeiger auf einige Bytes, eine Länge und eine Kapazität.
+-   Existiert auf dem *Heap*.
+-   Implementiert `Copy` nicht, sondern implementiert `Clone`.
 
 ---
 
 ## `&str`
 
-* Ein unveränderlicher Verweis auf einen String-Slice.
-* Nur durch einen Pointer verwendbar.
-* Kann überall, auf dem Heap, Stack oder im Programmspeicher sein.
+-   Ein unveränderlicher Verweis auf einen String-Slice.
+-   Nur durch einen Pointer verwendbar.
+-   Kann überall, auf dem Heap, Stack oder im Programmspeicher sein.
 
 ---
 
 ## Allokation
 
-```rust
-fn main() {
-    // &'static str
-    let this = "Hallo";
-    // String
-    let that: String = String::from("Hallo");
-    // &str
-    let other = that.as_str();
-}
-```
+<pre><code data-source="chapters/shared/code/strings/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Wann verwenden?
 
-* `String` ist am *einfachsten* zu verwenden, gerade am Anfang. Verfeinern geht später immernoch.
-* `String` besitzt seine Daten, funktioniert also gut als Feld eines `struct` oder Enums.
+-   `String` ist am *einfachsten* zu verwenden, gerade am Anfang. Verfeinern geht später immernoch.
+-   `String` besitzt seine Daten, funktioniert also gut als Feld eines `struct` oder Enums.
 
-* `&'static str` funktioniert gut für konstante Werte.
-* `&str` wird typischerweise in Funktionsargumenten verwendet.
-
+-   `&'static str` funktioniert gut für konstante Werte.
+-   `&str` wird typischerweise in Funktionsargumenten verwendet.
 
 ---
 
 ## Exotische String-Typen
 
-* `OsStr` und `OsString` können bei der Arbeit mit Dateisystemen oder Systemaufrufen vorkommen.
+-   `OsStr` und `OsString` können bei der Arbeit mit Dateisystemen oder Systemaufrufen vorkommen.
 
-* `CStr` und `CString` können bei der Arbeit mit FFI auftreten.
+-   `CStr` und `CString` können bei der Arbeit mit FFI auftreten.
 
 Die Unterschiede zwischen `*Str` und `*String` sind im allgemeinen die gleichen wie die normalen Typen.
 
@@ -69,9 +59,9 @@ Diese Typen repräsentieren *systembasierte native* Strings. Dies ist erforderli
 
 ## Hinter den Kulissen von `OsString`
 
-* Unix-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise als UTF-8 interpretiert werden.
-* Windows-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise UTF-16 interpretiert werden.
-* Rust-Strings sind immer gültig UTF-8, und können Nullen enthalten.
+-   Unix-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise als UTF-8 interpretiert werden.
+-   Windows-Strings sind oft willkürliche Nicht-Null-Sequenzen, die üblicherweise UTF-16 interpretiert werden.
+-   Rust-Strings sind immer gültig UTF-8, und können Nullen enthalten.
 
 `OsString` und `OsStr` überbrücken diese Lücke und ermöglichen eine günstige Konvertierung zu und von `String` und `str`.
 
@@ -91,14 +81,7 @@ Es wird dringend empfohlen, die gesamte Dokumentation dieser Typen vor der Verwe
 
 Verkettung:
 
-```rust
-fn main() {
-    let part_one = String::from("Hello ");
-    let part_two = String::from("there ");
-    let whole = part_one + &part_two + "world!";
-    println!("{}", whole);
-}
-```
+<pre><code data-source="chapters/shared/code/strings/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -106,13 +89,7 @@ fn main() {
 
 Aufspaltung:
 
-```rust
-fn main() {
-    let words = "Cow says moo";
-    let each: Vec<_> = words.split(" ").collect();
-    println!("{:?}", each);
-}
-```
+<pre><code data-source="chapters/shared/code/strings/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -120,10 +97,5 @@ fn main() {
 
 Ersetzen:
 
-```rust
-fn main() {
-    let words = "Cow says moo";
-    let replaced = words.replace("moo", "roar");
-    println!("{}", replaced);
-}
-```
+<pre><code data-source="chapters/shared/code/strings/4.rs" data-trim="hljs rust"></code></pre>
+

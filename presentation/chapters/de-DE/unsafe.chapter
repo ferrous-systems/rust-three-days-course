@@ -6,26 +6,15 @@ Daher hat Rust das Konzept von `unsicherem Code`.
 
 ---
 
-Unsicherer Code darf:
-* Beliebige Speicherzugriffe durchführen
-* Rohe Pointer dereferenzieren
-* Externe Funktionen aufrufen
-* Eigenschaften wie `Send` und `Sync` feststellen
-* Globale (unsynchronisierte) Variablen schreiben
+Unsicherer Code darf: \* Beliebige Speicherzugriffe durchführen \* Rohe Pointer dereferenzieren \* Externe Funktionen aufrufen \* Eigenschaften wie `Send` und `Sync` feststellen \* Globale (unsynchronisierte) Variablen schreiben
 
 ---
 
-Nicht unsicher sind:
-* Konvertierungen in rohe Pointer
-* Speicherlecks
+Nicht unsicher sind: \* Konvertierungen in rohe Pointer \* Speicherlecks
 
 ---
 
-Unsicherer Code sollte niemals:
-* Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird.
-  - Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen.
-* borrowck umgehen, z.B. Lebenszeiten oder Mutabilität eines Typens umändern
-  - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
+Unsicherer Code sollte niemals: \* Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird. - Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen. \* borrowck umgehen, z.B. Lebenszeiten oder Mutabilität eines Typens umändern - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
 
 ---
 
@@ -33,32 +22,22 @@ Unsicherer Code sollte niemals:
 
 Beim implementieren von Datenstrukturen ist unsafe recht häufig.
 
-Sicheres Rust ist die schlechteste Sprache zum implementieren von Linked Lists. Es gibt eine [ganze Abhandlung darüber](TODO: Link)
+Sicheres Rust ist die schlechteste Sprache zum implementieren von Linked Lists. Es gibt eine [ganze Abhandlung darüber](TODO:%20Link)
 
 ---
 
-Unsicherer Code benötigt _immer_ eine Markierung durch `unsafe`.
+Unsicherer Code benötigt *immer* eine Markierung durch `unsafe`.
 
-```rust
-fn main() {
-    let pointer_to_int = &mut i32;
-    let raw = pointer_to_int as *mut i32;
-    unsafe { deref_pointer(raw) };
-}
-
-unsafe deref_pointer<T: Debug>(p: *mut T) {
-    unsafe { println("{:?}", *p }
-}
-```
+<pre><code data-source="chapters/shared/code/unsafe/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Fallen von `unsafe`
 
-* Nicht jedes Beispiel ist so simpel. `unsafe` _muss_ die Invarianten von Rust einhalten!
-* Dies gilt vor allem für Ownership und mutables Borrowing
-   - `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -> double free
-   - `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann
+-   Nicht jedes Beispiel ist so simpel. `unsafe` *muss* die Invarianten von Rust einhalten!
+-   Dies gilt vor allem für Ownership und mutables Borrowing
+-   `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -&gt; double free
+-   `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann
 
 ---
 
@@ -70,17 +49,5 @@ Rust erlaubt einem, sich in den Fuss zu schiessen, es möchte nur vorher, dass m
 
 Da Rust aliasing verbietet, kann man in sicherem Rust keine Slice in 2 Slices teilen.
 
-```rust
-#[inline]
-fn split_at_mut(&mut self, mid: usize) -> (&mut [T], &mut [T]) {
-    let len = self.len();
-    let ptr = self.as_mut_ptr();
+<pre><code data-source="chapters/shared/code/unsafe/2.rs" data-trim="hljs rust"></code></pre>
 
-    unsafe {
-        assert!(mid <= len);
-
-        (from_raw_parts_mut(ptr, mid),
-         from_raw_parts_mut(ptr.offset(mid as isize), len - mid))
-    }
-}
-```

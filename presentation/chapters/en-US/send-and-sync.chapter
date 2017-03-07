@@ -4,9 +4,9 @@
 
 There are two special traits in Rust for concurrency semantics.
 
-* `Send` marks a structure safe to *send* between threads.
-* `Sync` marks a structure safe to *share* between threads.
-    + (`&T` is `Send`)
+-   `Send` marks a structure safe to *send* between threads.
+-   `Sync` marks a structure safe to *share* between threads.
+    -   (`&T` is `Send`)
 
 ---
 
@@ -18,21 +18,7 @@ They are *automatically derived* for all types if appropriate.
 
 ## Automatically Derived
 
-```rust
-use std::thread;
-
-#[derive(Debug)]
-struct Thing;
-
-// Can send between threads!
-fn main() {
-    let thing = Thing;
-    
-    thread::spawn(move || {
-        println!("{:?}", thing);
-    }).join();
-}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -44,31 +30,13 @@ Such as `Rc`, raw pointers, and `UnsafeCell`.
 
 ## Example: `Rc`
 
-```rust
-use std::rc::Rc;
-use std::thread;
-
-// Does not work!
-fn main() {
-    let only_one_thread = Rc::new(true);
-
-    thread::spawn(move || {
-        println!("{:?}", only_one_thread);
-    }).join();
-}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Example: `Rc`
 
-```
-error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not satisfied
- --> <anon>:7:5
-  |
-7 |     thread::spawn(move || {
-  |     ^^^^^^^^^^^^^ the trait `std::marker::Send` is not implemented for `std::rc::Rc<bool>`
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/3.output" data-trim="hljs output"></code></pre>
 
 ---
 
@@ -76,13 +44,7 @@ error[E0277]: the trait bound `std::rc::Rc<bool>: std::marker::Send` is not sati
 
 It's possible to add the implementation of `Send` and `Sync` to a type.
 
-```rust
-struct Thing(*mut String);
-
-unsafe impl Send for Thing {}
-unsafe impl Sync for Thing {}
-```
-
+<pre><code data-source="chapters/shared/code/send-and-sync/4.rs" data-trim="hljs rust"></code></pre>
 In these cases, the task of thread safety is left to the implementor.
 
 ---
@@ -97,9 +59,7 @@ If a type implements both `Sync` and `Copy` then it can also implement `Send`.
 
 A type `&T` can implement `Send` if the type `T` also implements `Send`.
 
-```rust
-unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -107,9 +67,7 @@ unsafe impl<'a, T: Sync + ?Sized> Send for &'a T {}
 
 A type `&mut T` can implement `Send` if the type `T` also implements `Send`.
 
-```rust
-unsafe impl<'a, T: Send + ?Sized> Send for &'a mut T {}
-```
+<pre><code data-source="chapters/shared/code/send-and-sync/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -124,5 +82,3 @@ What are the consequences of having `Send` and `Sync`?
 Carrying this information at the type system level allows driving data race bugs down to a *compile time* level.
 
 Preventing this error class from reaching production systems.
-
-
