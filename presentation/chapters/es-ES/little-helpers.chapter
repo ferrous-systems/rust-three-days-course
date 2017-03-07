@@ -1,0 +1,80 @@
+# Un poco de ayuda comenzando
+
+---
+
+Las cadenas en Rust son un tema por sí solo.
+
+Así que serán cubiertas en una sección separada más adelante.
+
+---
+
+## Cadenas sin pensar
+
+```rust
+fn main() {
+    let hello = String::from("Hello World");
+    println!("{}", hello);
+}
+```
+
+---
+
+## Estilo de código
+
+* 4 espacios
+* No tabuladores
+* Los bloques se rompen con una línea separada.
+
+---
+
+## println!()
+
+```rust
+fn main() {
+    let hello = String::from("Hello World");
+    println("{}", hello); // Muestra la cadena
+    println("{:?}", hello); // Debug
+}
+```
+
+---
+
+## Usa el heap, Luke!
+
+Usaremos para los primeros pasos:
+
+* `String`
+* `Vec<T>` (Vectors)
+* Plain `struct`s
+
+```rust
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let hello = String::from("Hello World");
+    let vec = vec![1,2,3];
+    let point = Point { x: 1, y: 2};
+}
+```
+
+---
+
+## \#[derive(Debug)]
+
+```rust
+#[derive(Debug)]
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let point = Box::new(Point { x: 1, y: 2});
+    println!("{:?}", point);
+}
+```
+
+Funciona para todas las estructuras de datos.

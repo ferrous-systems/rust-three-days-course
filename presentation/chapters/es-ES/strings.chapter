@@ -1,0 +1,147 @@
+# Cadenas
+
+---
+
+Hay distintos tipos de cadenas en Rust.
+
+Los más comunes son `String` y `&str`.
+
+---
+
+## `String`
+
+* *Posee* el dato que almacena, y puede mutar libremente.
+* Existe como un puntero a algunos bytes, a longitud y capacidad.
+* Existe en el *heap*.
+* No implementa `Copy`, pero implementa `Clone`.
+
+---
+
+## `&str`
+
+* Es una referencia inmutable a un slice de cadena.
+* Sólo se ve como un valor prestado..
+* Puede estar en cualquier lado, en el heap, en el stack o en la memoria del programa.
+
+---
+
+## Creación
+
+```rust
+fn main() {
+    // &'static str
+    let this = "Hello";
+    // String
+    let that: String = String::from("Hello");
+    // &str
+    let other = that.as_str();
+}
+```
+
+---
+
+## ¿Cuándo usar qué?
+
+* `String` es la forma *fácil* de usar cuando se empieza. Refinar después.
+* `String` posee sus datos, así que funciona bien como un campo en una estructura o enum.
+
+* `&'static str` funciona bien para valores constantes.
+* `&str` es normalmente usado en argumentos de funciones.
+
+---
+
+## `Deref` Coerción
+
+Sólo porque múltiples tipos existan no significa que puedan trabajar en armonía.
+
+```rust
+fn print_me(message: &str) { println!("{}", message); }
+
+fn main() {
+    print_me("Foo");
+    let a_string = String::from("Bar");
+    print_me(&a_string);
+    print_me(a_string.as_str())
+}
+```
+
+Esto es porque `String`s implementa `Deref<Target=str>`.
+
+---
+
+## Tipos String exóticos
+
+* `OsStr` y `OsString` pueden verse cuando se trabaja con sistemas de archivos o llamadas al sistema.
+
+* `CStr` y `CString` pueden verse al trabajar con FFI.
+
+La diferencia entre `*Str` y `*String` es generalmente la misma que los tipos normales.
+
+---
+
+## `OsString` & `OsStr`
+
+Estos tipos representan cadenas *nativas* dependientes de plataformas. Esto es necesario porque cadenas de Unix y Windows tienen diferentes características.
+
+---
+
+## Detrás de `OsString`
+
+* Las cadenas en Unix son a menudo secuencias arbitrarias distintas de cero, usualmente interpretadas como UTF-8.
+* Las cadenas en Windows son a menudo secuencias arbitrarias distintas de cero, usualmente interpretadas como UTF-16.
+* Las cadenas en Rust son siempre UTF-8 válido, y pueden contener ceros.
+
+`OsString` y `OsStr` facilitan la conversión de y para `String` and `str`.
+
+---
+
+## `CString` & `CStr`
+
+Estos tipos representan cadenas válidas compatibles con C.
+
+Son predominantemente utilizadas al hacer FFI con código externo.
+
+Es altamente recomendado leer *toda* la documentación en estos tipos antes de usarlos.
+
+---
+
+## Tareas comunes con cadenas
+
+Concatenación:
+
+```rust
+fn main() {
+    let part_one = String::from("Hello ");
+    let part_two = String::from("there ");
+    let whole = part_one + &part_two + "world!";
+    println!("{}", whole);
+}
+```
+
+---
+
+## Tareas comunes con cadenas
+
+Separación:
+
+```rust
+fn main() {
+    let words = "Cow says moo";
+    let each: Vec<_> = words.split(" ").collect();
+    println!("{:?}", each);
+}
+```
+
+---
+
+## Tareas comunes con cadenas
+
+Reemplazo:
+
+```rust
+fn main() {
+    let words = "Cow says moo";
+    let replaced = words.replace("moo", "roar");
+    println!("{}", replaced);
+}
+```
