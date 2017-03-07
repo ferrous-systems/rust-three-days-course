@@ -42,7 +42,7 @@ Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Sta
 
 ## Floats
 
-Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
+Genauso liefert Rust Gleitkommazahlen: f32, f64
 
 <pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
 
