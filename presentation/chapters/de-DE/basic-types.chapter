@@ -36,7 +36,7 @@ Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Sta
 
 ## Überlauf-Verhalten
 
-Überläufe Rust lösen im Debug-Modus eine Trap aus, im Release-Modus nicht!
+Überläufe lösen im Debug-Modus eine Trap aus, im Release-Modus nicht!
 
 ---
 
