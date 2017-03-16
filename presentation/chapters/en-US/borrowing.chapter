@@ -1,1 +1,106 @@
+# Borrowing
+
+---
+
+## Was man besitzt, kann man ausleihen
+
+---
+
+Ownership gibt eine solide Grundsemantik, wird aber auf die Dauer unpraktisch.
+
+---
+
+Weiterverwenden von Daten nach einem Funktionsaufruf ist mit Ownership nicht möglich, wenn die Funktion Besitz nicht wieder zurück gibt.
+
+---
+
+Stattdessen: Ausleihen!
+
+---
+
+<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+<pre class="diagram">
+    main              inspect
++----------+
+|          |
+|    point |-=-=+
+|          |    |
+|          |    :    +----------+
+|          |    |    |          |
+|          |    +-=-=|   &point |
+|          |         |          |
+|          |         +----------+
++----------+
+  🗑
+</pre>
+
+---
+
+Einfaches ausleihen ist beliebig oft möglich.
+
+---
+
+Was, wenn wir die Daten aber verändern möchten?
+
+---
+
+<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Mutable Ausleihen sind exklusiv.
+
+---
+
+## Zusammenfassung
+
+Daten können entweder: \* Beliebig oft immutable ausgeliehen werden \* Oder exakt einmal mutabel
+
+Ownership bleibt im Aufrufskontext, genauso wie die Deallokation
+
+---
+
+Was verhindert das?
+
+---
+
+## Sehen Sie ein potentielles Problem?
+
+<pre><code data-source="chapters/shared/code/borrowing/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Wichtig hierbei: \* zu jedem Typ `T` gibt es einen Typ `&T` \* zu jedem Typ `T` gibt es einen Typ `&mut T` \* `&&T` ist ein legaler Typ \* `& &mut T` ist kein legaler Typ. Warum?
+
+---
+
+## Borrows sind Referenzen
+
+Das heisst, sie müssen manchmal dereferenziert werden.
+
+<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Borrows sind lexikalisch
+
+<pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Funktioniert
+
+<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Borrowing und Matches
+
+Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei nicht konsumieren.
+
+<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>
+
 

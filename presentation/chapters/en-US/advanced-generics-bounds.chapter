@@ -1,1 +1,84 @@
+# Nochmal Generics: Beschränkungen
+
+---
+
+Manchmal möchten wir Typen auf bestimmte Aspekte beschränken, aber trotzdem generisch programmieren.
+
+Hierzu können wir Typparameter beschränken.
+
+---
+
+Dies kann überall geschehen, wo Typparameter auftauchen.
+
+---
+
+Beispiel: `println!("{:?}")` benötigt `Debug`
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Beispiel: Ein generisches Struct soll nur debugbare Werte enthalten
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Beschränkungen können sich auch auf das Ziel von Implementierungen beziehen:
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Genauso kann der Trait dies direkt verlangen:
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Rust erlaubt keine negativen Bedingungen (Trait A und *nicht* Trait B)
+
+---
+
+## Ausnahme: `Sized`
+
+Wenn nicht anders angegeben, kriegen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/5.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Das hat ergonomische Gründe, da Typ-Parameter häufig in Funktionsparametern verwendet werden und dort meist eine bekannte Größe haben müssen.
+
+---
+
+Bounds können überall auftauchen, was sich ausnutzen lässt, um Typen de-facto zu beschränken.
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Das kann überraschend praktisch sein, da sich verschiedene Bedingungen bei Aufruf und Konstruktion besser ausdrücken lassen.
+
+---
+
+Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsfunktionen:
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/7.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Generische Implementierungen
+
+Traits können für Typparameter implementiert werden.
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Trait-Abhängigkeiten
+
+Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
+
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust"></code></pre>
 

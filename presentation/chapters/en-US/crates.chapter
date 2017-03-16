@@ -1,1 +1,40 @@
+# Crates
+
+Rust nennt Bibliotheken "crates". Management von Bibliotheken mit `cargo` ist üblich, aber nicht notwendig.
+
+---
+
+## Einbindung von Bibliotheken
+
+Bibliotheken werden durch das `extern crate`-statement eingebunden.
+
+<pre><code data-source="chapters/shared/code/crates/1.rs" data-trim="hljs rust"></code></pre>
+Dies importiert das "SERialisation/DEserialisation"-Framework.
+
+---
+
+## Einbinden von Macros
+
+Da Macros immer global für die gesamte Bibliothek gelten, müssen sie folgendermaßen eingebunden werden:
+
+<pre><code data-source="chapters/shared/code/crates/2.output" data-trim="hljs output"></code></pre>
+Dies importiert die Macro-Sätze von serde, die die Arbeit stark vereinfachen.
+
+---
+
+Crates können wie normale use-statements umbenannt werden:
+
+<pre><code data-source="chapters/shared/code/crates/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## crates.io
+
+Veröffentlichte Bibliotheken finden sich auf [crates.io](https://crates.io), ihre Dokumentation wird automatisch auf [docs.rs](https://docs.rs) veröffentlicht.
+
+---
+
+## Crates und Programme
+
+`cargo install my_crate` installiert die ausführbaren Programme einer Crate.
 

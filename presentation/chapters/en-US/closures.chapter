@@ -1,1 +1,46 @@
+# Closures
+
+Rust hat Closures. Mehrere.
+
+---
+
+Vorteil: \* Hoch optimiert und nur mit den absolut benötigten Laufzeitkosten.
+
+Nachteil: \* Den Typ zu bestimmen ist nicht immer einfach
+
+---
+
+## Notation
+
+<pre><code data-source="chapters/shared/code/closures/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/closures/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Closure-Typen
+
+FnOnce \* Die Closure konsumiert ihre Umgebung FnMut \* Die Closure verändert ihre Umgebung Fn \* Die Closure referenziert ihre Umgebung immutabel
+
+---
+
+`rustc` stellt den Typ automatisch fest, aber man braucht ihn in Typsignaturen!
+
+---
+
+Es besteht eine Typbeziehung: Fn impliziert FnMut, FnMut impliziert FnOnce.
+
+---
+
+## Notation von Closure-Argumenten
+
+<pre><code data-source="chapters/shared/code/closures/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Moves und Closures
+
+Da die Closure-Umgebung implizit ist, müssen Werte explizit hineinbewegt werden.
+
+<pre><code data-source="chapters/shared/code/closures/4.rs" data-trim="hljs rust"></code></pre>
+
 

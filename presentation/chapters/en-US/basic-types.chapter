@@ -1,0 +1,74 @@
+# Basistypen
+
+---
+
+## ints
+
+Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
+
+-   i8, u8
+-   i16, u16
+-   i32, u32
+-   i64, u64
+-   i128, u128 (bald)
+
+---
+
+## Architekturabhängige Zahlen
+
+Rust hat 2 architekturabhängige Zahlentypen:
+
+-   isize, usize
+
+---
+
+## Casts
+
+Casts zwischen den Typen sind möglich, *auch verkürzende Casts*:
+
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Standard.
+
+---
+
+## Überlauf-Verhalten
+
+Überläufe Rust lösen im Debug-Modus eine Trap aus, im Release-Modus nicht!
+
+---
+
+## Floats
+
+Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
+
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Arrays
+
+Arrays fixer Größe haben folgende Notation:
+
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Arrays dynamischer Größe
+
+Arrays dynamischer Größe müssen in Rust als Slice abgebildet werden.
+
+Slices tragen einen Pointer auf einen Array und eine Länge. Slices können weder vergrößert noch verkleinert werden.
+
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Der Unit-Type
+
+Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
+
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust"></code></pre>
+

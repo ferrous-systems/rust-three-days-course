@@ -1,1 +1,46 @@
+# Konvertierungen
+
+Rust bietet viele Möglichkeiten, die Konvertierung eines Typs in einen anderen auszudrücken.
+
+Das erhöht die Sicherheit und kommunziert den Zweck.
+
+---
+
+## `From<T>`, `Into<T>`
+
+Konvertierung eines Typens in einen anderen.
+
+Ist `X` `From<T>`, dann ist `T` automatisch `Into<X>`.
+
+Die Verwendung hängt vom Kontext ab.
+
+---
+
+## Beispiel
+
+<pre><code data-source="chapters/shared/code/conversion-patterns/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Was macht eigentlich `try!` oder `?` genau?
+
+<pre><code data-source="chapters/shared/code/conversion-patterns/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## `AsRef<T>`
+
+Referenz-zu-Referenz-Konvertierung. Zeigt an, dass ein Typ einfach Referenzen auf andere Typen produzieren kann.
+
+---
+
+## Beispiel
+
+<pre><code data-source="chapters/shared/code/conversion-patterns/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## `Borrow<T>` und `BorrowMut<T>`
+
+`Borrow<T>` abstrahiert über Ownership und Borrowing. `Borrow<T>` bedeutet, dass der Typ einen Borrow des Typen `T` erzeugen kann. Es ist ähnlich `AsRef<T>`, kommuniziert aber einem anderen Zweck.
 
