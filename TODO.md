@@ -21,7 +21,7 @@ English translation: checking
 * [x] error-handling.chapter
 * [x] ffi.chapter
 * [x] functions.chapter
-* [ ] futures-and-tokio.chapter (yet to be written)
+* [x] futures-and-tokio.chapter (yet to be written)
 * [x] generics-basics.chapter
 * [x] imports-modules-and-visibility.chapter
 * [x] inner-mutability.chapter
@@ -34,24 +34,27 @@ English translation: checking
 * [x] little-helpers.chapter
 * [x] macros.chapter
 * [x] match.chapter
-* [ ] memory-considerations.chapter
-* [ ] mutability.chapter
-* [ ] overview.chapter
-* [ ] ownership.chapter
-* [ ] send-and-sync.chapter
-* [ ] smart-pointers.chapter
-* [ ] stack-and-heap.chapter
-* [ ] standard-types.chapter
-* [ ] std-lib-tour.chapter
-* [ ] strings.chapter
-* [ ] testing.chapter
-* [ ] traits.chapter
-* [ ] unsafe.chapter
-* [ ] usage-examples.chapter
-* [ ] working-with-nightly.chapter
+* [x] memory-considerations.chapter
+* [x] mutability.chapter
+* [x] overview.chapter
+* [x] ownership.chapter
+* [x] send-and-sync.chapter
+* [x] smart-pointers.chapter
+* [x] stack-and-heap.chapter
+* [x] standard-types.chapter
+* [x] std-lib-tour.chapter
+* [x] strings.chapter
+* [x] testing.chapter
+* [x] traits.chapter
+* [x] unsafe.chapter
+* [x] usage-examples.chapter
+* [x] working-with-nightly.chapter
 
 Need to be improved in all languages:
 
 * [ ] futures and tokio
 * [ ] iterators again
 * [ ] macros
+* [ ] decide if "standard-types" should be dropped
+* [ ] std-lib-tour must be written or dropped
+* [ ] order the chapters into beginning, middle, end (or similar)
