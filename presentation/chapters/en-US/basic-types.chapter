@@ -1,22 +1,22 @@
-# Basistypen
+# Basic types
 
 ---
 
 ## ints
 
-Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
+Rust comes with all standard int types, with and without sign
 
 -   i8, u8
 -   i16, u16
 -   i32, u32
 -   i64, u64
--   i128, u128 (bald)
+-   i128, u128 (soon)
 
 ---
 
-## Architekturabhängige Zahlen
+## Architecture-dependent numbers
 
-Rust hat 2 architekturabhängige Zahlentypen:
+Rust comes with 2 architecture-dependent number types:
 
 -   isize, usize
 
@@ -24,25 +24,25 @@ Rust hat 2 architekturabhängige Zahlentypen:
 
 ## Casts
 
-Casts zwischen den Typen sind möglich, *auch verkürzende Casts*:
+Casts between number are possible, *also shortening casts*:
 
 <pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Standard.
+If the size isn't given, or cannot be inferred, ints default to `i32`.
 
 ---
 
-## Überlauf-Verhalten
+## Overflows
 
-Überläufe Rust lösen im Debug-Modus eine Trap aus, im Release-Modus nicht!
+Overflows trigger a trap in Debug mode, but not in release mode. This behaviour can be configured.
 
 ---
 
 ## Floats
 
-Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
+Rust also comes with floats of all standard sizes: f8, f16, f32, f64
 
 <pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
 
@@ -50,25 +50,25 @@ Genauso liefert Rust Gleitkommazahlen aller Größen: f8, f16, f32, f64
 
 ## Arrays
 
-Arrays fixer Größe haben folgende Notation:
+Fixed-size arrays have the following Notation:
 
 <pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Arrays dynamischer Größe
+## Arrays of dynamic size
 
-Arrays dynamischer Größe müssen in Rust als Slice abgebildet werden.
+Arrays of dynamic size in Rust are represented as slices.
 
-Slices tragen einen Pointer auf einen Array und eine Länge. Slices können weder vergrößert noch verkleinert werden.
+Slices carry a pointer to the array and a lengths. Slices cannot be resized.
 
 <pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Der Unit-Type
+## The Unit Type
 
-Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
+Expressions without a specific return value return the unit type `()`.
 
 <pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust"></code></pre>
 

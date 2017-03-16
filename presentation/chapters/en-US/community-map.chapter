@@ -1,14 +1,14 @@
-# Die Rust-Community
+# The Rust-Community
 
 ---
 
-Wo Hilfe und Ansprache finden?
+Where to find help and contacts?
 
 ---
 
-## Generell
+## In General
 
-Eine Mail an `community-team@rust-lang.org` ist nie falsch.
+There's never anything wrong with sending a mail to `community-team@rust-lang.org`.
 
 ---
 
@@ -50,22 +50,22 @@ Eine Mail an `community-team@rust-lang.org` ist nie falsch.
 
 ---
 
-## Für Produktionsuser
+## For production users
 
--   Regelmässige Surveys durch das Projektteam
--   Regelmässige Interviews durch das Projektteam
+-   Regular Surveys done by project members
+-   Regular Interviews through the project team
 
 ---
 
-## Änderungen
+## Changes
 
-Änderungen an der Sprache und Stdbibliothek benötigen einen RFC:
+Changes to the language and the standard library require an RFC:
 
 -   [RFCS](https://github.com/rust-lang/rfcs)
 
 ---
 
-## Konferenzen
+## Conferences
 
 -   RustConf
 -   RustFest
@@ -73,17 +73,17 @@ Eine Mail an `community-team@rust-lang.org` ist nie falsch.
 
 ---
 
-## Am Ball bleiben
+## Staying up-to-date
 
 -   [Community Calendar](https://calendar.google.com/calendar/embed?src=apd9vmbc22egenmtu5l6c5jbfc@group.calendar.google.com)
 -   [TWIR - This Week in Rust](https://this-week-in-rust.org/)
--   Und viele andere "this week in"-Newsletter
+-   And many more "this week in"-newsletters
 
 ---
 
-## Beitragen
+## Contribution
 
--   `rustc` hat eine durchschnittliche Verweildauer von Patches von 6 Tagen(!).
--   Kleinere Fixes, gerade Dokufixes werden täglich gemerged.
--   Homu und Highfive freuen sich auf Sie!
+-   `rustc` has a medium wait time of Patches of 6 days(!).
+-   Small fixes, especially documentation fixes, are merged very fast!
+-   homu and highfive are waiting for you!
 

@@ -1,6 +1,6 @@
 # Dynamischer Dispatch
 
-Manchmal möchte man sich zur Laufzeit für eine Code-Implementierung verlassen, statt den Compiler monomorphieren zu lassen.
+Manchmal möchte man sich zur Laufzeit für eine Code-Implementierung entscheiden, statt den Compiler monomorphisieren zu lassen.
 
 Hierzu gibt es 2 Möglichkeiten.
 
@@ -16,7 +16,6 @@ Wenn die Anzahl der Möglichkeiten beschränkt ist, kann gerne zu einem Enum geg
 
 ## Alternative Form
 
-\`\`\`rust
 
 <pre><code data-source="chapters/shared/code/dynamic-dispatch/2.rs" data-trim="hljs rust"></code></pre>
 
@@ -48,7 +47,7 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 -   Objektsichere Traits dürfen *nicht* `Self: Sized` verlangen
 -   Alle Methoden sind objektsicher
     -   sie haben keine Typ-Parameter
-    -   sie verwnden nicht `Self`
+    -   sie verwenden nicht `Self`
 
 ---
 

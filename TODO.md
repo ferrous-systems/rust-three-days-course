@@ -1,24 +1,26 @@
 English translation: checking
 
-* [ ] advanced-generics-bounds.chapter
-* [ ] basic-types.chapter
-* [ ] borrowing.chapter
-* [ ] cargo.chapter
-* [ ] closures.chapter
-* [ ] community-map.chapter
-* [ ] conversion-patterns.chapter
-* [ ] crates.chapter
-* [ ] data-structures.chapter
-* [ ] deref-coersions.chapter
-* [ ] documentation.chapter
-* [ ] drop-panic-abort.chapter
-* [ ] dynamic-and-static-libs.chapter
-* [ ] dynamic-dispatch.chapter
+* [ ] communication material
+* [ ] index 
+* [x] advanced-generics-bounds.chapter
+* [x] basic-types.chapter
+* [x] borrowing.chapter
+* [x] cargo.chapter
+* [x] closures.chapter
+* [x] community-map.chapter
+* [x] conversion-patterns.chapter
+* [x] crates.chapter
+* [x] data-structures.chapter
+* [x] deref-coersions.chapter
+* [x] documentation.chapter
+* [x] drop-panic-abort.chapter
+* [x] dynamic-and-static-libs.chapter
+* [x] dynamic-dispatch.chapter
 * [ ] effective-rust.chapter
 * [ ] embedded.chapter
-* [ ] error-handling.chapter
+* [x] error-handling.chapter
 * [ ] ffi.chapter
-* [ ] functions.chapter
+* [x] functions.chapter
 * [ ] futures-and-tokio.chapter
 * [ ] generics-basics.chapter
 * [ ] imports-modules-and-visibility.chapter

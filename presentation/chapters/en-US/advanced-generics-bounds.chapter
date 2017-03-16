@@ -1,84 +1,84 @@
-# Nochmal Generics: Beschränkungen
+# Advanced Generics: Bounds
 
 ---
 
-Manchmal möchten wir Typen auf bestimmte Aspekte beschränken, aber trotzdem generisch programmieren.
+Sometimes, we want to constrain a type to certain aspects, while still writing generic code.
 
-Hierzu können wir Typparameter beschränken.
-
----
-
-Dies kann überall geschehen, wo Typparameter auftauchen.
+To achieve this, we can constrain type parameters.
 
 ---
 
-Beispiel: `println!("{:?}")` benötigt `Debug`
+This can happen at any point where type parameters are used.
 
+---
+
+Example: `println("{:?") requires Debug
+ 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Beispiel: Ein generisches Struct soll nur debugbare Werte enthalten
+Example: A generic Struct that requires inner values to implement `Debug`
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Beschränkungen können sich auch auf das Ziel von Implementierungen beziehen:
+Bounds can also be expressed for implementation targets:
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Genauso kann der Trait dies direkt verlangen:
+Traits can also directly require prerequisites:
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Rust erlaubt keine negativen Bedingungen (Trait A und *nicht* Trait B)
+Rust does not allow negative Bounds (Trait A and *not* Trait B)
 
 ---
 
-## Ausnahme: `Sized`
+## Exception: `Sized`
 
-Wenn nicht anders angegeben, kriegen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
+If not specified otherwise, all type parameters carry the bound `Sized` (the type has a statically known memory size). This can be suppressed by using the bound `?Sized`.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Das hat ergonomische Gründe, da Typ-Parameter häufig in Funktionsparametern verwendet werden und dort meist eine bekannte Größe haben müssen.
+This has ergonomic reasons, as passing types by value is common and requires a known size.
 
 ---
 
-Bounds können überall auftauchen, was sich ausnutzen lässt, um Typen de-facto zu beschränken.
+Bounds can be used everywhere, which can be used to de-facto constrain types at the call site.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Das kann überraschend praktisch sein, da sich verschiedene Bedingungen bei Aufruf und Konstruktion besser ausdrücken lassen.
+This can be very practical, as this allows expressing different bounds on during construction and at call sitesl.
 
 ---
 
-Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsfunktionen:
+Bounds are very common in conversion functions.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Generische Implementierungen
+## Generic implementations
 
-Traits können für Typparameter implementiert werden.
+Bounds can be used to constrain the target of an implementation.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Trait-Abhängigkeiten
+## Trait Inheritance
 
-Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
+Traits can also request the implementation of other traits and declare default implementations for methods relying on that information.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust"></code></pre>
 

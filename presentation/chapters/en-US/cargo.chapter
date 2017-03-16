@@ -2,35 +2,35 @@
 
 ---
 
-Cargo ist die Standard-Build-Toolchain für Rust.
+Cargo is the standard build toolchain for Rust.
 
-Jeder Release von `rustc` kommt mit einer bestimmten Version von Cargo.
+Every release of `rustc` is shipped with a specific version of cargo.
 
-Grundsätzlich ist Cargo aber unabhängig von der `rustc`-Version.
-
----
-
-## Projekte
-
-Ein Cargo-Projekt enthält (mindestens).
-
--   Ein Manifest (Cargo.toml)
--   Eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
+In general, cargo is independent of the used `rustc` version.
 
 ---
 
-Darüber hinaus kann ein Cargo-Projekt enthalten:
+## Projects
 
--   Tests (Standardverzeichnis `tests`)
--   Benchmarks (Standardverzeichnis `benches`)
--   Ein Build-Script (Standardname `build.rs`)
--   Beispiele (Standardverzeichnis `examples`)
+A cargo project contains (at minimum):
+
+-   A Manifest (Cargo.toml)
+-   A source file (library or application) in the `src` folder (default)
 
 ---
 
-## Das Manifest
+In addition, a cargo project can contain:
 
-Das [Cargo-Manifest](http://doc.crates.io/manifest.html) ist in [TOML](http://doc.crates.io/manifest.html) verfasst. Es enthält mindestens den Namen des Projekts.
+-   tests (default directory `tests`)
+-   benchmarks (default directory `benches`)
+-   a build script (default `build.rs`)
+-   examples (default directory `examples`)
+
+---
+
+## The Manifest
+
+The [Cargo-Manifest](http://doc.crates.io/manifest.html) is written using [TOML](http://doc.crates.io/manifest.html). It at least contains the name of the project.
 
 <pre><code data-source="chapters/shared/code/cargo/1.toml" data-trim="hljs toml"></code></pre>
 
@@ -38,163 +38,166 @@ Das [Cargo-Manifest](http://doc.crates.io/manifest.html) ist in [TOML](http://do
 
 ## `cargo build`
 
-`cargo build` baut das gesamte Projekt und legt die Ergebnisse im Verzeichnis `target` ab.
+`cargo build` builds the whole project and puts the result in the directory `target`.
 
-Standardmässig baut Cargo das Projekt mit dem Debug-Profil, also unoptimiert und mit Debug-Symbolen!
+By default, cargo uses the Debug profile, which means that the resulting binary with be unoptimized and with debug symbols!
 
-`cargo build --release` nutzt das optimierende Profil.
+`cargo build --release` uses the optimizing profile.
 
 ---
 
-## Anmerkung
 
-Nutzen Sie auf *jeden Fall* `--release` für Benchmarks, gerade Iteratoren werden dadurch massiv schneller!
+*Always use* `--release` for benchmarks, especially iterators get a huge speed boost from optimizations.
 
 ---
 
 ## `cargo run`
 
-Wenn das Projekt eine Applikation enthält, kann diese mit `cargo run -- [Argumente]` ausgeführt werden.
+If the prject contains an application, you can run it using `cargo run -- [Arguments]`.
 
-Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist der Debug-Profil Standard.
+If it contains multiple, the name of the intended binary can be given using `--bin <name>`.
+
+The debug profile is default here.
 
 ---
 
 ## `cargo test`
 
-`cargo test` führt alle Tests aus. Einschränkend kann ein Testname oder ein Modulname übergeben werden.
+`cargo test` runs all tests. You can provide a test name or module name to filter the test being run.
 
-Tests nutzen normalerweise mit dem Debug-Profil.
+Test use the debug profile per default.
 
-`cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele!
+`cargo test` runs all test, including documentation test and compilation of examples!
 
 ---
 
 ## `cargo bench`
 
-`cargo bench` führt alle Benchmarks aus.
+`cargo bench` runs all benchmarks.
 
-Hier ist das Release-Profil Standard.
-
----
-
-## Versionsausdrücke
-
-In der Rust-Community ist [SemVer](https://semver.org) der empfohlene Standard für Versionierung.
-
--   Die Major-Version muss stets angehoben werden, wenn das Interface bricht
--   Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
--   Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten
+Benchmarks default to the release profile.
 
 ---
 
-## Anmerkung
+## Versioning
 
-Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher dürfen mit *jeder Minor-Version* Interface-Brüche auftreten.
+In the Rust community [SemVer](https://semver.org) is the recommended versioning standard.
 
----
-
-## Versionsausdrücke
-
-Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
-
--   `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
--   `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
--   `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
-
-Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
+-   The major version must be raised if there are breaking interface changes.
+-   The minor version must be raised if new features are added
+-   The patch version marks bug fixes and performance improvements.
 
 ---
 
-## Versionsauflösung
+## Pre-release
 
-Beim ersten Bauen (oder durch `cargo update`) errechnet Cargo einen Versionsbaum, der die Bedingungen von Cargo.toml erfüllt. Er wird in einem sogenannten Lockfile (Cargo.lock) gespeichert.
-
-Es empfiehlt sich, den Lockfile *immer* unter Versionskontrolle zu halten. (für wiederholbare Builds)
+If tbe version of a library is below `1`, it is considered "pre-release", which means breaking interface changes can happen with *every minor version*.
 
 ---
 
-## Abhängigkeiten im Detail
+## Version expressions
 
-Cargo kennt 3 verschiedene Abhängigkeitssätze:
+Cargo allow expressing version ranges in different fashions.
 
--   Normale Abhängigkeiten
--   Build-Abhängigkeiten
--   Test-Abhängigkeiten
+
+-   `1.2.3`: Exact version, cargo will only use that one
+-   `0.1`: Any patch version of the "0.1" series
+-   `< 0.8`: Any minor version smaller then "0.8"
+
+For more details, check the [docs](http://doc.crates.io/manifest.html)
 
 ---
 
-## Beispiel
+## Version resolution
+
+At the first build (or through `cargo update`), cargo calculates a version tree fulfilling the constraints stated in Cargo.toml. If successful, it will be saved in a Lockfile (Cargo.lock).
+
+It is recommendable to always keep the Lockfile under version control! (for repeatable builds)
+
+---
+
+## Dependencies in detail
+
+Cargo knows 3 different kinds of dependencies:
+
+-   normal dependencies
+-   build dependencies
+-   test dependencies
+
+---
+
+## Example
 
 <pre><code data-source="chapters/shared/code/cargo/2.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
-## Detaillierte Abhängigkeiten
+## Dependencies in detail
 
 <pre><code data-source="chapters/shared/code/cargo/3.toml" data-trim="hljs toml"></code></pre>
 <pre><code data-source="chapters/shared/code/cargo/4.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
-## Anmerkung
+## Aside
 
-Abhängigkeiten ausserhalb von crates.io sind verboten, wenn eine Bibliothek veröffentlicht werden soll!
+Dependencies outside of crates.io are forbidden, if a library is to be published on crates.io.
 
 ---
 
-## Lokale Pfade
+## Local paths
 
-Es gibt die Möglichkeit, Bibliotheken temporär durch eine lokale zu ersetzen. Dies geschieht, indem der Pfad in `$PROJEKT_PFAD/.cargo/config` hinterlegt wird:
+It is possible to temporarily replace libraries though local ones. For this, their path need to be registered in `$PROJECT_PATH/.cargo/config`.
 
 <pre><code data-source="chapters/shared/code/cargo/5.toml" data-trim="hljs toml"></code></pre>
-Hier gefundene Bibliotheken werden bevorzugt. Das erlaubt das einfache Testen von Patches.
+
+Libraries found here will be preferred. This allows easy testing of patches.
 
 ---
 
-## Profile
+## Profiles
 
-Die Profile von Cargo (release, bench, test...) können angepasst werden. Details hierzu bietet die [Manifest-Dokumentation](http://doc.crates.io/manifest.html)
+The cargo profiles (release, bench, test...) can be costumized. Details can be found in the [Manifest-documentation](http://doc.crates.io/manifest.html)
 
 ---
 
 ## Targets
 
--   Profile und Abhängigkeiten lassen sich auch je nach Target konfigurieren
--   `cargo build --target ...` nutzt dieses Target
--   Es muss vorher installiert sein!
--   Eventuell Xargo verwenden!
+-   profiles and dependencies can be configured based on the compilation target
+-   `cargo build --target ...` uses that target
+-   the target must be installed beforehand
+-   consider using xargo
 
 ---
 
 ## Workspaces
 
-Cargo erlaubt es, mehrere Projekte zu einem Workspace zusammenzufassen. Diese teilen sich unter anderem ein `target`-Verzeichnis.
+Cargo can group multiple projects in a workspace. They then share settings and the same `target` directory.
 
-Details siehe [Doku](http://doc.crates.io/manifest.html).
+See the [manifest documentation](http://doc.crates.io/manifest.html) for details.
 
 ---
 
 ## Features
 
-`rustc` bietet die Möglichkeit, beim kompilieren bestimmte Code-Teile zu ignorieren. Das geschieht über Feature-flags.
+`rustc` provides the ability to ignore certain code parts on compilation. This happens through feature flags.
 
 <pre><code data-source="chapters/shared/code/cargo/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Diese lassen sich in `Cargo.toml` registrieren.
+These can be registered in `Cargo.toml`.
 
-TODO: Beispiel
+TODO: Example
 
 ---
 
-Und dann als Abhängigkeit aktivieren:
+And then be expressed on a dependency:
 
 <pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
-## rustc direkt aufrufen
+## Directly invoking `rustc`
 
-`cargo rustc` ruft `rustc` direkt auf und erlaubt, weitere Parameter zu übergeben.
+`cargo rustc` invokes `rustc` directly and allows passing of additional parameters.

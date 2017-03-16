@@ -2,19 +2,19 @@
 
 ---
 
-## Was man besitzt, kann man ausleihen
+## What you own, you can borrow
 
 ---
 
-Ownership gibt eine solide Grundsemantik, wird aber auf die Dauer unpraktisch.
+Ownership provides a solid semantic base, but becomes impractical in for the long run.
 
 ---
 
-Weiterverwenden von Daten nach einem Funktionsaufruf ist mit Ownership nicht möglich, wenn die Funktion Besitz nicht wieder zurück gibt.
+Reuse of Data after a function call is not possible with ownership if the called function doesn't return the ownership to the value again.
 
 ---
 
-Stattdessen: Ausleihen!
+Let's borrow instead!
 
 ---
 
@@ -39,11 +39,11 @@ Stattdessen: Ausleihen!
 
 ---
 
-Einfaches ausleihen ist beliebig oft möglich.
+Simple borrowing can happen as often as you want.
 
 ---
 
-Was, wenn wir die Daten aber verändern möchten?
+What if we want to change the value?
 
 ---
 
@@ -51,56 +51,62 @@ Was, wenn wir die Daten aber verändern möchten?
 
 ---
 
-Mutable Ausleihen sind exklusiv.
+Mutable borrows are exclusive!
 
 ---
 
-## Zusammenfassung
+## The borrowing rules
 
-Daten können entweder: \* Beliebig oft immutable ausgeliehen werden \* Oder exakt einmal mutabel
+Values can be:
 
-Ownership bleibt im Aufrufskontext, genauso wie die Deallokation
+\* Borrowed immutably as often as you'd like
+\* Or mutably exactly once
+
+Ownership remains in the calling context, as well as the deallocation.
 
 ---
 
-Was verhindert das?
+What does this save us from?
 
 ---
 
-## Sehen Sie ein potentielles Problem?
+## Do you see a potential problem?
 
 <pre><code data-source="chapters/shared/code/borrowing/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Wichtig hierbei: \* zu jedem Typ `T` gibt es einen Typ `&T` \* zu jedem Typ `T` gibt es einen Typ `&mut T` \* `&&T` ist ein legaler Typ \* `& &mut T` ist kein legaler Typ. Warum?
+It follows:
+
+\* for every type `T` there is a type `&T`
+\* for every type `T` there is a type `&mut T`
+\* `&&T` is a valid type
+\* `& &mut T` not a valid type. Why?
 
 ---
 
-## Borrows sind Referenzen
+## Borrows are References
 
-Das heisst, sie müssen manchmal dereferenziert werden.
+That means that we need to dereference them from time to time.
 
 <pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Borrows sind lexikalisch
+## Borrows are lexical
 
 <pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Funktioniert
+## This works
 
 <pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Borrowing und Matches
+## Borrowing and Matches
 
-Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei nicht konsumieren.
+Sometime, you want a refernce to the inner value of an enum, but don't want to consume it.
 
 <pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>
-
-
