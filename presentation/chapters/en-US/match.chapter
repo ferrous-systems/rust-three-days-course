@@ -1,8 +1,8 @@
-# Control Flow With Match
+# Control-Flow with `match`
 
 ---
 
-Use `match` to check the variants of Enums.
+To check variants of enums, `match` is used.
 
 ---
 
@@ -10,21 +10,42 @@ Use `match` to check the variants of Enums.
 
 ---
 
+## Alternative: if-let
+
 <pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
-
-Matches must cover all variants.
-
----
-
-## Ignore Other Variants
 
 <pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Results have a special marking: They must not be ignored!
+Matches must cover all variants!
+
+---
+
+## Ignoring variants
 
 <pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust"></code></pre>
-Solution: Match or pass along.
+
+---
+
+Results carry a special marker: they must not be ignored!
+
+
+<pre><code data-source="chapters/shared/code/match/5.rs" data-trim="hljs rust"></code></pre>
+
+Solution: match or pass on.
+
+---
+
+`match` does not only work on enums:
+
+<pre><code data-source="chapters/shared/code/match/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+`match` and `if` expressions:
+
+<pre><code data-source="chapters/shared/code/match/7.rs" data-trim="hljs rust"></code></pre>
+

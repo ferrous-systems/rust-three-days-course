@@ -16,24 +16,24 @@ English translation: checking
 * [x] drop-panic-abort.chapter
 * [x] dynamic-and-static-libs.chapter
 * [x] dynamic-dispatch.chapter
-* [ ] effective-rust.chapter
-* [ ] embedded.chapter
+* [x] effective-rust.chapter
+* [x] embedded.chapter
 * [x] error-handling.chapter
-* [ ] ffi.chapter
+* [x] ffi.chapter
 * [x] functions.chapter
-* [ ] futures-and-tokio.chapter
-* [ ] generics-basics.chapter
-* [ ] imports-modules-and-visibility.chapter
-* [ ] inner-mutability.chapter
-* [ ] installation.chapter
-* [ ] intro.chapter
-* [ ] iterators-again.chapter
-* [ ] iterators.chapter
-* [ ] libcore-and-libstd.chapter
-* [ ] lifetimes.chapter
-* [ ] little-helpers.chapter
-* [ ] macros.chapter
-* [ ] match.chapter
+* [ ] futures-and-tokio.chapter (yet to be written)
+* [x] generics-basics.chapter
+* [x] imports-modules-and-visibility.chapter
+* [x] inner-mutability.chapter
+* [x] installation.chapter
+* [x] intro.chapter
+* [x] iterators-again.chapter
+* [x] iterators.chapter
+* [x] libcore-and-libstd.chapter
+* [x] lifetimes.chapter
+* [x] little-helpers.chapter
+* [x] macros.chapter
+* [x] match.chapter
 * [ ] memory-considerations.chapter
 * [ ] mutability.chapter
 * [ ] overview.chapter
@@ -49,3 +49,9 @@ English translation: checking
 * [ ] unsafe.chapter
 * [ ] usage-examples.chapter
 * [ ] working-with-nightly.chapter
+
+Need to be improved in all languages:
+
+* [ ] futures and tokio
+* [ ] iterators again
+* [ ] macros

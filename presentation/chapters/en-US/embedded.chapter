@@ -1,0 +1,56 @@
+# Embedded systems in Rust
+
+---
+
+## Places to stay informed
+
+<http://www.rust-embedded.org/>
+
+---
+
+## Stack
+
+Xargo: Cross-compilation with libcore and libstd: <https://github.com/japaric/xargo>
+
+Cross: Cross-Testing of results with QEMU <https://github.com/japaric/cross>
+
+---
+
+## Raading
+
+Discovery: Discovering microcontrollers through Rust.
+
+<https://github.com/japaric/discovery>
+
+Copper: Programming Microcontrollers with Rust and Cortex-M.
+
+<https://japaric.github.io/copper/>
+
+---
+
+## Projects
+
+Tock, an operating system for Cortex-M-Prozessoren: [tockos.org](tockos.org)
+
+---
+
+## Problems
+
+-   LLVM-Target-Support
+    -   LLVM is generally good on targets that Apple uses
+    -   This doesn't mean that LLVM is in any way hostile!
+-   Unsolved requirements in Rust, especially bitfields
+-   Inline-Assembly is unstable
+-   Core-Developers are Desktop- and Serverdevelopers and don't always have enough experience
+    -   "No solution is better then a bad solution!"
+-   We need Vendor-buy-in
+
+---
+
+## Solution
+
+-   Rust is a driving Force behind better Target-Support in LLVM
+    -   Multiple Targets, espcially AVR, to be released in the next versions
+-   Enthusiastic Embedded-Community
+-   Rust has a very good community process for features that core cannot implement themselves
+
