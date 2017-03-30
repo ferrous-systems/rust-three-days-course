@@ -34,6 +34,10 @@ The TCP server is meant to be built from ground up, starting with a fresh crate.
 
 The examples given here are an example of the final state. Before giving this course, you should develop this example by yourself.
 
+## The Tasks
+
+There are various tasks which can be found in `src/bin/` and can be run with `cargo run --bin $TASK"`.
+
 ## Open issues
 
 Currently, the largest issues are:
