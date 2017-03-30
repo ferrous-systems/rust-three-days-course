@@ -1,1 +1,15 @@
+# Macros
+
+---
+
+Rust has a macro language. See [The Little Book Of Macros](http://doc.crates.io/manifest.html).
+
+---
+
+## Important Macros
+
+-   `try!(result)` Handling of Results
+-   `println!(pattern, [values])` Easy printing of formatted strings to stdout
+-   `format!(pattern, [values])` like `println!`, but returns Strings
+-   `write!(buf, pattern, string)` Simple writing of formatted data to a buffer
 

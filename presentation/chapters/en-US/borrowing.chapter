@@ -1,1 +1,112 @@
+# Borrowing
 
+---
+
+## What you own, you can borrow
+
+---
+
+Ownership provides a solid semantic base, but becomes impractical in for the long run.
+
+---
+
+Reuse of data after a function call is not possible with ownership if the called function doesn't return the ownership to the value again.
+
+---
+
+Let's borrow instead!
+
+---
+
+<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+<pre class="diagram">
+    main              inspect
++----------+
+|          |
+|    point |-=-=+
+|          |    |
+|          |    :    +----------+
+|          |    |    |          |
+|          |    +-=-=|   &point |
+|          |         |          |
+|          |         +----------+
++----------+
+  🗑
+</pre>
+
+---
+
+Simple borrowing can happen as often as you want.
+
+---
+
+What if we want to change the value?
+
+---
+
+<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Mutable borrows are exclusive!
+
+---
+
+## The borrowing rules
+
+Values can be:
+
+\* Borrowed immutably as often as you'd like
+\* Or mutably exactly once
+
+Ownership remains in the calling context, as well as the deallocation.
+
+---
+
+What does this save us from?
+
+---
+
+## Do you see a potential problem?
+
+<pre><code data-source="chapters/shared/code/borrowing/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+It follows:
+
+\* for every type `T` there is a type `&T`
+\* for every type `T` there is a type `&mut T`
+\* `&&T` is a valid type
+\* `& &mut T` not a valid type. Why?
+
+---
+
+## Borrows are References
+
+That means that we need to dereference them from time to time.
+
+<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Borrows are lexical
+
+<pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## This works
+
+<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Borrowing and Matches
+
+Sometime, you want a reference to the inner value of an enum, but don't want to consume it.
+
+<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>

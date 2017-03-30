@@ -1,1 +1,43 @@
+# Crates
+
+Rust calls libraries `crates`. Management of crates is generally done through `cargo`, but this is not strictly necessary.
+
+---
+
+## Usage of libraries
+
+Libraries can used through the `extern crate`-statement.
+
+
+<pre><code data-source="chapters/shared/code/crates/1.rs" data-trim="hljs rust"></code></pre>
+
+This import the "SERialisation/DEserialisation"-Framework.
+
+---
+
+## Macro usage
+
+As macros are global for the whole project, the must be used in the following fashion:
+
+<pre><code data-source="chapters/shared/code/crates/2.output" data-trim="hljs output"></code></pre>
+
+This imports the macro-sets for serde, which make a lot of standard tasks easier.
+
+---
+
+Crates can be renamed, just like normal use statements:
+
+<pre><code data-source="chapters/shared/code/crates/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## crates.io
+
+Published crates can be found on [crates.io](https://crates.io), their documentation is automatically published to [docs.rs](https://docs.rs).
+
+---
+
+## Crates and Applications
+
+`cargo install my_crate` installs the applications shipped with a crate.
 

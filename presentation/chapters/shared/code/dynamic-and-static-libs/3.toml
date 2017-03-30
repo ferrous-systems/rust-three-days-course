@@ -1,2 +1,2 @@
 [lib]
-crate-type = ["dylib", "staticlib"]
+crate-type = ["cdylib", "dylib", "staticlib"]

@@ -83,11 +83,11 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 ---
 
-`'static` ist nichts ehrrühriges. In nebenläufigen Programmen ist es durchaus sehr häufig.
+`'static` ist nichts ehrrühriges. In nebenläufigen Programmen ist es durchaus sehr häufig. Gerade, wenn mit events gearbeitet wird, müssen die Daten meist auf dem Heap liegen, da der Stack dem Evenreaktor gehört.
 
 ---
 
-Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in gernerischem Code:
+Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in generischem Code:
 
 <pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
 

@@ -81,7 +81,7 @@ Was sind die Konsequenzen von `Send` und `Sync`?
 
 ## Konsequenzen
 
-Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur \* Übersetzungszeit \*.
+Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur *Übersetzungszeit*.
 
 Dies verhindert, dass diese Fehlerklasse die Produktionssysteme erreicht.
 

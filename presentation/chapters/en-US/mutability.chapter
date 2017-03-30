@@ -27,3 +27,7 @@ Mutability is always apparent from reading the code.
 ---
 
 Mutability is fundamental to Rust and is a common consideration.
+
+---
+
+Mutability is a property of variables and bindings, not of the bound data!

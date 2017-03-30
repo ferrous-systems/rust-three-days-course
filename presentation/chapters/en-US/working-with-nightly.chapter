@@ -65,3 +65,14 @@ To enable a compiler plugin add the following line into `src/main.rs` (for execu
 
 <pre><code data-source="chapters/shared/code/working-with-nightly/3.rs" data-trim="hljs rust"></code></pre>
 
+---
+
+## Warning
+
+It is unknown, when and if ever compiler-plugins will be stabilised.
+
+---
+
+## Stable development on nightly
+
+It is recommendable to use a nighly compiler close to the release version used.
