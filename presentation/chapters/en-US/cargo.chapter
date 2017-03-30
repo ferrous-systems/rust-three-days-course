@@ -53,7 +53,7 @@ By default, cargo uses the Debug profile, which means that the resulting binary 
 
 ## `cargo run`
 
-If the prject contains an application, you can run it using `cargo run -- [Arguments]`.
+If the project contains an application, you can run it using `cargo run -- [Arguments]`.
 
 If it contains multiple, the name of the intended binary can be given using `--bin <name>`.
 
@@ -91,7 +91,7 @@ In the Rust community [SemVer](https://semver.org) is the recommended versioning
 
 ## Pre-release
 
-If tbe version of a library is below `1`, it is considered "pre-release", which means breaking interface changes can happen with *every minor version*.
+If the version of a library is below `1`, it is considered "pre-release", which means breaking interface changes can happen with *every minor version*.
 
 ---
 
@@ -141,7 +141,7 @@ Cargo knows 3 different kinds of dependencies:
 
 ## Aside
 
-Dependencies outside of crates.io are forbidden, if a library is to be published on crates.io.
+Dependencies outside of crates.io are forbidden if a library is to be published on crates.io.
 
 ---
 
@@ -157,7 +157,7 @@ Libraries found here will be preferred. This allows easy testing of patches.
 
 ## Profiles
 
-The cargo profiles (release, bench, test...) can be costumized. Details can be found in the [Manifest-documentation](http://doc.crates.io/manifest.html)
+The cargo profiles (release, bench, test...) can be customized. Details can be found in the [Manifest-documentation](http://doc.crates.io/manifest.html)
 
 ---
 

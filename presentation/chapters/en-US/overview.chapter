@@ -15,9 +15,9 @@
 ## Focus
 
 -   Rust has lost many features from 2012 to 2014
--   garbage collector, evented runtime, complex error handling
-    - all present once, now gone
--   orientation towards a usable systems programming language
+-   Garbage collector, evented runtime, complex error handling
+    - All present once, now gone
+-   Orientation towards a usable systems programming language
 
 ---
 
@@ -29,7 +29,7 @@
 
 ---
 
-## Release-Mode
+## Release Method
 
 -   Nightly releases
 -   All 6 weeks, the current nightly is promoted to beta
@@ -42,9 +42,9 @@
 ## Goals
 
 -   Explicit over implicit
--   predictable runtime behaviour
--   supporting stable software development for large projects
--   pragmatism and easy integration
+-   Predictable runtime behaviour
+-   Supporting stable software development for large projects
+-   Pragmatism and easy integration
 
 ---
 
@@ -76,28 +76,28 @@ Many examples in this course are very small, which is why we will also spend tim
 ## Concurrent
 
 -   "Concurrency without fear"
--   the type system detects concurrent access to data and requires synchronisation
--   also: Rust detects when unsynchronised access is safely possible!
--   protection from data races!
+-   The type system detects concurrent access to data and requires synchronisation
+-   Also: Rust detects when unsynchronised access is safely possible!
+-   Protection from data races!
 
 ---
 
 ## Fast
 
--   these properties are guaranteed at compile time and have no runtime cost!
--   optimizing compiler based on LLVM
--   features with runtime cost are explicit and hard to activate "by accident"
--   no reflection (Dracula-Language)
--   static dispatch per default
+-   These properties are guaranteed at compile time and have no runtime cost!
+-   Optimizing compiler based on LLVM
+-   Features with runtime cost are explicit and hard to activate "by accident"
+-   No reflection (Dracula-Language)
+-   Static dispatch per default
 
 ---
 
 ## Pragmatic
 
--   sublanguage for unsafe memory access
--   good techniques to handle these
--   great FFI support
--   great error messages by the compiler
+-   Sublanguage for unsafe memory access
+-   Good techniques to handle these
+-   Great FFI support
+-   Great error messages by the compiler
 -   Rust gives support for many hard things and trusts you with the rest
 
 ---

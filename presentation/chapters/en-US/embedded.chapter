@@ -30,27 +30,27 @@ Copper: Programming Microcontrollers with Rust and Cortex-M.
 
 ## Projects
 
-Tock, an operating system for Cortex-M-Prozessoren: [tockos.org](tockos.org)
+Tock, an operating system for Cortex-M processors: [tockos.org](tockos.org)
 
 ---
 
 ## Problems
 
--   LLVM-Target-Support
+-   LLVM target support
     -   LLVM is generally good on targets that Apple uses
     -   This doesn't mean that LLVM is in any way hostile!
 -   Unsolved requirements in Rust, especially bitfields
--   Inline-Assembly is unstable
--   Core-Developers are Desktop- and Serverdevelopers and don't always have enough experience
+-   Inline Assembly is unstable
+-   Core-Developers are desktop and server developers and don't always have enough experience
     -   "No solution is better then a bad solution!"
--   We need Vendor-buy-in
+-   We need vendor buy-in
 
 ---
 
 ## Solution
 
--   Rust is a driving Force behind better Target-Support in LLVM
+-   Rust is a driving Force behind better target support in LLVM
     -   Multiple Targets, espcially AVR, to be released in the next versions
--   Enthusiastic Embedded-Community
+-   Enthusiastic embedded community
 -   Rust has a very good community process for features that core cannot implement themselves
 

@@ -13,7 +13,7 @@ That is not necessary.
 ## Lifetimes
 
 -   Lifetimes describe the time that values remain in memory
--   They describe - they cannot force or change anythin
+-   They describe - they cannot force or change anything
 -   Lifetimes are types!
 
 ---
@@ -37,8 +37,8 @@ The correct struct definition is:
 Wrapper is now:
 
 * Generic over the type T
-* as well as a lifetime 'a (its own)
-* the borrowed values must live *at least equally long*
+* As well as a lifetime 'a (its own)
+* The borrowed values must live *at least equally long*
 
 ---
 
@@ -74,16 +74,16 @@ Common pitfall: you cannot "shorten a lifetime", as it just describes what's alr
 
 ## `'static`
 
-`'static` is a lifetime that lives longer then all others. That's not necessarily forever!
+`'static` is a lifetime that lives longer than all others. That's not necessarily forever!
 
 ---
 
 Examples of `'static` data are:
 
--   Data contained in the binary, for example static strings
--   Heap-allocated values (for example the contents of a `Box`)
-    - as long as they are not bound on values that live shorter!
--   Globals
+* Data contained in the binary, for example static strings
+* Heap-allocated values (for example the contents of a `Box`)
+    - As long as they are not bound on values that live shorter!
+* Globals
 
 ---
 

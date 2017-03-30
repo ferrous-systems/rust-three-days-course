@@ -6,7 +6,7 @@ Rust defaults to allocation on the stack
 
 ---
 
-## Stack-Allocation
+## Stack Allocation
 
 <pre><code data-source="chapters/shared/code/stack-and-heap/1.rs" data-trim="hljs rust"></code></pre>
 
@@ -14,7 +14,7 @@ Rust defaults to allocation on the stack
 
 ## Box
 
-Heap-Allocation is represented by the type `Box`.
+Heap allocation is represented by the type `Box`.
 
 <pre><code data-source="chapters/shared/code/stack-and-heap/2.rs" data-trim="hljs rust"></code></pre>
 

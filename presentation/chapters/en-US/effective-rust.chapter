@@ -24,7 +24,7 @@ In some cases, `Drain` can be used, an iterator that drains values one-by-one fr
 
 ## Compile times
 
-`rustc` is not the fastest compiler, much time is spent in LLVM with code generation and optiomisation.
+`rustc` is not the fastest compiler, much time is spent in LLVM with code generation and optimisation.
 
 `cargo check` only runs the type checking and doesn't compile the code.
 

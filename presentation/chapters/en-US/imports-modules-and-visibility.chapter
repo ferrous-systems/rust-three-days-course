@@ -10,7 +10,7 @@ All used items must be declared. This is similar to Java or Haskell.
 
 ---
 
-## Module-Imports
+## Module Imports
 
 It is possible to import the module instead and qualify every use.
 
@@ -18,7 +18,7 @@ It is possible to import the module instead and qualify every use.
 
 ---
 
-## Glob-Imports
+## Glob Imports
 
 You can also import everything from a module.
 
@@ -80,7 +80,7 @@ By convention, the root module of a library is found in `src/lib.rs`, the root m
 
 ---
 
-## Moving the Module to a Seperate File
+## Moving the Module to a Separate File
 
 Our application could also have the following layout:
 
@@ -136,5 +136,5 @@ Also, struct functions are not exported by default.
 
 In general, exporting fields should be avoided:
 
-\* any change of the structure leads to API breakage
-\* acceessor-functions are usually as fast as direct field access due to optimizations.
+\* Any change of the structure leads to API breakage
+\* Acceessor functions are usually as fast as direct field access due to optimizations.

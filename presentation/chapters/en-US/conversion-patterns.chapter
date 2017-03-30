@@ -43,5 +43,5 @@ Reference-to-reference-conversion. Indicates that a type can easily produce refe
 
 ## `Borrow<T>` and `BorrowMut<T>`
 
-`Borrow<T>` abstracts over ownership and borrowing. `Borrow<T>` expresses, that the type can produce a borrow of `T`. It is similar to `AsRef<T>`, but communicates a different intent.
+`Borrow<T>` abstracts over ownership and borrowing. `Borrow<T>` expresses that the type can produce a borrow of `T`. It is similar to `AsRef<T>`, but communicates a different intent.
 

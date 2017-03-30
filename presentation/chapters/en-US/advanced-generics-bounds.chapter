@@ -12,7 +12,7 @@ This can happen at any point where type parameters are used.
 
 ---
 
-Example: `println("{:?") requires Debug
+Example: `println("{:?}")` requires Debug
  
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/1.rs" data-trim="hljs rust"></code></pre>
 
@@ -58,7 +58,7 @@ Bounds can be used everywhere, which can be used to de-facto constrain types at 
 
 ---
 
-This can be very practical, as this allows expressing different bounds on during construction and at call sitesl.
+This can be very practical, as this allows expressing different bounds during construction and at call sites.
 
 ---
 

@@ -1,4 +1,4 @@
-# Drop, panic und abort
+# Drop, panic, and abort
 
 What happens in detail when values drop?
 
@@ -63,7 +63,7 @@ In case of a panic, the following happens:
 
 ---
 
-Panics are implementation-wise similar to C++-Exceptions, but should only be used for fatal errors. They cannot be (normally) cought.
+Panics are implementation-wise similar to C++-Exceptions, but should only be used for fatal errors. They cannot be (normally) caught.
 
 The affected thread dies.
 

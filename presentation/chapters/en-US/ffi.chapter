@@ -35,7 +35,7 @@ TODO: link
 
 <pre><code data-source="chapters/shared/code/ffi/1.rs" data-trim="hljs rust"></code></pre>
 
-Rust lints code style, but c-style is no Rust style
+Rust lints code style, but C-style is no Rust style
 
 ---
 
@@ -47,7 +47,7 @@ Rust lints code style, but c-style is no Rust style
 
 ## Opaque types
 
-We use empty Enums here. The cannot be constructed or read: they have no variants!
+We use empty Enums here. They cannot be constructed or read: they have no variants!
 
 <pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 
@@ -61,7 +61,7 @@ The layout of enums and structs is (currently) left to the compiler. `#[repr(C)]
 
 ---
 
-## External functions
+## External Functions
 
 <pre><code data-source="chapters/shared/code/ffi/5.rs" data-trim="hljs rust"></code></pre>
 
@@ -73,7 +73,7 @@ The layout of enums and structs is (currently) left to the compiler. `#[repr(C)]
 
 ---
 
-## Utility-Functions
+## Utility Functions
 
 <pre><code data-source="chapters/shared/code/ffi/7.rs" data-trim="hljs rust"></code></pre>
 
@@ -109,7 +109,7 @@ We have bound the functions, but there is nothing safe here.
 
 ---
 
-## Handling of C-Style-Errors
+## Handling of C Style Errors
 
 > Error handling styles in C can be organized into one of several distinct styles, such as popular or correct. Some examples of each.
 
@@ -117,13 +117,13 @@ We have bound the functions, but there is nothing safe here.
 
 ---
 
-## Handling of leveldb-Errors
+## Handling of leveldb Errors
 
 <pre><code data-source="chapters/shared/code/ffi/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Handling of C-Strings
+## Handling of C Strings
 
 See [`std::ffi::CString`](https://doc.rust-lang.org/std/ffi/struct.CString.html).
 
@@ -177,7 +177,7 @@ Such Optimisations should be tested with `compile-fail`!
 
 ---
 
-## Generics, Traits and raw Boxen
+## Generics, Traits and raw Boxes
 
 <pre><code data-source="chapters/shared/code/ffi/14.rs" data-trim="hljs rust"></code></pre>
 

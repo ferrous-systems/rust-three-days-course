@@ -33,7 +33,7 @@ First implementation task: redisish
 * [Testing](../presentation/index.html?chapter=testing&locale=en-US)
 * [libcore and libstd](../presentation/index.html?chapter=libcore-and-libstd&locale=en-US)
 * [The stdlib](../presentation/index.html?chapter=std-lib-tour&locale=en-US)
-* [Iteratoren again](../presentation/index.html?chapter=iterators-again&locale=en-US)
+* [Iterators again](../presentation/index.html?chapter=iterators-again&locale=en-US)
 
 Second implementation: connected mailbox
 
@@ -49,7 +49,7 @@ Third implementation: connected mailbox with threads
 
 Forth implementation: simple bindings to leveldb-sys
 
-* [Dynamische and static libraries](../presentation/index.html?chapter=dynamic-and-static-libs&locale=en-US)
+* [Dynamic and static libraries](../presentation/index.html?chapter=dynamic-and-static-libs&locale=en-US)
 
 Fifth implementation: embedding of a simple dylib in your favorite language.
 
@@ -67,4 +67,4 @@ Unfinished and Junk
 
 * [Standard types](../presentation/index.html?chapter=standard-types&locale=en-US)
 
-* [Innere Mutability](../presentation/index.html?chapter=inner-mutability&locale=en-US)
+* [Inner Mutability](../presentation/index.html?chapter=inner-mutability&locale=en-US)

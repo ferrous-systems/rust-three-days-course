@@ -53,7 +53,7 @@ Unsafe code must *always* be marked `unsafe`.
 
 ---
 
-Rust allows you to shoot yourself in the foot, it just requires you to get the gun out of the holster and remove the safety before.
+Rust allows you to shoot yourself in the foot, it just requires you to take your gun out of the holster and remove the safety first.
 
 ---
 

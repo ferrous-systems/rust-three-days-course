@@ -57,7 +57,7 @@ What happens if we try to use `dot` a second time?
 
 ---
 
-In Rust-Lingo, this is call `consuming`. `pacman` cosumes `dot`.
+In Rust-Lingo, this is call `consuming`. `pacman` consumes `dot`.
 
 The value cannot be used anymore.
 
@@ -118,7 +118,7 @@ Cloning is a general operation that - depending on the complexity of the data at
 
 ---
 
-Copy is meant for data that can be quickly copied in memory (using memcopy) and are allowed to be copied (e.g.: not Filepointers).
+Copy is meant for data that can be quickly copied in memory (using memcopy) and are allowed to be copied (e.g.: not File pointers).
 
 
 ---
