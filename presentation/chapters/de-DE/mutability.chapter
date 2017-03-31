@@ -10,13 +10,13 @@ Wo landet Rust?
 
 ## Ein Beispiel
 
-<pre><code data-source="chapters/shared/code/mutability/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/mutability/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Richtig
 
-<pre><code data-source="chapters/shared/code/mutability/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/mutability/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

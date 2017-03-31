@@ -6,11 +6,11 @@ Use `match` para revisar variantes de Enums.
 
 ---
 
-<pre><code data-source="chapters/shared/code/match/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-<pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -20,11 +20,12 @@ Use `match` para revisar variantes de Enums.
 
 ## Ignora otras variantes
 
-<pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"
+class="lang-rust"></code></pre>
 
 ---
 
 `Result` tienen un marcado especial. ¡No deben ser ignorados!
 
-<pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Solución: Match o pasar de largo.

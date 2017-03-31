@@ -1,7 +1,7 @@
 fn return_nothing() {}
 
 fn return_a_random() -> i32 {
-    4 // Garantiert zufällig, gewählt durch Würfelwurf
+    4 // Chosen by dice roll.
 }
 
 fn maybe_return_a_random(should: bool) -> Option<i32> {

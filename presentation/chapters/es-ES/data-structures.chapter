@@ -14,44 +14,44 @@
 
 ## Asignación
 
-<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Acceso a campos
 
-<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Tuplas
 
-<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Tupla estructura
 
-<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Enumeraciones o Enums
 
-<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Las diferentes elecciones de un Enum son llamadas "variantes".
 
 ---
 
 ## Enums con valores como variantes
 
-<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Enums con estructuras como variantes.
 
-<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

@@ -26,7 +26,7 @@ Rust comes with 2 architecture-dependent number types:
 
 Casts between number are possible, *also shortening casts*:
 
-<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -44,7 +44,7 @@ Overflows trigger a trap in Debug mode, but not in release mode. This behaviour 
 
 Rust also comes with floats of all standard sizes: f8, f16, f32, f64
 
-<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -52,7 +52,7 @@ Rust also comes with floats of all standard sizes: f8, f16, f32, f64
 
 Fixed-size arrays have the following Notation:
 
-<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -62,7 +62,7 @@ Arrays of dynamic size in Rust are represented as slices.
 
 Slices carry a pointer to the array and a lengths. Slices cannot be resized.
 
-<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -70,5 +70,5 @@ Slices carry a pointer to the array and a lengths. Slices cannot be resized.
 
 Expressions without a specific return value return the unit type `()`.
 
-<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

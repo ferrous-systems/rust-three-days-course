@@ -6,17 +6,18 @@ Um die Varianten von Enums zu prüfen, wird `match` verwendet.
 
 ---
 
-<pre><code data-source="chapters/shared/code/match/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Alternative: if-let
 
-<pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-<pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/3.rs" data-trim="hljs rust"
+class="lang-rust"></code></pre>
 
 ---
 
@@ -26,24 +27,25 @@ Matches müssen alle Varianten abdecken.
 
 ## Ignorieren weiterer Varianten
 
-<pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/4.rs" data-trim="hljs rust"
+class="lang-rust"></code></pre>
 
 ---
 
 Results tragen eine besondere Markierung: sie dürfen nicht ignoriert werden!
 
-<pre><code data-source="chapters/shared/code/match/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Lösung: matchen oder weiterreichen.
 
 ---
 
 `match` funktioniert nicht nur auf enums:
 
-<pre><code data-source="chapters/shared/code/match/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 `match` und `if` Ausdrücke:
 
-<pre><code data-source="chapters/shared/code/match/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/match/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

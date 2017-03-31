@@ -14,13 +14,13 @@
 
 ## Allokation
 
-<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Feldzugriff
 
-<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -28,33 +28,33 @@
 
 Structs müssen keine Felder haben.
 
-<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Diese Structs haben zur Laufzeit keine Größe.
 
 ---
 
 ## Tupel
 
-<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Benannte Tupel ("tuple structs")
 
-<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Enums
 
-<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Die einzelnen Ausformungen von Enums heissen "Variante".
 
 ---
 
 ## Enums mit Werten
 
-<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
