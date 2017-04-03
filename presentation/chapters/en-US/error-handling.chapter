@@ -57,11 +57,7 @@ It's possible to change a `Result<T,E>` into a `Result<U,E>` without unwrapping 
 
 Transforming a `Result<T,E>` into a `Result<T,X>` is also possible.
 
-<pre class="diagram">
-+-----+   +-----+   +-----+
-| T,E |-->| U,E |-->| U,X |
-+-----+   +-----+   +-----+
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/error-handling/1.diagram"></pre>
 
 ---
 
