@@ -1,10 +1,9 @@
 use std::fs::File;
-use std::process;
 
 fn main() {
     let locales = ["de-DE", "en-US", "es-ES"];
     
-    let filename = match std::env::args().nth(1)
+    let filename = std::env::args().nth(1)
         .expect("No chapter name passed! Aborting...");
 
     for locale in locales.iter() {
