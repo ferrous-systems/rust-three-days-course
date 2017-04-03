@@ -23,20 +23,7 @@ Diese Regeln: \* sind fundamental für Rusts Typsystem! \* werden beim Übersetz
 
 ---
 
-<pre class="diagram">
-    main              pacman
-+----------+
-|          |
-|    dot   |---+
-|          |   |
-+----------+   |    +----------+
-               |    |          |
-               +----|   dot    |
-                    |          |
-                    +----------+
-
-                      🗑
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/ownership/1.diagram"></pre>
 
 ---
 
@@ -74,33 +61,7 @@ Was tun, wenn dieses Verhalten nicht erwünscht ist? Wir können eine zweite Ver
 
 ---
 
-<pre class="diagram">
-    main              pacman
-+----------+
-|          |
-|    dot   |-=-+
-|          |   |
-+----------+   :    +----------+
-     |         |    |          |
-     |         +=-=-|   dot    |
-     |              |          |
-     |              +----------+
-     |
-     |                🗑
-     |
-+----------+
-|          |
-|  clone   |-=-+
-|          |   |
-+----------+   :    +----------+
-               |    |          |
-               +-=-=|   dot    |
-                    |          |
-                    +----------+
-
-                      🗑
-
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/ownership/2.diagram"></pre>
 
 ---
 

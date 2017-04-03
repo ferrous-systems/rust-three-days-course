@@ -10,10 +10,4 @@
 
 ## SVG
 
-<pre class="diagram">
-+------+ top
-|      |
-|      |
-+------+ bottom
-</pre>
-
+<pre class="diagram" data-source="chapters/shared/diagram/usage-examples/1.diagram"></pre>

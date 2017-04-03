@@ -61,11 +61,7 @@ Es ist möglich, ein `Result<T, E>` in ein `Result<U, E>` zu ändern, ohne es zu
 
 Das Transformieren eines `Result<T, E>` in ein `Result<T, X>` ist ebenfalls möglich.
 
-<pre class="diagram">
-+-----+   +-----+   +-----+
-| T,E |-->| U,E |-->| U,X |
-+-----+   +-----+   +-----+
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/error-handling/1.diagram"></pre>
 
 ---
 

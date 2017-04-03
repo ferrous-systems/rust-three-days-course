@@ -28,20 +28,7 @@ These rules:
 
 ---
 
-<pre class="diagram">
-    main              pacman
-+----------+
-|          |
-|    dot   |---+
-|          |   |
-+----------+   |    +----------+
-               |    |          |
-               +----|   dot    |
-                    |          |
-                    +----------+
-
-                      🗑
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/ownership/1.diagram"></pre>
 
 ---
 
@@ -66,6 +53,7 @@ The value cannot be used anymore.
 ## Background
 
 When calling `pacman` with `dot`, the value is "moved" into the arguments of `pacman`. At that moment, ownership passes to `pacman`. `main` is not owner of the data anymore and thus not allwed to access or manipulate them.
+
 ---
 
 ## Working with moves: explicit clone
@@ -78,33 +66,7 @@ What, if that behaviour is unwanted? We can create a second copy of the data!
 
 ---
 
-<pre class="diagram">
-    main              pacman
-+----------+
-|          |
-|    dot   |-=-+
-|          |   |
-+----------+   :    +----------+
-     |         |    |          |
-     |         +=-=-|   dot    |
-     |              |          |
-     |              +----------+
-     |
-     |                🗑
-     |
-+----------+
-|          |
-|  clone   |-=-+
-|          |   |
-+----------+   :    +----------+
-               |    |          |
-               +-=-=|   dot    |
-                    |          |
-                    +----------+
-
-                      🗑
-
-</pre>
+<pre class="diagram" data-source="chapters/shared/diagram/ownership/2.diagram"></pre>
 
 ---
 
