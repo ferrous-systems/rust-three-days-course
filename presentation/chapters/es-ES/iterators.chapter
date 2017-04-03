@@ -26,7 +26,7 @@ Los iteradores de Rust son:
 
 Los iteradores puede ser manualmente incrementados:
 
-<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -34,7 +34,7 @@ Los iteradores puede ser manualmente incrementados:
 
 Transforman elementos mientras son evaluados:
 
-<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -42,7 +42,7 @@ Transforman elementos mientras son evaluados:
 
 Filtra valores no deseados, saltando cálculos adicionales en ellos:
 
-<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -50,7 +50,7 @@ Filtra valores no deseados, saltando cálculos adicionales en ellos:
 
 Reduce una secuencia de valores a un valor único:
 
-<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -58,7 +58,7 @@ Reduce una secuencia de valores a un valor único:
 
 Causan que los iteradores se repitan y finalicen tempranamente:
 
-<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -66,7 +66,7 @@ Causan que los iteradores se repitan y finalicen tempranamente:
 
 Unen iteradores y los separan en partes también:
 
-<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -74,7 +74,7 @@ Unen iteradores y los separan en partes también:
 
 Devuelve el valor mínimo o máximo de un iterador.
 
-<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -82,5 +82,5 @@ Devuelve el valor mínimo o máximo de un iterador.
 
 Esto no funciona
 
-<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 ¿Por qué? Piense acerca del alcance y propiedad (scoping & ownership!)

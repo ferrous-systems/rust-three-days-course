@@ -27,7 +27,7 @@ Am häufigsten sind `String` und `&str`.
 
 ## Allokation
 
-<pre><code data-source="chapters/shared/code/strings/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -79,17 +79,17 @@ Es wird dringend empfohlen, die gesamte Dokumentation dieser Typen vor der Verwe
 
 ## Manipulieren von Strings
 
-Verkettung:
+Aufspaltung:
 
-<pre><code data-source="chapters/shared/code/strings/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Manipulieren von Strings
 
-Aufspaltung:
+Verkettung:
 
-<pre><code data-source="chapters/shared/code/strings/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -97,5 +97,5 @@ Aufspaltung:
 
 Ersetzen:
 
-<pre><code data-source="chapters/shared/code/strings/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

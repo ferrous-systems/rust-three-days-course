@@ -26,7 +26,7 @@ Rusts iterators are:
 
 Iterators can be manually progressed:
 
-<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -34,7 +34,7 @@ Iterators can be manually progressed:
 
 Transform items as they are evaluated:
 
-<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -42,7 +42,7 @@ Transform items as they are evaluated:
 
 Filter out unwanted values, skipping further computation on them:
 
-<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -50,7 +50,7 @@ Filter out unwanted values, skipping further computation on them:
 
 Reduce a sequence of values down to a single value:
 
-<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -58,7 +58,7 @@ Reduce a sequence of values down to a single value:
 
 Cause iterators to repeat, and end early:
 
-<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -66,13 +66,13 @@ Cause iterators to repeat, and end early:
 
 Join iterators, and split them apart again:
 
-<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## `max()` & `min()`
 
-<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -80,5 +80,5 @@ Join iterators, and split them apart again:
 
 This doesn't work:
 
-<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Why? (Think about scoping & ownership!)

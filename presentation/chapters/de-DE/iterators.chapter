@@ -26,7 +26,7 @@ Rusts Iteratoren sind:
 
 Iteratoren können manuell verwendet werden:
 
-<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -34,7 +34,7 @@ Iteratoren können manuell verwendet werden:
 
 Elemente können während der Auswertung transformiert werden:
 
-<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -42,7 +42,7 @@ Elemente können während der Auswertung transformiert werden:
 
 Werte können ausgefiltert und ihre weitere Berechnung übersprungen werden:
 
-<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -50,7 +50,7 @@ Werte können ausgefiltert und ihre weitere Berechnung übersprungen werden:
 
 Reduzieren einer Folge auf einen einzelnen Wert:
 
-<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -58,7 +58,7 @@ Reduzieren einer Folge auf einen einzelnen Wert:
 
 Iteratoren wiederholen und früh beenden:
 
-<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -66,13 +66,13 @@ Iteratoren wiederholen und früh beenden:
 
 Iteratoren zusammenfügen und wieder trennen:
 
-<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## `max()` & `min()`
 
-<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -80,5 +80,5 @@ Iteratoren zusammenfügen und wieder trennen:
 
 Das geht nicht:
 
-<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/iterators/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Warum? (Denken Sie über scoping & Besitz nach!)
