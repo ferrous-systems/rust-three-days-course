@@ -1,0 +1,10 @@
+[package]
+authors = ["skade <florian.gilcher@asquera.de>", "hoverbear <andrew.hobden@asquera.de>"]
+name = "rust-three-days-course"
+version = "0.1.0"
+
+[dependencies]
+glob = "0.2.11"
+pandoc_types = "0.1.0"
+serde_json = "0.9.9"
+shells = "0.2.0"

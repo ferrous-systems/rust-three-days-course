@@ -1,24 +1,20 @@
 extern crate serde_json;
-
 extern crate pandoc_types;
-
 extern crate glob;
 
 use glob::glob;
 use pandoc_types::definition::*;
 
-use std::io::{self, Read, Write};
+use std::io::Write;
 use std::fs::{File, create_dir};
-
-use std::process::{Command,Stdio};
-
+use std::process::{Command, Stdio};
 
 fn change_code(filename: &str, locale: &str, extract: bool) {
-    let filepath = format!("chapters/{}/{}.chapter", locale, filename);
+    let filepath = format!("presentation/chapters/{}/{}.chapter", locale, filename);
 
     if extract {
-        let codedir = format!("chapters/shared/code/{}", filename);
-        create_dir(codedir);
+        let codedir = format!("presentation/chapters/shared/code/{}", filename);
+        create_dir(codedir).expect("Could not create code directory");
     }
 
     let parser = Command::new("/usr/local/bin/pandoc")
@@ -32,7 +28,7 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
     let mut doc: Pandoc = serde_json::from_reader (parser.stdout.unwrap()).expect("unable to read JSON input");
 
     {
-        let mut blocks = &mut doc.1;
+        let blocks = &mut doc.1;
 
         let mut blocknumber = 1;
         for block in blocks {
@@ -48,13 +44,13 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
                     _ => code_lang
                 };
 
-                let codepath = format!("chapters/shared/code/{}/{}.{}", filename, blocknumber, extension);
+                let codepath = format!("presentation/chapters/shared/code/{}/{}.{}", filename, blocknumber, extension);
                 new_block = Block::RawBlock(Format("html".into()),
                     format!("<pre><code data-source=\"{}\" data-trim=\"hljs {}\"></code></pre>", codepath, code_lang));
 
                 if extract {
                     let mut f = File::create(&codepath).expect("File creation should succeed");
-                    write!(f, "{}", content);
+                    write!(f, "{}", content).expect("Could not write to file");
                 }
 
                 blocknumber += 1;
@@ -78,27 +74,20 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
                          .spawn()
                          .expect("failed to execute process");
 
-    write!(cmd.stdin.expect("expected stdin to be present"), "{}", serde_json::to_string(&doc).expect("expected serialisation to work"));
+    write!(cmd.stdin.expect("expected stdin to be present"), "{}", serde_json::to_string(&doc).expect("expected serialisation to work"))
+        .expect("expected to be able to write to command stdin");
 }
 
-for entry in glob("chapters/de-DE/*.chapter").expect("Failed to read glob pattern") {
-    match entry {
-        Ok(path) => {
-            let name = path.file_stem().unwrap();
-            change_code(&name.to_string_lossy(), "de-DE", true);
-        },
-        Err(e) => println!("{:?}", e),
-    }
-}
-
-for locale in ["en-US", "es-ES"].iter() {
-    for entry in glob(&format!("chapters/{}/*.chapter", locale)).expect("Failed to read glob pattern") {
-        match entry {
-            Ok(path) => {
-                let name = path.file_stem().expect("filestem to exist");
-                change_code(&name.to_string_lossy(), locale, false);
-            },
-            Err(e) => println!("{:?}", e),
+fn main() {
+    for locale in ["de-DE", "en-US", "es-ES"].iter() {
+        for entry in glob(&format!("presentation/chapters/{}/*.chapter", locale)).expect("Failed to read glob pattern") {
+            match entry {
+                Ok(path) => {
+                    let name = path.file_stem().expect("filestem to exist");
+                    change_code(&name.to_string_lossy(), locale, false);
+                },
+                Err(e) => println!("{:?}", e),
+            }
         }
     }
 }
