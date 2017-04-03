@@ -20,7 +20,7 @@ Sie sind - wenn möglich - *automatisch abgeleitet*.
 
 ## Automatisch abgeleitet
 
-<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -32,7 +32,7 @@ Beispiele sind `Rc`, rohe Zeiger und `UnsafeCell`.
 
 ## Beispiel: `Rc`
 
-<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

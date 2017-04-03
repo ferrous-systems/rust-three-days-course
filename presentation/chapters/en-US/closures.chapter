@@ -6,18 +6,18 @@ Rust has closures. Multiple, even.
 
 Advantage:
 
-\* Highly optimized using only the absolutely necessary runtime resources, often none.
+* Highly optimized using only the absolutely necessary runtime resources, often none.
 
 Disadvantage:
 
-\* Knowing the specific closure type is not always easy.
+* Knowing the specific closure type is not always easy.
 
 ---
 
 ## Notation
 
-<pre><code data-source="chapters/shared/code/closures/1.rs" data-trim="hljs rust"></code></pre>
-<pre><code data-source="chapters/shared/code/closures/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/closures/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/closures/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -25,15 +25,15 @@ Disadvantage:
 
 FnOnce 
 
-\* The closure consumes its environment
+* The closure consumes its environment
 
 FnMut 
 
-\* The closure mutates its environment
+* The closure mutates its environment
 
 Fn
 
-\* The closure references its environment immutably
+* The closure references its environment immutably
 
 ---
 

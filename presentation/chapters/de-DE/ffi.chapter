@@ -186,14 +186,14 @@ Wichtig: Der Trait arbeitet auf Heap-Allokierten Werten.
 
 Konvertierung von Slices ist ähnlich einfach:
 
-<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Bitte auch hier auf Besitzsemantik achten.
 
 ---
 
 ## Falle
 
-<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Huch! Plötzlich habe ich einen mutablen und immutablen Pointer.
 
 ---

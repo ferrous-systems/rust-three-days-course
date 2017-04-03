@@ -118,4 +118,4 @@ For simple cases, lifetimes are automatically inserted into signatures.
 
 For boxes, the default lifetime bound of the contained value is `'static`. Sometimes, this is too long and can be overwritten:
 
-<pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>

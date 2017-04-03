@@ -4,7 +4,7 @@
 
 `size_of` und `size_of_val` helfen dabei, die Größe von Typen (in Bytes) herauzubekommen.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -20,7 +20,7 @@ Typen ohne Größe *müssen* über Borrows addressiert werden.
 
 Structs haben die Größe ihrer enthaltenen Daten.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -28,7 +28,7 @@ Structs haben die Größe ihrer enthaltenen Daten.
 
 Referenzen sind 1 usize breit. Dies gilt auch für Boxen.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -36,7 +36,7 @@ Referenzen sind 1 usize breit. Dies gilt auch für Boxen.
 
 Ausnahme sind Trait-Objekte
 
-<pre><code data-source="chapters/shared/code/memory-considerations/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -44,7 +44,7 @@ Ausnahme sind Trait-Objekte
 
 Slices sind 2 usize breit. Dies gilt natürlich auch für deren Boxen.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/5.output" data-trim="hljs output"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/5.output" data-trim="hljs output" class="lang-rust"></code></pre>
 
 ---
 
@@ -52,7 +52,7 @@ Slices sind 2 usize breit. Dies gilt natürlich auch für deren Boxen.
 
 Vektoren sind 3 usize breit, wegen der zusätzlich gespeicherten Kapazität.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/6.output" data-trim="hljs output"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/6.output" data-trim="hljs output" class="lang-rust"></code></pre>
 
 ---
 
@@ -66,7 +66,7 @@ Verhalten sich wie Slices und Vektoren.
 
 Enums benötigen die Größe ihres größten Werts, 1 Byte für eine Diskriminate, plus Padding.
 
-<pre><code data-source="chapters/shared/code/memory-considerations/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/memory-considerations/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

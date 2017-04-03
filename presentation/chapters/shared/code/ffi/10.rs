@@ -4,8 +4,8 @@ let error = ptr::null_mut();
 
 let db = unsafe {
     leveldb_open(options,
-                          name,
-                          &mut error)
+                 name,
+                 &mut error)
 };
 
 if error == ptr::null_mut() {

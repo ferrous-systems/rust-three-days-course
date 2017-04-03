@@ -72,7 +72,7 @@ Sehr häufig sind Bounds in Funktionsaufrufen in Kombination mit Konvertierungsf
 
 Traits können für Typparameter implementiert werden.
 
-<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -80,5 +80,5 @@ Traits können für Typparameter implementiert werden.
 
 Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
 
-<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

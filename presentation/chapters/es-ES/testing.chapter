@@ -94,17 +94,9 @@ pub enum Direction { North, South, East, West }
 
 ## Pruebas de integración
 
-`/src/lib.rs`:
-
-<pre><code data-source="chapters/shared/code/testing/6.rs" data-trim="hljs rust"></code></pre>
-
----
-
-## Pruebas de integración
-
 `/tests/basic.rs`:
 
-<pre><code data-source="chapters/shared/code/testing/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/testing/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 

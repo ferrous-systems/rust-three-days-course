@@ -7,5 +7,5 @@ fn main() {
 
     thread::spawn(move || {
         println!("{:?}", only_one_thread);
-    }).join();
+    }).join().unwrap();
 }

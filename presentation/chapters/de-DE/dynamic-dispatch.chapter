@@ -55,7 +55,7 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 
 -   Da Trait-Objekte den Objekt-Typ zur Laufzeit halten, unterstützen sie Downcasts.
 
-<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

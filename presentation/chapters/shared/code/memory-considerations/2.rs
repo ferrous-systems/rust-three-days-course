@@ -5,7 +5,7 @@ struct Byte {
 fn main() {
     use std::mem;
 
-    println!("{}", mem::size_of::<One>());
+    println!("{}", mem::size_of::<Byte>());
 
-    println!("{}", mem::size_of::<[One; 2]>());
+    println!("{}", mem::size_of::<[Byte; 2]>());
 }
