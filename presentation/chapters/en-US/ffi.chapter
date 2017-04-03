@@ -196,7 +196,7 @@ Important: This trait only works with boxed values!
 
 Conversion of slices is also easy:
 
-<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 Always keep ownership in mind!
 
@@ -204,7 +204,7 @@ Always keep ownership in mind!
 
 ## Trap
 
-<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 Oops, suddenly, there's a mutable and an immutable pointer!
 

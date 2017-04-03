@@ -14,44 +14,44 @@
 
 ## Allocation
 
-<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Field Access
 
-<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Tuples
 
-<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Tuple Structs
 
-<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Enums
 
-<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 The different choices of Enums are called "variants."
 
 ---
 
 ## Enums with Values
 
-<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Enums with Structured Variants
 
-<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/data-structures/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

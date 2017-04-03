@@ -16,7 +16,7 @@ In particular, run-time polymorphism, messages, classes, subtypes, and method ov
 
 ## Simple implementations: associated function
 
-<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -28,7 +28,7 @@ In particular, run-time polymorphism, messages, classes, subtypes, and method ov
 
 ## Python Says Hello
 
-<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -78,7 +78,7 @@ Traits define functions types must implement. They can then be used generically.
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -94,7 +94,7 @@ Traits can have type parameters.
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -114,7 +114,7 @@ There are multiple techniques.
 
 Unified Function Call Syntax
 
-<pre><code data-source="chapters/shared/code/traits/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -124,5 +124,5 @@ Associated types are generic paramaters, but the are ignored during inference.
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

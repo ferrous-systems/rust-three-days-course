@@ -19,7 +19,7 @@ Diese Regeln: \* sind fundamental für Rusts Typsystem! \* werden beim Übersetz
 
 ## Beispiel
 
-<pre><code data-source="chapters/shared/code/ownership/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ownership/1.rs" data-trim="hljs rust" class="lang-rust"></code> class="lang-rust" class="lang-rust" class="lang-rust" class="lang-rust"</pre>
 
 ---
 
@@ -44,7 +44,7 @@ Was passiert, wenn versuchen, `dot` nochmal zu verwenden?
 
 ---
 
-<pre><code data-source="chapters/shared/code/ownership/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ownership/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -70,7 +70,7 @@ Was tun, wenn dieses Verhalten nicht erwünscht ist? Wir können eine zweite Ver
 
 ---
 
-<pre><code data-source="chapters/shared/code/ownership/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ownership/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -110,7 +110,7 @@ Klonen ist für Daten vorgesehen, bei denen der Vorgang der Duplizierung komplex
 
 ## Mit moves umgehen: kopieren statt moves
 
-<pre><code data-source="chapters/shared/code/ownership/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ownership/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

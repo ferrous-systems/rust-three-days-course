@@ -18,7 +18,7 @@ Stattdessen: Ausleihen!
 
 ---
 
-<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -47,7 +47,7 @@ Was, wenn wir die Daten aber verändern möchten?
 
 ---
 
-<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -57,7 +57,10 @@ Mutable Ausleihen sind exklusiv.
 
 ## Zusammenfassung
 
-Daten können entweder: \* Beliebig oft immutable ausgeliehen werden \* Oder exakt einmal mutabel
+Daten können entweder: 
+
+* Beliebig oft immutable ausgeliehen werden
+* Oder exakt einmal mutabel
 
 Ownership bleibt im Aufrufskontext, genauso wie die Deallokation
 
@@ -73,7 +76,12 @@ Was verhindert das?
 
 ---
 
-Wichtig hierbei: \* zu jedem Typ `T` gibt es einen Typ `&T` \* zu jedem Typ `T` gibt es einen Typ `&mut T` \* `&&T` ist ein legaler Typ \* `& &mut T` ist kein legaler Typ. Warum?
+Wichtig hierbei:
+
+* zu jedem Typ `T` gibt es einen Typ `&T`
+* zu jedem Typ `T` gibt es einen Typ `&mut T`
+* `&&T` ist ein legaler Typ
+* `& &mut T` ist kein legaler Typ. Warum?
 
 ---
 
@@ -81,7 +89,7 @@ Wichtig hierbei: \* zu jedem Typ `T` gibt es einen Typ `&T` \* zu jedem Typ `T` 
 
 Das heisst, sie müssen manchmal dereferenziert werden.
 
-<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -93,7 +101,7 @@ Das heisst, sie müssen manchmal dereferenziert werden.
 
 ## Funktioniert
 
-<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -101,5 +109,5 @@ Das heisst, sie müssen manchmal dereferenziert werden.
 
 Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei nicht konsumieren.
 
-<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

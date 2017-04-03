@@ -94,7 +94,7 @@ pub enum Direction { North, South, East, West }
 
 ## Integration Tests
 
-`/src/lib.rs`:
+`/tests/basic.rs`:
 
 <pre><code data-source="chapters/shared/code/testing/6.rs" data-trim="hljs rust"></code></pre>
 
@@ -102,13 +102,5 @@ pub enum Direction { North, South, East, West }
 
 ## Integration Tests
 
-`/tests/basic.rs`:
-
-<pre><code data-source="chapters/shared/code/testing/7.rs" data-trim="hljs rust"></code></pre>
-
----
-
-## Integration Tests
-
-<pre><code data-source="chapters/shared/code/testing/8.bash" data-trim="hljs bash"></code></pre>
+<pre><code data-source="chapters/shared/code/testing/7.bash" data-trim="hljs bash"></code></pre>
 

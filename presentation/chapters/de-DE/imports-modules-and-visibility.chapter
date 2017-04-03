@@ -6,7 +6,7 @@
 
 Alle zu verwendenden Objekte sind zu deklarieren. Dies ist ähnlich wie bei Java und Haskell.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -14,7 +14,7 @@ Alle zu verwendenden Objekte sind zu deklarieren. Dies ist ähnlich wie bei Java
 
 Man kann auch das Modul importieren und dann qualifiziert verwenden:
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -22,7 +22,7 @@ Man kann auch das Modul importieren und dann qualifiziert verwenden:
 
 Genauso kann ein Modul komplett importiert werden:
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Das ist jedoch *generell* ungern gesehen.
 
 ---
@@ -37,14 +37,14 @@ Eine Ausnahme stellt die sogenannte "Prelude" dar: dies ist ein spezielles Modul
 
 Auch bieten einige Bibliotheken `prelude`-Module an, so zum Beispiel `std::io`.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Hier ist der Glob gerne gesehen.
 
 ---
 
 ## Umbenennen beim Import
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/5.rs" data-trim="hljs rust" class="lang-rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -74,7 +74,7 @@ Per Konvention ist das Hauptmodul einer Bibliothek in einer Datei `src/lib.rs`, 
 
 Eine beispielhafte Applikation:
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

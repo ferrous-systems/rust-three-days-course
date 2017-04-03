@@ -26,7 +26,7 @@ Rust hat 2 architekturabhängige Zahlentypen:
 
 Casts zwischen den Typen sind möglich, *auch verkürzende Casts*:
 
-<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -44,7 +44,7 @@ Falls die Breite nicht angegeben wird, oder inferiert werden kann, ist `i32` Sta
 
 Genauso liefert Rust Gleitkommazahlen: f32, f64
 
-<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -52,7 +52,7 @@ Genauso liefert Rust Gleitkommazahlen: f32, f64
 
 Arrays fixer Größe haben folgende Notation:
 
-<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -62,7 +62,7 @@ Arrays dynamischer Größe müssen in Rust als Slice abgebildet werden.
 
 Slices tragen einen Pointer auf einen Array und eine Länge. Slices können weder vergrößert noch verkleinert werden.
 
-<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -70,5 +70,5 @@ Slices tragen einen Pointer auf einen Array und eine Länge. Slices können wede
 
 Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
 
-<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

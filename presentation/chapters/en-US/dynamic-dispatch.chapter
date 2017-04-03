@@ -47,14 +47,14 @@ Trait objects are a pair of pointers to a virtual function table and the data.
 -   All methods are object-safe
     -   They have no type parameters
     -   They don't use `Self`
-    
+
 ---
 
 ## Futher properties
 
 -   As trait objects know about their exact type at runtime, they support downcasts.
 
-<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

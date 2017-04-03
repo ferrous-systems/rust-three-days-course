@@ -16,7 +16,7 @@ Insbesondere Laufzeitpolymorphismus, Nachrichten, Klassen, Subtypen und Methoden
 
 ## Einfache Implementierungen: assoziierte Funktion
 
-<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -28,7 +28,7 @@ Insbesondere Laufzeitpolymorphismus, Nachrichten, Klassen, Subtypen und Methoden
 
 ## Python lässt grüßen
 
-<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -78,7 +78,7 @@ Traits definieren Funktionen, die Typen implementieren müssen. Sie können dann
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -94,7 +94,7 @@ Traits können generisch sein.
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -114,7 +114,7 @@ Hierzu gibt es mehrere Techniken.
 
 Unified Function Call Syntax
 
-<pre><code data-source="chapters/shared/code/traits/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -124,5 +124,5 @@ Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht ge
 
 ---
 
-<pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

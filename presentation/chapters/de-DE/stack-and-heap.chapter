@@ -8,7 +8,7 @@ Rust allokiert standardmässig auf dem Stack.
 
 ## Stack-Allokation
 
-<pre><code data-source="chapters/shared/code/stack-and-heap/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/stack-and-heap/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -16,7 +16,7 @@ Rust allokiert standardmässig auf dem Stack.
 
 Heap-Allokation wird in Rust durch den Typ `Box` dargestellt.
 
-<pre><code data-source="chapters/shared/code/stack-and-heap/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/stack-and-heap/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -24,7 +24,7 @@ Heap-Allokation wird in Rust durch den Typ `Box` dargestellt.
 
 `Box` wird besessen, die Daten können allerdings ausgeliehen werden.
 
-<pre><code data-source="chapters/shared/code/stack-and-heap/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/stack-and-heap/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

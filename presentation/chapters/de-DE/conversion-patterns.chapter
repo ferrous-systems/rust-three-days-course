@@ -18,7 +18,7 @@ Die Verwendung hängt vom Kontext ab.
 
 ## Beispiel
 
-<pre><code data-source="chapters/shared/code/conversion-patterns/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/conversion-patterns/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -36,7 +36,7 @@ Referenz-zu-Referenz-Konvertierung. Zeigt an, dass ein Typ einfach Referenzen au
 
 ## Beispiel
 
-<pre><code data-source="chapters/shared/code/conversion-patterns/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/conversion-patterns/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

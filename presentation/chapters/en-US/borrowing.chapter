@@ -18,7 +18,7 @@ Let's borrow instead!
 
 ---
 
-<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -47,7 +47,7 @@ What if we want to change the value?
 
 ---
 
-<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -59,8 +59,8 @@ Mutable borrows are exclusive!
 
 Values can be:
 
-\* Borrowed immutably as often as you'd like
-\* Or mutably exactly once
+* Borrowed immutably as often as you'd like
+* Or mutably exactly once
 
 Ownership remains in the calling context, as well as the deallocation.
 
@@ -78,10 +78,10 @@ What does this save us from?
 
 It follows:
 
-\* for every type `T` there is a type `&T`
-\* for every type `T` there is a type `&mut T`
-\* `&&T` is a valid type
-\* `& &mut T` not a valid type. Why?
+* for every type `T` there is a type `&T`
+* for every type `T` there is a type `&mut T`
+* `&&T` is a valid type
+* `& &mut T` not a valid type. Why?
 
 ---
 
@@ -89,19 +89,19 @@ It follows:
 
 That means that we need to dereference them from time to time.
 
-<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Borrows are lexical
 
-<pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## This works
 
-<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -109,4 +109,4 @@ That means that we need to dereference them from time to time.
 
 Sometime, you want a reference to the inner value of an enum, but don't want to consume it.
 
-<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>

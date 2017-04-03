@@ -1,9 +1,9 @@
 fn multiple_possible_failures() -> Result<String,String> {
     this_can_fail(true)?;
-    println!("Nach dem ersten Fehler");
+    println!("After 1st potential error.");
     this_can_fail(false)?;
-    println!("Nach dem zweiten potentiellen Fehler");
-    Ok(String::from("Alles erledigt"))
+    println!("After 2nd potential error.");
+    Ok(String::from("All done."))
 }
 
 fn main() {

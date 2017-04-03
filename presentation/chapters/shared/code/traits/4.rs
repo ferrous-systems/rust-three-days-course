@@ -8,7 +8,7 @@ trait Distance {
 }
 
 impl Distance for Point {
-    // diese Distanzfunktion ist falsch
+    // Incorrect
     fn distance(self, other: Point) -> i32 {
         (self.x - other.x) + (self.y - other.y)
     }

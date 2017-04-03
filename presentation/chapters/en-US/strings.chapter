@@ -27,7 +27,7 @@ Most common are `String` and `&str`.
 
 ## Creation
 
-<pre><code data-source="chapters/shared/code/strings/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -45,7 +45,7 @@ Most common are `String` and `&str`.
 
 Just because multiple types exist doesn't mean they can't work in harmony.
 
-<pre><code data-source="chapters/shared/code/strings/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 This is because `String`s implement `Deref<Target=str>`.
 
 ---
@@ -88,17 +88,18 @@ It is strongly recommended you read *all* of the documentation on these types be
 
 ## Common String Tasks
 
-Concatenation:
+Splitting:
 
-<pre><code data-source="chapters/shared/code/strings/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
 
 ---
 
 ## Common String Tasks
 
-Splitting:
+Concatenation:
 
-<pre><code data-source="chapters/shared/code/strings/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -106,5 +107,5 @@ Splitting:
 
 Replacing:
 
-<pre><code data-source="chapters/shared/code/strings/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/strings/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

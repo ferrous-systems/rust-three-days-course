@@ -6,7 +6,7 @@
 
 Warum funktioniert eigentlich folgendes?
 
-<pre><code data-source="chapters/shared/code/deref-coersions/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/deref-coersions/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Box hat doch garkein Feld "x"!
 
 ---
@@ -42,5 +42,5 @@ Funktionen, die immutabel auf Strings oder Vektoren arbeiten, sollten eine immut
 
 ---
 
-<pre><code data-source="chapters/shared/code/deref-coersions/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/deref-coersions/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

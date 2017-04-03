@@ -6,7 +6,7 @@
 
 All used items must be declared. This is similar to Java or Haskell.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -14,7 +14,7 @@ All used items must be declared. This is similar to Java or Haskell.
 
 It is possible to import the module instead and qualify every use.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -22,7 +22,7 @@ It is possible to import the module instead and qualify every use.
 
 You can also import everything from a module.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 This is *generally* frowned upon.
 
@@ -38,7 +38,7 @@ One exception to the rule is the "Prelude": This is a special module in the stan
 
 Other libraries offer `prelude`-Modules, one of the most common is `std::io`.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 Here, the glob is accepted.
 
@@ -46,7 +46,7 @@ Here, the glob is accepted.
 
 ## Renaming on import
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -54,7 +54,7 @@ Here, the glob is accepted.
 
 Imports can happen inside a function. They only take effect within the function.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -76,7 +76,7 @@ By convention, the root module of a library is found in `src/lib.rs`, the root m
 
 ## Example
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

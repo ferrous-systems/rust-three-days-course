@@ -1,3 +1,3 @@
 fn main() {
-    let maybe_file = std::fs::File::open("Gibt's nicht!");
+    std::fs::File::open("Not there!");
 }

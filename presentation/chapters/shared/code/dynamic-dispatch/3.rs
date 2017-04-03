@@ -17,3 +17,8 @@ fn log<T: Any + Debug>(value: &T) {
         }
     }
 }
+
+fn main() {
+    log(&String::from("String here"));
+    log(&1)
+}

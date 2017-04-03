@@ -54,7 +54,7 @@ This has ergonomic reasons, as passing types by value is common and requires a k
 
 Bounds can be used everywhere, which can be used to de-facto constrain types at the call site.
 
-<pre><code data-source="chapters/shared/code/advanced-generics-bounds/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -72,7 +72,7 @@ Bounds are very common in conversion functions.
 
 Bounds can be used to constrain the target of an implementation.
 
-<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -80,5 +80,5 @@ Bounds can be used to constrain the target of an implementation.
 
 Traits can also request the implementation of other traits and declare default implementations for methods relying on that information.
 
-<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

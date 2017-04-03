@@ -10,7 +10,7 @@ Así que serán cubiertas en una sección separada más adelante.
 
 ## Cadenas sin pensar
 
-<pre><code data-source="chapters/shared/code/little-helpers/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/little-helpers/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -24,7 +24,7 @@ Así que serán cubiertas en una sección separada más adelante.
 
 ## println!()
 
-<pre><code data-source="chapters/shared/code/little-helpers/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/little-helpers/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -36,11 +36,11 @@ Usaremos para los primeros pasos:
 -   `Vec<T>` (Vectors)
 -   Plain `struct`s
 
-<pre><code data-source="chapters/shared/code/little-helpers/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/little-helpers/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## \#\[derive(Debug)\]
 
-<pre><code data-source="chapters/shared/code/little-helpers/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/little-helpers/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Funciona para todas las estructuras de datos.

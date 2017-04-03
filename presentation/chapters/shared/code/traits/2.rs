@@ -21,7 +21,7 @@ impl Point {
         println!("Current point value: {:?}", self); 
     }
     
-    fn move(&mut self, x: i32, y: i32) {
+    fn move_to(&mut self, x: i32, y: i32) {
         self.x = x;
         self.y = y;
     }
@@ -30,26 +30,28 @@ impl Point {
         &self.x
     }
     
-    fn x_mut(&self) -> &mut i32 {
-        &mut self
+    fn x_mut(&mut self) -> &mut i32 {
+        &mut self.x
     }
     
     fn y(&self) -> &i32 {
         &self.y
     }
     
-    fn y_mut(&self) -> &mut i32 {
-        &mut self
+    fn y_mut(&mut self) -> &mut i32 {
+        &mut self.y
     }
     
 }
 
 fn main() {
-    let p = Point::new(1,2);
+    let mut p = Point::new(1,2);
     p.inspect();
-    p.move(2,3);
+    p.move_to(2,3);
     p.inspect();
-    let mut x = p.x_mut();
-    *x = 5;
+    {
+        let mut x = p.x_mut();
+        *x = 5;
+    }
     p.inspect();
 }

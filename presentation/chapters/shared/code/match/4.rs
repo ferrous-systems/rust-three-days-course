@@ -1,8 +1,8 @@
 fn main() {
-    let maybe_file = std::fs::File::open("Gibt's nicht!");
+    let maybe_file = std::fs::File::open("Not there!");
 
     match maybe_file {
-        Err(e) => { println!("Datei nicht geöffnet! Fehler: {:?}", e) }
+        Err(e) => { println!("Error: {:?}", e) }
         _ => {}
     }
 }

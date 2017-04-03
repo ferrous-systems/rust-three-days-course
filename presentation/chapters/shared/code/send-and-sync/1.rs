@@ -9,5 +9,5 @@ fn main() {
     
     thread::spawn(move || {
         println!("{:?}", thing);
-    }).join();
+    }).join().unwrap();
 }

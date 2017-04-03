@@ -18,7 +18,7 @@ Son *automáticamente derivados* para todos los tipos si son apropiados.
 
 ## Derivación automática
 
-<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/send-and-sync/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -30,7 +30,7 @@ Como `Rc`, punteros crudos (raw pointers), y `UnsafeCell`.
 
 ## Ejemplo: `Rc`
 
-<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/send-and-sync/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

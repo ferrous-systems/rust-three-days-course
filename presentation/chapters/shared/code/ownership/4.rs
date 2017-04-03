@@ -11,5 +11,5 @@ fn main() {
 }
 
 fn pacman(dot: Dot) {
-    println!("Eating {}", dot);
+    println!("Eating {:?}", dot);
 }

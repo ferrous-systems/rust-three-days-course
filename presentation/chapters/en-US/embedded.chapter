@@ -16,7 +16,7 @@ Cross: Cross-Testing of results with QEMU <https://github.com/japaric/cross>
 
 ---
 
-## Raading
+## Reading
 
 Discovery: Discovering microcontrollers through Rust.
 

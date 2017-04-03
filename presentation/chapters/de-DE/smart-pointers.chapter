@@ -12,7 +12,7 @@ Generell ist ihnen gemein: sie werden über Ownership gemanagt.
 
 Laufzeit-Reference-Counter innerhalb eines Threads.
 
-<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -29,7 +29,7 @@ Laufzeit-Reference-Counter innerhalb eines Threads.
 
 Schwacher Pointer auf Daten.
 
-<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

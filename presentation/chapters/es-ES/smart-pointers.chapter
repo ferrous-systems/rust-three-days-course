@@ -12,7 +12,7 @@ Todos ellos tienen algo en común: Todos son manejados mediante "ownership".
 
 Conteo de referencias en tiempo de ejecución dentro de un thread.
 
-<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/smart-pointers/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -29,7 +29,7 @@ Conteo de referencias en tiempo de ejecución dentro de un thread.
 
 Puntero débil a un dato.
 
-<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/smart-pointers/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 

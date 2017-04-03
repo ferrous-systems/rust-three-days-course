@@ -1,5 +1,6 @@
 fn main() {
-    let words = "Cow says moo";
-    let replaced = words.replace("moo", "roar");
-    println!("{}", replaced);
+    let animal = String::from("Cow");
+    let sound = String::from("moo");
+    let words = animal + " says " + &sound;
+    println!("{:?}", words);
 }

@@ -1,4 +1,4 @@
-trait Foo {};
+trait Foo {}
 
 fn main() {
     use std::mem;
