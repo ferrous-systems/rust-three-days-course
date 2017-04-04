@@ -40,6 +40,15 @@ The examples given here are an example of the final state. Before giving this co
 
 There are various tasks which can be found in `src/bin/` and can be run with `cargo run --bin $TASK"`.
 
+The tasks are as follows:
+
+* `add-chapter $CHAPTER` - Creates a chapter by the name of `$CHAPTER` for each locale.
+* `add-code-example $CHAPTER $INDEX` - Appropriately renames all existing code examples (<=`$INDEX` are incremented by 1) for `$CHAPTER` to make room for a new code example. Also updates the slides to reflect this.
+* `build-indices` - Builds the indices in `presentation/toc/` from `.md` to `html` for use in a web browser.
+* `extract-code` - Extracts code samples from the slides in all chapters and creates appropriate copies in the `presentation/chapters/shared/code/*/*`, then updates the slides with new elements reflecting the new location, should not need to be regularly used.
+* `rename-chapter $OLD $NEW` - Renames chapter `$OLD` to `$NEW` for all locales.
+* `rename-chapters` - Renames chapters with an `md` extension to `chapter`. Should not need to be regularly used.
+
 ## Open issues
 
 Currently, the largest issues are:
