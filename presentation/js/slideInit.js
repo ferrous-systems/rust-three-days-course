@@ -24,7 +24,7 @@ LocaleSelector.initialize({
  	         { src: 'components/reveal.js/plugin/markdown/markdown.js' },
  	         { src: 'components/reveal.js/plugin/notes/notes.js', async: true },
  	         { src: 'components/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { fetchAllCode(); hljs.initHighlightingOnLoad(); addButtons(); } },
-            { src: 'js/remote-diagrams.js', async: true, callback: function() { fetchAllDiagrams(); } }
+             { src: 'js/remote-diagrams.js', async: true, callback: function() { fetchAllDiagrams(); } }
         ]
     }
 });

@@ -3,7 +3,7 @@ fetchAllCode = function(){
 		console.log(codeContainer.dataset.source);
 		var xhr = new XMLHttpRequest();
 		xhr.open("GET", codeContainer.dataset.source, true);
-		xhr.overrideMimeType("text/plain; charset=x-user-defined");
+		xhr.overrideMimeType("text/plain; charset=UTF-8");
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState == 4) {
 				if (xhr.status == 200) {
