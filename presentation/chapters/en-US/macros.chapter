@@ -17,11 +17,11 @@ Rust has a macro language. See [The Little Book Of Macros](https://danielkeep.gi
 
 ## What Can They do?
 
-Macros can be used to, for example:
+Macros can be used to things such as:
 
 * Generate repetitive code.
-* Utilized DSLs.
-* Express things that would otherwise be hard in Rust.
+* Create DSLs.
+* Write things that would otherwise be hard without Macros.
 
 ---
 
@@ -55,7 +55,7 @@ Let's see how they look:
 
 ## Macros: Syntax
 
-The `($value:expr)` portion says that:
+The `($value:expr)` part says that:
 
 > The macro accepts one parameter which is an expression.
 
@@ -99,7 +99,7 @@ Each repetition in the input should have a matching one in the output.
 
 Macros allow for a limited form of custom syntax and can be used to build simple DSLs.
 
-For a good example of this, checkout [clap-rs](https://github.com/kbknapp/clap-rs)
+For a good example of this, see [clap-rs](https://github.com/kbknapp/clap-rs)
 
 ---
 
@@ -109,11 +109,11 @@ Macros:
 
 * Can be difficult to debug.
 * Can be confusing to read and understand.
-* Have slightly awkward importing semantics.
+* Have awkward import semantics.
 
 ---
 
-## When to Use Macros
+## When Should You Use Macros?
 
 Use macros where there are no other good alternatives.
 
