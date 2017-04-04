@@ -2,7 +2,7 @@ extern crate glob;
 
 use glob::glob;
 
-use std::fs::{OpenOptions, rename};
+use std::fs::{File, rename};
 use std::io::{Read, Write};
 
 const MAX_EXAMPLES: usize = 999;
@@ -64,21 +64,24 @@ fn main() {
 
     // Now we need to go and mangle the slides.
     for locale in LOCALES.iter() {
-        let mut file = OpenOptions::new()
-            .read(true)
-            .write(true)
-            .open(format!("presentation/chapters/{}/{}.chapter", locale, chapter))
-            .expect("Couldn't open slides");
+        let file_location = format!("presentation/chapters/{}/{}.chapter", locale, chapter);
+        let mut file = File::open(file_location.clone())
+            .expect("Couldn't open slides for reading.");
         
         let mut contents = String::new();
         file.read_to_string(&mut contents)
             .expect("Couldn't read slides");
 
-        for &(ref entry, ref new_entry) in mappings.iter() {
-            contents = contents.replace(entry, new_entry);
-            println!("Replaced {} with {} in {} slides.", entry, new_entry, locale);
+        for &(ref entry, ref new_entry) in mappings.iter().rev() {
+            let trimmed_entry = entry.replace("presentation/", "");
+            let trimmed_new_entry = new_entry.replace("presentation/", "");
+
+            contents = contents.replace(&trimmed_entry, &trimmed_new_entry);
+            println!("Replaced {} with {} in {} slides.", trimmed_entry, trimmed_new_entry, locale);
         }
 
+        let mut file = File::create(file_location)
+            .expect("Couldn't open slides for writing.");
         file.write_all(contents.as_bytes())
             .expect("Could not write modified slides");
     }
