@@ -1,0 +1,203 @@
+# cargo
+
+---
+
+Cargo es la herramienta estándar de construcción de Rust.
+
+Cada release the `rustc` se entrega con una versión específica de cargo.
+
+En general, cargo es independiente de la versión usada de `rustc`.
+
+---
+
+## Proyectos
+
+Un proyecto de cargo contiene (al menos):
+
+-   Un manifiesto (Cargo.toml)
+-   Un archivo de código fuente (librería o aplicación) en el folder `src` (default)
+
+---
+
+Adicionalmente, un proyecto de cargo puede contener:
+
+-   pruebas (directorio por defecto `tests`)
+-   benchmarks (directorio por defecto `benches`)
+-   un script de compilación (`build.rs`)
+-   ejemplos (directorio por defecto `examples`)
+
+---
+
+## El manifiesto
+
+El [manifiesto de cargo](http://doc.crates.io/manifest.html) es escrito usando [TOML](http://doc.crates.io/manifest.html). Contiene al menos el nombre del proyecto.
+
+<pre><code data-source="chapters/shared/code/cargo/1.toml" data-trim="hljs toml"></code></pre>
+
+---
+
+## `cargo build`
+
+`cargo build` construye el proyecto completo y pone el resultado en el directorio `target`.
+
+Por defecto, cargo usa el perfil Debug, lo que significa que el binario resultante no será optimizado y tendrá símbolos de debug.
+
+`cargo build --release` usa el perfil de optimización.
+
+---
+
+
+*Siempre usa* `--release` para benchmarks, especialmente para iteradores que obtienen un incremento de velocidad gracias a las optimizaciones.
+
+---
+
+## `cargo run`
+
+Si el proyecto contiene una aplicación, puede ejecutarla usando `cargo run -- [Argumentos]`.
+
+Si contiene multiples aplicaciones, el nombre del binario de interés puede especificarse usando `--bin <nombre>`.
+
+El perfil de debug está activado por default aquí.
+
+---
+
+## `cargo test`
+
+`cargo test` ejecuta todas las pruebas. Puede proveer un nombre de prueba o modulo para filtrar las pruebas que serán ejecutadas.
+
+Las pruebas usan el perfil debug por defecto..
+
+`cargo test` corre todas las pruebas, incluyendo pruebas de documentación y compilación de ejemplos.
+
+---
+
+## `cargo bench`
+
+`cargo bench` corre todos los benchmarks
+
+Los benchmarks usan el perfil de release por defecto.
+
+---
+
+## Versionamiento
+
+En la comunidad de Rust [SemVer](https://semver.org) es el estándar recomendado para el versionamiento.
+
+-   La versión mayor debe ser elevada si hay cambios de interfaces.
+-   La versión menor debe ser elevada si nuevas características son agregadas.
+-   La versión de parches marcan bugs arreglados y mejoramientos de desempeño.
+
+---
+
+## Pre-release
+
+Si la versión de una librería está por debajo de `1`, es considerada "pre-release", lo que significa que cambios importantes puede pasar en cada *versión menor*.
+
+---
+
+## Expresiones con versiones
+
+Cargo permite expresar rangos de versiones de diferentes maneras.
+
+
+-   `1.2.3`: Versión exacta, cargo solo utilizará esa versión
+-   `0.1`: Cualquier parche en la serie de versiones "0.1"
+-   `< 0.8`: Cualquier versión menor antes que "0.8"
+
+Para más detalles, revise los [documentos](http://doc.crates.io/manifest.html)
+
+---
+
+## Resolución de versiones
+
+A la primera compilación (o a través de `cargo update`), cargo calcula un árbol de versiones cumpliendo las restricciones establecidas en Cargo.toml. Si fue exitosa se guardarán en un Lockfile (Cargo.lock).
+
+Es recomendable siempre mantener el Lockfile bajo control de versiones (para compilaciones repetibles)
+
+---
+
+## Dependencias a detalle
+
+Cargo conoce 3 diferentes tipos de dependencias:
+
+-   dependencias normales
+-   dependencias de construcción
+-   dependencias de pruebas
+
+---
+
+## Ejemplo
+
+<pre><code data-source="chapters/shared/code/cargo/2.toml" data-trim="hljs toml"></code></pre>
+
+---
+
+## Dependencias a detalle
+
+<pre><code data-source="chapters/shared/code/cargo/3.toml" data-trim="hljs toml"></code></pre>
+<pre><code data-source="chapters/shared/code/cargo/4.toml" data-trim="hljs toml"></code></pre>
+
+---
+
+## Aparte
+
+Dependencias por fuera de crates.io están prohibidas si una librería es publicada en crates.io.
+
+---
+
+## Rutas locales
+
+Es posible reemplazar temporalmente librerias por alternativas locales. Para ello, la ruta necesita estar registrada en `$PROJECT_PATH/.cargo/config`.
+
+<pre><code data-source="chapters/shared/code/cargo/5.toml" data-trim="hljs toml"></code></pre>
+
+Las librerias encontradas aquí serán preferidas. Esto permite pruebas sencillas de parches.
+
+---
+
+## Perfiles
+
+Los perfiles de cargo (release, bench, test...) se pueden personalizar. Los detalles pueden ser encontrados en la [documentación de manifiesto](http://doc.crates.io/manifest.html)
+
+---
+
+## Objetivos o targets
+
+-   perfiles y dependencias pueden ser configurados basándose en el target de compilación
+-   `cargo build --target ...` usa ese target
+-   el target debe ser instalado de antemano
+-   considere usar xargo
+
+---
+
+## Workspaces
+
+Cargo puede agrupar múltiple proyectos en un workspace. Ellos comparten configuraciones y el mismo directorio `target`.
+
+Vea la [documentación de manifiesto](http://doc.crates.io/manifest.html) para más detalles.
+
+---
+
+## Features
+
+`rustc` provee la habilidad de ignorar ciertas partes del código en la compilación. Esto sucede a través de banderas de features (feature flags).
+
+<pre><code data-source="chapters/shared/code/cargo/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Esto puede ser definido en `Cargo.toml`.
+
+TODO: Example
+
+---
+
+Y luego ser expresado en una dependencia:
+
+<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
+
+---
+
+## Invocando `rustc` directamente
+
+`cargo rustc` invoca `rustc` directamente y permite pasar parámetros adicionales.
