@@ -1,0 +1,73 @@
+# Tipos básicos
+
+---
+
+## ints
+
+Rust viene con todos los tipos enteros estándar, con o sin signo.
+
+-   i8, u8
+-   i16, u16
+-   i32, u32
+-   i64, u64
+-   i128, u128 (pronto)
+
+---
+
+## Número dependientes de arquitecturas
+
+Rust viene con 2 tipos dependientes de arquitectura:
+
+-   isize, usize
+
+---
+
+## Casts
+
+Casts entre números es posible, *también casts de acortamiento*:
+
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+Si el tamaño no es dado, o no puede ser inferido, los enteros por defecto son `i32`.
+
+---
+
+## Overflows o desbordamientos
+
+Los overflows disparan una trampa en modo debug, pero no en modo release. Este comportamiento puede ser configurado.
+
+---
+
+## Flotantes
+
+Rust también viene con flotantes de todos los tamaños estándar: f8, f16, f32, f64
+
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Arreglos
+
+Arreglos de tamaño fijo tiene la siguiente notación:
+
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Arreglos con tamaño dinámico
+
+Los arreglos de tamaño dinámico en Rust son representados como slices
+
+Los slices cargan un apuntador al arreglo y una longitud. Los slices no pueden cambiar de tamaño.
+
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## El tipo unidad o Unit Type
+
+Expresiones sin un específico valor de retorno devuelven el valor de unidad `()`.
+
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
