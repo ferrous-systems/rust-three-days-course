@@ -4,7 +4,7 @@ extern crate glob;
 use glob::glob;
 
 fn main() {
-    let files = glob("courses/*.md").unwrap();
+    let files = glob("presentation/toc/*.md").unwrap();
     for file in files {
         let file = file.unwrap();
         let file = file.to_string_lossy();

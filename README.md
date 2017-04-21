@@ -8,7 +8,9 @@ The material is created with people with zero Rust experience but with a program
 
 The course consists of two parts:
 
-[The course presentations](presentation) is used as an introduction into all basic aspects of Rust. It comes in small parts and ships with integration into the Rust playground for examples as well with a translation structure.
+[The course presentations](presentation) is used as an introduction into all basic aspects of Rust. It comes in small parts and ships with integration into the Rust playground for examples as well with a translation structure. [presentation](skade.github.io/rust-three-days-course/presentation/index.html).
+
+
 
 [The work examples](example). The course constructs a small TCP server from ground up.
 
