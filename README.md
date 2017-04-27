@@ -10,6 +10,8 @@ The course consists of two parts:
 
 [The course presentations](presentation) is used as an introduction into all basic aspects of Rust. It comes in small parts and ships with integration into the Rust playground for examples as well with a translation structure.
 
+
+
 [The work examples](example). The course constructs a small TCP server from ground up.
 
 Along with that, all communication material we used is supplied [here](communication-material).
