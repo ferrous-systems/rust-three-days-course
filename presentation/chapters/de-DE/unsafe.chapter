@@ -1,4 +1,7 @@
 ## Unsicheres Rust
+[Inhaltsverzeichnis](toc/default.html)
+
+---
 
 Rusts Typsystem bietet viele Garantien, diese machen manchmal jedoch Lösungen schwerer und unmöglich.
 

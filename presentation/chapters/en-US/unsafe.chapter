@@ -1,4 +1,7 @@
 ## Unsafe Rust
+[Table of Contents](toc/english.html)
+
+---
 
 Rusts type system provides many guarantees, but sometimes, they make specific solutions hard or impossible.
 

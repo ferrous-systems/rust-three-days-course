@@ -1,4 +1,7 @@
 # Crates
+[Inhaltsverzeichnis](toc/default.html)
+
+---
 
 Rust nennt Bibliotheken "crates". Management von Bibliotheken mit `cargo` ist üblich, aber nicht notwendig.
 
