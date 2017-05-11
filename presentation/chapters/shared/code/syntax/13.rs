@@ -1,14 +1,21 @@
-use foo::foo;
-
-mod foo {
-    pub fn foo() {
-        // ...
-    }
+// Inline syntax
+fn generic_inline<S: AsRef<str>>(thing: S) -> S {
+    thing
 }
 
-// Will try to open `./bar.rs` relative to this file.
-pub mod bar;
+// Where syntax
+fn generic_where<Stringish>(thing: Stringish) -> Stringish 
+where Stringish: AsRef<str> {
+    thing
+}
+
+// Enums too!
+struct GenericStruct<A> {
+    value: A,
+}
 
 fn main() {
-    foo()
+    let foo = "foo";
+    generic_inline(foo);
+    generic_where(foo);
 }

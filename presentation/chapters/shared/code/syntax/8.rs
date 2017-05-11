@@ -1,10 +1,25 @@
-// &mut denotes a mutable borrow
-fn accepts_borrow(thing: &mut u32) {
-    *thing += 1
+trait Bar {
+    // This can be overridden
+    fn default_implementation(&self) -> bool {
+        true
+    }
+    fn required_implementation(&self);
+}
+
+impl Bar for Foo {
+    fn required_implementation(&self) {
+        // ...
+    }
+}
+
+impl Foo {
+    fn new() -> Self { Foo }
 }
 
 fn main() {
-    let mut value = 1;
-    accepts_borrow(&mut value);
-    println!("{}", value)
+    let v = Foo::new();
+    v.required_implementation();
+    v.default_implementation();
 }
+
+struct Foo;

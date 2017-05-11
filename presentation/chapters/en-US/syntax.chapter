@@ -15,7 +15,7 @@ Specific functionality will be covered later.
 
 ---
 
-## `if` and `if let`
+## `if`
 
 <pre><code data-source="chapters/shared/code/syntax/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
@@ -27,33 +27,39 @@ Specific functionality will be covered later.
 
 ---
 
-## `loop` and `while`
+## `if let`
 
 <pre><code data-source="chapters/shared/code/syntax/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## `for` and `while let`
+## `loop` and `while`
 
 <pre><code data-source="chapters/shared/code/syntax/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## `struct`, `type`, and `enum`
+## `for` and `while let`
 
 <pre><code data-source="chapters/shared/code/syntax/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## `impl` and `trait`
+## `struct`, `type`, and `enum`
 
 <pre><code data-source="chapters/shared/code/syntax/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## Borrowing
+## `impl` and `trait`
 
 <pre><code data-source="chapters/shared/code/syntax/8.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Borrowing
+
+<pre><code data-source="chapters/shared/code/syntax/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -61,7 +67,7 @@ Specific functionality will be covered later.
 
 `'foo` can be used to describe the lifetime of borrows.
 
-<pre><code data-source="chapters/shared/code/syntax/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/10.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -69,19 +75,19 @@ Specific functionality will be covered later.
 
 Rust is block scoped. Scopes can return values.
 
-<pre><code data-source="chapters/shared/code/syntax/10.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/11.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Closures
 
-<pre><code data-source="chapters/shared/code/syntax/11.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/12.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
 ## Generics
 
-<pre><code data-source="chapters/shared/code/syntax/12.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/13.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 Generally the `where` syntax is preferred.
 
@@ -89,7 +95,7 @@ Generally the `where` syntax is preferred.
 
 ## `use` and `mod`
 
-<pre><code data-source="chapters/shared/code/syntax/13.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/14.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -97,4 +103,4 @@ Generally the `where` syntax is preferred.
 
 A line without a semi-colon implictly returns. Don't worry, the compiler will tell you if you forget it.
 
-<pre><code data-source="chapters/shared/code/syntax/14.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/15.rs" data-trim="hljs rust" class="lang-rust"></code></pre>

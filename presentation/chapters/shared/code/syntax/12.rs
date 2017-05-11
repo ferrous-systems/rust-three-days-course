@@ -1,21 +1,15 @@
-// Inline syntax
-fn generic_inline<S: AsRef<str>>(thing: S) -> S {
-    thing
-}
-
-// Where syntax
-fn generic_where<Stringish>(thing: Stringish) -> Stringish 
-where Stringish: AsRef<str> {
-    thing
-}
-
-// Enums too!
-struct GenericStruct<A> {
-    value: A,
-}
-
 fn main() {
-    let foo = "foo";
-    generic_inline(foo);
-    generic_where(foo);
+    // Shorthand
+    let value = Some(1).map(|v| v + 1);
+    // With a block
+    let value = Some(1).map(|v| {
+        v + 1
+    });
+    // Explict return type
+    let value = Some(1).map(|v| -> i32 {
+        v + 1
+    });
+    // Declared
+    let closure = |v| v + 1;
+    let value = Some(1).map(closure);
 }

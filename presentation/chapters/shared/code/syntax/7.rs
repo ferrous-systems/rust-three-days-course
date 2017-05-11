@@ -1,25 +1,16 @@
-trait Bar {
-    // This can be overridden
-    fn default_implementation(&self) -> bool {
-        true
-    }
-    fn required_implementation(&self);
+struct Empty;
+
+struct WithFields {
+    foo: i32,
+    bar: Choice,
 }
 
-impl Bar for Foo {
-    fn required_implementation(&self) {
-        // ...
-    }
+type Explanation = String;
+
+enum Choice {
+    Yes,
+    No,
+    Maybe(Explanation),
 }
 
-impl Foo {
-    fn new() -> Self { Foo }
-}
-
-fn main() {
-    let v = Foo::new();
-    v.required_implementation();
-    v.default_implementation();
-}
-
-struct Foo;
+fn main() {}

@@ -1,16 +1,12 @@
-struct Empty;
-
-struct WithFields {
-    foo: i32,
-    bar: Choice,
+fn main() {    
+    // Loop over iterator
+    let range = 0..10;
+    for i in range {
+        // ...
+    }
+    // while let
+    let mut range = 0..10;
+    while let Some(v) = range.next() {
+        // ...
+    }
 }
-
-type Explanation = String;
-
-enum Choice {
-    Yes,
-    No,
-    Maybe(Explanation),
-}
-
-fn main() {}

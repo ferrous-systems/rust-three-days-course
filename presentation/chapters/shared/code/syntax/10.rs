@@ -1,10 +1,8 @@
+fn with_lifetimes<'a>(thing: &'a str) -> &'a str {
+    thing
+}
+
 fn main() {
-    let foo = 1;
-    let bar = {
-        // Shadows earlier declaration.
-        let foo = 2;
-        foo
-    };
-    println!("{}", foo);
-    println!("{}", bar);
+    let foo = "foo";
+    println!("{}", with_lifetimes(foo))
 }

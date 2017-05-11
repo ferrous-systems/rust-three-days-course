@@ -1,12 +1,15 @@
-fn main() {    
-    // Loop over iterator
-    let range = 0..10;
-    for i in range {
-        // ...
+fn main() {
+    let mut value = 0;
+    // Loop with break
+    loop {
+        if value >= 10 {
+            break;
+        }
+        value += 1;
     }
-    // while let
-    let mut range = 0..10;
-    while let Some(v) = range.next() {
+    // Break on conditional
+    while value <= 10 {
+        value += 1;
         // ...
     }
 }
