@@ -2,6 +2,7 @@
 
 * [Overview](../index.html?chapter=overview&locale=en-US)
 * [Installation](../index.html?chapter=installation&locale=en-US)
+* [Syntax](../index.html?chapter=syntax&locale=en-US)
 * [Mutability](../index.html?chapter=mutability&locale=en-US)
 * [Basic types](../index.html?chapter=basic-types&locale=en-US)
 * [Data structures](../index.html?chapter=data-structures&locale=en-US)
