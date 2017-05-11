@@ -99,8 +99,16 @@ Generally the `where` syntax is preferred.
 
 ---
 
+## Attributes
+
+Rust attributes are used for a number of different things. There is a full list of attributes in the [reference](https://doc.rust-lang.org/reference/attributes.html).
+
+<pre><code data-source="chapters/shared/code/syntax/15.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
 ## On Semicolons
 
 A line without a semi-colon implictly returns. Don't worry, the compiler will tell you if you forget it.
 
-<pre><code data-source="chapters/shared/code/syntax/15.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/syntax/16.rs" data-trim="hljs rust" class="lang-rust"></code></pre>

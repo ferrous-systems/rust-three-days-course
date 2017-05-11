@@ -1,8 +1,7 @@
-fn do_thing() -> bool {
-    "Forgotten semicolon"
-    true
-}
+#[#[derive(Clone, Copy)]]
+struct Foo;
 
-fn main() {
-    do_thing()
-}
+#[inline(always)]
+fn bar() {}
+
+fn main() {}
