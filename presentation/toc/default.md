@@ -1,5 +1,6 @@
-* [Übersicht](../index.html?chapter=overview)
+# Rust in drei Tagen
 
+* [Übersicht](../index.html?chapter=overview)
 * [Installation](../index.html?chapter=installation)
 * [Mutabilität](../index.html?chapter=mutability)
 * [Basistypen](../index.html?chapter=basic-types)
@@ -14,8 +15,9 @@
 * [Fehlerbehandlung](../index.html?chapter=error-handling)
 * [Iteratoren](../index.html?chapter=iterators)
 * [Kleine Helfer](../index.html?chapter=little-helpers)
+* **Implementierungsaufgabe:** Hallo Welt -> TCP-Welt
 
-Erste Implementierungsaufgabe: Hallo Welt -> TCP-Welt
+---
 
 * [Cargo im Detail](../index.html?chapter=cargo)
 * [Traits](../index.html?chapter=traits)
@@ -33,37 +35,41 @@ Erste Implementierungsaufgabe: Hallo Welt -> TCP-Welt
 * [libcore und libstd](../index.html?chapter=libcore-and-libstd)
 * [Die stdlib](../index.html?chapter=std-lib-tour)
 * [Nochmal Iteratoren](../index.html?chapter=iterators-again)
+* **Implementierungsaufgabe:** Connected Mailbox
 
-Zweite Implementierungsaufgabe: Connected Mailbox
+---
 
 * [Send und Sync](../index.html?chapter=send-and-sync)
+* **Implementierungsaufgabe:** Connected Mailbox mit Threads
 
-Dritte Implementierungsaufgabe: Connected Mailbox mit Threads
+---
 
 * [Dokumentation](../index.html?chapter=documentation)
 * [Speicher](../index.html?chapter=memory-considerations)
 * [Überblick über Embedded-Entwicklung](../index.html?chapter=embedded)
 * [unsafe](../index.html?chapter=unsafe)
 * [FFI](../index.html?chapter=ffi)
+* **Implementierungsaufgabe:** simples Binding von leveldb-sys
 
-Vierte Implementierungsaufgabe: simples Binding von leveldb-sys
+---
 
 * [Dynamische und statische Bibliotheken](../index.html?chapter=dynamic-and-static-libs)
+* **Implementierungsaufgabe:** implementieren einer simplen dynamischen Bibliothek, anbinden.
 
-Fünfte Implementierungsaufgabe: implementieren einer simplen dynamischen Bibliothek, anbinden.
+---
 
 * [Effektives Rust](../index.html?chapter=effective-rust)
 * [Arbeiten mit Nightly](../index.html?chapter=working-with-nightly)
 * [Futures und Tokio](../index.html?chapter=futures-and-tokio)
+* **Implementierungsaufgabe:** Connected Mailbox mit Tokio
 
-Optionale Implementierungsaufgabe: Connected Mailbox mit Tokio
+---
 
 * [Community-Übersicht](../index.html?chapter=community-map)
 
-===
+---
 
 Weiss nicht wohin:
 
 * [Standard-Typen](../index.html?chapter=standard-types)
-
 * [Innere Mutabilität](../index.html?chapter=inner-mutability)

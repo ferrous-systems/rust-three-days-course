@@ -1,5 +1,6 @@
-* [Overview](../index.html?chapter=overview&locale=en-US)
+# Rust in Three Days
 
+* [Overview](../index.html?chapter=overview&locale=en-US)
 * [Installation](../index.html?chapter=installation&locale=en-US)
 * [Mutability](../index.html?chapter=mutability&locale=en-US)
 * [Basic types](../index.html?chapter=basic-types&locale=en-US)
@@ -14,8 +15,9 @@
 * [Error handling](../index.html?chapter=error-handling&locale=en-US)
 * [Iterators](../index.html?chapter=iterators&locale=en-US)
 * [Small helpers](../index.html?chapter=little-helpers&locale=en-US)
+* **Task:** Redisish
 
-First implementation task: redisish
+---
 
 * [Cargo in Detail](../index.html?chapter=cargo&locale=en-US)
 * [Traits](../index.html?chapter=traits&locale=en-US)
@@ -33,37 +35,41 @@ First implementation task: redisish
 * [libcore and libstd](../index.html?chapter=libcore-and-libstd&locale=en-US)
 * [The stdlib](../index.html?chapter=std-lib-tour&locale=en-US)
 * [Iterators again](../index.html?chapter=iterators-again&locale=en-US)
+* **Task:** Connected Mailbox
 
-Second implementation: connected mailbox
+---
 
 * [Send and Sync](../index.html?chapter=send-and-sync&locale=en-US)
+* **Task:** Connected mailbox with threads
 
-Third implementation: connected mailbox with threads
+---
 
 * [Documentation](../index.html?chapter=documentation&locale=en-US)
 * [Memory considerations](../index.html?chapter=memory-considerations&locale=en-US)
 * [Overview of embedded development](../index.html?chapter=embedded&locale=en-US)
 * [unsafe](../index.html?chapter=unsafe&locale=en-US)
 * [FFI](../index.html?chapter=ffi&locale=en-US)
+* **Task:** Simple Bindings to leveldb-sys
 
-Forth implementation: simple bindings to leveldb-sys
+---
 
 * [Dynamic and static libraries](../index.html?chapter=dynamic-and-static-libs&locale=en-US)
+* **Task:** Embedding of a simple dylib in your favorite language.
 
-Fifth implementation: embedding of a simple dylib in your favorite language.
+---
 
 * [Effective Rust](../index.html?chapter=effective-rust&locale=en-US)
 * [Working with Nightly](../index.html?chapter=working-with-nightly&locale=en-US)
 * [Futures and Tokio](../index.html?chapter=futures-and-tokio&locale=en-US)
+* **Task:** Connected Mailbox with Tokio.
 
-Optional implementation: connected Mailbox with Tokio.
+---
 
 * [Community-Overview](../index.html?chapter=community-map&locale=en-US)
 
-===
+---
 
-Unfinished and Junk
+## Unfinished
 
 * [Standard types](../index.html?chapter=standard-types&locale=en-US)
-
 * [Inner Mutability](../index.html?chapter=inner-mutability&locale=en-US)
