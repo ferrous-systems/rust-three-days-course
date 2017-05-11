@@ -83,6 +83,9 @@ Traits definieren Funktionen, die Typen implementieren müssen. Sie können dann
 ---
 
 ## Self
+[Inhaltsverzeichnis](toc/default.html)
+
+---
 
 `Self` ist ein besonderer Typ: er ist immer der Typ, der gerade implementiert wird.
 

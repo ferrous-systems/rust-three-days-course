@@ -1,4 +1,7 @@
 # Dynamischer Dispatch
+[Inhaltsverzeichnis](toc/default.html)
+
+---
 
 Manchmal möchte man sich zur Laufzeit für eine Code-Implementierung entscheiden, statt den Compiler monomorphisieren zu lassen.
 

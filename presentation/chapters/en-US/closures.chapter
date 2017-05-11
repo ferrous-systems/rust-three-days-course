@@ -1,16 +1,12 @@
 # Closures
-
-Rust has closures. Multiple, even.
+[Table of Contents](toc/english.html)
 
 ---
 
-Advantage:
+Rust has closures. Multiple, even.
 
-* Highly optimized using only the absolutely necessary runtime resources, often none.
-
-Disadvantage:
-
-* Knowing the specific closure type is not always easy.
+* **Advantage:** Highly optimized using only the absolutely necessary runtime resources, often none.
+* **Disadvantage:** Knowing the specific closure type is not always easy.
 
 ---
 
