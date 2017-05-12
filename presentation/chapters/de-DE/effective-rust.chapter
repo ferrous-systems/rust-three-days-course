@@ -58,8 +58,8 @@ Rust inlined über Bibliotheksgrenzen hinweg.
 
 ## Helfer
 
--   Debugging: moderne GDB-Versionen unterstützen Rust
--   valgrind
--   rust-afl erlaubt Fuzzing mit American Fuzzy Lop
--   TODO: Code Coverage
-
+- GDB unterstützt Rust, auch `rust-gdb`
+- `valgrind` funktioniert gut mit Rust
+- [`afl.rs`] (https://github.com/rust-fuzz/afl.rs) erlaubt das Fuzzing mit American Fuzzy Lop
+- [`cargo-fuzz`] (https://github.com/rust-fuzz/cargo-fuzz) verwendet `libfuzz` für fuzzing
+- [`cargo-kcov`] (https://github.com/kennytm/cargo-kcov) kann Code-Abdeckung behandeln
