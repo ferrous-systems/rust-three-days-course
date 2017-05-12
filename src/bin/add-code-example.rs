@@ -1,12 +1,12 @@
 extern crate glob;
+extern crate tasks;
+
+use tasks::LOCALES;
 
 use glob::glob;
-
 use std::fs::{File, rename};
 use std::path::PathBuf;
 use std::io::{Read, Write};
-
-const LOCALES: [&'static str; 3] = ["en-US", "es-ES", "de-DE"];
 
 fn example_path_to_numeric(val: &PathBuf) -> usize {
     val.file_stem().expect("Could not get stem of file.")

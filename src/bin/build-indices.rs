@@ -1,5 +1,5 @@
-#[macro_use] extern crate shells;
 extern crate glob;
+#[macro_use] extern crate shells;
 
 use glob::glob;
 

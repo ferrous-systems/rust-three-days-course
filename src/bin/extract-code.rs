@@ -1,10 +1,12 @@
 extern crate serde_json;
 extern crate pandoc_types;
 extern crate glob;
+extern crate tasks;
+
+use tasks::LOCALES;
 
 use glob::glob;
 use pandoc_types::definition::*;
-
 use std::io::{Write, ErrorKind};
 use std::fs::{File, create_dir};
 use std::process::{Command, Stdio};
@@ -78,7 +80,7 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
 }
 
 fn main() {
-    for locale in ["de-DE", "en-US", "es-ES"].iter() {
+    for locale in LOCALES.iter() {
         for entry in glob(&format!("presentation/chapters/{}/*.chapter", locale)).expect("Failed to read glob pattern") {
             match entry {
                 Ok(path) => {
