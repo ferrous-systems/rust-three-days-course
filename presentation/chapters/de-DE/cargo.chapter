@@ -186,13 +186,13 @@ Details siehe [Doku](http://doc.crates.io/manifest.html).
 
 Diese lassen sich in `Cargo.toml` registrieren.
 
-TODO: Beispiel
+<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
 Und dann als Abhängigkeit aktivieren:
 
-<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
+<pre><code data-source="chapters/shared/code/cargo/8.toml" data-trim="hljs toml"></code></pre>
 
 ---
 

@@ -189,13 +189,13 @@ Vea la [documentación de manifiesto](http://doc.crates.io/manifest.html) para m
 
 Esto puede ser definido en `Cargo.toml`.
 
-TODO: Example
+<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
 Y luego ser expresado en una dependencia:
 
-<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
+<pre><code data-source="chapters/shared/code/cargo/8.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
