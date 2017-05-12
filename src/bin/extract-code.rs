@@ -5,7 +5,7 @@ extern crate glob;
 use glob::glob;
 use pandoc_types::definition::*;
 
-use std::io::Write;
+use std::io::{Write, ErrorKind};
 use std::fs::{File, create_dir};
 use std::process::{Command, Stdio};
 
@@ -14,7 +14,12 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
 
     if extract {
         let codedir = format!("presentation/chapters/shared/code/{}", filename);
-        create_dir(codedir).expect("Could not create code directory");
+        if let Err(e) = create_dir(codedir) {
+            match e.kind() {
+                ErrorKind::AlreadyExists => (),
+                e => panic!("{:?}", e),
+            }
+        }
     }
 
     let parser = Command::new("/usr/local/bin/pandoc")
@@ -45,8 +50,8 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
                 };
 
                 let codepath = format!("presentation/chapters/shared/code/{}/{}.{}", filename, blocknumber, extension);
-                new_block = Block::RawBlock(Format("html".into()),
-                    format!("<pre><code data-source=\"{}\" data-trim=\"hljs {}\"></code></pre>", codepath, code_lang));
+                let new_elem = format!("<pre><code data-source=\"{}\" data-trim=\"hljs {}\" class=\"lang-rust\"></code></pre>", codepath, code_lang);
+                new_block = Block::RawBlock(Format("html".into()), new_elem);
 
                 if extract {
                     let mut f = File::create(&codepath).expect("File creation should succeed");
@@ -63,13 +68,7 @@ fn change_code(filename: &str, locale: &str, extract: bool) {
     }
 
     let cmd = Command::new("/usr/local/bin/pandoc")
-                         .arg("-f")
-                         .arg("json")
-                         .arg("-w")
-                         .arg("markdown_github")
-                         .arg("--atx-headers")
-                         .arg("-o")
-                         .arg(&filepath)
+                         .args(&["-f", "json", "-w", "markdown_github", "--atx-headers", "-o", &filepath])
                          .stdin(Stdio::piped())
                          .spawn()
                          .expect("failed to execute process");
@@ -84,7 +83,7 @@ fn main() {
             match entry {
                 Ok(path) => {
                     let name = path.file_stem().expect("filestem to exist");
-                    change_code(&name.to_string_lossy(), locale, false);
+                    change_code(&name.to_string_lossy(), locale, true);
                 },
                 Err(e) => println!("{:?}", e),
             }
