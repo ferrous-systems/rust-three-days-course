@@ -44,7 +44,7 @@ Zero-sized type used to mark things that "act like" they own a `T`. These are us
 
 ## Command
 
-[std::process::Command](https://doc.rust-lang.org/std/process/struct.Command.html)
+[`std::process::Command`](https://doc.rust-lang.org/std/process/struct.Command.html)
 
 A process builder, providing fine-grained control over how a new process should be spawned. Used for interacting with other executables.
 
@@ -54,7 +54,7 @@ A process builder, providing fine-grained control over how a new process should 
 
 ## Syncronization Primitives
 
-[std::sync](https://doc.rust-lang.org/std/sync/)
+[`std::sync`](https://doc.rust-lang.org/std/sync/)
 
 Provides types such a `Mutex`, `RwLock`, `CondVar`, `Arc` and `Barrier`s.
 
@@ -64,9 +64,9 @@ Provides types such a `Mutex`, `RwLock`, `CondVar`, `Arc` and `Barrier`s.
 
 ## Read and Write
 
-[std::io::Read](https://doc.rust-lang.org/std/io/trait.Read.html) & [std::io::Write](https://doc.rust-lang.org/std/io/trait.Write.html)
+[`std::io::Read`](https://doc.rust-lang.org/std/io/trait.Read.html) & [`std::io::Write`](https://doc.rust-lang.org/std/io/trait.Write.html)
 
-Generic read and write functionality to files, sockets, buffers, and anything in between.
+Generic read and write functionality to files, sockets, buffers, and anything in between. Also part of [`std::io::prelude`]([`std::io::prelude::*`](https://doc.rust-lang.org/std/io/prelude/).
 
 <pre><code data-source="chapters/shared/code/std-lib-tour/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
@@ -74,7 +74,7 @@ Generic read and write functionality to files, sockets, buffers, and anything in
 
 ## Filesystem Manipulation
 
-[std::fs](https://doc.rust-lang.org/std/fs/) & [std::path](https://doc.rust-lang.org/std/path/)
+[`std::fs`](https://doc.rust-lang.org/std/fs/) & [`std::path`](https://doc.rust-lang.org/std/path/)
 
 Path handling and file manipulation.
 
