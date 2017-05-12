@@ -3,10 +3,16 @@ extern crate glob;
 use glob::glob;
 
 use std::fs::{File, rename};
+use std::path::PathBuf;
 use std::io::{Read, Write};
 
-const MAX_EXAMPLES: usize = 999;
 const LOCALES: [&'static str; 3] = ["en-US", "es-ES", "de-DE"];
+
+fn example_path_to_numeric(val: &PathBuf) -> usize {
+    val.file_stem().expect("Could not get stem of file.")
+        .to_str().expect("Could not convert OsStr to str")
+        .parse::<usize>().expect("Could not parse str as number")
+}
 
 // This task inserts a code example into a chapter at the given index.
 // For example:
@@ -22,18 +28,25 @@ fn main() {
         .expect("No chapter provided.");
     //  2: Code example to start shifting from.
     let example = args.next()
-        .expect("No example index provided.");
+        .expect("No example index provided.")
+        .parse::<usize>()
+        .expect("Index provided was not an integer.");
 
     // This globs any file in the range from the specified index up in the chapter.
-    let entries = glob(&format!("presentation/chapters/shared/code/{}/*[{}-{}].*", chapter, example, MAX_EXAMPLES))
-        .expect("Could not read chapter folder.");
-
-    let entries = entries.collect::<Vec<_>>();
+    let mut entries = glob(&format!("presentation/chapters/shared/code/{}/*", chapter))
+        .expect("Could not read chapter folder.")
+        .map(|v| v.unwrap()) // We want to see the error.
+        .collect::<Vec<_>>();
+    
+    // Sort the entries numerically.
+    entries.sort_by(|a,b| {
+        let (a_stem, b_stem) = (example_path_to_numeric(a), example_path_to_numeric(b));
+        a_stem.cmp(&b_stem)
+    });
 
     // Rename them. Starting highest to lowest.
-    let mappings = entries.into_iter().map(|entry| {
-        let entry = entry.unwrap(); // We want to see the error.
-        
+    let mappings = entries.into_iter().skip(example).map(|entry| {
+
         // First deal with the file name. Need to get the stem so we can parse and increment it.
         let file_name = String::from(entry.file_name()
             .unwrap()
@@ -65,8 +78,13 @@ fn main() {
     // Now we need to go and mangle the slides.
     for locale in LOCALES.iter() {
         let file_location = format!("presentation/chapters/{}/{}.chapter", locale, chapter);
-        let mut file = File::open(file_location.clone())
-            .expect("Couldn't open slides for reading.");
+        let mut file = match File::open(file_location.clone()) {
+            Ok(f) => f,
+            Err(e) => {
+                println!("Couldn't open slides of locale {} for reading: {:?}", locale, e);
+                continue
+            },
+        };
         
         let mut contents = String::new();
         file.read_to_string(&mut contents)
