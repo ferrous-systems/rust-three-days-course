@@ -189,13 +189,13 @@ See the [manifest documentation](http://doc.crates.io/manifest.html) for details
 
 These can be registered in `Cargo.toml`.
 
-TODO: Example
+<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
 And then be expressed on a dependency:
 
-<pre><code data-source="chapters/shared/code/cargo/7.toml" data-trim="hljs toml"></code></pre>
+<pre><code data-source="chapters/shared/code/cargo/8.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
