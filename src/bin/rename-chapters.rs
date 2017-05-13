@@ -1,12 +1,13 @@
 #[macro_use] extern crate shells;
 extern crate glob;
+extern crate tasks;
+
+use tasks::LOCALES;
 
 use glob::glob;
 
 fn main() {
-    let locales = ["de-DE", "en-US", "es-ES"];
-
-    for locale in locales.iter() {
+    for locale in LOCALES.iter() {
         let files = glob(format!("presentation/chapters/{}/*.md", locale).as_ref()).unwrap();
         for file in files {
             let file = file.unwrap();

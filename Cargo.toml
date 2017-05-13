@@ -1,6 +1,6 @@
 [package]
 authors = ["skade <florian.gilcher@asquera.de>", "hoverbear <andrew.hobden@asquera.de>"]
-name = "rust-three-days-course"
+name = "tasks"
 version = "0.1.0"
 
 [dependencies]
