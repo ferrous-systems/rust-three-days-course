@@ -51,7 +51,7 @@ Rust also comes with floats of all standard sizes: f8, f16, f32, f64
 
 ## Arrays
 
-Fixed-size arrays have the following Notation:
+Fixed-size arrays have the following notation:
 
 <pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
@@ -61,7 +61,7 @@ Fixed-size arrays have the following Notation:
 
 Arrays of dynamic size in Rust are represented as slices.
 
-Slices carry a pointer to the array and a lengths. Slices cannot be resized.
+Slices carry a pointer to the array and a length. Slices cannot be resized.
 
 <pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
