@@ -66,3 +66,10 @@ Transforming a `Result<T,E>` into a `Result<T,X>` is also possible.
 
 <pre><code data-source="chapters/shared/code/error-handling/7.rs" data-trim="hljs rust"></code></pre>
 `map_err()` is also available.
+
+---
+
+## Reporting Errors Only
+
+If you only have to report an error, but don't have a meaningful return value, use `Result<(), Error>`.
+
