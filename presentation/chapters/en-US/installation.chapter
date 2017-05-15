@@ -69,7 +69,7 @@ The Rust compiler builds and links Rust code.
 
 Cargo is Rusts build and package management tool.
 
-Cargo is installed along with `rustc`, but is not tightly bound to a `rustc` verison.
+Cargo is installed along with `rustc`, but is not tightly bound to a `rustc` version.
 
 ---
 
