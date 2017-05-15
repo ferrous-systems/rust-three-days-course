@@ -1,10 +1,8 @@
-enum Movement {
-    Right(i32),
-    Left(i32),
-    Up(i32),
-    Down(i32),
+enum Actions {
+    StickAround,
+    MoveTo { x: i32, y: i32},
 }
 
 fn main() {
-    let movement = Movement::Left(12);
+    let action = Actions::MoveTo { x: 0, y: 0 };
 }
