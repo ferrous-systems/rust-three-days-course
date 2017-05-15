@@ -110,3 +110,10 @@ Replacing:
 
 <pre><code data-source="chapters/shared/code/strings/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
+---
+
+## Accepting `String` or `str`
+
+It's possible to accept either rather painlessly:
+
+<pre><code data-source="chapters/shared/code/strings/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
