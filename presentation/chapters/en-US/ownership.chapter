@@ -55,7 +55,7 @@ The value cannot be used anymore.
 
 ## Background
 
-When calling `pacman` with `dot`, the value is "moved" into the arguments of `pacman`. At that moment, ownership passes to `pacman`. `main` is not owner of the data anymore and thus not allwed to access or manipulate them.
+When calling `pacman` with `dot`, the value is "moved" into the arguments of `pacman`. At that moment, ownership passes to `pacman`. `main` is not owner of the data anymore and thus not allowed to access or manipulate them.
 
 ---
 
