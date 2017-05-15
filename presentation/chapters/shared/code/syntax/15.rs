@@ -1,4 +1,4 @@
-#[#[derive(Clone, Copy)]]
+#[derive(Clone, Copy)]
 struct Foo;
 
 #[inline(always)]
