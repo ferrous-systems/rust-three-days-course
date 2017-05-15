@@ -6,7 +6,7 @@ use std::collections::HashMap;
 pub fn get_data() -> *mut c_char {
     let mut data = HashMap::new();
     data.insert("Alice", "send");
-    data.insert("Bob", "recieve");
+    data.insert("Bob", "receive");
     data.insert("Carol", "intercept");
     
     let descriptions = data.iter()
