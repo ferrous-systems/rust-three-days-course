@@ -4,5 +4,5 @@ enum Either<T, X> {
 }
 
 fn main() {
-    let alternative: Either<i32, f64> = Either::Left(i32);
+    let alternative: Either<i32, f64> = Either::Left(123);
 }
