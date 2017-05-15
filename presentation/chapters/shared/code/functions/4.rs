@@ -1,3 +1,3 @@
-fn takes_anything<T>(thing: T) {
+fn takes_anything<T>(thing: T) -> T {
     thing
 }
