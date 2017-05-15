@@ -1,9 +1,9 @@
 enum Option<T> {
     Some(T),
-    None
+    None,
 }
 
 fn main() {
-    let args = std::os::args;
-    println!("{:?} {:?}", args.at(0), args.at(1))
+    let args = std::env::args;
+    println!("{:?} {:?}", args().nth(0), args().nth(1));
 }
