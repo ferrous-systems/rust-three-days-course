@@ -1,6 +1,6 @@
 $ cargo new hello-world --bin
 $ cd hello-world
-$ cat hello-world
+$ cat src/main.rs
 fn main() {
     println!("Hello, world!");
 }
