@@ -20,7 +20,7 @@ This import the "SERialisation/DEserialisation"-Framework.
 
 ## Macro usage
 
-As macros are global for the whole project, the must be used in the following fashion:
+As macros are global for the whole project, they must be used in the following fashion:
 
 <pre><code data-source="chapters/shared/code/crates/2.output" data-trim="hljs output"></code></pre>
 
