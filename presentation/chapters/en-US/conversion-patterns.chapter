@@ -3,7 +3,7 @@
 
 ---
 
-Rust provides the many ways to express conversion of one type to another.
+Rust provides many ways to express conversion of one type to another.
 
 This improves safety and communicates intent.
 
