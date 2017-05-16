@@ -15,7 +15,7 @@ Box doesn't have a field named "x"!
 
 ## Auto-Dereferencing
 
-Rust automatically dereferences in certain cases. Like everything else, it must be explicitely requested: 
+Rust automatically dereferences in certain cases. Like everything else, it must be explicitly requested: 
 
 -   Through a call or field access using the `.` operator
 -   By explicitly dereferencing through `*`
