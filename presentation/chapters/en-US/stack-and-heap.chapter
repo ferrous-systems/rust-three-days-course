@@ -29,6 +29,12 @@ Heap allocation is represented by the type `Box`.
 
 ---
 
+## Other heap allocations
+
+Other types might allocate on the heap, most notably `Vec` and `String`.
+
+---
+
 ## Placement in
 
 It is currently *not* possible to allocate values at a self-chosen location. The missing feature is called "placement in".
