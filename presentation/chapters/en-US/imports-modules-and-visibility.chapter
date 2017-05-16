@@ -119,6 +119,12 @@ Public types and functions that can be reached through a public module path are 
 
 ---
 
+Traits must be public and imported before use.
+
+The compiler will detect if you use an un-imported trait.
+
+---
+
 ## Structs
 
 Structs are a little more complex. They don't export fields, which makes their usage and the construction impossible. This is often intended.
@@ -137,5 +143,6 @@ Also, struct functions are not exported by default.
 
 In general, exporting fields should be avoided:
 
-\* Any change of the structure leads to API breakage
-\* Acceessor functions are usually as fast as direct field access due to optimizations.
+* Any change of the structure leads to API breakage
+
+* Accessor functions are usually as fast as direct field access due to optimizations.
