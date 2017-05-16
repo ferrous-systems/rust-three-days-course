@@ -13,20 +13,7 @@
 
 To make a Rust structure (de)serializable:
 
-```rust
-#[macro_use] extern crate serde_derive;
-
-#[derive(Debug, Serialize, Deserialize)]
-struct Move {
-    id: usize,
-    direction: Direction,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-enum Direction { North, South, East, West }
-
-fn main() {}
-```
+<pre><code data-source="chapters/shared/code/serde/1.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -50,26 +37,7 @@ Did you enjoy that acronym salad?
 
 To JSON:
 
-```rust
-#[macro_use] extern crate serde_derive;
-extern crate serde_json;
-use Direction::*;
-
-fn main() {
-    let action = Move { id: 1, direction: West };
-    let payload = serde_json::to_string(&action);
-    println!("{:?}", payload);
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-struct Move {
-    id: usize,
-    direction: Direction,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-enum Direction { North, South, East, West }
-```
+<pre><code data-source="chapters/shared/code/serde/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -77,49 +45,13 @@ enum Direction { North, South, East, West }
 
 From JSON:
 
-```rust
-#[macro_use] extern crate serde_derive;
-extern crate serde_json;
-
-fn main() {
-    let payload = "{\"id\":1,\"direction\":\"West\"}";
-    let action = serde_json::from_str::<Move>(&payload);
-    println!("{:?}", action);
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-struct Move {
-    id: usize,
-    direction: Direction,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-enum Direction { North, South, East, West }
-```
+<pre><code data-source="chapters/shared/code/serde/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Transcode
 
-```rust
-extern crate serde_json;
-extern crate toml;
-extern crate serde_transcode;
-
-use serde_transcode::transcode;
-
-fn main() {
-    let payload = "{\"id\":1,\"direction\":\"West\"}";
-    let mut buffer = String::new();
-    {
-        let mut ser = toml::Serializer::new(&mut buffer);
-        let mut de = serde_json::Deserializer::from_str(&payload);
-        transcode(&mut de, &mut ser)
-            .unwrap();
-    }
-    println!("{:?}", buffer);
-}
-```
+<pre><code data-source="chapters/shared/code/serde/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -127,14 +59,6 @@ fn main() {
 
 `serde` has a large number of attributes you can utilize:
 
-```rust
-#[serde(deny_unknown_fields)] // Be extra strict
-struct Move {
-    #[serde(default)] // Call usize::default()
-    id: usize,
-    #[serde(rename = "dir")] // Use a different name
-    direction: Direction,
-}
-```
+<pre><code data-source="chapters/shared/code/serde/5.rs" data-trim="hljs rust"></code></pre>
 
 [https://serde.rs/attributes.html](https://serde.rs/attributes.html)
