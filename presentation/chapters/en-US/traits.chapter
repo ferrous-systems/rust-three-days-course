@@ -121,7 +121,7 @@ Unified Function Call Syntax
 
 ## Associated Types
 
-Associated types are generic paramaters, but the are ignored during inference.
+Associated types are generic parameters, but the are ignored during inference.
 
 ---
 
