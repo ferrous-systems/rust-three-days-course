@@ -47,11 +47,11 @@ It is not unlike normal, but at the beginning somewhat unfamiliar.
 
 -   Values can replace themselves
 -   Values, for example, iterators and builders can have methods that consume `self` and are thus invalidated.
--   This solves the problem of inverting iterators.
+-   This solves the problem of invalidating iterators.
 
 ---
 
-## Attributes
+## Sidenote
 
 -   Implementations can occur multiple times
 
@@ -67,7 +67,7 @@ It is not unlike normal, but at the beginning somewhat unfamiliar.
 
 ## Traits
 
-Traits are Rusts variant, abstracting over types.
+Traits are Rusts variant of abstracting over types.
 
 ---
 
