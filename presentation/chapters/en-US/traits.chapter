@@ -37,9 +37,9 @@ In particular, run-time polymorphism, messages, classes, subtypes, and method ov
 
 It is not unlike normal, but at the beginning somewhat unfamiliar.
 
--   Borrowing through one function *simultaneously grants self*.
+-   Borrowing through one function *simultaneously borrows self*.
 -   This is especially applicable for mutable borrows!
--   `self` without`&`returns ownership to the value from the calling context.
+-   `self` without `&` returns ownership to the value from the calling context.
 
 ---
 
