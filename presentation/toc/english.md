@@ -74,4 +74,5 @@
 
 * [Standard types](../index.html?chapter=standard-types&locale=en-US)
 * [Outlook](../index.html?chapter=outlook&locale=en-US)
+* [WebAssembly](../index.html?chapter=wasm&locale=en-US)
 * [Inner Mutability](../index.html?chapter=inner-mutability&locale=en-US)
