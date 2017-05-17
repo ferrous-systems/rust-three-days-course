@@ -17,9 +17,7 @@ There are no conversion costs
 
 ## Example: Rust-Bindings for libleveldb
 
-TODO: link
-
-[leveldb.h](..)
+[leveldb.h](https://github.com/google/leveldb/blob/master/include/leveldb/c.h)
 
 ---
 
