@@ -61,7 +61,7 @@ Rust inlines across libraries.
 
 -   GDB supports Rust, also check out `rust-gdb`
 -   `valgrind` works fine with Rust
--   [`afl.rs`](https://github.com/rust-fuzz/afl.rs) allows fuzzing with American Fuzzy Lop
+-   [`afl.rs`](https://github.com/rust-fuzz/afl.rs) allows fuzzing with American Fuzzy Loop
 -   [`cargo-fuzz`](https://github.com/rust-fuzz/cargo-fuzz) uses `libfuzz` for fuzzing
 -   [`cargo-kcov`](https://github.com/kennytm/cargo-kcov) can handle code coverage
 
