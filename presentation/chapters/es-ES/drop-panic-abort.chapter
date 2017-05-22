@@ -1,0 +1,101 @@
+# Drop, panic, y abort
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+¿Qué sucede a detalle cuando los valores se liberan? What happens in detail when values drop?
+
+---
+
+## Orden de liberación (Drop-Order)
+
+Actualmente el orden en que la liberación sucede *no* está estandarizado. Hay buenas razones para estandarizarla en la forma actual.
+
+[Discusión](https://github.com/rust-lang/rfcs/issues/1857)
+
+---
+
+## Drop-Order
+
+-   Los valores son liberados al final de su alcance
+-   El orden es *el inverso al order de introducción*
+-   Valores sin vincular se liberan inmediatamente.
+-   Los campos en una estructura son liberados *del último al primero*
+
+---
+
+## Destructores
+
+A veces algunas acciones se deben tomar antes de liberar.
+
+Para esto, se puede implementar el trait `Drop`.
+
+---
+
+<pre><code data-source="chapters/shared/code/drop-panic-abort/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## ¡Atención!
+
+Los destructores no pueden devolver errores.
+
+---
+
+## También es posible
+
+La destrucción explícita de una valor a través de una función consumidora. Esto no se puede aplicar estáticamente.
+
+Al implementar una bomba-`Drop` (un destructor que falle) puede asegurar que este error sea llamado antes.
+
+---
+
+## Panics
+
+Rust también tiene otro mecanismo de errores: `panic!`
+
+<pre><code data-source="chapters/shared/code/drop-panic-abort/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+En caso de un `panic`, lo siguiente sucede:
+
+\* El hilo actual se detiene inmediatamente
+\* La pila se desenrolla
+\* Todos los valores afectados son liberados y sus destructures se ejecutan
+
+---
+
+Los `panic` es una implementación similar a las excepciones en C++, pero sólo deben ser usados para errores fatales. Estos no pueden ser atrapados (normalmente).
+
+El hilo afectado muere.
+
+---
+
+## Atrapando Panics
+
+Un `panic` a través de las fronteras de FFI causa un comportamiento indefinido. En estos casos, los panics _deben_ ser atrapados. For casos como este, existe [std::panic::catch-unwind](https://doc.rust-lang.org/std/panic/fn.catch_unwind.html) y [std::panic::resume-unwind](https://doc.rust-lang.org/std/panic/fn.resume_unwind.html).
+
+---
+
+## Hooks
+
+[std::panic::set\_hook](https://doc.rust-lang.org/std/panic/fn.set_hook.html) permite establecer un manejador global que se ejecuta *antes* de que el proceso de panic suceda.
+
+---
+
+En general, `Result` es siempre la manera correcta de propagar errores si necesitan ser manejados.
+
+---
+
+## Abort
+
+En algunos ambientes, realizar el desenrollamiento en un `panic` no es muy significativo. Para esos casos `rustc` y `cargo` tienen un switch que inmediatamente abortan la ejecución del programa al encontrar un panic. 
+
+El hook de `panic` es ejecutado.
+
+---
+
+## Double-panics
+
+Si un panic sucede mientras otro panic está siendo manejado - por ejemplo en un destructor - invoca a un comportamiento indefinido. Por esa razón el programa abortará la ejecución inmediatamente. 

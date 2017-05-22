@@ -1,0 +1,69 @@
+# Despachado dinámico
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+A veces queremos tomar la decisión de qué implementación usar en tiempo de ejecución en lugar de dejar que el compilador monomorfize el código.
+
+Hay dos enfoques para esto.
+
+---
+
+## Despachar a través de Enums
+
+Si el número de posible elecciones es limitado, entonces se puede usar un Enum:
+
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Forma alternativa
+
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Recomendación
+
+Intente minimizar coincidencias repetidas en el Enum si no es necesario.
+
+---
+
+## Objetos Trait
+
+Referencias o punteros en `traits`, también `boxes`, describen a los llamados objetos trait or `trait objects`.
+
+Los objetos trait son un par de punteros a una tabla de funciones virtual y a los datos.
+
+---
+
+## Limitaciones
+
+-   Solo puede usar un solo trait por objecto
+-   Este trait debe cumplir ciertas condiciones
+
+---
+
+## Reglas para objetos trait seguros
+
+-   A los objetos trait seguros no se les permite requerir `Self: Sized`
+-   Todos los métodos son seguros (object-safe)
+    -   No tienen parámetros de tipos
+    -   No utilizan `Self`
+
+---
+
+## Otras propiedades
+
+-   Como los objetos trait sabes acerca de su tipo exacto en tiempo de ejecución, estos soportan `downcasts`.
+
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Objetos trait y cierres
+
+Los cierres en traits deben cumplir reglas de seguridad del objeto.
+
+<pre><code data-source="chapters/shared/code/dynamic-dispatch/4.rs" data-trim="hljs rust"></code></pre>
+
