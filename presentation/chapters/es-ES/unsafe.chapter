@@ -1,0 +1,65 @@
+## Unsafe Rust
+
+El sistema de tipo de Rust provee muchas garantías, pero en ocasiones esto conlleva que soluciones específicas sean difíciles o imposibles.
+
+Por esta razón, Rust tiene el concepto de "código inseguro".
+
+---
+
+El código inseguro tiene permitido:
+-   acceder memoria libremente
+-   utilizar punteros sin procesar (raw pointers)
+-   llamar a funciones externas
+-   declarar valores `Send` y `Sync`
+-   escribir a variables globales no sincronizadas
+
+---
+
+No es seguro:
+
+-   conversión a punteros sin procesar
+-   fugas de memoria (memory leaks)
+
+---
+
+El código inseguro nunca debe:
+
+-   ser utilizado para manejar memoria administrada por una asignador diferente
+    - nunca construir un `std:::vec::Vec` de un vector de C++ y destruirlo
+-   engañar en el préstamo de memoria, por ejemplo cambiando el tiempo de vida o mutabilidad de un tipo. Es la fuente más común de errores como "pero estaba tan seguro de que funciona".
+
+---
+
+## El pequeño secreto de Rust
+
+Cuando se implementan estructuras de datos, los bloques unsafe no son inusuales.
+
+Rust es el peor lenguaje para implementar listas ligadas. Hay un [texto completo](TODO:%20Link) sobre este tema.
+
+---
+
+El código inseguro debe *siempre* ser marcado como `unsafe`.
+
+<pre><code data-source="chapters/shared/code/unsafe/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Trampas de `unsafe`
+
+-   No todos los ejemplos son tan simples. `unsafe` *debe* garantizar las invariantes que Rust espera.
+-   Esto es *especialmente* aplica a la propiedad y préstamo mutable.
+-   `unsafe` puede llevar a un valor a tener dos dueños -&gt; liberar dos veces el mismo espacio de memoria
+-   `unsafe` puede hacer que datos inmutables sean temporalmente mutables, lo que puede llevar a promesas rotas y lágrimas.
+
+---
+
+Rust permite que te dispares en el pie, solo requiere que remuevas el seguro de tu arma antes de sacarla de la funda.
+
+---
+
+## Ejemplo práctico
+
+Como Rust prohibe el "aliasing", es imposible en Rust seguro separar un slice en 2 partes sin superposición.
+
+<pre><code data-source="chapters/shared/code/unsafe/2.rs" data-trim="hljs rust"></code></pre>
+
