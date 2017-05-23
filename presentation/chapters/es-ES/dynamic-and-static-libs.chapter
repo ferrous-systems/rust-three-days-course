@@ -1,0 +1,54 @@
+# Librerías dinámicas y estáticas
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+Intentemos usar Rust desde C.
+
+---
+
+## Librería
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Cabecera de C (extracto)
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/2.c" data-trim="hljs c"></code></pre>
+
+---
+
+## Cargo
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/3.toml" data-trim="hljs toml"></code></pre>
+
+`cargo build` ahora construirá una librería estática en lugar de una rlib. `cdylib` son un tipo especial de librería dinámica que también remueve todos los metadatos específicos de Rust.
+
+---
+
+## Uso
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/4.c" data-trim="hljs c"></code></pre>
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/5.sh" data-trim="hljs sh"></code></pre>
+
+---
+
+## Ejecución
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/6.sh" data-trim="hljs sh"></code></pre>
+
+---
+
+## Woops!
+
+¡Presta atención a la propiedad!
+
+<pre><code data-source="chapters/shared/code/dynamic-and-static-libs/7.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Herramientas de ayuda
+
+-   Cheddar - genera cabeceras de C de librerías de Rust.
+

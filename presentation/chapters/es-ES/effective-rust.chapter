@@ -1,0 +1,67 @@
+# Rust efectivo
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+## Iteradores
+
+¡Acostumbrate al API de iteradores y utilizala!
+
+Los iteradores están optimizados fuertemente, especialmente sus combinaciones.
+
+---
+
+## Notable issues with Ownership
+
+Mover datos fuera de una colección no es fácil si no pones otro valor inmediatamente en ese lugar.
+
+Indiana Jones usa `std::mem::swap` o `std::mem::replace`.
+
+---
+
+En algunos casos, `Drain` puede ser usado. Un iterador que drena valores de una colección uno por uno y los encoje al mismo tiempo.
+
+---
+
+## Tiempos de compilación
+
+`rustc` no es el compilador más rápido, mucho tiempo es usando en el LLVM con la generación de código y optimizaciones.
+
+`cargo check` solo corre la revisión de tipos y no compila el código.
+
+Separar el código en múltiples crates puede ser de ayuda, esto porque los crates solo son recompilados cuando hay cambios en el código.
+
+Reducir el uso de genéricos mejora el tiempo de compilación.
+
+---
+
+## Optimizando el tamaño de los binarios
+
+-   Use el sistema de asignación (característica nightly)
+-   Si la librería estándar es escásamente utilizada, puede ser reemplazada.
+-   Reducir el número de llamadas a funciones monomorfizadas.
+
+---
+
+## Convertir correctamente
+
+Evitar pasar parámetros genéricos que pueden ser evaluados a un tipo específico.
+
+<pre><code data-source="chapters/shared/code/effective-rust/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+<pre><code data-source="chapters/shared/code/effective-rust/2.rs" data-trim="hljs rust"></code></pre>
+
+En Rust se puede usar `inlines` a través de librerías.
+
+---
+
+## Herramientas de ayuda
+
+-   GDB soporta Rust, también revisa `rust-gdb`
+-   `valgrind` funciona bien con Rust
+-   [`afl.rs`](https://github.com/rust-fuzz/afl.rs) permite "fuzzing" mediante la técnica "American Fuzzy Lop"
+-   [`cargo-fuzz`](https://github.com/rust-fuzz/cargo-fuzz) utilizando `libfuzz`
+-   [`cargo-kcov`](https://github.com/kennytm/cargo-kcov) puede manejar cobertura de código
+

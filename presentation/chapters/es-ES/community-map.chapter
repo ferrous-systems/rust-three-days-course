@@ -1,0 +1,91 @@
+# La comunidad de Rust
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+¿Dónde buscar ayuda y contactos?
+
+---
+
+## En términos generales
+
+No hay nada de malo en enviar un correo electrónico a `community-team@rust-lang.org`.
+
+---
+
+## Equipo
+
+-   Núcleo
+-   Lenguaje
+-   Librerías
+-   Compilador
+-   Herramientas
+-   Comunidad
+-   Documentación
+-   Moderadores
+-   Estilo
+-   Infraestructura
+
+---
+
+## Páginas de Internet
+
+-   <https://rust-lang.org>
+-   <https://community.rs>
+-   [URLO users.rust-lang.org](https://users.rust-lang.org)
+-   [IRLO internals.rust-lang.org](https://internals.rust-lang.org)
+-   Semi-Oficial: Reddit /r/rust
+
+[Código de conducta](https://www.rust-lang.org/en-US/conduct.html)
+
+---
+
+## IRC
+
+`irc.mozilla.org`:
+
+-   `#rust`
+-   `#rust-beginners`
+-   `#rust-embedded`
+-   `#rust-community`
+-   `#rust-docs`
+
+---
+
+## Para usuarios en producción
+
+-   Encuestas regulares realizadas por miembros del proyecto
+-   Entrevistas regulares a través del equipo del proyecto
+
+---
+
+## Cambios
+
+Cambios al lenguaje o a la librería estándar requieren una peticion (RFC):
+
+-   [RFCS](https://github.com/rust-lang/rfcs)
+
+---
+
+## Conferencias
+
+-   RustConf
+-   RustFest
+-   Rust Belt Rust
+
+---
+
+## Mantenerse al día
+
+-   [Calendario de la comunidad](https://calendar.google.com/calendar/embed?src=apd9vmbc22egenmtu5l6c5jbfc@group.calendar.google.com)
+-   [TWIR - Esta semana en Rust](https://this-week-in-rust.org/)
+-   Y muchos otras noticias de "esta semana en".
+
+---
+
+## Contribuciones
+
+-   `rustc` tiene un tiempo promedio de espera para parches de 6 días(!).
+-   Pequeños arreglos, especialmente en documentación, ¡son integradas muy rápido!
+-   homu y highfive están esperando por ti!
+
