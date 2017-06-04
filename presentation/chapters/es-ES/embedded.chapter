@@ -1,0 +1,56 @@
+# Sistemas embebidos en Rust
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+## Lugares dónde estar informado
+
+<http://www.rust-embedded.org/>
+
+---
+
+## Stack o pila
+
+Xargo: Compilación cruzada con libcore y libstd: <https://github.com/japaric/xargo>
+
+Cross: Ejecución de pruebas cruzada con QEMU <https://github.com/japaric/cross>
+
+---
+
+## Lecturas
+
+Discovery: Descubriendo microcontroladores mediante Rust.
+
+<https://github.com/japaric/discovery>
+
+Copper: Programando microcontroladores con Rust y Cortex-M.
+
+<https://japaric.github.io/copper/>
+
+---
+
+## Proyectos
+
+Tock, un sistema operativo para procesadores Cortex-M: [tockos.org](tockos.org)
+
+---
+
+## Problemas
+
+-   Soportes de destino de LLVM
+    -   LLVM es generalmente bueno en objetivos que Apple usa
+    -   ¡Esto no significa que LLVM es de alguna manera hostil!
+-   Requerimientos sin resolver en Rust, especialmente en campos de bits
+-   Ensamblador en línea es inestable
+-   Desarrolladores del núcleo son desarrolladores de servidores y computadoras personales y no siempre tienen suficiente experiencia.
+    -   "¡No tener una solución es mejor que una mala solución!"
+-   Necesitamos subscripciones de proveedores
+
+---
+
+## Solución
+
+-   Rust representa una fuerza para un mejor soporte de objetivos en LLVM
+    -   Múltiples objetivos, especialmente AVR, serán liberados en las siguientes versiones
+-   Una comunidad de embebidos entusiasta
+-   Rust tiene un muy buen proceso en su comunidad para características que el núcleo no puede soportar por ellos mismos

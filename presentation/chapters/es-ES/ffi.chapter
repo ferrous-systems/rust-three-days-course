@@ -1,0 +1,215 @@
+# FFI
+[Tabla de contenidos](toc/spanish.html)
+
+---
+
+Rust soporta la plataforma ABI y puede interactuar diréctamente con librerías estáticas y dinámicas, así como crearlas.
+
+---
+
+No hay costos de conversión
+
+---
+
+## Usando C desde Rust
+
+---
+
+## Ejemplo: ligaduras de Rust para libleveldb
+
+[leveldb.h](https://github.com/google/leveldb/blob/master/include/leveldb/c.h)
+
+---
+
+## Orden de implementación
+
+-   Seguimos el orden del archivo cabecera
+-   Primero las ligaduras de bajo nivel
+-   Luego ligaduras seguras
+-   seguidas de una abstración
+
+---
+
+## Algunas herramientas de ayuda
+
+<pre><code data-source="chapters/shared/code/ffi/1.rs" data-trim="hljs rust"></code></pre>
+
+Rust verifica el estilo de código, pero el estilo C no es el estilo de Rust
+
+---
+
+## System-libc
+
+<pre><code data-source="chapters/shared/code/ffi/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Tipos opacos
+
+Usamos Enums vacios aquí. No pueden ser construidos o leídos: ¡No tienen variantes!
+
+<pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Enums
+
+<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
+
+El diseño de enums y estructuras (actualmente) se deja al compilador. `#[repr(C)]` determina que el compilador, en su lugar, use el diseño de plataforma.
+
+---
+
+## Funciones externas
+
+<pre><code data-source="chapters/shared/code/ffi/5.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Retrollamadas
+
+<pre><code data-source="chapters/shared/code/ffi/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Funciones de utilidad
+
+<pre><code data-source="chapters/shared/code/ffi/7.rs" data-trim="hljs rust"></code></pre>
+
+Importante: ¡La parte que asigna, desasigna!
+
+---
+
+## ¿Qué diablos?
+
+<pre><code data-source="chapters/shared/code/ffi/8.output" data-trim="hljs output"></code></pre>
+
+¿Por qué depende la arquitectura de la versión?
+
+---
+
+## ¿Y ahora?
+
+Hemos ligado las funciones, pero no hay nada seguro aquí.
+
+---
+
+## Ligando punteros con administración de ciclo de vida
+
+<pre><code data-source="chapters/shared/code/ffi/9.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## ¿Por qué así?
+
+-   Estructuras con un campo se desvanecen en tiempo de ejecución
+-   Aisla la administración del ciclo de vida del puntero del resto del código
+-   Versiones antiguas de Rust modifican el diseño de la estructura si `Drop` es implementado
+
+---
+
+## Manejo de Errores al estilo C
+
+> Los estilos de manejo de errores en C pueden organizarse dentro de uno de varios estilos, ya sean populares o correctos. Algunos ejemplos de cada uno.
+
+[Ted Unangst](http://www.tedunangst.com/flak/post/to-errno-or-to-error)
+
+---
+
+## Manejo de errores leveldb
+
+<pre><code data-source="chapters/shared/code/ffi/10.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Manejo de cadenas de C
+
+Ve [`std::ffi::CString`](https://doc.rust-lang.org/std/ffi/struct.CString.html).
+
+Atención: Toma un gran cuidado para elegir la semántica de propiedad correcta y usar `new`, `from_raw` y posiblemente `std::mem::forget` correctamente.
+
+---
+
+## Otras buenas ganancias
+
+Ciclos de vida permiten un modelado seguro de la semántica de invalidación de punteros de leveldb.
+
+---
+
+## Ejemplo
+
+<pre><code data-source="chapters/shared/code/ffi/11.rs" data-trim="hljs rust"></code></pre>
+
+El iterador debe eliminarse antes que lo haga la base de datos.
+
+Esto también es especificado por leveldb para `leveldb_t` y `leveldb_iterator_t`.
+
+---
+
+## Truco: Eso incluso funciona sin consumir memoria
+
+<pre><code data-source="chapters/shared/code/ffi/12.rs" data-trim="hljs rust"></code></pre>
+
+PhantomData es un tipo de tamaño 0 que falsifica la presencia de una referencia a la estructura `Database`.
+
+¡Estas optimizaciones deben ser probadas con `compile-fail`!
+
+---
+
+## compile-fail
+
+`compile-fail` es una extracción de la suite de pruebas de `rustc` y permite expresar afirmaciones acerca de mensajes de error.
+
+---
+
+## Retrollamadas
+
+<pre><code data-source="chapters/shared/code/ffi/13.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Problemas
+
+-   `state: *c_void` es una forma de expresar polimorfismo en C
+-   ¿Còmo aseguro que `c_void` siempre se refiere al mismo tipo?
+-   ¿Cómo implemento polimorfismo?
+
+---
+
+## Generics, Traits y raw Boxes
+
+<pre><code data-source="chapters/shared/code/ffi/14.rs" data-trim="hljs rust"></code></pre>
+
+Importante: ¡Estos traits sólo funcionan con valores encajonados!
+
+---
+
+## Uso
+
+<pre><code data-source="chapters/shared/code/ffi/15.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Trabajando con Slices
+
+
+La conversión de slices también es sencilla:
+
+<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+¡Siempre mantén la propiedad en mente!
+
+---
+
+## Trampa
+
+<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+Ups, repentinamente, ¡hay un puntero mutable y uno inmutable!
+
+---
+
+## Más herramientas
+
+-   [Servo bindgen](https://github.com/servo/rust-bindgen)
+-   Muy avanzado, puede también generar ligaduras a código C++
