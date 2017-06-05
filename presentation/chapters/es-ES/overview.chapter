@@ -78,7 +78,6 @@ Muchos ejemplos en este curso son pequeños, razón por la cual también ocupare
 
 -   "Concurrencia sin miedo"
 -   El sistema de tipos detecta acceso concurrente a la información y solicita sincronización
--   También: Rust detects when unsynchronised access is safely possible!
 -   También: ¡Rust detecta cuando el acceso desincronizado seguro es posible!
 -   ¡Protección contra condiciones de carrera! (data races)
 
