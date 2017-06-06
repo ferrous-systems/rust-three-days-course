@@ -1,1 +1,132 @@
+# Vista general
+[Tabla de Contenido](toc/spanish.html)
+
+---
+
+## Un poco de historia
+
+-   Rust tiene aproximadamente 9 años de edad
+-   Era un proyecto experimental de Graydon Hoare
+-   Fue adoptado por Mozilla
+-   Se presentó al público en general en la versión 0.4 en el 2012
+-   Se veía un poco como Go en ese entonces
+
+---
+
+## Enfoque
+
+-   Rust ha perdido muchas características de 2012 a 2014
+-   Colector de basura, eventos en tiempo de ejecución, complejo manejo de errores
+    - Existieron alguna vez, y ahora se han ido
+-   Todo en favor de un lenguaje de programación de sistemas usable
+
+---
+
+## Desarrollo
+
+-   Siempre del lado de un proyecto más grande (como Servo)
+-   Pronta adopción de nuevas versiones, procesos de obsolescencia y de solicitud de comentarios (RFC en inglés)
+-   Buenas metodologías de desarrollo de software
+
+---
+
+## Publicación de nuevas versiones
+
+-   Iteraciones rápidas (nightly)
+-   Cada 6 semanas la última iteración es promovida a beta
+-   Después de 6 semanas de pruebas, beta se convierte en estable
+-   Compatibilidad hacia atrás garantizada
+-   Hace que las iteraciones pequeñas sean más fácil
+
+---
+
+## Metas
+
+-   Explícito sobre implícito
+-   Comportamiento del tiempo de ejecución predecible
+-   Soportar desarrollo de software estable para proyectos grandes
+-   Pragmatismo y fácil integración
+
+---
+
+## Rust quiere primero ser usable!
+
+---
+
+Muchos ejemplos en este curso son pequeños, razón por la cual también ocuparemos tiempo discutiendo el impacto de muchas características en proyectos grandes.
+
+---
+
+## Las tres palabras
+
+-   Seguro
+-   Concurrente
+-   Rápido
+
+---
+
+## Seguro
+
+-   El manejo de memoria es seguro
+-   No hay acceso ilegal
+-   La desasignación de memoria es automática
+-   Advertencia: la filtración de memoria es *segura* por definición!
+
+---
+
+## Concurrente
+
+-   "Concurrencia sin miedo"
+-   El sistema de tipos detecta acceso concurrente a la información y solicita sincronización
+-   También: ¡Rust detecta cuando el acceso desincronizado seguro es posible!
+-   ¡Protección contra condiciones de carrera! (data races)
+
+---
+
+## Rápido
+
+-   ¡Estas propiedades son garantizadas en tiempo de compilación y no tienen costo en tiempo de ejecución!
+-   Compilador optimizador basado en LLVM
+-   Las características con costo en tiempo de ejecución son explícitas y difíciles de activar "por accidente"
+-   No reflexión (Lenguaje Drácula)
+-   Despacho estático por defecto
+
+---
+
+## Pragmático
+
+-   Sublenguaje para acceso inseguro a memoria
+-   Buenas técnicas para manejarlo
+-   Buen soporte de "Interfaz de funciones externas" (FFI por sus siglas en inglés)
+-   Mensajes de error del compilador útiles
+-   Rust provee soporte para muchas cosas difíciles y confía en ti para el resto
+
+---
+
+## Características del lenguaje
+
+
+-   Rust es un lenguaje basado en expresiones. Cada expresión tiene un valor, que puede ser asignado o devuelto.
+-   "Paga solo por lo que usas": Rust tiene características con costo en tiempo de ejecución de una manera explícita. Las características no usadas no cuestan nada.
+
+---
+
+## ¿De dónde vienen los rustáceos?
+
+Casi en partes iguales de:
+
+-   Lenguajes dinámicos (Ruby y Python)
+-   Lenguajes funcionales como Scala y Haskell
+-   C/C++
+
+---
+
+## Usuarios bien conocidos
+
+-   Mozilla Firefox
+-   Mozilla Servo
+-   Gnome
+-   Dropbox
+-   [Amigos de Rust](http://rust-lang.org/friends.html)
+
 
