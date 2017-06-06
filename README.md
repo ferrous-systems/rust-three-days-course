@@ -4,13 +4,17 @@
 
 The material is created with people with zero Rust experience but with a programming background in mind.
 
+## Commercial availability
+
+This course is sponsored and trained by [asquera](http://asquera.de) in German and English. Get in touch for a custom quote.
+
+The Spanish translation is community-maintained, we gladly refer to trainers.
+
 ## Overview
 
 The course consists of two parts:
 
 [The course presentations](presentation) is used as an introduction into all basic aspects of Rust. It comes in small parts and ships with integration into the Rust playground for examples as well with a translation structure.
-
-
 
 [The work examples](example). The course constructs a small TCP server from ground up.
 
