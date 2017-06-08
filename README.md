@@ -57,7 +57,6 @@ The tasks are as follows:
 
 Currently, the largest issues are:
 
-* most of the course is in german and needs to be translated to english
 * the examples and the presentation lack READMEs
 
 ## Credits
