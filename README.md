@@ -6,7 +6,7 @@ The material is created with people with zero Rust experience but with a program
 
 ## Commercial availability
 
-This course is sponsored and trained by [asquera](http://asquera.de) in German and English. Get in touch for a custom quote.
+This course is sponsored and trained by [asquera](http://asquera.de) in German and English. [Get in touch](mailto:info@asquera.de) for a custom quote.
 
 The Spanish translation is community-maintained, we gladly refer to trainers.
 
