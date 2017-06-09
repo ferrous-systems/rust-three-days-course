@@ -47,7 +47,7 @@ What happens if we try to use `dot` a second time?
 
 ---
 
-In Rust-Lingo, this is call `consuming`. `pacman` consumes `dot`.
+In Rust-Lingo, this is called `consuming`. `pacman` consumes `dot`.
 
 The value cannot be used anymore.
 
