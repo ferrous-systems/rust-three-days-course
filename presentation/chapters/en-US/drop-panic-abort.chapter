@@ -60,9 +60,9 @@ Rust also has another error mechanism: `panic!`
 
 In case of a panic, the following happens:
 
-\* The current thread immediately halts
-\* The stack is unwound
-\* All affected values are dropped and their destructors run
+* The current thread immediately halts
+* The stack is unwound
+* All affected values are dropped and their destructors run
 
 ---
 
