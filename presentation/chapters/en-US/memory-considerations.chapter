@@ -33,7 +33,7 @@ References have the size of 1 `usize`. The same is true for simple boxes.
 
 ---
 
-## Trait Objecs
+## Trait Objects
 
 Trait objects need 2 `usize`.
 
