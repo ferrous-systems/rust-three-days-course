@@ -81,7 +81,7 @@ Hier ist das Release-Profil Standard.
 
 ## Versionsausdrücke
 
-In der Rust-Community ist [SemVer](https://semver.org) der empfohlene Standard für Versionierung.
+In der Rust-Community ist [Semantic Versioning](https://semver.org) der empfohlene Standard für Versionierung.
 
 -   Die Major-Version muss stets angehoben werden, wenn das Interface bricht
 -   Die Minor-Version wird angehoben, wenn Features hinzugefügt werden

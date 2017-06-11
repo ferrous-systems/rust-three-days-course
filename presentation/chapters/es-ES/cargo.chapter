@@ -82,7 +82,7 @@ Los benchmarks usan el perfil de release por defecto.
 
 ## Versionamiento
 
-En la comunidad de Rust [SemVer](https://semver.org) es el estándar recomendado para el versionamiento.
+En la comunidad de Rust [Semantic Versioning](https://semver.org) es el estándar recomendado para el versionamiento.
 
 -   La versión mayor debe ser elevada si hay cambios de interfaces.
 -   La versión menor debe ser elevada si nuevas características son agregadas.

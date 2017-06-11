@@ -82,7 +82,7 @@ Benchmarks default to the release profile.
 
 ## Versioning
 
-In the Rust community [SemVer](https://semver.org) is the recommended versioning standard.
+In the Rust community [Semantic Versioning](https://semver.org) is the recommended versioning standard.
 
 -   The major version must be raised if there are breaking interface changes.
 -   The minor version must be raised if new features are added
