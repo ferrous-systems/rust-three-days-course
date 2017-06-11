@@ -1,12 +1,14 @@
-# Installation einer toolchain
+# Installation of a toolchain
 $ rustup install stable
-# Auswählen einer standard-toolchain
+# Selection of a default toolchain
 $ rustup default stable
-# Anzeigen der Dokumentation im Browser
+# Override the default toolchain in your directory
+$ rustup override stable
+# Display documentation in browser
 $ rustup doc [--std]
-# Auflisten unterstützter targets
+# List supported targets
 $ rustup target list
-# Hinzufügen eines Targets zum installieren
+# Add and install a target to the toolchain
 $ rustup target add <target>
-# Auflisten/Hinzufügen einer Komponente
+# List and add components
 $ rustup component list|add
