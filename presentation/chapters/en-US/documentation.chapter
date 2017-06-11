@@ -100,3 +100,13 @@ fn serve() -> ! { loop {} }
 The arguments and return types of functions are links to their respective types.
 
 The sidebar on the left offers quick navigate to other parts of the module.
+
+---
+
+## Cargo integration
+
+This command builds and opens the docs to your current project:
+
+```sh
+$ cargo doc --open
+```
