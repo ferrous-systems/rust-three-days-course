@@ -72,12 +72,26 @@ It starts with some examples, then lists any `struct`s, traits, or functions the
 
 By default code blocks in documentation are tested.
 
-<pre><code>
+<pre><code data-trim="hljs rust">
 /// ```rust
 /// assert_eq!(always_true(), true)
 /// ```
 fn always_true() -> bool { true }
 </code></pre>
+
+---
+
+## No-Run Examples
+
+This code will not be run, as it doesn't terminate.
+
+<pre><code data-trim="hljs rust">
+/// ```rust,no_run
+/// serve();
+/// ```
+fn serve() -> ! { loop {} }
+</code></pre>
+
 
 ---
 
