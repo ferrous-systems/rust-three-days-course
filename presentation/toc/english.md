@@ -12,9 +12,9 @@
 * [Ownership](../index.html?chapter=ownership&locale=en-US)
 * [Borrowing](../index.html?chapter=borrowing&locale=en-US)
 * [Stack and Heap](../index.html?chapter=stack-and-heap&locale=en-US)
-* [Strings](../index.html?chapter=strings&locale=en-US)
 * [Error handling](../index.html?chapter=error-handling&locale=en-US)
 * [Iterators](../index.html?chapter=iterators&locale=en-US)
+* [Testing](../index.html?chapter=testing&locale=en-US)
 * [Small helpers](../index.html?chapter=little-helpers&locale=en-US)
 * **Task:** Redisish
 
@@ -26,13 +26,8 @@
 * [Advanced Generics](../index.html?chapter=advanced-generics-bounds&locale=en-US)
 * [Conversions](../index.html?chapter=conversion-patterns&locale=en-US)
 * [Closures](../index.html?chapter=closures&locale=en-US)
-* [Deref](../index.html?chapter=deref-coersions&locale=en-US)
-* [Drop, Panic, Abort](../index.html?chapter=drop-panic-abort&locale=en-US)
-* [Lifetimes](../index.html?chapter=lifetimes&locale=en-US)
-* [Smart Pointer](../index.html?chapter=smart-pointers&locale=en-US)
 * [Imports, Modules, Visibility](../index.html?chapter=imports-modules-and-visibility&locale=en-US)
 * [Crates](../index.html?chapter=crates&locale=en-US)
-* [Testing](../index.html?chapter=testing&locale=en-US)
 * [libcore and libstd](../index.html?chapter=libcore-and-libstd&locale=en-US)
 * [The stdlib](../index.html?chapter=std-lib-tour&locale=en-US)
 * [Iterators again](../index.html?chapter=iterators-again&locale=en-US)
@@ -40,13 +35,18 @@
 
 ---
 
+* [Smart Pointer](../index.html?chapter=smart-pointers&locale=en-US)
 * [Send and Sync](../index.html?chapter=send-and-sync&locale=en-US)
 * **Task:** Connected mailbox with threads
 
 ---
 
 * [Documentation](../index.html?chapter=documentation&locale=en-US)
+* [Deref](../index.html?chapter=deref-coersions&locale=en-US)
+* [Drop, Panic, Abort](../index.html?chapter=drop-panic-abort&locale=en-US)
+* [Lifetimes](../index.html?chapter=lifetimes&locale=en-US)
 * [Memory considerations](../index.html?chapter=memory-considerations&locale=en-US)
+* [Strings](../index.html?chapter=strings&locale=en-US)
 * [Overview of embedded development](../index.html?chapter=embedded&locale=en-US)
 * [unsafe](../index.html?chapter=unsafe&locale=en-US)
 * [FFI](../index.html?chapter=ffi&locale=en-US)
