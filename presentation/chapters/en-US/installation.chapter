@@ -84,6 +84,8 @@ Cargo is installed along with `rustc`, but is not tightly bound to a `rustc` ver
 -   What is in Cargo.toml?
 -   What is in Cargo.lock?
 
+For details, check the [Cargo Manifest docs](http://doc.crates.io/manifest.html).
+
 ---
 
 ## Cargo Also Manages Tools
