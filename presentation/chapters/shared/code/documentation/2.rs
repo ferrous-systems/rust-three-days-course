@@ -1,9 +1,9 @@
-//! Moduldokumentationskommentare wie der Abschnitt 'Examples' von `std::vec`.
+//! Module documentation. (e.g. the 'Examples' part of `std::vec`).
 
-/// Dokumente Funktionen, `struct`s und Eigenschaften.
-/// Hier wird eine Funktion dokumentiert
+/// Focuments functions, `struct`s and properties.
+/// This documents a function.
 fn function_with_documentation() {}
 
-// Dieser Kommentar wird nicht als Dokumentation angezeigt.
-// Die Funktion wird noch angezeigt.
+// This comment will not be shown as documentation.
+// The function itself will be.
 fn function_without_documentation() {}
