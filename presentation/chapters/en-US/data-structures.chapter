@@ -19,6 +19,12 @@
 
 ---
 
+## Sidenote
+
+It's common to hide allocation behind a call to `Point::new()` instead of raw allocation.
+
+---
+
 ## Field Access
 
 <pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
