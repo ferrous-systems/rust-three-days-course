@@ -19,6 +19,12 @@ That is not necessary.
 
 ---
 
+## You have used them already
+
+
+
+---
+
 ## Motivation
 
 <pre><code data-source="chapters/shared/code/lifetimes/1.rs" data-trim="hljs rust"></code></pre>

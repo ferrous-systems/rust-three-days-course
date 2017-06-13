@@ -1,14 +1,9 @@
-trait Double {
-    fn double(self) -> i64;
+trait Log<T> {
+    fn log(&self, t: T);
 }
 
-impl<T> Double for T where T: Into<i64> {
-    fn double(self) -> i64 {
-        let val: i64 = self.into();
-        val * 2
+impl<T> Log<T> for T where T: Debug {
+    fn log(&self, t: T) {
+        println!("Logging: {:?}", t);
     }
-}
-
-fn main() {
-    21.double();
 }

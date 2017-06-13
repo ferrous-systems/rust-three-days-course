@@ -1,3 +1,3 @@
-trait MyTrait<X: Debug> {
-    //...
+trait Logger<X: Debug> {
+    fn log(&self, x: X);
 }
