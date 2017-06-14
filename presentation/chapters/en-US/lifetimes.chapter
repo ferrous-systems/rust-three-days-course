@@ -3,6 +3,10 @@
 
 ---
 
+<pre><code data-source="chapters/shared/code/lifetimes/1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
 Rusts lifetimes are notorious for being hard to understand.
 
 ---
@@ -21,13 +25,13 @@ That is not necessary.
 
 ## You have used them already
 
-<pre><code data-source="chapters/shared/code/lifetimes/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Motivation
 
-<pre><code data-source="chapters/shared/code/lifetimes/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -37,7 +41,7 @@ This code would - if it compiled - violate memory safety.
 
 The correct struct definition is:
 
-<pre><code data-source="chapters/shared/code/lifetimes/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -57,13 +61,13 @@ Lifetimes describe minimal conditions
 
 ## Multiple lifetimes in one signature
 
-<pre><code data-source="chapters/shared/code/lifetimes/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Sublifetimes
 
-<pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -102,7 +106,7 @@ This is due to most data having to live outside of the stack.
 
 Lifetimes describe all types, not only references, therefore they are also bounds in generic code.
 
-<pre><code data-source="chapters/shared/code/lifetimes/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -110,14 +114,14 @@ Lifetimes describe all types, not only references, therefore they are also bound
 
 For simple cases, lifetimes are automatically inserted into signatures.
 
-<pre><code data-source="chapters/shared/code/lifetimes/7.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Lifetimes and Bindings
 
-<pre><code data-source="chapters/shared/code/lifetimes/8.rs" data-trim="hljs rust"></code></pre>
 <pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -125,4 +129,4 @@ For simple cases, lifetimes are automatically inserted into signatures.
 
 For boxes, the default lifetime bound of the contained value is `'static`. Sometimes, this is too long and can be overwritten:
 
-<pre><code data-source="chapters/shared/code/lifetimes/10.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/11.rs" data-trim="hljs rust" class="lang-rust"></code></pre>

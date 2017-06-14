@@ -1,3 +1,3 @@
-fn pair<'a>(first: &'a str, second: &'a str) -> (&'a str, &'a str) {
-    (first, second)
+struct Container<'a, T> {
+    inner: &'a T
 }
