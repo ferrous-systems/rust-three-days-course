@@ -3,7 +3,7 @@ struct Point {
     y: i32
 }
 
-fn foo() -> &Point {
+fn return_point() -> &Point {
     let p = Point { x: 1, y: 2};
     &p
 }
