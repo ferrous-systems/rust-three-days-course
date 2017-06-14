@@ -4,6 +4,6 @@ struct Point {
 }
 
 fn return_point() -> Box<Point> {
-    let p = Point { x: 1, y: 2};
+    let p = Point { x: 1, y: 2 };
     Box::new(p)
 }
