@@ -1,1 +1,7 @@
-let mut sink = io::BufWriter::new(io::stdout().lock());
+fn foo(bar: &str) -> &str {
+    /// implementation
+}
+
+fn foo<'a>(bar: &'a str) -> &'a str {
+    /// implementation
+}

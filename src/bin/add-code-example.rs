@@ -45,7 +45,7 @@ fn main() {
     });
 
     // Rename them. Starting highest to lowest.
-    let mappings = entries.into_iter().skip(example).map(|entry| {
+    let mappings = entries.into_iter().skip(example - 1).map(|entry| {
 
         // First deal with the file name. Need to get the stem so we can parse and increment it.
         let file_name = String::from(entry.file_name()

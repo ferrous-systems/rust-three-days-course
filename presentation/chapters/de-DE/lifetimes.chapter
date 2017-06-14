@@ -21,7 +21,7 @@ Das ist nicht notwendig.
 
 ## Motivation
 
-<pre><code data-source="chapters/shared/code/lifetimes/1.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -31,7 +31,7 @@ Dieser Code würde - würde er funktionieren - Speicherverletzungen auslösen.
 
 Korrekte müsste die Struct-Definition heissen:
 
-<pre><code data-source="chapters/shared/code/lifetimes/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -47,13 +47,13 @@ Lebenszeiten beschreiben Mindestbedingungen.
 
 ## Mehrere Lebenszeiten in einer Signatur
 
-<pre><code data-source="chapters/shared/code/lifetimes/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Sublebenszeiten
 
-<pre><code data-source="chapters/shared/code/lifetimes/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -90,7 +90,7 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in generischem Code:
 
-<pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -98,14 +98,14 @@ Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Beding
 
 Im Standardfall werden Lebenszeiten in Signaturen eingefügt. Zum Beispiel entspricht:
 
-<pre><code data-source="chapters/shared/code/lifetimes/6.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/7.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Lebenszeiten und Bindings
 
-<pre><code data-source="chapters/shared/code/lifetimes/7.rs" data-trim="hljs rust"></code></pre>
 <pre><code data-source="chapters/shared/code/lifetimes/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
@@ -113,5 +113,5 @@ Im Standardfall werden Lebenszeiten in Signaturen eingefügt. Zum Beispiel entsp
 
 Bei Boxen ist die Standardlebenszeit `'static`. Manchmal ist das zu lang, daher lässt sie sich überschreiben:
 
-<pre><code data-source="chapters/shared/code/lifetimes/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/lifetimes/10.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

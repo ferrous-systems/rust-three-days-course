@@ -1,2 +1,1 @@
-let stdout = io::stdout();
-let mut sink = io::BufWriter::new(stdout.lock());
+let mut sink = io::BufWriter::new(io::stdout().lock());
