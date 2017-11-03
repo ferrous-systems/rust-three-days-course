@@ -1,6 +1,6 @@
 //! Module documentation. (e.g. the 'Examples' part of `std::vec`).
 
-/// Focuments functions, `struct`s and properties.
+/// Document functions, structs, traits and values.
 /// This documents a function.
 fn function_with_documentation() {}
 
