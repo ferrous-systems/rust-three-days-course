@@ -14,3 +14,108 @@ Rust besitzt eine Macro-Sprache. Siehe [The Little Book Of Macros](https://danie
 -   `format!(patter, [werte])` wie `println!`, gibt aber Strings zurück
 -   `write!(buf, string)` Einfaches Schreiben von Strings in Buffer
 
+---
+
+## Was können Sie machen?
+
+Macros können für Dinge wie verwendet werden:
+
+* Wiederholungscode generieren
+* DSLs erstellen
+* Schreibe Dinge, die sonst ohne Makros hart sein würden.
+
+---
+
+## Was geben sie?
+
+Macros sind:
+
+* **Hygienisch**, Expansion geschieht in einem anderen "Syntax-Kontext"
+* **Richtig**, sie können nicht zu ungültigem Code erweitern.
+* **Beschränkt**, können sie zum Beispiel nicht ihre Expansionsstelle verschmutzen.
+
+---
+
+## Komponenten eines Macros
+
+Ein Macro hat drei Teile.
+
+* Ein Name, zB `println`
+* Ein Eingabeteil, der definiert, dass das Macro akzeptiert.
+* Ein Ausgabeteil, der definiert, wie es sich ausdehnt.
+
+---
+
+## Macros: Syntax
+
+Mal sehen, wie sie aussehen:
+
+<pre><code data-source="chapters/shared/code/macros/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Macros: Syntax
+
+Der `($value: expr)` Teil sagt, dass:
+
+> Das Macro akzeptiert einen Parameter, der ein Ausdruck ist.
+
+Parametertypen können eingeschränkt werden.
+
+Zum Beispiel akzeptiert `$foo:ty` nur einen Typ.
+
+---
+
+## Macros: Syntax
+
+Die Parameter werden mit einem `$` vorangestellt, um sie zu unterscheiden.
+
+Beide im Ein- und Ausgang.
+
+---
+
+## Macros: Wiederholungen
+
+<pre><code data-source="chapters/shared/code/macros/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Macros: Wiederholungen
+
+Wenn wir `$(...)*` sehen Dies signalisiert eine Wiederholung. Es kommuniziert:
+
+> Dieser Teil des Makros nimmt eine variable Anzahl von Argumenten an.
+
+Jede Wiederholung in der Eingabe sollte eine passende in der Ausgabe haben.
+
+---
+
+## Macros: Benutzerdefinierte Syntax
+
+<pre><code data-source="chapters/shared/code/macros/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Macros: Benutzerdefinierte Syntax
+
+Macros erlauben eine begrenzte Form der benutzerdefinierten Syntax und können verwendet werden, um einfache DSLs zu erstellen.
+
+Für ein gutes Beispiel hierfür siehe [clap-rs](https://github.com/kbknapp/clap-rs)
+
+---
+
+## Downsides von Macros
+
+Macros:
+
+* Kann schwer zu debuggen
+* Kann verwirrend sein zu lesen und zu verstehen.
+* Haben Sie unangenehme Import-Semantik.
+
+---
+
+## Wann sollten Sie Macros verwenden?
+
+Verwenden Sie Macros, wo es keine anderen guten Alternativen gibt.
+
+Vermeiden Sie die Verwendung von Macros.
