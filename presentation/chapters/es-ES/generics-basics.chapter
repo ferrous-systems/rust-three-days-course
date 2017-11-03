@@ -25,7 +25,7 @@ Las firmas deben ser ingresadas completamente.
 
 ## Enums genéricos
 
-<pre><code data-source="chapters/shared/code/generics-basics/2.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/generics-basics/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
@@ -35,7 +35,7 @@ Las firmas deben ser ingresadas completamente.
 
 ## Option
 
-<pre><code data-source="chapters/shared/code/generics-basics/3.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/generics-basics/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Describe un valor que no necesariamente debe estar presente.
 
 `None` es un valor y no debe ser confundido con `null`.
@@ -44,5 +44,5 @@ Describe un valor que no necesariamente debe estar presente.
 
 ## Result
 
-<pre><code data-source="chapters/shared/code/generics-basics/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/generics-basics/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Describe cuando una operación fue exitosa y devuelve ya sea el valor o un error.
