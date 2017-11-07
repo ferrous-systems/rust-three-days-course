@@ -8,7 +8,6 @@ trait Distance<OtherShape> {
 }
 
 impl Distance<Point> for Point {
-    // Incorrect
     fn distance(&self, other: &Point) -> f64 {
         (((other.x - self.x).pow(2) + (other.y - self.y).pow(2)) as f64).sqrt()
     }
