@@ -34,7 +34,7 @@
 ## Release Method
 
 -   Nightly releases
--   All 6 weeks, the current nightly is promoted to beta
+-   Every 6 weeks, the current nightly is promoted to beta
 -   After 6 weeks of testing, beta becomes stable
 -   Guaranteed backwards-compatibility
 -   Makes small iterations easier
