@@ -16,5 +16,5 @@ impl Distance<Point> for Point {
 fn main() {
     let p1 = Point { x: 1, y: 1 };
     let p2 = Point { x: 2, y: 2 };
-    println!("{}", <p1 as Distance<Point>>.distance(p2));
+    println!("{}", <p1 as Distance<Point>>::distance(p2));
 }
