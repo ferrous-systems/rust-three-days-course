@@ -99,7 +99,7 @@ Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher d�
 
 Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
 
--   `1.2.3`: Exakte Version, Cargo wird nur diese verwenden
+-   `=1.2.3`: Exakte Version, Cargo wird nur diese verwenden
 -   `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
 -   `< 0.8`: Eine beliebige Minor-Version kleiner "0.8"
 
