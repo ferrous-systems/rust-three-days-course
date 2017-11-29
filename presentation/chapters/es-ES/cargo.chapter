@@ -101,7 +101,7 @@ Si la versión de una librería está por debajo de `1`, es considerada "pre-rel
 Cargo permite expresar rangos de versiones de diferentes maneras.
 
 
--   `1.2.3`: Versión exacta, cargo solo utilizará esa versión
+-   `=1.2.3`: Versión exacta, cargo solo utilizará esa versión
 -   `0.1`: Cualquier parche en la serie de versiones "0.1"
 -   `< 0.8`: Cualquier versión menor antes que "0.8"
 
