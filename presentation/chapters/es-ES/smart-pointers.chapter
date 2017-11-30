@@ -67,5 +67,5 @@ No utilice `Arc` en una corazonada. `rustc` rechaza codigo usando `Rc` a través
 -   Copia-al-escribir
 -   Abstrae por encima de préstamo y propiedad (Borrowing and Ownership)
 -   Clona datos sólo cuando es necesario
--   https://doc.rust-lang.org/std/borrow/enum.Cow.html\#examples
+-   https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples
 

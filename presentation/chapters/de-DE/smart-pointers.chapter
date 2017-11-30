@@ -67,5 +67,5 @@ Nutzen Sie `Arc` nicht "auf Verdacht" - `rustc` lehnt Code ab, der `Rc` über Th
 -   Copy-on-write
 -   Abstrahiert über Leihe und Besitz
 -   Klont enthaltene Daten nur bei Notwendigkeit
--   https://doc.rust-lang.org/std/borrow/enum.Cow.html\#examples
+-   https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples
 
