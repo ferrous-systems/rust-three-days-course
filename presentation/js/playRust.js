@@ -26,8 +26,8 @@ function addButtons() {
       contentType: "application/json"
     }).done(function(result) {
       var output = formatOutput(result.result);
-      console.log(output.compiler);
-      target.html(output.output);
+      console.log(result.error);
+      target.html(output);
     });
   });
   $('.reset').click(function () {
@@ -40,6 +40,6 @@ function addButtons() {
 }
 formatOutput = function (output) {
   var parts = output.split(/\n/);
-  var compiler = parts.shift();
-  return {compiler: compiler, output: parts.join('<br>')}
+  return parts.join('<br>');
 }
+
