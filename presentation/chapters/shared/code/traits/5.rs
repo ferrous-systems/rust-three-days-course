@@ -4,7 +4,7 @@ struct Point {
 }
 
 trait Distance<OtherShape> {
-    fn distance(&self, other: &OtherShape) -> i32;
+    fn distance(&self, other: &OtherShape) -> f64;
 }
 
 impl Distance<Point> for Point {
