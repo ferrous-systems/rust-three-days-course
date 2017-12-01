@@ -13,13 +13,10 @@ pub extern "C" fn new_point(x: i32, y: i32) -> *mut Point {
 
 #[no_mangle]
 pub extern "C" fn destroy_point(p: *mut Point) {
-    let _: Box<Point> = unsafe { Box::from_raw(p) };
+    unsafe { Box::from_raw(p) };
 }
 
 #[no_mangle]
-pub extern "C" fn inspect_point(p: *mut Point) {
-    unsafe {
-        let point: Box<Point> = Box::from_raw(p);
-        println!("{:?}", point);
-    };
+pub extern "C" fn inspect_point(p: &mut Point) {
+    println!("{:?}", p);
 }
