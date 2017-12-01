@@ -53,7 +53,7 @@ Trait objects are a pair of pointers to a virtual function table and the data.
 
 ---
 
-## Futher properties
+## Further properties
 
 -   As trait objects know about their exact type at runtime, they support downcasts.
 
