@@ -45,7 +45,7 @@ Rust linted Code-Stil, aber C-Stil ist nunmal kein Rust-Stil.
 
 ## Opake Typen
 
-Hier werden leere Enums verwendet, da sie nicht konstruiert werden oder gelesen werden können - sie besitzen keine Varianten!
+Hier werden spezielle Structs verwendet, die nicht konstruiert werden oder gelesen werden können - sie besitzen keine Varianten!
 
 <pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 

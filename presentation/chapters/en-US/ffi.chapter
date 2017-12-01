@@ -46,7 +46,7 @@ Rust lints code style, but C-style is no Rust style
 
 ## Opaque types
 
-We use empty Enums here. They cannot be constructed or read: they have no variants!
+We use particular structures here. They cannot be constructed or read: they have no variants!
 
 <pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 
