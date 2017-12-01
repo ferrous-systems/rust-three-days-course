@@ -67,5 +67,5 @@ Do not use `Arc` on a hunch. `rustc` rejects code using `Rc` over thread boundar
 -   Copy-on-write
 -   Abstracts over Borrowing and Ownership
 -   Clones Data only when necessary
--   https://doc.rust-lang.org/std/borrow/enum.Cow.html\#examples
+-   https://doc.rust-lang.org/std/borrow/enum.Cow.html#examples
 
