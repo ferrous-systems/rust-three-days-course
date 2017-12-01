@@ -17,6 +17,9 @@ pub extern "C" fn destroy_point(p: *mut Point) {
 }
 
 #[no_mangle]
-pub extern "C" fn inspect_point(p: &mut Point) {
-    println!("{:?}", p);
+pub extern "C" fn inspect_point(p: *mut Point) {
+    unsafe {
+        let point: Box<Point> = Box::from_raw(p);
+        point.inspect();
+    };
 }
