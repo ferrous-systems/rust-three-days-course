@@ -46,6 +46,7 @@ const LocaleSelector = (function(){
       const observer = new MutationObserver((records, observer) =>{
         if(records.length > 0 && records[0].addedNodes){
           this.addLocaleSelector(records[0].addedNodes[0]);
+          this.setDocumentTitle(records[0].addedNodes[0]);
           observer.disconnect();
         }
       });
@@ -63,6 +64,12 @@ const LocaleSelector = (function(){
           window.location = location;
         }
       });
+    },
+    setDocumentTitle: function(slide){
+      var title = slide.querySelector("h1");
+      if (title && title.innerText.length) {
+        document.title = title.innerText + ' - ' + document.title;
+      }
     }
   };
 
