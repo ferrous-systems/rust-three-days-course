@@ -58,7 +58,7 @@ If a type implements both `Sync` and `Copy` then it can also implement `Send`.
 
 ## Relationships
 
-A type `&T` can implement `Send` if the type `T` also implements `Send`.
+A type `&T` can implement `Send` if the type `T` also implements `Sync`.
 
 <pre><code data-source="chapters/shared/code/send-and-sync/5.rs" data-trim="hljs rust"></code></pre>
 
