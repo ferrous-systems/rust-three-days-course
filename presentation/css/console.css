@@ -8,6 +8,11 @@
     top: 0;
     left: 0;
 }
+.open-in-playground{
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
 .return{
     overflow-y: scroll;
     max-height: 160px;
