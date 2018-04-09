@@ -51,7 +51,7 @@ Unsafe code must *always* be marked `unsafe`.
 
 -   Not all examples are that simple. `unsafe` *must* guarantee the invariants that Rust expects.
 -   This *especially* applies to ownership and mutable borrowing
--   `unsafe` can lead to a value having 2 two owners -&gt; double free
+-   `unsafe` can lead to a value having 2 owners -&gt; double free
 -   `unsafe` can make immutable data temporarily mutable, which will lead to broken promises and tears.
 
 ---
