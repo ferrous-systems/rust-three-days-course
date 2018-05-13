@@ -37,7 +37,7 @@ Fn
 
 ---
 
-The relationship between the closure types is: Fn implies FnMut, FnMut implies FnOnce.
+The relationship between the closure types is: Fn is a supertrait FnMut, FnMut is a supertrait of FnOnce.
 
 ---
 

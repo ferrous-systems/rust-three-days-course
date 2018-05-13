@@ -5,8 +5,6 @@
 
 ## Returning Generic Iterators
 
-Currently, Rust allows no generic return values. You have to use trait objects here.
+Currently, Rust allows no generic return values. You have to use impl trait here.
 
 <pre><code data-source="chapters/shared/code/iterators-again/1.rs" data-trim="hljs rust"></code></pre>
-
-This problem will be fixed soon.

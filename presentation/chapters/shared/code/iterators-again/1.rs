@@ -3,6 +3,6 @@ fn main() {
     let i = make_iter(&v);
 }
 
-fn make_iter<'a>(v: &'a Vec<u8>) -> Box<Iterator<Item=&u8> + 'a> {
-    Box::new(v.iter())
+fn make_iter<'a>(v: &'a Vec<u8>) -> impl Iterator<Item=&u8> {
+    v.iter()
 }
