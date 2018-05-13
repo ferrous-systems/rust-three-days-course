@@ -11,7 +11,7 @@ Rust liefert die Standard-Int-Typen mit, jeweils mit und ohne Vorzeichen.
 -   i16, u16
 -   i32, u32
 -   i64, u64
--   i128, u128 (bald)
+-   i128, u128
 
 ---
 

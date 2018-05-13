@@ -77,4 +77,5 @@
 * [Serde](../index.html?chapter=serde&locale=en-US)
 * [Macros](../index.html?chapter=macros)
 * [WebAssembly](../index.html?chapter=wasm&locale=en-US)
+* [Futures](../index.html?chapter=futures&locale=en-US)
 * [Inner Mutability](../index.html?chapter=inner-mutability&locale=en-US)
