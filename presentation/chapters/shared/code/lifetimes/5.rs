@@ -1,3 +1,3 @@
-struct Container<'a, T> {
+struct Container<'a, T: 'a> {
     inner: &'a T
 }
