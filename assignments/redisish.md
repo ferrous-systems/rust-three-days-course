@@ -16,6 +16,7 @@ pub fn parse(input: &str) -> Result<Command, Error> {
 The protocol has two commands:
 
 "PUBLISH \<message\>\n"
+
 "RETRIEVE\n"
 
 These commands should be parsed into the `Command` value,
