@@ -50,7 +50,7 @@ fn main() {
     p.move_to(2,3);
     p.inspect();
     {
-        let mut x = p.x_mut();
+        let x = p.x_mut();
         *x = 5;
     }
     p.inspect();
