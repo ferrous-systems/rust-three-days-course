@@ -4,6 +4,6 @@ version = "0.1.0"
 authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
 
 [dependencies]
-hyper = "*"
-futures = "*"
-tokio-core = "*"
+hyper = "0.11"
+futures = "0.1"
+tokio-core = "0.1"
