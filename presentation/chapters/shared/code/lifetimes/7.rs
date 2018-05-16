@@ -1,21 +1,21 @@
 use std::str::Split;
 
-struct Tokenizer<'i> {
-    input: Split<'i, char>,
+struct Tokenizer<'input> {
+    input: Split<'input, char>,
 }
 
-impl<'i> Tokenizer<'i> {
-    fn next_token(&mut self) -> Option<&'i str> {
+impl<'input> Tokenizer<'input> {
+    fn next_token(&mut self) -> Option<&'input str> {
         self.input.next()
     }
 }
 
-struct Parser<'t, 'i: 't> {
-    tokenizer: &'t mut Tokenizer<'i>,
+struct Parser<'tokenizer, 'input: 'tokenizer> {
+    tokenizer: &'tokenizer mut Tokenizer<'input>,
 }
 
-impl<'t, 'i: 't> Parser<'t, 'i> {
-    fn next_item(&mut self) -> Option<&'i str> {
+impl<'tokenizer, 'input: 'tokenizer> Parser<'tokenizer, 'input> {
+    fn next_item(&mut self) -> Option<&'input str> {
         self.tokenizer.next_token()
     }
 }

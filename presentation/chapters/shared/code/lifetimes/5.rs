@@ -1,3 +1,3 @@
-struct Container<'a, T: 'a> {
-    inner: &'a T
+struct Container<'inner, T: 'inner> {
+    inner: &'inner T
 }

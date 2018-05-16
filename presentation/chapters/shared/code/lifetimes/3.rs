@@ -8,7 +8,7 @@ impl Point {
         &self.x
     }
 
-    fn y(&'a self) -> &'a i32 {
+    fn y(&'point self) -> &'point i32 {
         &self.y
     }
 }
