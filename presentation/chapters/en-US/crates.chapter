@@ -38,7 +38,9 @@ Crates can be renamed, just like normal use statements:
 
 <pre><code data-source="chapters/shared/code/crates/3.rs" data-trim="hljs rust"></code></pre>
 
-Note however the `crate` keyword before it's usage. You're using a local alias. The original still exists.
+Note the `crate` keyword before it's usage. You're using a local alias. The original still exists.
+
+---
 
 Alternative: rename dependencies via cargo:
 
