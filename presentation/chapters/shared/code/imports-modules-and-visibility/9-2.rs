@@ -1,6 +1,6 @@
 |
 |-src
   |- main.rs
-  |- workload
-     |- mod.rs
+  |- workload.rs
+  |- workload/
      |- thing.rs
