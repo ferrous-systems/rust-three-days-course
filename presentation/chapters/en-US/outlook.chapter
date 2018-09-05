@@ -21,50 +21,19 @@ Specialization permits multiple `impl` blocks to apply to the same type/trait, s
 
 ---
 
-## [RFC: `impl Trait`](https://github.com/rust-lang/rust/issues/34511)
-
-Adds a conservative form of abstract return types, also known as impl Trait. Abstract return types allow a function to hide a concrete return type behind a trait interface similar to trait objects, while still generating the same statically dispatched code as with concrete types.
-
-**Status:** Syntax specification and scope determination.
-
----
-
-## [RFC: `impl Trait`](https://github.com/rust-lang/rust/issues/34511)
-
-<pre><code data-source="chapters/shared/code/outlook/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
----
-
-## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/1931)
+## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/2000)
 
 Introduces a simple form of dependent types.
 
 Dependent types are types, which depend on values, instead of types. For example, `[T; 3]`, is dependent since it depends on the value, 3, for constructing the type. Dependent types, in a sense, are similar to normal generics, where types can depend on other types (e.g. `Vec<T>`), whereas dependent types depend on values.
 
-**Status:** Ironing out issues, syntax specification.
+**Status:** Stabilisation blocked on a few related issues.
 
 ---
 
-## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/1931)
+## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/2000)
 
 <pre><code data-source="chapters/shared/code/outlook/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
----
-
-## [RFC: `pub(restricted)`](https://github.com/rust-lang/rust/issues/32409)
-
-Expand the current `pub`/non-`pub` categorization of items with:
-
-* `pub(foo::bar)`: make this item visible solely to a (named) module tree
-* `pub(crate)`: make this item visible solely to a crate
-
-**Status:** In release pipeline.
-
----
-
-## [RFC: `pub(restricted)`](https://github.com/rust-lang/rust/issues/32409)
-
-<pre><code data-source="chapters/shared/code/outlook/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
