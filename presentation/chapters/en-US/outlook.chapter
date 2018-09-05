@@ -5,70 +5,88 @@
 
 What is coming in the near future for Rust?
 
----
+--
 
-## [RFC: Specialization](https://github.com/rust-lang/rust/issues/31844)
-
-Specialization permits multiple `impl` blocks to apply to the same type/trait, so long as one of the blocks is clearly "more specific" than the other. The more specific `impl` block is used in a case of overlap.
-
-**Status:** Blocked by soundness holes.
+# Rust 2018
 
 ---
 
-## [RFC: Specialization](https://github.com/rust-lang/rust/issues/31844)
+At the end of 2018 the culmination of feature stabilization throughout the year was released as `Rust 2018`
+
+---
+
+Languages change over time.
+
+But stability and backwards compatibility are fundamental.
+
+---
+
+Making core changes to the language without breaking *any* existing code.
+
+Changes are opt-in.
+
+<pre><code data-source="chapters/shared/code/outlook/1.toml" data-trim="hljs toml" class="lang-rust"></code></pre>
+
+---
+
+## Some of the changes
+
+---
+
+### Module system rework
 
 <pre><code data-source="chapters/shared/code/outlook/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
----
-
-## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/2000)
-
-Introduces a simple form of dependent types.
-
-Dependent types are types, which depend on values, instead of types. For example, `[T; 3]`, is dependent since it depends on the value, 3, for constructing the type. Dependent types, in a sense, are similar to normal generics, where types can depend on other types (e.g. `Vec<T>`), whereas dependent types depend on values.
-
-**Status:** Stabilisation blocked on a few related issues.
+<pre><code data-source="chapters/shared/code/outlook/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## [RFC: Constant Generics](https://github.com/rust-lang/rfcs/pull/2000)
+### Path clarity
 
 <pre><code data-source="chapters/shared/code/outlook/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## [Project: Tock OS](https://www.tockos.org/).
-
-Tock is written in Rust, a type-safe systems language with no runtime or garbage collector. It uses the Rust type system to enforce safety of components, called capsules, in a single-threaded event-driven kernel. Also supports userland processes written in other languages.
-
-**Status:** Rust in userland complicated by an [LLVM bug](https://bugs.llvm.org/show_bug.cgi?id=32924) in [Position Independent Code](https://github.com/rust-lang/rust/pull/41560).
+### No more `extern crate`
 
 ---
 
-## [Project: Tock OS](https://www.tockos.org/).
+### `?` in `main()`
 
-![Hail Device](img/hail.png)
-
----
-
-### [Project: `stdweb`](https://github.com/koute/stdweb)
-
-Provide Rust bindings to the Web APIs and to allow a high degree of interoperability between Rust and JavaScript.
-
-**Status:** Work in progress. [Help out!](https://github.com/koute/stdweb/issues)
+<pre><code data-source="chapters/shared/code/outlook/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-### [Project: `stdweb`](https://github.com/koute/stdweb)
+### Loops can `break` a value
 
 <pre><code data-source="chapters/shared/code/outlook/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## [Project: Cookbook](https://github.com/brson/rust-cookbook)
+### `impl Trait` vs `dyn Trait`
 
-The Rust Cookbook is a collection of simple examples that demonstrate good practices to accomplish common programming tasks, using the crates of the Rust ecosystem.
+Unamed types that implement a specific trait vs dynamic trait objects 
 
-These examples are complete, and suitable for copying directly into new cargo projects. They are tested and guaranteed to work.
+<pre><code data-source="chapters/shared/code/outlook/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
-**Status:** Seeking contributions.
+---
+
+`dyn Trait` is the new syntax for trait objects.
+
+It turned out that the syntax `impl T` vs `T` was confusing and asymmetric.
+
+<pre><code data-source="chapters/shared/code/outlook/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+### Many, many more things
+
+Too many too list. Here's a short list
+
+- x86 SIMD
+- 128-bit primitives
+- `_` anonymous lifetimes
+- `async` & `await`
+- Stable procedural macros (compiler attributes)
+- `..=` for inclusive ranges
+- ... etc ...
