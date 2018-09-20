@@ -61,6 +61,7 @@
 
 * [Effective Rust](../index.html?chapter=effective-rust&locale=en-US)
 * [Working with Nightly](../index.html?chapter=working-with-nightly&locale=en-US)
+* [Future of Futures](../index.html?chapter=future-of-futures&locale=en-US) (- WIP -)
 * [Futures and Tokio](../index.html?chapter=futures-and-tokio&locale=en-US)
 * **Task:** Connected Mailbox with Tokio.
 

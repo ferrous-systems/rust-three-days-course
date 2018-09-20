@@ -1,0 +1,100 @@
+# The Future of Futures
+[Table of Contents](toc/english.html)
+
+---
+
+Hurry up and wait
+
+`async` & `await`
+
+---
+
+Future = asynchronous computation
+
+* Network IO
+* Message from another thread or computer
+* Chained operations
+
+---
+
+Rust has no implicit runtime event loop like node.js
+
+---
+
+## Layers of abstractions
+
+---
+
+`Future<T>` and `Poll<T>`
+
+Part of `libcore` and `libstd`
+
+---
+
+`futures-rs` abstraction crate on top of those
+
+---
+
+`tokio` abstraction crate provides event-loop
+
+---
+
+## It's all...not stable
+
+Requires nightly and `futures_api` feature-flag
+
+---
+
+<pre><code data-source="chapters/shared/code/future-futures/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+<pre><code data-source="chapters/shared/code/future-futures/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+Most futures won't be ready immediately.
+
+Instead return `Poll::Pending` until ready.
+
+`poll()` future from event-loop.
+
+---
+
+
+![](img/futures-rs-logo.svg)
+
+`futures-rs` to the rescue
+
+---
+
+There's `oneshot`
+
+<pre><code data-source="chapters/shared/code/future-futures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+... more about `futures-rs` ...
+
+TODO
+
+---
+
+## Explicit runtime
+
+
+`tokio` provides a runtime for your futures.
+
+Others available, such as `Fahrenheit`
+
+---
+
+## `async` & `await`
+
+Almost keywords!
+
+Until then: macros
+
+---
+
+<pre><code data-source="chapters/shared/code/future-futures/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
