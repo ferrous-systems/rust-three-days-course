@@ -1,9 +1,9 @@
-async fn get_some_data() -> Result<Data, NetworkError> {
+async fn get_and_parse_some_data() -> Result<Data, NetworkError> {
     // ...
 }
 
 fn main() -> Result<(), Box<Error>> {
     // ... init run loop
 
-    let data = await!(get_some_data?);
+    let data: MyData = await!(get_and_parse_some_data()?);
 }

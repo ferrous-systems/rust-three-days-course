@@ -108,3 +108,17 @@ And combinators on futures
 ---
 
 <pre><code data-source="chapters/shared/code/future-futures/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## I want that!
+
+---
+
+## Timeline
+
+* RFC 2394 (tracking issue #50547)
+* Implemented in the compiler
+* Several blocking issues (#51719, #53249, #53259, ...)
+* _Not_ included in Rust 2018
+  * But soon™
