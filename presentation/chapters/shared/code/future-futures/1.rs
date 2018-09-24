@@ -6,5 +6,5 @@ enum Poll<T> {
 trait Future {
     type Output;
     fn poll(self: PinMut<Self>, cx: &mut task::Context)
-        → Poll<Self::Output>;
+        -> Poll<Self::Output>;
 }
