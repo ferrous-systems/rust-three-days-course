@@ -50,9 +50,6 @@ Ausgabe:
 <pre><code data-source="chapters/shared/code/error-handling/6.output" data-trim="hljs output"></code></pre>
 Beachten Sie die vorzeitige Rückkehr.
 
----
-
-In früheren Rust-Versionen wurde statt `?` der `try!` Macro-Macro verwendet.
 
 ---
 
@@ -70,3 +67,8 @@ Das Transformieren eines `Result<T, E>` in ein `Result<T, X>` ist ebenfalls mög
 
 <pre><code data-source="chapters/shared/code/error-handling/7.rs" data-trim="hljs rust"></code></pre>
 `map_err()` ist ebenfalls verfügbar.
+---
+
+## Nur Fehler kommunizieren
+
+Wenn nur ein Fehler kommuniziert werden soll, aber kein sinnvoller Rückgabewert vorhanden ist, bietet sich `Result<(), Error>` an.

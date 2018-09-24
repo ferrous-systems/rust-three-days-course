@@ -29,6 +29,11 @@ Heap-Allokation wird in Rust durch den Typ `Box` dargestellt.
 
 ---
 
+## Andere Heap-Allokationen
+
+Andere Typen können auch Heap-Allokationen auslösen, insbesondere `Vec` und `String`.
+---
+
 ## Placement in
 
 Momentan ist es *nicht* möglich, Daten direkt an einer gewünschten Stelle zu allokieren. Das nötige Feature nennt sich "Placement in".

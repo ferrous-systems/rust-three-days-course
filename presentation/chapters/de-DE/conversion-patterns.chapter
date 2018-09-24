@@ -17,6 +17,8 @@ Ist `X` `From<T>`, dann ist `T` automatisch `Into<X>`.
 
 Die Verwendung hängt vom Kontext ab.
 
+[stdlib: From](https://doc.rust-lang.org/std/convert/trait.From.html)
+
 ---
 
 ## Beispiel
@@ -25,7 +27,7 @@ Die Verwendung hängt vom Kontext ab.
 
 ---
 
-## Was macht eigentlich `try!` oder `?` genau?
+## Was macht eigentlich `?` genau?
 
 <pre><code data-source="chapters/shared/code/conversion-patterns/2.rs" data-trim="hljs rust"></code></pre>
 

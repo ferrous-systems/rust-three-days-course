@@ -82,15 +82,6 @@ Traits definieren Funktionen, die Typen implementieren müssen. Sie können dann
 
 ---
 
-## Self
-[Inhaltsverzeichnis](toc/default.html)
-
----
-
-`Self` ist ein besonderer Typ: er ist immer der Typ, der gerade implementiert wird.
-
----
-
 ## Generische Traits
 
 Traits können generisch sein.
@@ -128,4 +119,5 @@ Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht ge
 ---
 
 <pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
 

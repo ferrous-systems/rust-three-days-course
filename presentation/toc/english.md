@@ -2,7 +2,6 @@
 
 * [Overview](../index.html?chapter=overview&locale=en-US)
 * [Installation](../index.html?chapter=installation&locale=en-US)
-* [Syntax](../index.html?chapter=syntax&locale=en-US)
 * [Mutability](../index.html?chapter=mutability&locale=en-US)
 * [Basic types](../index.html?chapter=basic-types&locale=en-US)
 * [Data structures](../index.html?chapter=data-structures&locale=en-US)
@@ -30,7 +29,6 @@
 * [Crates](../index.html?chapter=crates&locale=en-US)
 * [libcore and libstd](../index.html?chapter=libcore-and-libstd&locale=en-US)
 * [The stdlib](../index.html?chapter=std-lib-tour&locale=en-US)
-* [Iterators again](../index.html?chapter=iterators-again&locale=en-US)
 * **Task:** Connected Mailbox
 
 ---

@@ -5,7 +5,7 @@
 
 ## Ein wenig Geschichte
 
--   Rust wurde vor 9 Jahren erfunden
+-   Rust wurde vor ca. 10 Jahren erfunden
 -   Experimentalprojekt von Graydon Hoare
 -   Von Mozilla adoptiert
 -   Version 0.4 wurde 2012 der Öffentlichkeit vorgestellt
@@ -27,6 +27,7 @@
 -   Immer begleitet von einem Großprojekt (z.B. Servo)
 -   Auch in Frühzeiten mit regelmässigen Releases, Deprecations, RFCs.
 -   Gute praktische Softwareentwicklung
+-   "Things are not complete when there is nothing left to add, but when there is nothing left to take away."
 
 ---
 
@@ -46,7 +47,7 @@
 -   vorhersagbares Laufzeitverhalten
 -   Stabile Softwareentwicklung in großen Projekten
 -   Pragmatismus und Integrierbarkeit
-
+-   Zugängliches Projekt
 ---
 
 ## Rust möchte zuallererst verwendbar sein
@@ -109,6 +110,7 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 -   Rust basiert auf Ausdrücken. Jeder Ausdruck hat einen Wert, dieser kann zugewiesen oder zurück gegeben werden.
 -   "Pay what you use": Rust bietet zur Laufzeit teure Features an: Explizit und direkt sichtbar. Nicht verwendete Features kosten nichts.
+-   Zero-cost abstractions
 
 ---
 

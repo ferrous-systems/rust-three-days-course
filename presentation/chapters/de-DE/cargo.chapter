@@ -111,7 +111,7 @@ Weiter Details in der [Doku](http://doc.crates.io/manifest.html)
 
 Beim ersten Bauen (oder durch `cargo update`) errechnet Cargo einen Versionsbaum, der die Bedingungen von Cargo.toml erfüllt. Er wird in einem sogenannten Lockfile (Cargo.lock) gespeichert.
 
-Es empfiehlt sich, den Lockfile *immer* unter Versionskontrolle zu halten. (für wiederholbare Builds)
+Es empfiehlt sich, den Lockfile unter Versionskontrolle zu halten. (für wiederholbare Builds)
 
 ---
 

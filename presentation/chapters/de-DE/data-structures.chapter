@@ -19,6 +19,11 @@
 
 ---
 
+## Anmerkung
+
+Es ist üblich, Allokationen hinter einem Aufruf wie `behind a call to `Point::new()` zu verstecken.
+---
+
 ## Feldzugriff
 
 <pre><code data-source="chapters/shared/code/data-structures/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
@@ -74,7 +79,7 @@ Enums ohne Varianten haben keine Speichergröße und können nicht in Rust erste
 
 ## Sind Varianten Typen?
 
-Nein. Momentan(!) nicht.
+Nein.
 
 ---
 

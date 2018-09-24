@@ -19,6 +19,15 @@ Rusts Iteratoren sind:
 
 ---
 
+## 3 Arten Iterationen
+
+Manche Typen, wie z.B. `Vec<T>` bieten gleich 3 Methoden zur Iteration an
+* `iter()`
+* `iter_mut()`
+* `into_iter()`
+
+---
+
 ## Allgemeine Verwendung
 
 ---

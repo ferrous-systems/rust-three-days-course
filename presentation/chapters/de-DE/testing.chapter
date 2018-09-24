@@ -11,7 +11,7 @@ Unit-, Integrations und Dokumentations-Tests werden direkt mitgeliefert.
 
 ## Organisation
 
-Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
+Tests in der Regel am Ende in 1 von 4 möglichen Orten:
 
 -   Direkt neben der getesteten Funktionalität. (Unittest)
 -   In einem `Tests`-Modul. (Privater Integrationstest)
@@ -44,7 +44,7 @@ Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
 -   Ermöglicht das Testen, als ob die Funktionalität an anderer Stelle im Projekt verwendet wird.
 -   Für die Prüfung privater APIs und Funktionalität.
--   Gut für die Prüfung erwarteter Prozesse und Anwendungsfälle.
+-   Gut für die Prüfung von erwartetem Verhalten und Anwendungsfälle.
 
 ---
 
@@ -63,7 +63,7 @@ Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 ## Dokumentationstests
 
 -   Erlauben das Testen der öffentlichen Funktionalität.
--   Wird im `rustdoc`-Ausgang angezeigt.
+-   Wird in der `rustdoc`-Ausgabe angezeigt.
 -   Zur Demonstration erwarteter Anwendungsfälle und Beispiele.
 
 ---

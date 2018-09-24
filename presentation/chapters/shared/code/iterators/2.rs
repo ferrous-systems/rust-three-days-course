@@ -6,6 +6,7 @@ fn main() {
             x if x % 5  == 0 => String::from("Buzz"),
             x => format!("{}", x),
         });
+
     for item in fizzbuzz {
         println!("{}", item);
     }

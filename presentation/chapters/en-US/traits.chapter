@@ -83,12 +83,6 @@ Traits define functions types must implement. They can then be used generically.
 
 ---
 
-## Self
-
-`Self` is a special type: it is the type currently being implemented.
-
----
-
 ## Generic Traits
 
 Traits can have type parameters.
@@ -126,49 +120,3 @@ Associated types are generic parameters, but they are ignored during inference.
 ---
 
 <pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
----
-
-## `impl Trait`
-
-`impl Trait` is used when the type of a value does not need to be named.
-
-```rust
-fn main() {
-    let v = vec![1,2,3];
-    let i = make_iter(&v);
-}
-
-fn make_iter<'a>(v: &'a Vec<u8>) -> impl Iterator<Item=u8> + 'a {
-    v.iter().map(|v| (*v)*2)
-}
-```
-
----
-
-```rust
-fn main() {
-    let v = vec![1,2,3];
-    let i = v.iter();
-    let i2 = double(i);
-}
-
-fn double<'a>(i: impl Iterator<Item=&'a u8> + 'a) -> impl Iterator<Item=u8> + 'a {
-    i.map(|v| (*v)*2)
-}
-```
-
----
-
-Limitations:
-* No `impl Trait` in trait methods
-
----
-
-```rust
-trait Foo {}
-
-trait Bar {
-    fn fooify(&self) -> impl Foo;
-}
-```
