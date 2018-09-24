@@ -121,4 +121,4 @@ And combinators on futures
 * Implemented in the compiler
 * Several blocking issues (#51719, #53249, #53259, ...)
 * _Not_ included in Rust 2018
-  * But soon™
+  * But soon™ (~~late 2018~~ 2019!)
