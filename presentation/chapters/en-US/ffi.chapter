@@ -3,9 +3,27 @@
 
 ---
 
-Rust supports the platform-ABI and can directly interact with dynamic and static libraries, as well as create them.
+## Efficiency!
+
+<small>(This is Germany after all)</small>
+
+*» efficient C bindings «*
 
 ---
+
+Rust supports the platform-ABI.
+
+---
+
+Interact with shared/static libraries.
+
+Or _be_ one.
+
+---
+
+*» efficient C bindings «*
+
+<br/>
 
 There are no conversion costs
 
@@ -15,60 +33,111 @@ There are no conversion costs
 
 ---
 
-## Example: Rust-Bindings for libleveldb
+## Basic example
 
-[leveldb.h](https://github.com/google/leveldb/blob/master/include/leveldb/c.h)
-
----
-
-## Implementation Order
-
--   We follow the order of the header file
--   low-level bindings first
--   then safe bindings
--   followed by an abstraction
+Hello world from C
 
 ---
 
-## Some helpers
+Let's assume you _really_ want to use printf
+
+<pre><code data-source="chapters/shared/code/ffi/1.c" data-trim="hljs rust"></code></pre>
+
+<pre><code data-source="chapters/shared/code/ffi/1.h" data-trim="hljs rust"></code></pre>
+
+---
+
+## Things TODO
+
+- Bind against functions in header
+- Link the external code as a library
+- Call those with `unsafe { ... }`
+- Transmute data for C functions
+
+---
+
+## Before we get started
 
 <pre><code data-source="chapters/shared/code/ffi/1.rs" data-trim="hljs rust"></code></pre>
 
-Rust lints code style, but C-style is no Rust style
+Disables some Rust naming lints
+
+<small>(which are common in C code)</small>
 
 ---
 
-## System-libc
+## Binding functions
+
+<pre><code data-source="chapters/shared/code/ffi/1.h" data-trim="hljs rust"></code></pre>
 
 <pre><code data-source="chapters/shared/code/ffi/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Opaque types
+## Primitive types
 
-We use particular structures here. They cannot be constructed or read: they have no variants!
+Some type conversions can be infered by the compiler.
+
+* `c_uint` ↔ `u32`
+* `c_int` ↔ `i32`
+* `c_void` ↔ `()`
+* ...etc...
+
+---
+
+## Calling this
 
 <pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Enums
+## Cargo (build-system) support
 
-<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
-
-The layout of enums and structs is (currently) left to the compiler. `#[repr(C)]` directs the compiler to use the platform-layout instead. 
+* Build native code via build-dependency crates
+  * `gcc`, `clang`, `cmake`, ...
+* `build.rs` file responsible for linking code
 
 ---
 
-## External Functions
+## Structs
 
-<pre><code data-source="chapters/shared/code/ffi/5.rs" data-trim="hljs rust"></code></pre>
+The layout of enums and structs is (currently) left to the compiler. `#[repr(C)]` directs the compiler to use the platform-layout instead. 
+
+<pre><code data-source="chapters/shared/code/ffi/4-1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Enums
+
+<pre><code data-source="chapters/shared/code/ffi/4-2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Opaque types
+
+When not knowing (or caring) about internal layout, opaque structs can be used.
+
+<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Callbacks
 
+`extern "C"` applies to function pointers given to extern functions too.
+
 <pre><code data-source="chapters/shared/code/ffi/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Okay enough boring examples
+
+---
+
+## Real example
+
+Binding imagemagick to rust!
+
+<small>(Somebody already did that but let's do it again)</small>
 
 ---
 
