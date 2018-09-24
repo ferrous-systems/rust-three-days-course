@@ -8,6 +8,20 @@ Read http://doc.crates.io/manifest.html
 
 The workspace should contain your server and the redisish library from yesterday.
 
+```
+my_project
+|- Cargo.toml
+|- redisish
+|- connected-mailbox
+```
+
+```
+$ cat connected-mailbox/Cargo.toml
+...
+[dependencies]
+redisish = { path = "../redisish" }
+```
+
 ## 2. Accept connections and implement the protocol
 
 1. Every connection just sends one command
