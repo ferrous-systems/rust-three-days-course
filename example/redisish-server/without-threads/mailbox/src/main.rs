@@ -23,8 +23,8 @@ impl From<std::io::Error> for ServerError {
     }
 }
 
-fn main() {
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:7878")?;
 
     let mut storage = VecDeque::new();
 
@@ -39,6 +39,8 @@ fn main() {
             println!("Error occured: {:?}", e);
         }
     }
+
+    Ok(())
 }
 
 fn handle(stream: &mut TcpStream, storage: &mut VecDeque<String>) -> Result<(), ServerError> {
@@ -51,7 +53,7 @@ fn handle(stream: &mut TcpStream, storage: &mut VecDeque<String>) -> Result<(), 
         redisish::Command::Retrieve => {
             let data = storage.pop_front();
             match data {
-                Some(message) => write!(stream, "{}", message).map_err( |e| e.into() ),
+                Some(message) => write!(stream, "{}", message) ,
                 None => write!(stream, "No message in inbox!\n").map_err( |e| e.into() )
             }
         }

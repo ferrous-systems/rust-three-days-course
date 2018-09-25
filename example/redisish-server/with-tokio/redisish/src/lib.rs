@@ -14,15 +14,13 @@ pub enum Error {
 }
 
 pub fn parse(input: &str) -> Result<Command, Error> {
-    let cleaned_input;
-
+    let mut input = input;
     if let Some(pos) = input.find('\n') {
-        cleaned_input = &input[0..pos];
+        input = &input[0..pos];
     } else {
         return Err(Error::IncompleteMessage)
     }
-
-    let mut split = cleaned_input.splitn(2, ' ');
+    let mut split = input.splitn(2, ' ');
 
     if let Some(verb) = split.next() {
         match verb.trim() {

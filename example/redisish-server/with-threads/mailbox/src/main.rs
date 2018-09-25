@@ -24,10 +24,10 @@ impl From<std::io::Error> for ServerError {
     }
 }
 
-fn main() {
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
+fn main() -> std::io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:7878")?;
 
-    let mut storage = VecDeque::new();
+    let storage = VecDeque::new();
     let rced_storage: Arc<Mutex<VecDeque<String>>> = Arc::new(Mutex::new(storage));
 
     for stream in listener.incoming() {
@@ -44,6 +44,8 @@ fn main() {
             }
         });
     }
+
+    Ok(())
 }
 
 fn handle(stream: &mut TcpStream, mutex: &Mutex<VecDeque<String>>) -> Result<(), ServerError> {
