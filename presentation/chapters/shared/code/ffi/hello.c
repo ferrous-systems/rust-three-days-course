@@ -1,4 +1,4 @@
-#include "1.h"
+#include "hello.h"
 #include <stdio.h>
 
 uint32_t cool_printf_wrapper(const char *str)
