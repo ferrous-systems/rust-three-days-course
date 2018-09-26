@@ -38,9 +38,8 @@ fn main() -> std::io::Result<()> {
     let rced_storage: Arc<Mutex<VecDeque<String>>> = Arc::new(Mutex::new(storage));
 
     let action = listener.incoming()
-    .map_err(|error|{
-        error.into()
-    }).for_each(move |stream| {
+    .map_err(ServerError::from)
+    .for_each(move |stream| {
         let storage_handle = rced_storage.clone();
     
         handle(stream, storage_handle)
@@ -56,7 +55,7 @@ fn handle(stream: TcpStream, mutex: Arc<Mutex<VecDeque<String>>>) -> impl Future
     let buffer = Vec::new();
 
     read_to_end(stream, buffer)
-    .map_err(|e| e.into())
+    .map_err(ServerError::from)
     .and_then(move |(stream, buffer)| {
         let input = String::from_utf8(buffer).unwrap();
         let command = redisish::parse(&input).unwrap();
@@ -79,7 +78,7 @@ fn handle(stream: TcpStream, mutex: Arc<Mutex<VecDeque<String>>>) -> impl Future
 
         write_all(stream, output.into_bytes())
             .map(|_| ())
-            .map_err(|e| e.into())
+            .map_err(ServerError::from)
     })
 
 }
