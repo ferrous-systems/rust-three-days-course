@@ -1,7 +1,7 @@
 fn foo(bar: &str) -> &str {
-    /// implementation
+    // implementation
 }
 
 fn foo<'a>(bar: &'a str) -> &'a str {
-    /// implementation
+    // implementation
 }
