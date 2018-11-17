@@ -3,9 +3,31 @@
 
 ---
 
-Rust supports the platform-ABI and can directly interact with dynamic and static libraries, as well as create them.
+## Efficiency!
+
+<small>(This is Germany after all)</small>
+
+*» efficient C bindings «*
 
 ---
+
+Rust ABI is *not* stable.
+
+---
+
+Rust supports the platform-ABI.
+
+---
+
+Interact with shared/static libraries.
+
+Or _be_ one.
+
+---
+
+*» efficient C bindings «*
+
+<br/>
 
 There are no conversion costs
 
@@ -15,203 +37,224 @@ There are no conversion costs
 
 ---
 
-## Example: Rust-Bindings for libleveldb
+## Basic example
 
-[leveldb.h](https://github.com/google/leveldb/blob/master/include/leveldb/c.h)
-
----
-
-## Implementation Order
-
--   We follow the order of the header file
--   low-level bindings first
--   then safe bindings
--   followed by an abstraction
+Hello world from C
 
 ---
 
-## Some helpers
+Let's assume you _really_ want to use printf
+
+<pre><code data-source="chapters/shared/code/ffi/hello.c" data-trim="hljs rust"></code></pre>
+
+<pre><code data-source="chapters/shared/code/ffi/hello.h" data-trim="hljs rust"></code></pre>
+
+---
+
+## Things TODO
+
+- Bind against functions in header
+- Link the external code as a library
+- Call those with `unsafe { ... }`
+- Transmute data for C functions
+
+---
+
+## Before we get started
 
 <pre><code data-source="chapters/shared/code/ffi/1.rs" data-trim="hljs rust"></code></pre>
 
-Rust lints code style, but C-style is no Rust style
+Disables some Rust naming lints
+
+<small>(which are common in C code)</small>
 
 ---
 
-## System-libc
+## Binding functions
+
+<pre><code data-source="chapters/shared/code/ffi/hello.h" data-trim="hljs rust"></code></pre>
 
 <pre><code data-source="chapters/shared/code/ffi/2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Opaque types
+## Primitive types
 
-We use particular structures here. They cannot be constructed or read: they have no variants!
+Some type conversions can be infered by the compiler.
+
+* `c_uint` ↔ `u32`
+* `c_int` ↔ `i32`
+* `c_void` ↔ `()`
+* ...etc...
+
+---
+
+## Calling this
 
 <pre><code data-source="chapters/shared/code/ffi/3.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Enums
+## Cargo (build-system) support
 
-<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
-
-The layout of enums and structs is (currently) left to the compiler. `#[repr(C)]` directs the compiler to use the platform-layout instead. 
+* Build native code via build-dependency crates
+  * `gcc`, `clang`, `cmake`, ...
+* `build.rs` file responsible for linking code
 
 ---
 
-## External Functions
+## Structs
 
-<pre><code data-source="chapters/shared/code/ffi/5.rs" data-trim="hljs rust"></code></pre>
+The layout of enums and structs is left to the compiler. 
+
+`#[repr(C)]` directs the compiler to use the platform-layout. 
+
+<pre><code data-source="chapters/shared/code/ffi/4-1.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Enums
+
+<pre><code data-source="chapters/shared/code/ffi/4-3.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Opaque types
+
+When not knowing (or caring) about internal layout, opaque structs can be used.
+
+<pre><code data-source="chapters/shared/code/ffi/4-2.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
 ## Callbacks
+
+`extern "C"` applies to function pointers given to extern functions too.
 
 <pre><code data-source="chapters/shared/code/ffi/6.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Utility Functions
+## Okay enough boring examples
+
+---
+
+## Real example
+
+Binding imagemagick to rust!
+
+<small>(Somebody already did that but let's do it again)</small>
+
+---
+
+## bindgen
+
+`imagemagick` has a _lot_ of functions. Don't write all those `extern "C"` blocks yourself – generate them!
 
 <pre><code data-source="chapters/shared/code/ffi/7.rs" data-trim="hljs rust"></code></pre>
 
-Important: The party that allocates deallocates!
+---
+
+At this point including bindings is easy\*
+
+<pre><code data-source="chapters/shared/code/ffi/8.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## What the hell?
-
-<pre><code data-source="chapters/shared/code/ffi/8.output" data-trim="hljs output"></code></pre>
-
-Why is the version number architecture dependent?
-
----
-
-## And now?
-
-We have bound the functions, but there is nothing safe here.
-
----
-
-## Binding of raw pointers with lifecycle management
+## Building Layers
 
 <pre><code data-source="chapters/shared/code/ffi/9.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Why like this?
-
--   Structs with one field vanish at runtime
--   Isolates lifecycle management of the pointer from the rest of the code
--   Older Rust versions modify the struct layout if `Drop` is implemented
-
----
-
-## Handling of C Style Errors
-
-> Error handling styles in C can be organized into one of several distinct styles, such as popular or correct. Some examples of each.
-
-[Ted Unangst](http://www.tedunangst.com/flak/post/to-errno-or-to-error)
-
----
-
-## Handling of leveldb Errors
+## Building Layers
 
 <pre><code data-source="chapters/shared/code/ffi/10.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-## Handling of C Strings
-
-See [`std::ffi::CString`](https://doc.rust-lang.org/std/ffi/struct.CString.html).
-
-Warning:Take great care to match the correct ownership semantic and use `new`, `from_raw` and possibly `std::mem::forget` correctly.
+## Wrap unsafe code in safe Rust
 
 ---
 
-## Other nice gains
-
-Lifetimes allow safe modelling of the pointer invalidation semantics of leveldb.
-
----
-
-## Example
+## Memory Management
 
 <pre><code data-source="chapters/shared/code/ffi/11.rs" data-trim="hljs rust"></code></pre>
 
-The iterator must drop before the database drops.
+---
 
-This is also specified by leveldb for `leveldb_t` and `leveldb_iterator_t`.
+**Structs with one field vanish at runtime.**
+
+Isolates lifecycle management of the pointer from the rest of the code.
 
 ---
 
-## Trick: That even works without consuming memory
-
-<pre><code data-source="chapters/shared/code/ffi/12.rs" data-trim="hljs rust"></code></pre>
-
-PhantomData is a 0-sized type that, that fakes the presence of a reference to the database struct.
-
-Such Optimisations should be tested with `compile-fail`!
+## Using Rust from C
 
 ---
 
-## compile-fail
+Works simmilarly to what you've already seen.
 
-`compile-fail` is an extraction from the `rustc`-Testsuite and allows expressing assertions about error messages.
-
----
-
-## Callbacks
-
-<pre><code data-source="chapters/shared/code/ffi/13.rs" data-trim="hljs rust"></code></pre>
+Use platform-ABI in reverse – emit a native library
 
 ---
 
-## Problems
-
--   `state: *c_void` is a way of expressing polymorphism in C
--   How do I ensure that, `c_void` always refers to the same type?
--   How do I implement the polymorphism?
+## Example: plugin for `weechat`
 
 ---
 
-## Generics, Traits and raw Boxes
+## Cargo Settings
 
-<pre><code data-source="chapters/shared/code/ffi/14.rs" data-trim="hljs rust"></code></pre>
-
-Important: This trait only works with boxed values!
+<pre><code data-source="chapters/shared/code/ffi/12.toml" data-trim="hljs toml"></code></pre>
 
 ---
 
-## Usage
+Otherwise similar concept.
 
-<pre><code data-source="chapters/shared/code/ffi/15.rs" data-trim="hljs rust"></code></pre>
-
----
-
-## Working with Slices
-
-
-Conversion of slices is also easy:
-
-<pre><code data-source="chapters/shared/code/ffi/16.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
-Always keep ownership in mind!
+* `extern "C"` functions.
+* `#[repr(C)]` structures/ enums.
+* Making data C compatible.
 
 ---
 
-## Trap
+<pre><code data-source="chapters/shared/code/ffi/13.rs" data-trim="hljs toml"></code></pre>
 
-<pre><code data-source="chapters/shared/code/ffi/17.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
-Oops, suddenly, there's a mutable and an immutable pointer!
+<small>You saw the rest of the function earlier</small>
 
 ---
 
-## Helpers
+Now what?
 
--   [Servo bindgen](https://github.com/servo/rust-bindgen)
--   Very advanced, can also generate bindings to C++ code
+---
+
+## Creating bindings
+
+<small>(No, this is not a deja-vu)</small>
+
+C code needs `.h` files to include – define Rust functions there.
+
+`cbindgen` is a great tool to auto-generate them.
+
+---
+
+But: not required here, because plugin API is specified via weechat!
+
+---
+
+<pre><code data-source="chapters/shared/code/ffi/14.rs" data-trim="hljs toml"></code></pre>
+
+---
+
+Full code here: [spacekookie/weechat-rs](https://github.com/spacekookie/weechat-rs/tree/master/examples/hello_weechat)
+
+Feel free to run, play, test, ...
+
+---
+
+## Some things not covered
+
+---
 
 
+
+---

@@ -12,16 +12,6 @@
 
 ---
 
-## Recent Changes
-
-In [Rust 1.15](https://blog.rust-lang.org/2017/02/02/Rust-1.15.html) the 'custom derive' feature was made stable.
-
-This was for many projects the only reason to be using nightly.
-
-It is expected that the number of packages requiring nightly will significantly decrease soon.
-
----
-
 ## Using Nightly
 
 Use `rustup` to override the version used in a specific directory.

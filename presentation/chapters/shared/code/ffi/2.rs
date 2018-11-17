@@ -1,4 +1,5 @@
-extern crate libc;
+use std::os::raw::{c_uint, c_char};
 
-use libc::{c_char, c_int, c_uchar, c_void};
-use libc::size_t;
+extern "C" {
+    cool_printf_wrapper(strr: const *c_char) -> c_uint;
+}

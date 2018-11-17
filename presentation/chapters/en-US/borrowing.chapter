@@ -98,3 +98,9 @@ That means that we need to dereference them from time to time.
 Sometimes you want a reference to the inner value of an enum, but don't want to consume it.
 
 <pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Non Lexical Lifetimes
+
+https://github.com/rust-lang/rust/issues/43234

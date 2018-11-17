@@ -1,8 +1,13 @@
-struct Database {
-    //...
+struct MagickWandInstance(*mut bindings::MagickWand);
+
+impl MagickWandInstance {
+    fn new() -> Self {
+        MagickWandInstance(unsafe { bindings::NewMagickWand() })
+    }
 }
 
-struct DatabaseIterator<'a> {
-    database: &'a Database,
-    iter: RawIterator
+impl Drop for MagickWandInstance {
+    fn drop(&mut self) {
+        unsafe { bindings::MagickWandTerminus() };
+    }
 }

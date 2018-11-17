@@ -61,6 +61,7 @@
 
 * [Effective Rust](../index.html?chapter=effective-rust&locale=en-US)
 * [Working with Nightly](../index.html?chapter=working-with-nightly&locale=en-US)
+* [Future of Futures](../index.html?chapter=future-of-futures&locale=en-US)
 * [Futures and Tokio](../index.html?chapter=futures-and-tokio&locale=en-US)
 * **Task:** Connected Mailbox with Tokio.
 
@@ -77,5 +78,5 @@
 * [Serde](../index.html?chapter=serde&locale=en-US)
 * [Macros](../index.html?chapter=macros)
 * [WebAssembly](../index.html?chapter=wasm&locale=en-US)
-* [Futures](../index.html?chapter=futures&locale=en-US)
+* [Futures](../index.html?chapter=futures&locale=en-US) (`futures-rs 0.2`)
 * [Inner Mutability](../index.html?chapter=inner-mutability&locale=en-US)

@@ -52,6 +52,15 @@ Note the early exit.
 
 ---
 
+## Using `?` in `main`
+
+* `main` can return `Result`
+* Stable in Rust since `1.26`.
+
+<pre><code data-source="chapters/shared/code/error-handling/6.rs" data-trim="hljs rust"></code></pre>
+
+---
+
 ## Results Are Wrapper Types
 
 It's possible to change a `Result<T,E>` into a `Result<U,E>` without unwrapping it.

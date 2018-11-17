@@ -1,12 +1,7 @@
-pub mod foo {
-    // `semisecret` will be used "many" places within `foo`, but
-    // is not meant to be exposed outside of `foo`.
-    // (`pub use` would be *rejected*)
-    use self::bar::semisecret;
+fn main() -> Result<(), Box<Error>> {
+    something_dangerious()?;
 
-    pub fn bar(z: i32) -> i32 { semisecret(z) }
+    something_harmless();
 
-    mod bar {
-        pub(foo) fn semisecret(x: i32) -> i32  { x }
-    }
+    Ok(()) // Kinda like `return 0` in C
 }

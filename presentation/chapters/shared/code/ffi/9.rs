@@ -1,13 +1,13 @@
-#[allow(missing_docs)]
-struct RawDB {
-    ptr: *mut leveldb_t,
-}
+unsafe {
+    let mut severity = 0;
+    let description: *mut c_char = 
+        bindings::MagickGetException(self.0, &mut severity);
 
-#[allow(missing_docs)]
-impl Drop for RawDB {
-    fn drop(&mut self) {
-        unsafe {
-            leveldb_close(self.ptr);
-        }
-    }
+    let string = CStr::from_ptr(description)
+                        .to_string_lossy()
+                        .into_owned();
+
+    bindings::MagickRelinquishMemory(description as *mut _);
+
+    string
 }
