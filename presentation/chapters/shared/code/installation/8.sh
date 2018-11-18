@@ -1,1 +1,1 @@
-$ cargo +nightly install clippy
+$ cargo install cargo-tree
