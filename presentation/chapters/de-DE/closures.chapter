@@ -44,10 +44,6 @@ Fn
 
 ---
 
-Es besteht eine Typbeziehung: Fn impliziert FnMut, FnMut impliziert FnOnce.
-
----
-
 ## Notation von Closure-Argumenten
 
 <pre><code data-source="chapters/shared/code/closures/3.rs" data-trim="hljs rust"></code></pre>

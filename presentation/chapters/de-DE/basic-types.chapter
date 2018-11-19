@@ -69,7 +69,7 @@ Slices tragen einen Pointer auf einen Array und eine Länge. Slices können wede
 
 ## Der Unit-Type
 
-Ausdrücke die keine Rückgabe haben, geben den Unit-Type zurück.
+Ausdrücke die keine Rückgabe haben geben den Unit-Type zurück.
 
 <pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 

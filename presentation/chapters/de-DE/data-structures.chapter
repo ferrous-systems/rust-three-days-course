@@ -68,7 +68,7 @@ Die einzelnen Ausformungen von Enums heissen "Variante".
 ## Enums ohne Varianten
 
 <pre><code data-source="chapters/shared/code/data-structures/10.rs" data-trim="hljs rust"></code></pre>
-Enums ohne Varianten haben keine Speichergröße und können nicht in Rust erstellt werden. Sie eignen sich daher zum Einsatz im FFI, dazu später mehr.
+Enums ohne Varianten haben keine Speichergröße und können nicht in Rust erstellt werden.
 
 ---
 

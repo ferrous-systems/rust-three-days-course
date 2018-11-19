@@ -55,11 +55,14 @@ Rust besitzt einen weiteren Fehlermechanismus: `panic!`
 
 ---
 
-Im Falle einer Panic passiert Folgendes: \* Der Thread hält sofort an \* Der Stack wird aufgerollt \* Alle von der Panic betroffenen Werte werden fallengelassen
+Im Falle einer Panic passiert Folgendes: 
+* Der Thread hält sofort an 
+* Der Stack wird aufgerollt 
+* Alle von der Panic betroffenen Werte werden fallengelassen
 
 ---
 
-Panics gleichen mechanisch C++-Exceptions, sollten aber nur zur Behandlung schlimmer Fehler verwendet werden. Sie können nicht (normalerweise) gefangen werden.
+Panics gleichen mechanisch C++-Exceptions, sollten aber nur zur Signalisierung unbehebbarer Fehler verwendet werden. Sie können nicht (normalerweise) gefangen werden.
 
 Der betroffene Thread stellt die Arbeit ein.
 
@@ -91,4 +94,4 @@ Der Panic-Hook wird ausgeführt.
 
 ## Doppelte Panics
 
-Sollte beim behandeln einer panic innerhalb eines Threads eine weitere Auftreten (z.B. beim Ausführen eines Destruktors), tritt undefiniertes Verhalten auf und das Programm bricht sofort ab.
+Sollte beim behandeln einer panic innerhalb eines Threads eine weitere auftreten (z.B. beim Ausführen eines Destruktors), bricht das Programm sofort ab.

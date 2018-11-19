@@ -99,3 +99,6 @@ Manchmal möchte man eine Referenz auf den Inhalt eines Enums und den Wert dabei
 
 <pre><code data-source="chapters/shared/code/borrowing/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
+---
+
+Dieser Fall wird meist automatisch erkannt.
