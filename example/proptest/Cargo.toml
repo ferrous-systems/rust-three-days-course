@@ -1,0 +1,8 @@
+[package]
+name = "proptest"
+version = "0.1.0"
+authors = ["Tyler Neely <tyler.neely@ferrous-systems.com>"]
+edition = "2018"
+
+[dependencies]
+proptest = "0.8.7"
