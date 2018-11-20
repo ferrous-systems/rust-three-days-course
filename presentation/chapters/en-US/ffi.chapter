@@ -135,10 +135,6 @@ When not knowing (or caring) about internal layout, opaque structs can be used.
 
 ---
 
-## Okay enough boring examples
-
----
-
 ## Real example
 
 Binding imagemagick to rust!
