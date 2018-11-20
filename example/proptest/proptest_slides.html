@@ -1,0 +1,158 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <script>
+    	var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+        <section data-background="#000">
+          <div style="color: #F00; -webkit-text-stroke: 1px black;">
+            PROPTEST
+          </div>
+        </section>
+        <section>
+          <h4>this is your brain</h4>
+          <p class="fragment">everything we know is subject to bias</p>
+          <p class="fragment">everything we build reflects these biases</p>
+        </section>
+        <section>
+          <p>problem: our code reflects our biases, our tests are often biased similarly</p>
+          <p><span class="fragment">solution: don't write tests.</span> <span class="fragment">write expectations.</span></p>
+          <p class="fragment">have the machine generate random test cases</p>
+          <p class="fragment">make beliefs explicit, force them to pay rent</p>
+          <h4 class="fragment">property testing</h4>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### crate: <b>proptest</b>
+
+            ```rust
+            // this property is false, but perhaps
+            // not unreasonable to expect to be true
+            proptest! {
+              #[test]
+              fn mult_and_div(ref a in any::<usize>()) {
+                let result = (a * 5) / 5;
+                assert_eq!(result, a);
+              }
+            }
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### crate: <b>proptest</b>
+            ```
+              $ cargo test
+              test mult_and_div ... FAILED
+              Test failed: attempt to multiply with overflow;
+              minimal failing input: ref a = 3689348814741910324
+              test result: FAILED. 0 passed; 1 failed
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            crates.io/crates/<b>proptest</b>
+
+            ```
+            $ cat proptest-regressions/main.txt
+            # Seeds for failure cases proptest has
+            # generated. It is automatically read
+            # and these particular cases re-run before
+            # any novel cases are generated.
+
+            # shrinks to ref a = 3689348814741910324
+            xs 4050946508 1278147119 4151624343 875310407
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            wonderful for testing codecs, serialization,
+            compression, or any set of operations that
+            should retain equality.
+
+            ```rust
+            proptest! {
+              #[test]
+              fn compress_roundtrip(ref s in ".*") {
+                let result = decompress(compress(s));
+                assert_eq!(result, s);
+              }
+            }
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            it's easy to generate more structured input, too
+
+            ```rust
+            proptest! {
+              #[test]
+              fn parses_all_valid_dates(
+                ref s in "[0-9]{4}-[0-9]{2}-[0-9]{2}"
+              ) {
+                parse_date(s).unwrap();
+              }
+            }
+            ```
+          </textarea>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+            #### configuration is a great target
+            crates.io/crates/<b>sparse-bitfield</b>
+            ```rust
+            proptest! {
+              #[test]
+              fn doesnt_crash(
+                bit in 0usize..1_000_000,
+                page_sz_exponent in 0usize..30
+              ) {
+                let page_sz = 1 << page_sz_exponent;
+                let mut bits = Bitfield::new(page_sz);
+                assert_eq!(bits.set(bit, true), Change::Changed);
+                assert_eq!(bits.get(bit), true);
+              }
+            }
+            ```
+          </textarea>
+        </section>
+        <section>
+          <h2>misc tips</h2>
+					<ul>
+            <li class="fragment">isolate business logic from IO concerns</li>
+            <li class="fragment">use assert! and debug_assert! on non-trivial things! this makes our "fuzzers" extremely effective</li>
+            <li class="fragment">try not to use unwrap() everywhere, at least use expect("helpful message") to speed up debugging</li>
+            <li class="fragment">when propagating errors, include context that helps you get back to the root</li>
+					</ul>
+        </section>
+        <section data-background-image="images/triumphofdeath2.jpg" data-background-size="cover">
+          <div style="color: #F00; -webkit-text-stroke: 1px black;">
+            Try it out!
+          </div>
+        </section>
+			</div>
+		</div>
+		<script src="js/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/marked.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+      Reveal.initialize({
+				transition: 'none',
+      });
+		</script>
+	</body>
+</html>
