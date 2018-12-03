@@ -7,7 +7,7 @@
 
 All used items must be declared. This is similar to Java or Haskell.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/1.rs" data-trim="hljs sh" class="lang-sh"></code></pre>
 
 ---
 
@@ -15,7 +15,7 @@ All used items must be declared. This is similar to Java or Haskell.
 
 It is possible to import the module instead and qualify every use.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/2.rs" data-trim="hljs sh" class="lang-sh"></code></pre>
 
 ---
 
@@ -23,7 +23,7 @@ It is possible to import the module instead and qualify every use.
 
 You can also import everything from a module.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/3.rs" data-trim="hljs sh" class="lang-sh"></code></pre>
 
 This is *generally* frowned upon.
 
@@ -39,7 +39,7 @@ One exception to the rule is the "Prelude": This is a special module in the stan
 
 Other libraries offer `prelude`-Modules, one of the most common is `std::io`.
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/4.rs" data-trim="hljs rust" class="lang-"></code></pre>
 
 Here, the glob is accepted.
 
@@ -97,7 +97,7 @@ The root modules for multiple applications in `src/bin/*.rs`.
 
 Our application could also have the following layout:
 
-<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/8.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/8.rs" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -168,3 +168,10 @@ In general, exporting fields should be avoided:
 * Any change of the structure leads to API breakage
 
 * Accessor functions are usually as fast as direct field access due to optimizations.
+
+---
+
+## Pub qualifiers
+
+<pre><code data-source="chapters/shared/code/imports-modules-and-visibility/14.rs" data-trim="hljs rust"></code></pre>
+

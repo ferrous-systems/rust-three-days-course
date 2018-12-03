@@ -4,7 +4,7 @@ pub enum Command {
     Retrieve
 }
 
-#[derive(Eq,PartialEq,Debug)]
+#[derive(Eq, PartialEq, Debug)]
 pub enum Error {
     UnknownVerb,
     UnexpectedPayload,
@@ -15,11 +15,13 @@ pub enum Error {
 
 pub fn parse(input: &str) -> Result<Command, Error> {
     let mut input = input;
+
     if let Some(pos) = input.find('\n') {
         input = &input[0..pos];
     } else {
         return Err(Error::IncompleteMessage)
     }
+
     let mut split = input.splitn(2, ' ');
 
     if let Some(verb) = split.next() {
@@ -33,7 +35,7 @@ pub fn parse(input: &str) -> Result<Command, Error> {
             }
             "PUBLISH" => {
                 if let Some(payload) = split.next() {
-                    Ok(Command::Publish(payload.trim().into()))
+                    Ok(Command::Publish(String::from(payload.trim())))
                 } else {
                     Err(Error::MissingPayload)
                 }
