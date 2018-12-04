@@ -38,7 +38,7 @@ Read the documentation for the `std::io::Read`, `std::io::Write` traits, especia
 
 ## 3. Do proper error handling
 
-Implement a `ServerError`, allowing to handle both `io::Error`s and 
+Implement a `ServerError`, allowing to handle both `io::Error`s and `redisish::Error`s.
 
 ## 4. Implement multithreading
 
