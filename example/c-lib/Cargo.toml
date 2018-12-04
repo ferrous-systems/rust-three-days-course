@@ -1,5 +1,5 @@
 [package]
-name = "core"
+name = "point"
 version = "0.1.0"
 authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
 
@@ -10,4 +10,5 @@ libc = "0.2.14"
 cbindgen = "0.6.7"
 
 [lib]
-crate-type = ["dylib", "staticlib"]
+crate-type = ["staticlib"]
+#crate-type = ["cdylib", "staticlib"]

@@ -8,6 +8,7 @@ fn main() {
     cbindgen::Builder::new()
       .with_crate(crate_dir)
       .with_std_types(false)
+      .with_language(cbindgen::Language::C)
       .generate()
       .expect("Unable to generate bindings")
       .write_to_file("include/point.h");
