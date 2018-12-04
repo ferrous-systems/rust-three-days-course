@@ -6,5 +6,8 @@ authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
 [dependencies]
 libc = "0.2.14"
 
+[build-dependencies]
+cbindgen = "0.6.7"
+
 [lib]
 crate-type = ["dylib", "staticlib"]
