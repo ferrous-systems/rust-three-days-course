@@ -1,5 +1,5 @@
 [package]
-name = "tinyxml2"
+name = "example"
 version = "0.1.0"
 authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
 edition = "2018"
@@ -8,3 +8,4 @@ edition = "2018"
 
 [build-dependencies]
 bindgen = "0.42.2"
+cc = "1.0"

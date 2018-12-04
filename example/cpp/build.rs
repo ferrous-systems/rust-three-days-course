@@ -1,12 +1,11 @@
-extern crate bindgen;
-
 use std::env;
 use std::path::PathBuf;
 
 fn main() {
-    // Tell cargo to tell rustc to link the system bzip2
-    // shared library.
-    println!("cargo:rustc-link-lib=tinyxml2");
+    cc::Build::new()
+        .cpp(true) // Switch to C++ library compilation.
+        .file("cpp/myclass.cpp")
+        .compile("libmyclass.a");
 
     // The bindgen::Builder is the main entry point
     // to bindgen, and lets you build up options for
@@ -14,10 +13,11 @@ fn main() {
     let bindings = bindgen::Builder::default()
         // The input header we would like to generate
         // bindings for.
-        .header("wrapper.h")
+        .header("cpp/myclass.hpp")
         .clang_arg("-x")
         .clang_arg("c++")
         .clang_arg("-std=c++14")
+        .whitelist_type("MyClass")
         // Finish the builder and generate the bindings.
         .generate()
         // Unwrap the Result and panic on failure.
