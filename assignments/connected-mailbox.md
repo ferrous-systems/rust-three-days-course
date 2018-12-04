@@ -34,7 +34,7 @@ Use `std::net::TcpListener` for connecting.
 
 Use `std::collections::VecDeque` for storing.
 
-Read the documentation for the `std::io::Read`, `std::io::Write` traits, especially `read_line`.
+Read the documentation for the `std::io::Read`, `std::io::Write` traits, especially `read_to_string`.
 
 ## 3. Do proper error handling
 
