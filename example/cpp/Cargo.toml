@@ -1,14 +1,11 @@
 [package]
-name = "point"
+name = "example"
 version = "0.1.0"
 authors = ["Florian Gilcher <florian.gilcher@asquera.de>"]
+edition = "2018"
 
 [dependencies]
-libc = "0.2.14"
 
 [build-dependencies]
-cbindgen = "0.6.7"
-
-[lib]
-crate-type = ["staticlib"]
-#crate-type = ["cdylib", "staticlib"]
+bindgen = "0.42.2"
+cc = "1.0"
