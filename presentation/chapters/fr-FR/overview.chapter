@@ -1,0 +1,142 @@
+# Aperçu
+[Table des Matières](toc/french.html)
+
+---
+
+## Un peu d'histoire
+
+-   Rust a peu près 10 ans 
+-   Est un projet expérimental de Graydon Hoare
+-   Adopté par Mozilla
+-   Présenté au grand public en 2012 en version 0.12
+-   Ressemblait un peu à Go à l'époque 
+
+---
+
+## Focus
+
+-   Rust a perdu beaucoup de features entre 2012 et 2014
+-   Garbarge Collector, event runtime, sytème complexe pour de support des erreurs 
+-   Tous présent à une époque, maintenant partis
+-   Le design s'est orienté vers la programamtion système
+
+--- 
+
+## Développement
+
+-   Toujours avec un grand projet (ex: Servo)
+-   Une adoption très tôt des releases régulière, depecrations et RFC processus
+-   Bonnes methodes de developpement logiciel 
+-   "Les choses ne sont pas completes tant qu'il n'y a plus rien à ajouter mais quand il n'y a pas
+    plus rien à enlever."
+
+---
+
+### Release Method
+
+-   Nightly releases
+-   Toutes les 6 semaines, la nightly courante est promue en bêta
+-   Après 6 semaines de tests, la beta devient la nouvelle stable
+-   Rétro-comptabilité garantie
+-   Rendre les petites itérations plus faciles
+
+---
+
+## Buts
+
+-   Explicite au lieu d'implicite
+-   Exécution au runtime prévisible
+-   Permet le developpement stable de logiciel en général 
+-   Pragmatism et intégration facile
+-   Projet approchable 
+
+---
+
+### Rust veut être en premier utilisable!
+
+--- 
+
+Plusieurs exemple dans ce cours sont vraiment court, c'est pourquoi nous allons passer du temps pour
+ discuter de l'impact plusieurs features sur des larges projets.
+
+---
+
+### Les trois mots
+
+
+-   Sûr
+-   Concurrent
+-   Rapide
+
+---
+
+## Sûr
+
+-   Rust est sûr du point de vue de la memoire
+-   Pas d'accès illégal à la memoire
+-   La desallocation est automatique
+-   Attention: Les fuites de memoires sont sûr par cette définition
+
+
+## Concurrent
+
+
+-   "Parallèlisation sans peur"
+-   Le système de type detecte les accès concurrent aux données et requiert la synchronisation
+-   Aussi Rust detecte quand les accès non syncronisé sont possibles!
+-   Protections contre les data race!
+
+--- 
+
+## Rapide
+
+-   Ces propriétés sont garanties à la compilation et il n'y pas de côut à l'éxécution!
+-   Les optimisation sont basées sur LLVM
+-   Les features avec un coût à l'éxécution sont dures à activées par accident
+-   Pas de reflexion (Dracula-language)
+-   Dispatch static par défault
+
+---
+
+### Pragmatique
+
+
+-   Un sous language pour les accès non sûr à la mémoire
+-   Bonnes techniques pour les supporter
+-   Bon support des FFI
+-   Les messages d'erreurs du compilateur sont excellents.
+-   Rust aide pour beacoup de chose difficile et vous fait confiance pour le reste
+
+---
+
+## Les features du languages
+
+
+-   Rust est un language basé sur les expressions. Chaques expressions a une valeur, qui peut être 
+assignée ou retournée.
+
+-   "Paye ce que tu utilise": Rust a des features qui ont un coût au runtime explicitement. Les 
+    features non utilisés ne coûte rien.
+
+-   Abstraction sans coût
+
+---
+
+##  D'où viennent les rusticians ?
+
+D'une égal part de: 
+
+-  Language dynamiques (Js, Rubyistes, Python)
+-  Language fonctionnel comme scala and haskell
+-  C/C++
+
+
+--- 
+
+## Utilsateurs célébres 
+
+-   Mozilla Firefox
+-   Mozilla Servo
+-   Gnome
+-   Dropox
+-   [Communauté friends](http://rust-lang.org/friends.html) 
