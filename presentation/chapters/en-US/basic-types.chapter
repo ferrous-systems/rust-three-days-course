@@ -43,7 +43,7 @@ Overflows trigger a trap in Debug mode, but not in release mode. This behaviour 
 
 ## Floats
 
-Rust also comes with floats of all standard sizes: f8, f16, f32, f64
+Rust also comes with floats of all standard sizes: f32, f64
 
 <pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
