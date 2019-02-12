@@ -43,7 +43,7 @@ Los overflows disparan una trampa en modo debug, pero no en modo release. Este c
 
 ## Flotantes
 
-Rust también viene con flotantes de todos los tamaños estándar: f8, f16, f32, f64
+Rust también viene con flotantes de todos los tamaños estándar: f32, f64
 
 <pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
