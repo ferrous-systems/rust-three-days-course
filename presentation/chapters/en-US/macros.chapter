@@ -110,7 +110,6 @@ Macros:
 
 * Can be difficult to debug.
 * Can be confusing to read and understand.
-* Have awkward import semantics.
 
 ---
 
@@ -118,4 +117,4 @@ Macros:
 
 Use macros where there are no other good alternatives.
 
-Avoid over using macros.
+Avoid overusing macros.
