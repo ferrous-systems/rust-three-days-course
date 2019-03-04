@@ -10,4 +10,3 @@ $ cargo build
 $ cargo run
     Finished debug [unoptimized + debuginfo] target(s) in 0.0 secs
      Running `target/debug/hello-world`
-Hello, world!
