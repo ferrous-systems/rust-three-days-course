@@ -44,7 +44,7 @@ Dies läd die Quelltexte der Standardbibliothek und die Dokumentation zur Komple
 -   rust-(lldb|gdb)
 -   libcore/libstd
 
-Die genaue Art des Debuggers ist Platformabhängig.
+Die genaue Art des Debuggers ist plattformabhängig.
 
 ---
 
@@ -52,9 +52,9 @@ Die genaue Art des Debuggers ist Platformabhängig.
 
 <pre><code data-source="chapters/shared/code/installation/3.sh" data-trim="hljs sh"></code></pre>
 Der Rust-Compiler übernimmt das kompilieren und linken von Rust-Code.
-(warum rustc --help?)
 
-`rustc` ist annähernd komplett in Rust geschrieben. (relevanz?)
+
+`rustc` ist annähernd komplett in Rust geschrieben.
 
 ---
 
@@ -106,7 +106,6 @@ Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an eine `rustc`-Version
 
 <pre><code data-source="chapters/shared/code/installation/8.sh" data-trim="hljs sh"></code></pre>
 
-(ausführen?)
+
 
 ---
-## andere Toolchain Komponenten?
