@@ -5,13 +5,13 @@
 
 ## Ziele
 
--  Installation von Rust mit Rustup
+-  Installation von Rust mit rustup
 -  Kennenlernen der Komponenten der Toolchain
 -  Hallo Welt!
 
 ---
 
-## Rustup
+## rustup
 
 Rustup ist das Standard-Tool zum Managen von Rusts Compiler-Toolchain.
 
@@ -21,7 +21,7 @@ Führen Sie das Shell-Script im Terminal aus.
 
 ---
 
-## Wichtige Kommandos in Rustup
+## Wichtige Kommandos in rustup
 
 <pre><code data-source="chapters/shared/code/installation/1.sh" data-trim="hljs sh"></code></pre>
 
