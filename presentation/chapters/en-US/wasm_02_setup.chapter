@@ -1,0 +1,85 @@
+
+[Table of Contents](toc/english.html)
+
+---
+
+# Setup
+
+---
+
+https://www.rust-lang.org/en-US/install.html
+
+---
+
+## Rustup
+
+Rustup is the standard tool for managing Rusts compiler toolchain.
+
+http://rustup.rs/
+
+---
+
+## Important Commands
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/01_important_commands.sh" data-trim="hljs sh"></code></pre>
+
+---
+
+# First Steps
+
+Execute the following commands:
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/02_first_steps.sh" data-trim="hljs sh"></code></pre>
+This loads the sources of the default library and documentation for completion and offline use.
+
+---
+
+## Functional Test
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/4.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/5a.sh" data-trim="hljs sh"></code></pre>
+
+___
+
+declaring of variables, scope,
+
+---
+
+wasm-pack
+
+cargo-generate
+
+npm
+
+---
+
+Hello, World from rustwasm book
+
+---
+
+Rust Syntax on Example
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/00_syntax_on_example.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+Modify the greet function to take a name: `&str` parameter that customizes the alerted
+message, and pass your name to the greet function from inside `wasm-game-of-life/www/index.js.`
+
+Rebuild the `.wasm` binary with `wasm-pack build`, refresh http://localhost:8080/
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/00_syntax_on_example.rs"></code></pre>
+
+---
+
+Solution:
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/00_solution_lib.rs" data-trim="hljs rust"></code></pre>
+
+
+<pre><code data-source="chapters/shared/code/wasm_workshop/02_setup/00_index_.js" data-trim="hljs js"></code></pre>
+
+---

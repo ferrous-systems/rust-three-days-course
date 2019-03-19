@@ -57,7 +57,7 @@ The Rust compiler builds and links Rust code.
 
 ---
 
-<pre><code data-source="chapters/shared/code/installation/5.sh" data-trim="hljs sh"></code></pre>
+<pre><code data-source="chapters/shared/code/installation/5b.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -91,4 +91,3 @@ For details, check the [Cargo Manifest docs](http://doc.crates.io/manifest.html)
 ## Cargo Also Manages Tools
 
 <pre><code data-source="chapters/shared/code/installation/8.sh" data-trim="hljs sh"></code></pre>
-
