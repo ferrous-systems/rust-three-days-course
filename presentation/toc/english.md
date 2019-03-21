@@ -71,6 +71,12 @@
 
 ---
 
+## Specializations
+
+* [Property Testing](../index.html?chapter=proptest&locale=en-US)
+
+---
+
 ## Unfinished
 
 * [Standard types](../index.html?chapter=standard-types&locale=en-US)
