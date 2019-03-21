@@ -10,52 +10,52 @@
 
 ---
 
-## problem:
+## Problem:
 
-our code reflects our biases, our tests are often biased similarly
-
----
-
-## solution:
-
-don't write tests
+Our code reflects our biases, our tests are often biased similarly
 
 ---
 
-## solution:
+## Solution:
 
-write expectations
-
----
-
--   have the machine generate random test cases
--   make beliefs explicit, force them to pay rent
+Don't write tests
 
 ---
 
-this is called property testing
+## Solution:
+
+Write expectations
 
 ---
 
-#### crate: **proptest**
+-   Have the machine generate random test cases
+-   Make beliefs explicit, force them to pay rent
+
+---
+
+This is called property testing
+
+---
+
+## Crate: **proptest**
 
 <pre><code data-source="chapters/shared/code/proptest/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## crate: **proptest**
+## Crate: **proptest**
 
 <pre><code data-source="chapters/shared/code/proptest/2.txt" data-trim="hljs bash" class="lang-bash"></code></pre>
 
 ---
 
-crates.io/crates/<b>proptest</b>
+## Crate: **proptest**
 
 <pre><code data-source="chapters/shared/code/proptest/3.txt" data-trim="hljs bash" class="lang-bash"></code></pre>
 
 ---
 
-wonderful for testing codecs, serialization,
+Wonderful for testing codecs, serialization,
 compression, or any set of operations that
 should retain equality.
 
@@ -63,13 +63,13 @@ should retain equality.
 
 ---
 
-it's easy to generate more structured input, too
+It's easy to generate more structured input, too
 
 <pre><code data-source="chapters/shared/code/proptest/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
 ---
 
-## configuration is a great target
+## Configuration is a great target
 
 <pre><code data-source="chapters/shared/code/proptest/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
