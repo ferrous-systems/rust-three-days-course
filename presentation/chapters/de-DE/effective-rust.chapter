@@ -7,13 +7,13 @@
 
 Sie sollten sich an die Iterator-API gewöhnen und sie verwenden.
 
-Iteratoren werden stark über kombinierte Operation hinweg optimiert.
+Iteratoren werden stark über kombinierte Operationen hinweg optimiert.
 
 ---
 
 ## Eigenheiten durch Ownership
 
-Das Herausbewegen von Daten aus Kollektionen ist in Rust nicht möglich. Zumindest nicht, ohne einen Wert dort zu hinterlassen.
+Das Herausbewegen von Daten aus Kollektionen ist in Rust nicht möglich, ohne einen Wert dort zu hinterlassen.
 
 Indiana Jones verwendet `std::mem::swap` oder `std::mem::replace`.
 

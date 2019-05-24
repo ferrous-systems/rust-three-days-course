@@ -5,10 +5,10 @@
 
 ## Warum?
 
--   Abhängigkeiten können nightly verlangen
--   Kompilierzeiten und Fehlermeldungen sind manchmal besser (manchmal nicht)
--   Es gibt mehrere Funktionen, die noch nicht stabil sind
--   Der stabile Compiler erlaubt strikt keinen Zugriff auf unfertige Features
+-   Abhängigkeiten können nightly verlangen.
+-   Kompilierzeiten und Fehlermeldungen sind manchmal besser. (manchmal nicht)
+-   Es gibt mehrere Funktionen, die noch nicht stabil sind.
+-   Der stabile Compiler erlaubt strikt keinen Zugriff auf unfertige Features.
 -   Compiler-Plugins
 
 ---

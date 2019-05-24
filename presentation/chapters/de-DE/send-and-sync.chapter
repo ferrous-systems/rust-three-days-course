@@ -6,7 +6,7 @@
 Rusts Unterstützung für Nebenläufigkeit basiert auf 2 Traits:
 
 -   `Send` markiert eine Struktur als sicher zum *senden* zwischen Threads.
--   `Sync` kennzeichnet eine Struktur als sicher zum *teilen* zwischen Threads sicher ist.
+-   `Sync` kennzeichnet eine Struktur als sicher zum *teilen* zwischen Threads.
     -   (`&T` ist `Send`, wenn `T` `Sync`)
 
 Beide sind sogenannte "Marker".
@@ -82,7 +82,7 @@ Was sind die Konsequenzen von `Send` und `Sync`?
 
 ## Konsequenzen
 
-Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeits Problemen zur *Übersetzungszeit*.
+Das Tragen dieser Informationen auf der Typ-System-Ebene ermöglicht das erkennen von Nebenläufigkeitsproblemen zur *Übersetzungszeit*.
 
 Dies verhindert, dass diese Fehlerklasse die Produktionssysteme erreicht.
 

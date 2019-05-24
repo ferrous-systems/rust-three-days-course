@@ -9,15 +9,25 @@ Daher hat Rust das Konzept von `unsicherem Code`.
 
 ---
 
-Unsicherer Code darf: \* Beliebige Speicherzugriffe durchführen \* Rohe Pointer dereferenzieren \* Externe Funktionen aufrufen \* Eigenschaften wie `Send` und `Sync` feststellen \* Globale (unsynchronisierte) Variablen schreiben
+Unsicherer Code darf:
+-   Beliebige Speicherzugriffe durchführen
+-   Rohe Pointer dereferenzieren
+-   Externe Funktionen aufrufen
+-   Eigenschaften wie `Send` und `Sync` feststellen
+-   Globale (unsynchronisierte) Variablen schreiben
 
 ---
 
-Nicht unsicher sind: \* Konvertierungen in rohe Pointer \* Speicherlecks
+Nicht unsicher sind:
+-   Konvertierungen in rohe Pointer
+-   Speicherlecks
 
 ---
 
-Unsicherer Code sollte niemals: \* Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird. - Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen. \* borrowck umgehen, z.B. Lebenszeiten oder Mutabilität eines Typens umändern - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
+Unsicherer Code sollte niemals:
+-   Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird.
+-   Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen.
+-   borrowck umgehen, z.B. Lebenszeiten oder Mutabilität eines Typens umändern - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
 
 ---
 
@@ -53,4 +63,3 @@ Rust erlaubt einem, sich in den Fuss zu schiessen, es möchte nur vorher, dass m
 Da Rust aliasing verbietet, kann man in sicherem Rust keine Slice in 2 Slices teilen.
 
 <pre><code data-source="chapters/shared/code/unsafe/2.rs" data-trim="hljs rust"></code></pre>
-

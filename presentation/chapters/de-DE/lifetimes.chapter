@@ -35,7 +35,10 @@ Korrekt müsste die Struct-Definition heißen:
 
 ---
 
-Wrapper ist nun: \* Generisch sowohl über den Typ T \* als auch eine Lebenszeit 'a (seine eigene) \* die durch das Ausleihen gebundenen Werte müssen *mindestens ebensolang* leben.
+Wrapper ist nun:
+-   Generisch sowohl über den Typ T
+-   als auch eine Lebenszeit 'a (seine eigene)
+-   die durch das Ausleihen gebundenen Werte müssen *mindestens ebensolang* leben.
 
 ---
 

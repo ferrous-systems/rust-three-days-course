@@ -23,10 +23,10 @@ Es entstehen keine Konvertierungskosten.
 
 ## Reihenfolge
 
--   Wir folgen der Reihenfolge des Header-Files
--   Erst low-level-Bindings
--   Dann (minimale) sichere Bindings.
--   Dann eine kleine Abstraktion
+Wir folgen der Reihenfolge des Header-Files:
+-   erst low-level-Bindings
+-   dann (minimale) sichere Bindings
+-   dann eine kleine Abstraktion
 
 ---
 
@@ -53,7 +53,7 @@ Hier werden spezielle Structs verwendet, die nicht konstruiert werden oder geles
 
 ## Enums
 
-<pre><code data-source="chapters/shared/code/ffi/4.rs" data-trim="hljs rust"></code></pre>
+<pre><code data-source="chapters/shared/code/ffi/4-3.rs" data-trim="hljs rust"></code></pre>
 Das Layout von Enums und Structs ist in Rust (momentan) dem Compiler überlassen. `#[repr(C)]` weist den Compiler an, stattdessen das Platform-Layout zu verwenden.
 
 ---
@@ -98,9 +98,9 @@ Wir binden die Funktionen, aber sicher ist hier garnichts.
 
 ## Warum so?
 
--   Structs mit einem Feld verschwinden zur Laufzeit
+-   Structs mit einem Feld verschwinden zur Laufzeit.
 -   Isoliert das Lifecyclemanagement des Pointers vom Rest des Codes
--   In älteren Versionen von Rust verändert `Drop` das Layout des Structs
+-   In älteren Versionen von Rust verändert `Drop` das Layout des Structs.
 
 ---
 
@@ -203,4 +203,3 @@ Huch! Plötzlich habe ich einen mutablen und immutablen Pointer.
 
 -   [Servos bindgen](https://github.com/servo/rust-bindgen)
 -   Sehr fortgeschritten, kann auch mit C++ umgehen.
-

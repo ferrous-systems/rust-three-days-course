@@ -7,7 +7,7 @@ Rust wird mit 2 Grundbibliotheken, libcore und libstd ausgeliefert.
 
 ---
 
-libcore enthält alle Typen, die zum funktionieren der Sprache benötigt werden.
+libcore enthält alle Typen, die zum Funktionieren der Sprache benötigt werden.
 
 libcore ist allokationsfrei.
 
