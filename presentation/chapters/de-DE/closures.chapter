@@ -32,7 +32,7 @@ FnOnce
 
 FnMut
 
-* Die Closure verändert ihre Umgebung .
+* Die Closure verändert ihre Umgebung.
 
 Fn
 

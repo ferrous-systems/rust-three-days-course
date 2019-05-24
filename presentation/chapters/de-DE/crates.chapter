@@ -20,7 +20,7 @@ Dies importiert das "SERialisation/DEserialisation"-Framework.
 
 Da Macros immer global für die gesamte Bibliothek gelten, müssen sie folgendermaßen eingebunden werden:
 
-<pre><code data-source="chapters/shared/code/crates/2.output" data-trim="hljs output"></code></pre>
+<pre><code data-source="chapters/shared/code/crates/2.rs" data-trim="hljs rust"></code></pre>
 Dies importiert die Macro-Sätze von serde, die die Arbeit stark vereinfachen.
 
 ---
