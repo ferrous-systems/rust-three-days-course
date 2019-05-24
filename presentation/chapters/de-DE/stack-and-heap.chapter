@@ -37,4 +37,4 @@ Momentan ist es *nicht* möglich, Daten direkt an einer gewünschten Stelle zu a
 
 ---
 
-In den meisten Fällen optimiert LLVM dies aber eh schon raus.
+In den meisten Fällen optimiert LLVM dies aber schon heraus.

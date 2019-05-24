@@ -11,7 +11,7 @@
 
 ## Rückgabewert
 
-der Rückgabewert ist optional.
+Der Rückgabewert ist optional.
 
 <pre><code data-source="chapters/shared/code/functions/2.rs" data-trim="hljs rust"></code></pre>
 

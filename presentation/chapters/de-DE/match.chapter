@@ -33,7 +33,7 @@ class="lang-rust"></code></pre>
 
 ---
 
-Results tragen eine besondere Markierung: sie dürfen nicht ignoriert werden!
+Results tragen eine besondere Markierung: Sie dürfen nicht ignoriert werden!
 
 <pre><code data-source="chapters/shared/code/match/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Lösung: matchen oder weiterreichen.
@@ -49,4 +49,3 @@ Lösung: matchen oder weiterreichen.
 `match` und `if` Ausdrücke:
 
 <pre><code data-source="chapters/shared/code/match/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-

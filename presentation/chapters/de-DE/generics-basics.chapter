@@ -15,7 +15,7 @@ Generics sind fundamental für Rust.
 
 ## Typinferenz
 
-Rust findet bei ausreichender Informationslage selbst die Typen aller Variablen und Generics heraus.
+Rust findet bei ausreichender Informationslage die Typen aller Variablen und Generics selbst heraus.
 
 Dies gilt nur *innerhalb* von Funktionsgrenzen.
 
@@ -38,7 +38,7 @@ Signaturen müssen immer voll angegeben werden.
 <pre><code data-source="chapters/shared/code/generics-basics/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 Beschreibt einen Wert, der nicht zwingend vorhanden sein muss.
 
-`None` ist ein Wert, sollte als nicht mit `null` verwechselt werden.
+`None` ist ein Wert, sollte also nicht mit `null` verwechselt werden.
 
 ---
 
@@ -60,4 +60,3 @@ Beschreibt, ob eine Operation erfolgreich war und gibt entweder den Wert oder ei
 Generische Funktionen haben Typparameter.
 
 <pre><code data-source="chapters/shared/code/generics-basics/6.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-

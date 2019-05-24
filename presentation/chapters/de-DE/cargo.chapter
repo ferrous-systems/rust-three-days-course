@@ -13,18 +13,18 @@ Grundsätzlich ist Cargo aber unabhängig von der `rustc`-Version.
 
 ## Projekte
 
-Ein Cargo-Projekt enthält (mindestens).
+Ein Cargo-Projekt enthält mindestens:
 
--   Ein Manifest (Cargo.toml)
--   Eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
+-   ein Manifest (Cargo.toml)
+-   eine Quelldatei (entweder Bibliothek oder Applikation) im Verzeichis `src` (standard, kann geändert werden)
 
 ---
 
-Darüber hinaus kann ein Cargo-Projekt enthalten:
+Darüber hinaus kann ein Cargo-Projekt Folgendes enthalten:
 
 -   Tests (Standardverzeichnis `tests`)
 -   Benchmarks (Standardverzeichnis `benches`)
--   Ein Build-Script (Standardname `build.rs`)
+-   ein Build-Script (Standardname `build.rs`)
 -   Beispiele (Standardverzeichnis `examples`)
 
 ---
@@ -57,7 +57,7 @@ Nutzen Sie auf *jeden Fall* `--release` für Benchmarks, gerade Iteratoren werde
 
 Wenn das Projekt eine Applikation enthält, kann diese mit `cargo run -- [Argumente]` ausgeführt werden.
 
-Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist der Debug-Profil Standard.
+Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist das Debug-Profil Standard.
 
 ---
 
@@ -83,9 +83,9 @@ Hier ist das Release-Profil Standard.
 
 In der Rust-Community ist [Semantic Versioning](https://semver.org) der empfohlene Standard für Versionierung.
 
--   Die Major-Version muss stets angehoben werden, wenn das Interface bricht
--   Die Minor-Version wird angehoben, wenn Features hinzugefügt werden
--   Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten
+-   Die Major-Version muss stets angehoben werden, wenn das Interface bricht.
+-   Die Minor-Version wird angehoben, wenn Features hinzugefügt werden.
+-   Die Patch-Version ist Bug-Fixes und Performance-Verbesserungen vorbehalten.
 
 ---
 
@@ -97,7 +97,7 @@ Ist die Version einer Bibliothek unter `1`, gilt sie als "vor Release", daher d�
 
 ## Versionsausdrücke
 
-Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken.
+Cargo gibt daher die Möglichkeit, Versionen auf mehrere Arten auszudrücken:
 
 -   `=1.2.3`: Exakte Version, Cargo wird nur diese verwenden
 -   `0.1`: Jede beliebige Minor-Version der "0.1"er-Serie
@@ -161,8 +161,8 @@ Die Profile von Cargo (release, bench, test...) können angepasst werden. Detail
 
 ## Targets
 
--   Profile und Abhängigkeiten lassen sich auch je nach Target konfigurieren
--   `cargo build --target ...` nutzt dieses Target
+-   Profile und Abhängigkeiten lassen sich je nach Target konfigurieren.
+-   `cargo build --target ...` nutzt dieses Target.
 -   Es muss vorher installiert sein!
 -   Eventuell Xargo verwenden!
 
