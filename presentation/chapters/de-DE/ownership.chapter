@@ -86,7 +86,7 @@ Kopien sind für Daten vorgesehen, die im Speicher schnell kopierbar sind (memco
 
 ---
 
-Daten, die Copy sind, folgen den Ownership-Regeln, sie werden allerdings kopiert, wenn Ownership abgeben würde.
+Daten, die den `copy`-Trait besitzen, folgen den Ownership-Regeln. Sie werden allerdings kopiert, wenn Ownership abgeben wird.
 
 ---
 
@@ -112,4 +112,3 @@ Was würde passieren, wenn wir File nach dem Aufruf von `use_file` noch verwende
 ---
 
 <pre><code data-source="chapters/shared/code/ownership/7.rs" data-trim="hljs rust"></code></pre>
-
