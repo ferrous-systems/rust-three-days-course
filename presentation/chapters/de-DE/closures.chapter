@@ -7,13 +7,13 @@ Rust hat Closures. Mehrere.
 
 ---
 
-Vorteil: 
+Vorteil:
 
 * Hoch optimiert und nur mit den absolut benötigten Laufzeitkosten.
 
-Nachteil: 
+Nachteil:
 
-* Den Typ zu bestimmen ist nicht immer einfach
+* Den Typ zu bestimmen ist nicht immer einfach.
 
 ---
 
@@ -26,17 +26,17 @@ Nachteil:
 
 ## Closure-Typen
 
-FnOnce 
+FnOnce
 
-* Die Closure konsumiert ihre Umgebung 
+* Die Closure konsumiert ihre Umgebung.
 
-FnMut 
+FnMut
 
-* Die Closure verändert ihre Umgebung 
+* Die Closure verändert ihre Umgebung .
 
-Fn 
+Fn
 
-* Die Closure referenziert ihre Umgebung immutabel
+* Die Closure referenziert ihre Umgebung immutabel.
 
 ---
 
@@ -55,4 +55,3 @@ Fn
 Da die Closure-Umgebung implizit ist, müssen Werte explizit hineinbewegt werden.
 
 <pre><code data-source="chapters/shared/code/closures/4.rs" data-trim="hljs rust"></code></pre>
-
