@@ -123,9 +123,8 @@ Unified Function Call Syntax
 
 ## Assoziierte Typen
 
-Assoziierte Typen sind generische Parameter, die bei der Inferenz ausser acht gelassen werden.
+Assoziierte Typen sind generische Parameter, die bei der Inferenz außer acht gelassen werden.
 
 ---
 
 <pre><code data-source="chapters/shared/code/traits/7.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-

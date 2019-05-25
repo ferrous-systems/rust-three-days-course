@@ -43,7 +43,7 @@ Rust erlaubt keine negativen Bedingungen (Trait A und *nicht* Trait B)
 
 ## Ausnahme: `Sized`
 
-Wenn nicht anders angegeben, kriegen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
+Wenn nicht anders angegeben, bekommen alle generischen Parameter die Bedingung `Sized` (der Typ hat eine bekannte Speichergröße. Dies kann mit der Bedingung `?Sized` ausgeschaltet werden.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/5.rs" data-trim="hljs rust"></code></pre>
 
@@ -82,4 +82,3 @@ Traits können für Typparameter implementiert werden.
 Traits können auch die Implementierung anderer Traits verlangen und Implementierungen von Funktionen vorgeben.
 
 <pre><code data-source="chapters/shared/code/advanced-generics-bounds/9.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-

@@ -45,4 +45,4 @@ Referenz-zu-Referenz-Konvertierung. Zeigt an, dass ein Typ einfach Referenzen au
 
 ## `Borrow<T>` und `BorrowMut<T>`
 
-`Borrow<T>` abstrahiert über Ownership und Borrowing. `Borrow<T>` bedeutet, dass der Typ einen Borrow des Typen `T` erzeugen kann. Es ist ähnlich `AsRef<T>`, kommuniziert aber einem anderen Zweck.
+`Borrow<T>` abstrahiert über Ownership und Borrowing. `Borrow<T>` bedeutet, dass der Typ einen Borrow des Typen `T` erzeugen kann. Es ist ähnlich `AsRef<T>`, kommuniziert aber einen anderen Zweck.

@@ -40,17 +40,17 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 
 ## Einschränkungen
 
--   Es kann nur ein Trait pro Objekt verwendet werden
--   Dieser Trait muss bestimmten Regeln gehorchen
+-   Es kann nur ein Trait pro Objekt verwendet werden.
+-   Dieser Trait muss bestimmten Regeln gehorchen.
 
 ---
 
 ## Regeln für Objekt-Traits
 
--   Objektsichere Traits dürfen *nicht* `Self: Sized` verlangen
--   Alle Methoden sind objektsicher
-    -   sie haben keine Typ-Parameter
-    -   sie verwenden nicht `Self`
+-   Objektsichere Traits dürfen *nicht* `Self: Sized` verlangen.
+-   Alle Methoden sind objektsicher:
+    -   Sie haben keine Typ-Parameter.
+    -   Sie verwenden nicht `Self`.
 
 ---
 
@@ -67,4 +67,3 @@ Trait-Objekte sind ein Paar von Pointern auf eine virtuelle Funktionstabelle und
 Da Closures Traits implementieren, sind sie legale Trait-Objekte.
 
 <pre><code data-source="chapters/shared/code/dynamic-dispatch/4.rs" data-trim="hljs rust"></code></pre>
-

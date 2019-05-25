@@ -3,7 +3,7 @@
 
 ---
 
-`size_of` und `size_of_val` helfen dabei, die Größe von Typen (in Bytes) herauzubekommen.
+`size_of` und `size_of_val` helfen dabei, die Größe von Typen (in Bytes) herauszubekommen.
 
 <pre><code data-source="chapters/shared/code/memory-considerations/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
@@ -73,4 +73,4 @@ Enums benötigen die Größe ihres größten Werts, 1 Byte für eine Diskriminat
 
 Wenn 0 kein legaler Wert ist, nutzt Option diesen als `None`-Fall.
 
-Leider gibt es momentan keine Möglichkeit, dass dem Compiler zu kommunizieren.
+Leider gibt es momentan keine Möglichkeit, das dem Compiler zu kommunizieren.

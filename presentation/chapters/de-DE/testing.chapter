@@ -13,18 +13,18 @@ Unit-, Integrations und Dokumentations-Tests werden direkt mitgeliefert.
 
 Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
--   Direkt neben der getesteten Funktionalität. (Unittest)
--   In einem `Tests`-Modul. (Privater Integrationstest)
--   In der Dokumentation. (Dokumentationsprüfung)
--   Im Verzeichnis `tests/`. (Öffentlicher Integrationstest)
+-   direkt neben der getesteten Funktionalität (Unittest)
+-   in einem `Tests`-Modul (Privater Integrationstest)
+-   in der Dokumentation (Dokumentationsprüfung)
+-   im Verzeichnis `tests/` (Öffentlicher Integrationstest)
 
 ---
 
 ## Unittest
 
--   Erlaubt Testfunktionalität im gleichen Modul und Umgebung.
--   Typisch direkt in der Nähe der Funktionalität.
--   Gut um sicherzustellen, ob dass eine einzelne Aktion *funktioniert*.
+-   erlaubt Testfunktionalität im gleichen Modul und Umgebung
+-   typisch direkt in der Nähe der Funktionalität
+-   gut um sicherzustellen, ob eine einzelne Aktion *funktioniert*.
 
 ---
 
@@ -42,9 +42,9 @@ Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
 ## `tests` Untermodul
 
--   Ermöglicht das Testen, als ob die Funktionalität an anderer Stelle im Projekt verwendet wird.
--   Für die Prüfung privater APIs und Funktionalität.
--   Gut für die Prüfung erwarteter Prozesse und Anwendungsfälle.
+-   ermöglicht das Testen, als ob die Funktionalität an anderer Stelle im Projekt verwendet wird
+-   für die Prüfung privater APIs und Funktionalität
+-   gut für die Prüfung erwarteter Prozesse und Anwendungsfälle
 
 ---
 
@@ -62,9 +62,9 @@ Tests in der Regel am Ende in 1 von 4 möglichen Standorten:
 
 ## Dokumentationstests
 
--   Erlauben das Testen der öffentlichen Funktionalität.
--   Wird im `rustdoc`-Ausgang angezeigt.
--   Zur Demonstration erwarteter Anwendungsfälle und Beispiele.
+-   erlauben das Testen der öffentlichen Funktionalität
+-   wird im `rustdoc`-Ausgang angezeigt
+-   zur Demonstration erwarteter Anwendungsfälle und Beispiele
 
 ---
 
@@ -88,8 +88,8 @@ pub enum Direction { North, South, East, West }
 
 ## Integrationstests
 
--   Tests, als ob die Bibliothek eine externe Abhängigkeit ist.
--   Für längere oder volle Funktionstests vorgesehen.
+-   Tests, als ob die Bibliothek eine externe Abhängigkeit ist
+-   Für längere oder volle Funktionstests vorgesehen
 
 ---
 
@@ -104,4 +104,3 @@ pub enum Direction { North, South, East, West }
 ## Integrationstests
 
 <pre><code data-source="chapters/shared/code/testing/7.bash" data-trim="hljs bash"></code></pre>
-

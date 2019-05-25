@@ -8,7 +8,7 @@
 Warum funktioniert eigentlich folgendes?
 
 <pre><code data-source="chapters/shared/code/deref-coersions/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-Box hat doch garkein Feld "x"!
+Box hat doch gar kein Feld "x"!
 
 ---
 
@@ -16,10 +16,10 @@ Box hat doch garkein Feld "x"!
 
 Rust dereferenziert unter bestimmten Umständen automatisch. Wie alles andere, muss das explizit angefordert werden über:
 
--   Einen Aufruf oder Feldzugriff via den `.`-Operator
--   Eine explizite Dereferenzierung mit `*`
--   Bei der Übergabe mit `&`
--   Führt manchmal zu einem hässlichen `&*`-Pattern
+-   einen Aufruf oder Feldzugriff via den `.`-Operator
+-   eine explizite Dereferenzierung mit `*`
+-   bei der Übergabe mit `&`
+-   führt manchmal zu einem hässlichen `&*`-Pattern
 
 ---
 
@@ -44,4 +44,3 @@ Funktionen, die immutabel auf Strings oder Vektoren arbeiten, sollten eine immut
 ---
 
 <pre><code data-source="chapters/shared/code/deref-coersions/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-

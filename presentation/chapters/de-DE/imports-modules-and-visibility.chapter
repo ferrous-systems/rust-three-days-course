@@ -30,7 +30,7 @@ Das ist jedoch *generell* ungern gesehen.
 
 ## Prelude
 
-Eine Ausnahme stellt die sogenannte "Prelude" dar: dies ist ein spezielles Modul in der Standardbibliothek, das automatisch komplett importiert wird.
+Eine Ausnahme stellt die sogenannte "Prelude" dar: Dies ist ein spezielles Modul in der Standardbibliothek, das automatisch komplett importiert wird.
 
 ---
 
@@ -59,13 +59,13 @@ Imports können auch direkt in Funktionen geschehen. Sie sind dann nur dort gül
 
 ## Module
 
-Das Modulsystem von Rust ist ähnlich dem von Python.
+Das Modulsystem von Rust ist dem von Python ähnlich.
 
 ---
 
--   Jede Quelldatei ist automatisch ein Modul
--   Submodule können entweder in derselben Datei oder in einer anderen sein
--   Bibliotheken nennen sich "Crates" und enthalten Module
+-   Jede Quelldatei ist automatisch ein Modul.
+-   Submodule können entweder in derselben Datei oder in einer anderen sein.
+-   Bibliotheken nennen sich "Crates" und enthalten Module.
 
 ---
 
@@ -119,7 +119,7 @@ In Rust ist alles standardmässig privat. Öffentlich verfügbare Typen werden m
 
 ## Structs
 
-Structs sind an dieser Stelle etwas komplexer: sie exportieren ihre Felder nicht, was deren Verwendung und die Konstruktion des Strucs nicht ermöglicht.
+Structs sind an dieser Stelle etwas komplexer: Sie exportieren ihre Felder nicht, was deren Verwendung und die Konstruktion des Strucs nicht ermöglicht.
 
 Genauso werden Struct-Funktionen nicht standardmässig exportiert.
 

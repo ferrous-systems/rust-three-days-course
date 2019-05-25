@@ -17,9 +17,9 @@ Die Drop-Reihenfolge in Rust ist momentan *nicht* standardisiert. Es gibt jedoch
 
 ## Drop-Reihenfolge
 
--   Werte werden fallen gelassen, wenn ihr Scope zuende ist
--   Die Reihenfolge ist *genau umgekehrt wie ihre Einführung*
--   Nicht gebundene Werte droppen *sofort*
+-   Werte werden fallen gelassen, wenn ihr Scope zuende ist.
+-   Die Reihenfolge ist *genau umgekehrt wie ihre Einführung*.
+-   Nicht gebundene Werte droppen *sofort*.
 
 ---
 
@@ -55,14 +55,14 @@ Rust besitzt einen weiteren Fehlermechanismus: `panic!`
 
 ---
 
-Im Falle einer Panic passiert Folgendes: 
-* Der Thread hält sofort an 
-* Der Stack wird aufgerollt 
-* Alle von der Panic betroffenen Werte werden fallengelassen
+Im Falle einer Panic passiert Folgendes:
+* Der Thread hält sofort an.
+* Der Stack wird aufgerollt.
+* Alle von der Panic betroffenen Werte werden fallengelassen.
 
 ---
 
-Panics gleichen mechanisch C++-Exceptions, sollten aber nur zur Signalisierung unbehebbarer Fehler verwendet werden. Sie können nicht (normalerweise) gefangen werden.
+Panics gleichen mechanisch C++-Exceptions, sollten aber nur zur Signalisierung unbehebbarer Fehler verwendet werden. Sie (normalerweise) können nicht gefangen werden.
 
 Der betroffene Thread stellt die Arbeit ein.
 

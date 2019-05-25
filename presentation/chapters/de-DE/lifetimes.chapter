@@ -13,8 +13,8 @@ Das ist nicht notwendig.
 
 ## Lebenszeiten
 
--   Beschreiben die Zeit, die alle Daten im Speicher verbringen
--   Sind deskriptiv - sie können nichts erzwingen
+-   beschreiben die Zeit, die alle Daten im Speicher verbringen.
+-   sind deskriptiv - sie können nichts erzwingen.
 -   Lebenszeiten sind Typen!
 
 ---
@@ -29,13 +29,16 @@ Dieser Code würde - würde er funktionieren - Speicherverletzungen auslösen.
 
 ---
 
-Korrekte müsste die Struct-Definition heissen:
+Korrekt müsste die Struct-Definition heißen:
 
 <pre><code data-source="chapters/shared/code/lifetimes/5.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-Wrapper ist nun: \* Generisch sowohl über den Typ T \* als auch eine Lebenszeit 'a (seine eigene) \* die durch das Ausleihen gebundenen Werte müssen *mindestens ebensolang* leben
+Wrapper ist nun:
+-   Generisch sowohl über den Typ T
+-   als auch eine Lebenszeit 'a (seine eigene)
+-   die durch das Ausleihen gebundenen Werte müssen *mindestens ebensolang* leben.
 
 ---
 
@@ -77,18 +80,18 @@ Beliebte Falle: "Lebenszeiten verkürzen" geht nicht, denn sie beschreiben nur.
 
 `'static` sind:
 
--   In der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
+-   in der Binärdatei enthaltene Daten, zum Beispiel statische Strings.
 -   Heap-allokierte Werte (z.B. der Inhalt von `Box`)
 -   sofern diese nicht an Werte gebunden sind, die kürzer leben!
 -   Globals
 
 ---
 
-`'static` ist nichts ehrrühriges. In nebenläufigen Programmen ist es durchaus sehr häufig. Gerade, wenn mit events gearbeitet wird, müssen die Daten meist auf dem Heap liegen, da der Stack dem Evenreaktor gehört.
+`'static` ist nichts ehrrühriges. In nebenläufigen Programmen ist es durchaus sehr häufig. Gerade, wenn mit events gearbeitet wird, müssen die Daten meist auf dem Heap liegen, da der Stack dem Eventreaktor gehört.
 
 ---
 
-Lebenszeiten gelten für alle Typen, nicht nur Referenzen, daher sind sie Bedingungen in generischem Code:
+Lebenszeiten gelten für alle Typen, nicht nur für Referenzen, daher sind sie Bedingungen in generischem Code:
 
 <pre><code data-source="chapters/shared/code/lifetimes/8.rs" data-trim="hljs rust"></code></pre>
 
@@ -114,4 +117,3 @@ Im Standardfall werden Lebenszeiten in Signaturen eingefügt. Zum Beispiel entsp
 Bei Boxen ist die Standardlebenszeit `'static`. Manchmal ist das zu lang, daher lässt sie sich überschreiben:
 
 <pre><code data-source="chapters/shared/code/lifetimes/12.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
