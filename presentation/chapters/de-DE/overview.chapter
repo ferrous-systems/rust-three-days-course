@@ -16,7 +16,7 @@
 ## Fokussierung
 
 -   Rust hat von 2012 bis 2014 stark an Features verloren
--   Garbage Collector, Evented Runtime, komplexes error-handling
+-   Garbage Collector, Evented Runtime, komplexes Error-handling
     -   war alles mal da, ist heute nicht mehr
 -   Orientierung zu einer verwendbaren Systemsprache
 
@@ -130,4 +130,3 @@ Interessanterweise in etwa gleich von:
 -   Gnome
 -   Dropbox
 -   [Rust Friends](http://rust-lang.org/friends.html)
-

@@ -1,21 +1,27 @@
-# Die Toolchain
+# Installation von Rust
 [Inhaltsverzeichnis](toc/default.html)
 
 ---
 
-https://www.rust-lang.org/en-US/install.html
+## Ziele
+
+-  Installation von Rust mit rustup
+-  Kennenlernen der Komponenten der Toolchain
+-  Hallo Welt!
 
 ---
 
-## Rustup
+## rustup
 
-Rustup ist das Standard-Tool zum Managen von Rusts compiler-Toolchain.
+Rustup ist das Standard-Tool zum Managen von Rusts Compiler-Toolchain.
 
 http://rustup.rs/
 
+Führen Sie das Shell-Script im Terminal aus.
+
 ---
 
-## Wichtige Kommandos
+## Wichtige Kommandos in rustup
 
 <pre><code data-source="chapters/shared/code/installation/1.sh" data-trim="hljs sh"></code></pre>
 
@@ -38,7 +44,7 @@ Dies läd die Quelltexte der Standardbibliothek und die Dokumentation zur Komple
 -   rust-(lldb|gdb)
 -   libcore/libstd
 
-Die genaue Art des Debuggers ist Platformabhängig.
+Die genaue Art des Debuggers ist plattformabhängig.
 
 ---
 
@@ -47,17 +53,27 @@ Die genaue Art des Debuggers ist Platformabhängig.
 <pre><code data-source="chapters/shared/code/installation/3.sh" data-trim="hljs sh"></code></pre>
 Der Rust-Compiler übernimmt das kompilieren und linken von Rust-Code.
 
+
 `rustc` ist annähernd komplett in Rust geschrieben.
 
 ---
 
-## Funktionstest
+## Hallo, Welt!
+Erstellen Sie die Datei hello_world.rs mit folgendem Code:
 
 <pre><code data-source="chapters/shared/code/installation/4.rs" data-trim="hljs rust"></code></pre>
 
 ---
 
-<pre><code data-source="chapters/shared/code/installation/5.sh" data-trim="hljs sh"></code></pre>
+Führen Sie die Datei aus.
+
+<pre><code data-source="chapters/shared/code/installation/5a.sh" data-trim="hljs sh"></code></pre>
+
+---
+
+Was Sie sehen sollten:
+
+<pre><code data-source="chapters/shared/code/installation/5b.sh" data-trim="hljs sh"></code></pre>
 
 ---
 
@@ -69,11 +85,11 @@ Der Rust-Compiler übernimmt das kompilieren und linken von Rust-Code.
 
 Cargo ist Rusts Build- und Codeverwaltungs-Toolchain.
 
-Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an einer `rustc`-Version gebunden.
+Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an eine `rustc`-Version gebunden.
 
 ---
 
-## Nochmal mit cargo
+## Ausführung mit Cargo
 
 <pre><code data-source="chapters/shared/code/installation/7.sh" data-trim="hljs sh"></code></pre>
 
@@ -90,3 +106,6 @@ Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an einer `rustc`-Versio
 
 <pre><code data-source="chapters/shared/code/installation/8.sh" data-trim="hljs sh"></code></pre>
 
+
+
+---
