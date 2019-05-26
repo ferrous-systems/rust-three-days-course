@@ -4,7 +4,7 @@ fn main() {
     }
 }
 
-fn fizzbuzz(i: i32) -> String {
+fn fizzbuzz(i: u32) -> String {
     if i % 3 == 0 && i % 5 == 0 {
         format!("FizzBuzz")
     } else if i % 3 == 0 {
