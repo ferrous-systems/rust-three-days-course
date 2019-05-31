@@ -10,22 +10,22 @@ Daher hat Rust das Konzept von `unsicherem Code`.
 ---
 
 Unsicherer Code darf:
--   Beliebige Speicherzugriffe durchführen
--   Rohe Pointer dereferenzieren
--   Externe Funktionen aufrufen
+-   beliebige Speicherzugriffe durchführen
+-   rohe Pointer dereferenzieren
+-   externe Funktionen aufrufen
 -   Eigenschaften wie `Send` und `Sync` feststellen
--   Globale (unsynchronisierte) Variablen schreiben
+-   globale (unsynchronisierte) Variablen schreiben
 
 ---
 
 Nicht unsicher sind:
--   Konvertierungen in rohe Pointer
+-   konvertierungen in rohe Pointer
 -   Speicherlecks
 
 ---
 
 Unsicherer Code sollte niemals:
--   Genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird.
+-   genutzt werden um Speicher zu managen, der von einem anderen Allokator gemanagt wird
 -   Konstruieren Sie niemals einen `std::vec::Vec` aus einem C++-Vektor und lassen ihn dann fallen.
 -   borrowck umgehen, z.B. Lebenszeiten oder Mutabilität eines Typens umändern - Beliebte Quelle von "aber ich war mir so sicher, dass das geht"
 
@@ -47,10 +47,9 @@ Unsicherer Code benötigt *immer* eine Markierung durch `unsafe`.
 
 ## Fallen von `unsafe`
 
--   Nicht jedes Beispiel ist so simpel. `unsafe` *muss* die Invarianten von Rust einhalten!
--   Dies gilt vor allem für Ownership und mutables Borrowing
--   `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -&gt; double free
--   `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann
+-   Nicht jedes Beispiel ist so simpel. `unsafe` *muss* die Invarianten von Rust einhalten! Dies gilt vor allem für Ownership und mutables Borrowing
+-   `unsafe` kann dazu führen, dass ein Wert 2 Owner hat -&gt; double free.
+-   `unsafe` kann dazu führen, dass eigentlich immutable Daten temporär mutabel sind, was zu vielen Problem führen kann.
 
 ---
 

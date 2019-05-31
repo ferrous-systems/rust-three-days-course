@@ -25,11 +25,11 @@ In manchen Fällen hilft hier "Drain", ein Iterator, der Werte Stück für Stüc
 
 ## Kompilierzeiten
 
-`rustc` ist nicht der schnellste Compiler, aber es werden viel Zeit in der Codegenerierung und Optimierung durch LLVM verbracht.
+`rustc` ist nicht der schnellste Compiler, aber es wird viel Zeit in der Codegenerierung und Optimierung durch LLVM verbracht.
 
 `cargo check` führt nur die Typprüfung von Rust aus und übersetzt den Code nicht.
 
-Unterteilen des Projekts in mehrere Crates kann auch helfen, da Crates nur bei Änderung kompiliert werden.
+Das Unterteilen des Projekts in mehrere Crates kann auch helfen, da Crates nur bei Änderung kompiliert werden.
 
 Gehen Sie vorsichtiger mit Generics um.
 
@@ -38,7 +38,7 @@ Gehen Sie vorsichtiger mit Generics um.
 ## Binärgröße senken
 
 -   System-Allokator verwenden (nightly feature)
--   Wird libstd kaum verwenden, kann sie ersetzt werden
+-   wird libstd kaum verwenden, kann sie ersetzt werden
 -   Anzahl der monomorphisierten Funktionen senken
 
 ---
