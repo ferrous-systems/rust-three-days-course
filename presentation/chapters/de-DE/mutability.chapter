@@ -9,21 +9,23 @@ Wo landet Rust?
 
 ---
 
+Rust verlangt, mutable Daten mit `mut` zu deklarieren.
+
+Mutabilität ist immer direkt aus dem Code ersichtlich.
+
+---
+
 ## Ein Beispiel
 
 <pre><code data-source="chapters/shared/code/mutability/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+Note: "Führt das Programm aus und korrigiert den Fehler."
 
 ---
 
 ## Richtig
 
 <pre><code data-source="chapters/shared/code/mutability/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
----
-
-Rust verlangt, mutable Daten zu deklarieren.
-
-Mutabilität ist immer direkt aus dem Code ersichtlich.
 
 ---
 

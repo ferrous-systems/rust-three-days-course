@@ -30,13 +30,7 @@ Diese Regeln:
 
 ---
 
-<pre class="diagram" data-source="chapters/shared/diagram/ownership/1.diagram"></pre>
-
----
-
-Was passiert, wenn versuchen, `dot` nochmal zu verwenden?
-
----
+Was passiert, wenn wir versuchen, `dot` nochmal zu verwenden?
 
 <pre><code data-source="chapters/shared/code/ownership/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
 
@@ -46,15 +40,17 @@ Was passiert, wenn versuchen, `dot` nochmal zu verwenden?
 
 ---
 
+## Hintergrund
+
+Wen wir `pacman` mit `dot` aufrufen, werden die Daten in die Argumente von `pacman` bewegt (move). Dabei geht der Besitz an `pacman` über.  `main` besitzt die Daten danach nicht mehr und darf sie auch nicht mehr manipulieren.
+
+---
+
 Dieser Vorgang nennt sich im Rust-Lingo `konsumieren`. `pacman` konsumiert `dot`.
 
 Danach kann der Wert nicht mehr verwendet werden.
 
----
-
-## Hintergrund
-
-Wen wir `pacman` mit `dot` aufrufen, werden die Daten in die Argumente von `pacman` bewegt (move). Dabei geht der Besitz an `pacman` über. `main` besitzt die Daten danach nicht mehr und darf sie auch nicht mehr manipulieren.
+<pre class="diagram" data-source="chapters/shared/diagram/ownership/1.diagram"></pre>
 
 ---
 
