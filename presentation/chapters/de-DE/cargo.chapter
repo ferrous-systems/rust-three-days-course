@@ -57,7 +57,7 @@ Nutzen Sie auf *jeden Fall* `--release` für Benchmarks, gerade Iteratoren werde
 
 Wenn das Projekt eine Applikation enthält, kann diese mit `cargo run -- [Argumente]` ausgeführt werden.
 
-Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist das Debug-Profil Standard.
+Wenn es mehrere Applikationen enthält, kann der Name der gewünschten Applikation mit `--bin <name>` übergeben werden. Auch hier ist das Debug-Profil Standard.
 
 ---
 
@@ -67,7 +67,7 @@ Wenn es mehrere enthält, kann der Name der gewünschten Applikation mit `--bin 
 
 Tests nutzen normalerweise mit dem Debug-Profil.
 
-`cargo test` testet alle Tests, auch Dokumentationstest und alle Beispiele!
+`cargo test` testet alle Tests, auch Dokumentationstests und alle Beispiele!
 
 ---
 
@@ -119,7 +119,7 @@ Es empfiehlt sich, den Lockfile *immer* unter Versionskontrolle zu halten. (für
 
 Cargo kennt 3 verschiedene Abhängigkeitssätze:
 
--   Normale Abhängigkeiten
+-   normale Abhängigkeiten
 -   Build-Abhängigkeiten
 -   Test-Abhängigkeiten
 

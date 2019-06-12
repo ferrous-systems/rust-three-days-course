@@ -40,7 +40,7 @@ Einige Crates können auch andere Dokumente über den Link "Dokumentation" auf i
 
 Diese Seite dokumentiert das `vec` Modul.
 
-Es beginnt mit einigen Beispielen, dann listet alle `struct`s, Eigenschaften oder Funktionen, die das Modul exportiert.
+Erst werden eine Beispiele gezeigt, dann folgt eine Liste aller `struct`s, Eigenschaften oder Funktionen, die das Modul exportiert.
 
 ---
 
