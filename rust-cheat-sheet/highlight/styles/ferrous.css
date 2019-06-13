@@ -1,0 +1,88 @@
+/*
+
+Style with support for rainbow parens
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.7em;
+  background: #1724f9;
+  color: #ffffff;
+  border: 1px;
+  border-color: black;
+  border-radius: 10px;
+}
+
+
+.hljs-comment,
+.hljs-quote {
+  color: #797979;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-type,
+.hljs-addition {
+  color: #00e59c;
+}
+
+.hljs-number,
+.hljs-selector-attr,
+.hljs-selector-pseudo {
+  color: #000000;
+}
+
+.hljs-string,
+.hljs-doctag,
+.hljs-regexp {
+  color: #ff4801;
+}
+
+.hljs-title,
+.hljs-name,
+.hljs-section,
+.hljs-built_in {
+  color: #a3d1f8;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-id,
+.hljs-class .hljs-title {
+   color: #fedf00;
+}
+
+.hljs-section,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-symbol,
+.hljs-bullet,
+.hljs-subst,
+.hljs-meta,
+.hljs-link {
+  color: green;
+}
+
+.hljs-deletion {
+  color: green;
+}
+
+.hljs-formula {
+  background: blue;
+}
+
+.hljs-attr,
+.hljs-attribute {
+  color: #81a2be;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
