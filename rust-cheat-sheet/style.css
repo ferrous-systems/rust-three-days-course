@@ -8,7 +8,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: #ffff44
+  background: #525dfa
   /* flex-flow: column wrap; */
 }
 
@@ -20,14 +20,14 @@
   /* align-items: center; */
   flex-flow: column wrap;
   max-width: 1400px;
-  height: 890px;
+  height: 850px;
   border: 3px;
   border-color: black;
 }
 
 .item {
   margin: 4px;
-  width: 450px;
+  width: 420px;
   border: 3px;
   border-color: black;
   flex: 0 1 auto;
@@ -51,12 +51,14 @@ h2 {
   /* font-family: 'Ubuntu Mono', monospace; */
   font-family: 'Rubik', sans-serif;
   text-align: center;
+  color: white;
 
 }
 h3 {
   /* font-family: 'Ubuntu Mono', monospace; */
   font-family: 'Rubik', sans-serif;
-  font-size: 70%;
+  font-size: 60%;
+  color: white;
   margin: 2px;
 }
 
@@ -71,7 +73,7 @@ pre {
 }
 code {
   font-family: monospace;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 /* div {

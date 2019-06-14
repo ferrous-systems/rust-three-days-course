@@ -2,4 +2,4 @@
 String  //String
 
 
-let a_string = String::from("make a String from string literal")
+let a_string = String::from("make a String from string literal");

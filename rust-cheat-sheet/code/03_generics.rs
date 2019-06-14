@@ -19,6 +19,6 @@ fn main() {
     // to the variant of an enum.
     let example_struct = WithFields {
         foo: 42,
-        bar: Choice::Maybe(String::from("BI like dogs");
-    }
+        bar: Choice::Maybe(String::from("I like dogs"),
+    };
 }
