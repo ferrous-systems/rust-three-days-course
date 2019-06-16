@@ -56,7 +56,7 @@ Um eine Funktion zu aktivieren, fügen Sie die folgende Zeile in `src/main.rs` (
 
 Compiler-Plugins ergänzen Rust um zusätzliche Funktionen. Beispielsweise:
 
--   (Früher) Eigene Derive-Funktionen
+-   (Früher) eigene Derive-Funktionen
 -   Linter, wie `clippy`
 -   Bibliotheken wie [`regex_macros`](https://github.com/rust-lang/regex#usage-regex-compiler-plugin), die Syntax-Erweiterungen darstellen
 

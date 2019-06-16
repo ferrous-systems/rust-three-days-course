@@ -32,7 +32,7 @@ Führen Sie das Shell-Script im Terminal aus.
 Führen Sie folgende Kommandos aus:
 
 <pre><code data-source="chapters/shared/code/installation/2.sh" data-trim="hljs sh"></code></pre>
-Dies läd die Quelltexte der Standardbibliothek und die Dokumentation zur Komplettierung und Offlineverwendung runter.
+Dies lädt die Quelltexte der Standardbibliothek und die Dokumentation zur Komplettierung und Offlineverwendung herunter.
 
 ---
 
@@ -95,7 +95,7 @@ Cargo wird mit `rustc` ausgeliefert, ist aber nicht fest an eine `rustc`-Version
 
 ---
 
-## Ein wenig umschauen
+## Im Verzeichnis umschauen
 
 -   Was steht in Cargo.toml?
 -   Was steht in Cargo.lock?

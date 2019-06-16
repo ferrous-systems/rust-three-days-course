@@ -18,7 +18,7 @@ Daher werden sie später in einem eigenen Abschnitt behandelt.
 ## Code Style
 
 -   4 Spaces
--   Keine tabs
+-   keine Tabs
 -   Blockklammern in eine eigene Zeile
 
 ---
@@ -44,4 +44,4 @@ Wir verwenden für die ersten Schritte:
 ## \#\[derive(Debug)\]
 
 <pre><code data-source="chapters/shared/code/little-helpers/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-Funktioniert für alle Datenstrukturen.
+Das Attribut funktioniert für alle Datenstrukturen.

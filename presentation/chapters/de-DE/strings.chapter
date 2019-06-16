@@ -11,18 +11,18 @@ Am häufigsten sind `String` und `&str`.
 
 ## `String`
 
--   *Besitzt* die Daten und kann frei mutiert werden.
--   Existiert als Zeiger auf einige Bytes, eine Länge und eine Kapazität.
--   Existiert auf dem *Heap*.
--   Implementiert `Copy` nicht, sondern implementiert `Clone`.
+-   *besitzt* die Daten und kann frei mutiert werden.
+-   existiert als Zeiger auf einige Bytes, eine Länge und eine Kapazität.
+-   existiert auf dem *Heap*.
+-   implementiert `Copy` nicht, sondern implementiert `Clone`.
 
 ---
 
 ## `&str`
 
--   Ein unveränderlicher Verweis auf einen String-Slice.
--   Nur durch einen Pointer verwendbar.
--   Kann überall, auf dem Heap, Stack oder im Programmspeicher sein.
+-   ist ein unveränderlicher Verweis auf einen String-Slice.
+-   ist nur durch einen Pointer verwendbar.
+-   kann überall, auf dem Heap, Stack oder im Programmspeicher sein.
 
 ---
 
@@ -32,7 +32,7 @@ Am häufigsten sind `String` und `&str`.
 
 ---
 
-## Wann verwenden?
+## Wann wird was verwendet?
 
 -   `String` ist am *einfachsten* zu verwenden, gerade am Anfang. Verfeinern geht später immernoch.
 -   `String` besitzt seine Daten, funktioniert also gut als Feld eines `struct` oder Enums.
@@ -48,7 +48,7 @@ Am häufigsten sind `String` und `&str`.
 
 -   `CStr` und `CString` können bei der Arbeit mit FFI auftreten.
 
-Die Unterschiede zwischen `*Str` und `*String` sind im allgemeinen die gleichen wie die normalen Typen.
+Die Unterschiede zwischen `*Str` und `*String` sind im allgemeinen die gleichen wie die bei den normalen Typen.
 
 ---
 
@@ -99,4 +99,3 @@ Verkettung:
 Ersetzen:
 
 <pre><code data-source="chapters/shared/code/strings/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
-
