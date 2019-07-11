@@ -13,7 +13,7 @@ fn main() {
     let hello = String::from("שָׁלוֹם");
     let hello = String::from("नमस्ते");
 
-    // Updating a String
+    // Manipulating a String
     let mut a_string = String::from("foo");
     a_string.push_str("bar");
 }

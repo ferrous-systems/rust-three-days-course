@@ -5,7 +5,7 @@ fn main() {
     // Creating a vector with values.
     let filled_vector = vec![1, 2, 3];
 
-    // Updateing a vector.
+    // Updating a vector.
     empty_vector.push(5);
     empty_vector.push(6);
 

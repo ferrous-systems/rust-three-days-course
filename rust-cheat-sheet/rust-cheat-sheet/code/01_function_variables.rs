@@ -1,13 +1,13 @@
-// Declaring a function with type annotated arguments
-// and a specified return type.
+// Declaring a function
+
 fn add_them(first: i32, second: i32) -> i32 {
     first + second
 }
 
 fn main() {
-    //Assigning a variable.
+    // Assigning a variable.
     let a_variable = 1;
-    //Reassigning a variable.
+    // Reassigning a variable.
     a_variable = 2;
     // A mutable variable
     let mut some_value = 1;

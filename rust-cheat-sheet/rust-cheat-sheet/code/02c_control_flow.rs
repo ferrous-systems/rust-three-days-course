@@ -4,6 +4,6 @@ fn main() {
     if let Some(value) = maybe_value {
         // ...
     } else {
-     /* ... */
+        // ...
     }
 }

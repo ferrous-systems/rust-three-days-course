@@ -1,5 +1,5 @@
 // Integers
-// All standart sizes, with or without sign
+// All standard sizes, with or without sign
 i8, u8
 i16, u16
 i32, u32

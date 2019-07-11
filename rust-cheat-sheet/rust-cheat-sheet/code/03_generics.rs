@@ -14,7 +14,6 @@ enum Choice {
 }
 
 fn main() {
-
     // instantiating a struct with one field referring
     // to the variant of an enum.
     let example_struct = WithFields {
