@@ -1,0 +1,115 @@
+# Documentation
+[Table des Matieres](toc/french.html)
+
+---
+
+## `rustdoc`
+
+Rust fournit un outil de documentation standard appelé `rustdoc'. Il est couramment utilisé par l'intermédiaire de `cargo doc`.
+
+De ce fait, le code en Rust est presque toujours documenté dans un format commun.
+---
+
+## Documentation de `std`
+
+La Documentation de la Librarie standard est hebergee au lien suivant :https://doc.rust-lang.org/std/.
+
+Une version locale, hors ligne, peut être ouverte avec :
+
+<pre><code data-source="chapters/shared/code/documentation/1.bash" data-trim="hljs bash"></code></pre>
+
+---
+
+## Documentation de Crates
+
+La Documentation pour crates est hebergée sur http://crates.io/  peut etre trouvee a l'adresse suivente: https://docs.rs/.
+
+Certaines crates peuvent également avoir d'autres documents trouvés via le lien "Documentation" sur le lien suivant: http://crates.io/.
+
+---
+
+## Exemple: Un Module
+
+<iframe src="https://doc.rust-lang.org/std/vec/" width="100%" height="400">
+</iframe>
+
+---
+
+## Exemple: Un Module
+
+Cette page documente le module `vec`.
+
+Il commence par quelques exemples, puis énumère toutes les `struct`s(structures), caractéristiques ou fonctions que le module exporte.
+---
+
+## Comment cette page est-elle generée?
+
+`rustdoc` peut lire du code en Rust et les documents Markdown.
+
+`//!`  et `///` commentaires sont lus comme du Markdown. 
+
+<pre><code data-source="chapters/shared/code/documentation/2.rs" data-trim="hljs rust"></code></pre>
+
+---
+
+## Exemple: Composants
+
+<iframe src="https://doc.rust-lang.org/std/string/#structs" width="100%" height="400">
+</iframe>
+
+---
+
+## Exemple: Fonctions
+
+<iframe src="https://doc.rust-lang.org/std/string/struct.String.html#method.new" width="100%" height="400">
+</iframe>
+
+---
+
+## Exemples de Code
+
+Par default les blocs de codes dans la documentation sont testés.
+
+<pre><code data-trim="hljs rust">
+/// ```rust
+/// assert_eq!(always_true(), true)
+/// ```
+fn always_true() -> bool { true }
+</code></pre>
+
+---
+
+## No-Run Exemples
+
+Ce code ne va compiler car il ne se termine pas.
+
+<pre><code data-trim="hljs rust">
+/// ```rust,no_run
+/// serve();
+/// ```
+fn serve() -> ! { loop {} }
+</code></pre>
+
+
+---
+
+## Navigation
+
+Les arguments et les types de retour des fonctions sont des liens vers leurs types respectifs.
+La barre latérale de gauche permet de naviguer rapidement vers les autres parties du module.
+
+---
+
+## Integration de Cargo
+
+Cette Commande crée et ouvre les documentations de votre project actuel:
+
+```sh
+$ cargo doc --open
+```
+
+---
+
+```sh
+$ cargo doc --document-private-items --open
+```
