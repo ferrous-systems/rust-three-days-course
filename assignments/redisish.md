@@ -33,4 +33,4 @@ pub fn parse(input: &str) -> Result<Command, Error> {
 ```
 Use `enums` for the data structures. One for the Commands and one for the different error types. Use `if let` and `match` for control flow.
 
-4. Test as appropriate. (What is appropriate?)
+4. Test the program.
