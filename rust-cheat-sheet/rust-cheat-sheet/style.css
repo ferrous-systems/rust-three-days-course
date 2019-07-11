@@ -1,0 +1,81 @@
+
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: #525dfa
+  /* flex-flow: column wrap; */
+}
+
+.container-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: space-around;
+  /* align-items: center; */
+  flex-flow: column wrap;
+  max-width: 1400px;
+  height: 850px;
+  border: 3px;
+  border-color: black;
+}
+
+.item {
+  margin: 4px;
+  width: 420px;
+  border: 3px;
+  border-color: black;
+  flex: 0 1 auto;
+  /* min-width: 300px;
+  max-width: 400px; */
+}
+
+/* .column {
+  float: ;
+  width: 33.33%;
+  padding: 15px;
+}
+
+
+@media screen  {
+  .column {
+    width: 100%;
+  } */
+
+h2 {
+  /* font-family: 'Ubuntu Mono', monospace; */
+  font-family: 'Rubik', sans-serif;
+  text-align: center;
+  color: white;
+
+}
+h3 {
+  /* font-family: 'Ubuntu Mono', monospace; */
+  font-family: 'Rubik', sans-serif;
+  font-size: 60%;
+  color: white;
+  margin: 2px;
+}
+
+pre {
+
+  margin-top: 5px;
+  margin-bottom: 7px;
+  border: 3px;
+  border-color: black;
+
+
+}
+code {
+  font-family: monospace;
+  font-size: 11px;
+}
+
+/* div {
+  max-width: 400px;
+} */
