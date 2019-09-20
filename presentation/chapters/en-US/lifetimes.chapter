@@ -79,7 +79,7 @@ Lingo: `Input outlives Tokenizer`
 
 ---
 
-Lifetimes cannot do _more_ then describe "this must live longer (or at least equally long) as the other".
+Lifetimes cannot do _more_ than describe "this must live longer (or at least equally long) as the other".
 
 ---
 

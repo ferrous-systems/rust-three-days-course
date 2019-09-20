@@ -103,7 +103,7 @@ Cargo allow expressing version ranges in different fashions.
 
 -   `=1.2.3`: Exact version, cargo will only use that one
 -   `0.1`: Any patch version of the "0.1" series
--   `< 0.8`: Any minor version smaller then "0.8"
+-   `< 0.8`: Any minor version smaller than "0.8"
 
 For more details, check the [docs](http://doc.crates.io/manifest.html)
 
