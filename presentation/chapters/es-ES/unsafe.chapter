@@ -34,7 +34,7 @@ El código inseguro nunca debe:
 
 Cuando se implementan estructuras de datos, los bloques unsafe no son inusuales.
 
-Rust es el peor lenguaje para implementar listas ligadas. Hay un [texto completo](TODO:%20Link) sobre este tema.
+Rust es el peor lenguaje para implementar listas ligadas. Hay un [texto completo](https://rust-unofficial.github.io/too-many-lists/) sobre este tema.
 
 ---
 
