@@ -1,4 +1,4 @@
-impl Point {
+struct Point {
     x: i32,
     y: i32
 }
@@ -8,7 +8,7 @@ impl Point {
         &self.x
     }
 
-    fn y(&'point self) -> &'point i32 {
+    fn y<'point>(&'point self) -> &'point i32 {
         &self.y
     }
 }
