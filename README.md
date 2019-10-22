@@ -74,7 +74,7 @@ This course is expressively intended for commercial and free use.
 ## Trainers
 
 * [Florian Gilcher](https://asquera.de)
-* [Andrew Hobden](https://asquera.de)
+
 
 Want to be on this list: open an [issue](https://github.com/skade/rust-three-days-course/issues) and we will add you.
 
