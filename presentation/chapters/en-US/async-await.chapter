@@ -63,8 +63,8 @@ async-await was stabilized yesterday
 ## Futures
 
 * Types that provide values... at some time in the future
-* A form of Deferred computation
-* Need an Exector to be poll them
+* A form of deferred computation
+* Need an executor to poll them
   * Polling is not a user concern!
 
 ---
