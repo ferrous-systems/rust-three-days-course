@@ -8,9 +8,8 @@
 == Tyler Neely
 
 - https://github.com/spacejam
-- https://github.com/sled
-- ??
-- ??
+- makes and breaks databases and distributed systems
+- <3 high performance + high correctness
 
 --
 image::sled.svg[400,400]
@@ -27,7 +26,7 @@ image::ferrous.svg[500,500]
 
 - https://github.com/skade
 - Rubyist
-- Rust community and core team
+- Rust community and core teams
 
 TODO: Fill
 
