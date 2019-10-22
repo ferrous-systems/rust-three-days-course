@@ -9,10 +9,10 @@ In this exercise, we will implement a toy protocol parser for a simple, redis-li
 
 You will learn:
 
-* How to write a simple Rust library
-* How to interact with borrowed and owned memory, especially how to take ownership
-* How to handle cases using the `match` syntax
-* How to create a safe protocol parser in Rust manually
+ * How to write a simple Rust library
+ * How to interact with borrowed and owned memory, especially how to take ownership
+ * How to handle cases using the `match` syntax
+ * How to create a safe protocol parser in Rust manually
 
 The library does not handle I/O.
 
