@@ -1,4 +1,4 @@
-$ cargo new hello-world --bin
+$ cargo new hello-world
 $ cd hello-world
 $ cat src/main.rs
 fn main() {

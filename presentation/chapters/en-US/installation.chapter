@@ -3,10 +3,6 @@
 
 ---
 
-https://www.rust-lang.org/en-US/install.html
-
----
-
 ## Rustup
 
 Rustup is the standard tool for managing Rusts compiler toolchain.
@@ -85,9 +81,3 @@ Cargo is installed along with `rustc`, but is not tightly bound to a `rustc` ver
 -   What is in Cargo.lock?
 
 For details, check the [Cargo Manifest docs](http://doc.crates.io/manifest.html).
-
----
-
-## Cargo Also Manages Tools
-
-<pre><code data-source="chapters/shared/code/installation/8.sh" data-trim="hljs sh"></code></pre>

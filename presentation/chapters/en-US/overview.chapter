@@ -43,7 +43,7 @@
 
 ## Goals
 
--   Explicit over implicit
+-   Explicit over implicit (*)
 -   Predictable runtime behaviour
 -   Supporting stable software development for programming at large
 -   Pragmatism and easy integration
@@ -130,6 +130,7 @@ In almost equal parts from:
 -   Mozilla Servo
 -   Gnome
 -   Dropbox
+-   Microsoft
+-   Amazon
+-   Google
 -   [Rust Friends](http://rust-lang.org/friends.html)
-
-
