@@ -37,7 +37,7 @@ Unsafe code should never:
 
 When implementing data structures, unsafe isn't unusual.
 
-Safe Rust is the worst language to implement linked lists. There's a full [text on this](TODO:%20Link)
+Safe Rust is the worst language to implement linked lists. There's a full [text on this](https://rust-unofficial.github.io/too-many-lists/)
 
 ---
 

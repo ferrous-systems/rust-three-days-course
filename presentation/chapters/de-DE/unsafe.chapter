@@ -35,7 +35,7 @@ Unsicherer Code sollte niemals:
 
 Beim implementieren von Datenstrukturen ist unsafe recht häufig.
 
-Sicheres Rust ist die schlechteste Sprache zum implementieren von Linked Lists. Es gibt eine [ganze Abhandlung darüber](TODO:%20Link)
+Sicheres Rust ist die schlechteste Sprache zum implementieren von Linked Lists. Es gibt eine [ganze Abhandlung darüber](https://rust-unofficial.github.io/too-many-lists/)
 
 ---
 

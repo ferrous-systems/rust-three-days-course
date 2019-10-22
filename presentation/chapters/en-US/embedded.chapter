@@ -43,7 +43,7 @@ Tock, an operating system for Cortex-M processors: [tockos.org](tockos.org)
 -   Unsolved requirements in Rust, especially bitfields
 -   Inline Assembly is unstable
 -   Core-Developers are desktop and server developers and don't always have enough experience
-    -   "No solution is better then a bad solution!"
+    -   "No solution is better than a bad solution!"
 -   We need vendor buy-in
 
 ---

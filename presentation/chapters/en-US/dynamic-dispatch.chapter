@@ -5,7 +5,7 @@
 
 Sometimes, we want to take the decision of which implementation to use at runtime instead of letting the compiler monomorphize the code.
 
-There's two approches to that.
+There's two approaches to that.
 
 ---
 
