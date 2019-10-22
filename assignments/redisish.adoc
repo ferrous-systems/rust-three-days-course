@@ -7,9 +7,8 @@
 
 In this exercise, we will implement a toy protocol parser for a simple, redis-like protocol.
 
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/async-rs/a-chat/master/README.html?token=AANB3M2A6UYSO5MDKBVN56C5LV6OG[HTML version (TODO: like the proper one)]
-
 You will learn:
+
 * How to write a simple Rust library
 * How to interact with borrowed and owned memory, especially how to take ownership
 * How to handle cases using the `match` syntax
@@ -25,6 +24,7 @@ The protocol has two commands:
 * `RETRIEVE\n`
 
 With the additional properties:
+
 1. Messages cannot contain newlines.
 2. A missing newline at the end of the message is an error.
 3. Data after the first newline is an error.
