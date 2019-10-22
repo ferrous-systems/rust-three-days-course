@@ -1,5 +1,4 @@
-= Safe programming in Rust (TODO: fix title slide)
-Ferrous Systems <training@ferrous-systems.com>
+= Rust for Safety
 :icons: font
 :lecture: References & Borrowing
 :table-caption!:

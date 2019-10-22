@@ -1,4 +1,4 @@
-= Safe programming in Rust (TODO: fix title slide)
+= Rust for Safety
 Ferrous Systems <training@ferrous-systems.com>
 :icons: font
 :lecture: Ownership
@@ -286,16 +286,12 @@ Values that are copy follow the standard ownership rules, but they are copied wh
 [.centered]
 == Warning
 
-The terminology around moves is similar, but not the same to the one used in C++, which is why you should always use Rust-Terminology: Ownership, passing on ownership and consumption.
-
-TODO: use fancy asciidoc warnings
+WARNING: The terminology around moves is similar, but not the same to the one used in C++, which is why you should always use Rust-Terminology: Ownership, passing on ownership and consumption.
 
 [.centered]
 == Strategy
 
-Rust does not assume, it makes you establish guarantees. It cannot eassily figure out if a value is allowed to be `Copy` or not - so it lets you establish guarantees.
-
-TODO: use fancy asciidoc infobubbles
+TIP: Rust does not assume, it makes you establish guarantees. It cannot eassily figure out if a value is allowed to be `Copy` or not - so it lets you establish guarantees.
 
 [.centered]
 == Small quiz

@@ -1,7 +1,6 @@
-= Safe programming in Rust (TODO: fix title slide)
-Ferrous Systems <training@ferrous-systems.com>
+= Rust for Safety
 :icons: font
-:lecture: General coding workflow
+:lecture: General coding tips
 :table-caption!:
 :example-caption!:
 
@@ -179,9 +178,7 @@ fn check(item: Option<&u32>) {
 
 `Option` encodes the _potential, but expected_ absence of a value.
 
-TODO: Note-syntax from asciidoc
-
-Note: Due to optimisations, `Option<&u32>` is as large as `&u32`.
+TIP: Due to optimisations, `Option<&u32>` is as large as `&u32`.
 
 [.two-col]
 == Useful enums: Result
@@ -261,9 +258,7 @@ warning: unused `std::result::Result` that must be used
 
 `Result` encodes the potential for error. It forces the user to inspect the `Result` and check if an error occured or denies access to the inner value otherwise.
 
-TODO: Note-syntax from asciidoc
-
-Note: Similar optimisations as to `Option` apply to `Result`
+TIP: Similar optimisations as to `Option` apply to `Result`
 
 [.two-col]
 == Slices and Vectors
@@ -315,7 +310,7 @@ fn main {
 
 Strings and string slices work much the same.
 
-[souce,rust]
+[source,rust]
 ----
 fn main() {
     let slice: &str = "Hello world!";
@@ -326,19 +321,34 @@ fn main() {
 Strings and string slices are `Vec<u8>` and `&[u8]` internally, with the added invariant that they are UTF-8.
 
 [.centered]
+== Use owned strings
+
+TIP: Spending the memory to make a heap copy and owning data makes your life a lot easier.
+
+[source,rust]
+----
+struct Owned {
+    string_data: String
+}
+
+struct Borrowed<'a> {
+    slice: &'a str
+}
+----
+
+[.centered]
 == Warning
 
-TODO: fancy ascii-doc warning
+WARNING: Never bypass the UTF-8 invariant on `String` or `&str`, this might lead to memory unsafety.
 
-Never bypass the UTF-8 invariant on `String` or `&str`, this might lead to memory unsafety.
+TIP: This is also not possible in safe Rust.
 
 [.centered]
 == Owned vs. borrowed types
 
 Borrowed types need you to make sure that the pointee is always alive. Owned types are easier. Liberally allocate `String` and `Vec` if you run into problems.
 
-TODO: fancy note
-Note: Rust makes it easy to safely refactor towards more efficient code. Get something working first, before you avoid each and every copy.
+TIP: Rust makes it easy to safely refactor towards more efficient code. Get something working first, before you avoid each and every copy.
 
 [.two-col]
 == Testing
