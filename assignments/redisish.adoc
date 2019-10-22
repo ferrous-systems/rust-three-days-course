@@ -47,9 +47,9 @@ pub fn parse(input: &str) -> Result<Command, Error> {
 
 == Help
 
-This section give you gradual help while you go. This section gives partial solutions to look at or refer to.
+This section gives you gradual help while you go. This section gives partial solutions to look at or refer to.
 
-In general, we recommend to use the Rust documentation to figure out things you are missing to familiarise yourself with it. If you ever feel complete stuck or that you haven't understood something, please hail the trainers quickly.
+In general, we recommend to use the Rust documentation to figure out things you are missing to familiarise yourself with it. If you ever feel completely stuck or that you haven't understood something, please hail the trainers quickly.
 
 === Getting Started
 
