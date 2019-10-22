@@ -17,15 +17,6 @@ http://rustup.rs/
 
 ---
 
-# First Steps
-
-Execute the following commands:
-
-<pre><code data-source="chapters/shared/code/installation/2.sh" data-trim="hljs sh"></code></pre>
-This loads the sources of the default library and documentation for completion and offline use.
-
----
-
 ## Content of the Toolchain
 
 -   rustc

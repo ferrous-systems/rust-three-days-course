@@ -12,7 +12,7 @@
 - <3 high performance + high correctness
 
 --
-image::sled.svg[400,400]
+image::sled.png[400,400]
 
 {empty} +
 {empty} +
@@ -27,12 +27,40 @@ image::ferrous.svg[500,500]
 - https://github.com/skade
 - Rubyist
 - Rust community and core teams
-
-TODO: Fill
+- Rust Trainer since 2015
 
 --
 image::ferrous.svg[500,500]
 --
+
+[.centered]
+== Ferrous Systems
+
+* Consultancy making Rust better for everyone
+* Open Source library development
+* Finding modern FOSS funding models
+
+[.centered]
+== OpenCollective
+
+* https://opencollective.com/ferrous-systems-gmbh
+* rust-analyzer: a new Rust IDE
+* sled: fast and concurrent database
+* async-rs: an asynchronous port of the rust stdlib with a modern scheduler
+
+[.centered]
+== Trainings
+
+* 3 days base trainings
+* 2 day conferences
+
+* Rust for embedded
+* Rust for async programming
+
+Masterclasses:
+
+* High performance threading
+* Rust ergonomics
 
 [.centered]
 == You!
@@ -85,5 +113,3 @@ In this workshop, you will:
 == Curiousity
 
 Ask questions! Many of them! As early as possible!
-
-
