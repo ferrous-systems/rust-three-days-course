@@ -1,0 +1,38 @@
+{
+    "emeraldwalk.runonsave": {
+        "autoClearConsole": true,
+        "commands": [
+            {
+                "match": ".*\\.(js|css|rs)",
+                "cmd": "npm run adoc -- --html ./lectures/*/*.adoc",
+            },
+            {
+                "match": ".*lectures.*\\.adoc",
+                "cmd": "npm run adoc -- --html ${file}",
+            },
+            {
+                "match": ".*homework.*\\.adoc",
+                "cmd": "asciidoctor-pdf ${file}",
+            },
+            {
+                "match": ".*\\.bob",
+                "cmd": "svgbob ${file} -o ${fileDirname}/${fileBasenameNoExt}.svg"
+            },
+            {
+                "match": "main.rs",
+                "cmd": "rustc main.rs && ./main ",
+            }
+        ]
+    },
+    "liveServer.settings.AdvanceCustomBrowserCmdLine": "chromium-browser",
+    "spellright.language": [
+        "en",
+        "ru"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "rust-analyzer.enableCargoWatchOnStartup": false
+}

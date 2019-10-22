@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "asciidoctor-pdf.js": "file:./asciidoctor-pdf.js"
+  },
+  "scripts": {
+    "adoc": "./node_modules/asciidoctor-pdf.js/bin/asciidoctorjs-pdf --template-require ./workshop-slides/template.js"
+  }
+}

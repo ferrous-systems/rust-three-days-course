@@ -1,0 +1,32 @@
+# Rust BlueHat
+
+Rewritten slides for the BlueHat workshop.
+
+Slides::
+In this repository :-)
+
+## Building
+
+[src,bash]
+----
+$ npm install
+$ npm run adoc -- ./workshop-slides/01-intro/slides.adoc
+$ pdf-viewer ./workshop-slides/01-intro/slides.pdf
+----
+
+Awesome https://github.com/Mogztter/asciidoctor-pdf.js/[Asciidoctor.js PDF]
+project is used to build the slides. See
+https://matklad.github.io/2019/05/19/consider-using-asciidoctor-for-your-next-presentation.html[this
+post] to learn more about this tool.
+
+## License
+
+++++
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/">
+<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+</a>
+<br/>
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+++++
+
+Asciidoctor.js PDF is vendored into this repository and is licensed under the MIT license.

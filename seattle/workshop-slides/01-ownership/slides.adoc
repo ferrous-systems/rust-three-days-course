@@ -1,0 +1,332 @@
+= Safe programming in Rust (TODO: fix title slide)
+Ferrous Systems <training@ferrous-systems.com>
+:icons: font
+:lecture: Ownership
+:table-caption!:
+:example-caption!:
+
+[.centered]
+== Some Rust
+
+[source,rust]
+----
+use std::io; <1>
+use std::fs::File;
+
+fn main() -> Result<(), io::Error> { <2>
+    let open_file = File::open("test"); <3>
+
+    let mut file = match open_file { <4>
+        Sme(file) => file,
+        Err(e) => return io::Error::from(e)
+    };
+
+    let mut buffer = String::new(); <5>
+    file.read_to_string(&mut buffer)?; <6>
+    println!("{}", buffer);
+
+    Ok(()) <7>
+}
+----
+
+[.centered]
+== Mutation
+
+- Modern languages often have sematically immutable data.
+- In Rust, mutation must be declared.
+
+[.centered]
+== Mutation
+
+[source,rust]
+----
+fn main() {
+    let answer = 42;
+    answer = 30;
+}
+----
+
+[source,text]
+----
+error[E0384]: cannot assign twice to immutable variable `answer`
+ --> scratch.rs:3:5
+  |
+2 |     let answer = 42;
+  |         ------
+  |         |
+  |         first assignment to `answer`
+  |         help: make this binding mutable: `mut answer`
+3 |     answer = 30;
+  |     ^^^^^^^^^^^ cannot assign twice to immutable variable
+
+error: aborting due to previous error
+----
+
+[.centered]
+== Working example
+
+[source,rust]
+----
+fn main() {
+    let mut answer = 42;
+    answer = 30;
+}
+----
+
+[.centered]
+== Ownership
+
+- Ownership is fundamental to Rust
+- It is the basis for memory and resource management in Rust
+
+[.centered]
+== Rules
+
+- Every value has exactly one owner
+- Ownership can be passed on, both to functions and other types
+- The owner is responsible for removing the data from memory
+- The owner has all powers over the data and can mutate it
+
+[.centered]
+== Rules
+
+These rules:
+
+-   are fundamental to Rusts type system
+-   are enforced at compile time
+
+[.two-col]
+== Example
+
+[source,rust]
+----
+#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 }; <1>
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) { <2>
+    println!("Eating {:?}", dot);
+    <3>
+}
+----
+
+--
+
+<1> Stack allocation
+<2> Bare type names indicate ownership passing
+<3> Deallocation point (automatically inserted)
+
+--
+
+[.two-col]
+== Example
+
+[source,rust]
+----
+#[derive(Debug)]
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot);
+    pacman(dot); <1>
+}
+----
+
+--
+
+<1> Illegal. TODO: insert error message
+
+--
+
+== Oops!
+
+In Rust-Lingo, this is called `consuming`. `pacman` consumes `dot`.
+
+The value cannot be used anymore.
+
+== Background
+
+When calling `pacman` with `dot`, the value is "moved" into the arguments of `pacman`. At that moment, ownership passes to `pacman`. `main` is not owner of the data anymore and thus not allowed to access or manipulate them.
+
+[.two-col]
+== Detour: What does that save us from?
+
+[source,rust]
+----
+use std::fs::File;
+
+fn main() {
+    let file = File::open("test").unwrap();
+
+    use_file(file);
+    use_file(file); <2>
+}
+
+fn use_file(f: File) {
+    // File drops here
+    <1>
+}
+----
+
+--
+
+<1> Dropping a file handle closes it
+<2> The second call to use_file would access a closed file
+
+--
+
+== Making illegal state irrepresentable
+
+Rust `File` handles are always open and the type system can enforce that.
+
+Similar modelling is possible for other types that can be in multiple states.
+
+== Coming back: Plain Data
+
+But our `Dot` is plain data, and this is inconvenient.
+
+== Working with moves: explicit clone
+
+We can create a second copy of the data!
+
+[.two-col]
+== Example
+
+[source,rust]
+----
+#[derive(Debug, Clone)] <1>
+struct Dot {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot.clone()); <2>
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+----
+
+--
+
+<1> The `Clone` derive autogenerates cloning code
+<2> `clone()` must be called before the value is moved.
+
+This semantically creates *2* owned values of `Dot`.
+
+--
+
+[.centered]
+== Cloning
+
+Cloning is a general operation that - depending on the complexity of the data at hand - can be costly.
+
+[.centered]
+== Working with moves: Copy
+
+But this is still inconvenient!
+
+[.two-col]
+== `Copy` to the rescue!
+
+[source,rust]
+----
+#[derive(Debug, Clone, Copy)] <1>
+struct Dot {
+    x: i32, <2>
+    y: i32
+}
+
+fn main() {
+    let dot = Dot { x: 1, y: 2 };
+    pacman(dot); <3>
+    pacman(dot);
+}
+
+fn pacman(dot: Dot) {
+    println!("Eating {:?}", dot);
+}
+----
+
+--
+
+<1> `Copy` types must always be `Clone`
+<2> `Copy` can only be derived if all fields are `Copy`
+<3> `move` is replaced by a `copy`
+
+This semantically creates 3 owned values of `Dot`.
+
+--
+
+[.centered]
+== About Copy
+
+Copy is meant for data that can be quickly copied in memory (using memcopy) and are allowed to be copied (e.g.: not File pointers).
+
+[.centered]
+== About Copy
+
+Values that are copy follow the standard ownership rules, but they are copied when ownership is passed on.
+
+[.centered]
+== Warning
+
+The terminology around moves is similar, but not the same to the one used in C++, which is why you should always use Rust-Terminology: Ownership, passing on ownership and consumption.
+
+TODO: use fancy asciidoc warnings
+
+[.centered]
+== Strategy
+
+Rust does not assume, it makes you establish guarantees. It cannot eassily figure out if a value is allowed to be `Copy` or not - so it lets you establish guarantees.
+
+TODO: use fancy asciidoc infobubbles
+
+[.centered]
+== Small quiz
+
+`drop` is the function that forces dropping a value immediately. What does implementation look like?
+
+[source,rust]
+----
+use std::fs::File;
+
+fn main() {
+    let mut file = File::open("test").unwrap();
+    let buffer = read_from(&mut file); //read_from is a standin, it doesn't exist
+    drop(file);
+    // do something long
+}
+----
+
+[.two-col]
+== Solution
+
+[source,rust]
+----
+#[inline]
+fn drop<T>(_: T) { <1>
+  // take ownership, drop out of scope
+}
+----
+
+--
+
+<1> Functions in Rust can be generic, this one takes any type
+
+--
