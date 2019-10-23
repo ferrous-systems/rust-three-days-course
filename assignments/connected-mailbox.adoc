@@ -84,6 +84,17 @@ to pass it around
 Implement a `ServerError`, allowing to handle both `io::Error`s and
 `redisish::Error`s.
 
+== Note
+
+To send and receive messages, you can either use `nc` or `telnet`. Alternatively, you can use the client provided: https://github.com/ferrous-systems/rust-three-days-course/tree/master/example/redisish-client
+
+Usage:
+
+----
+cargo run --bin publish -- "This is my message"
+cargo run --bin retrieve
+----
+
 = Help
 
 The help section omits Step 4, "proper error handling" and makes the server panic if bad data is received.
