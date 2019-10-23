@@ -1,0 +1,131 @@
+The mailbox
+-----------
+
+Implement a small TCP server, handling requests using the protocol we
+wrote yesterday.
+
+1. Turn you project into a workspace
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Read https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html
+
+The workspace should contain your server and the redisish library from
+yesterday.
+
+....
+mailbox-server
+|- Cargo.toml
+|- redisish
+|- mailbox
+....
+
+----
+$ cat Cargo.toml 
+[workspace]
+members = ["redisish", "mailbox"]
+---
+
+....
+$ cat mailbox/Cargo.toml
+...
+[dependencies]
+redisish = { path = "../redisish" }
+....
+
+2. Accept connections and implement the protocol
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  Every connection just sends one command
+2.  PUBLISH inserts into a message box
+3.  RETRIEVE retrieves a message, in a FIFO fashion
+
+Use `.unwrap` for all error handling in the beginning.
+
+Use `std::net::TcpListener` for connecting.
+
+Use `std::collections::VecDeque` for storing.
+
+Read the documentation for the `std::io::Read`, `std::io::Write` traits,
+especially `read_to_string`.
+
+Use the following template to get started:
+
+[source,rust]
+----
+use std::net::{TcpListener, TcpStream};
+
+fn handle_client(stream: TcpStream) {
+    // ...
+}
+
+fn main() -> io::Result<()> {
+    let listener = TcpListener::bind("127.0.0.1:8080")?;
+
+    // accept connections and process them serially
+    for stream in listener.incoming() {
+        handle_client(stream?);
+    }
+    Ok(())
+}
+----
+
+3. Implement multithreading
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Per connection:
+
+1.  spawn a thread using `std::thread::spawn`
+2.  wrap the `VecDeque` in a `std::sync::Mutex` and an `std::sync::Arc`
+to pass it around
+
+4. Optional: Do proper error handling
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Implement a `ServerError`, allowing to handle both `io::Error`s and
+`redisish::Error`s.
+
+= Help
+
+The help section omits Step 4, "proper error handling" and makes the server panic if bad data is received.
+
+== Parsing a command from a TCPStream
+
+Use this function to read a `redisish::Command` from a TcpStream.
+
+[source,rust]
+----
+// At the top of your file
+use std::net::{TcpListener,TcpStream};
+use std::io::prelude::*;
+use redisish;
+
+fn read_command(stream: &mut TcpStream) -> redisish::Command {
+    let mut read_buffer = String::new(); <1>
+    stream.read_to_string(&mut read_buffer).unwrap(); <2>
+
+    redisish::parse(&read_buffer).unwrap(); <3>
+}
+----
+
+<1> Allocate a read buffer.
+<2> Read all data into the buffer until the client sends EOF.
+<3> Parse the incoming buffer
+
+== Efficiently handling the received command handling the received command
+
+You can use this snipped to quickly read a command.
+
+[source,rust]
+----
+let command = read_command(stream);
+match command {
+    redisish::Command::Publish(message) => {
+
+    }
+    redisish::Command::Retrieve => {
+
+    }
+}
+}
+----
+
