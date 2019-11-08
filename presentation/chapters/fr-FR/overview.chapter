@@ -18,7 +18,7 @@
 -   Rust a perdu beaucoup de features entre 2012 et 2014
 -   Garbage Collector, event runtime, système complexe pour le support de la gestion d'erreurs
 -   Tous présent à une époque, maintenant partis
--   Le design s'est orienté vers la programamtion système
+-   Le design s'est orienté vers la programmation système
 
 --- 
 
@@ -47,7 +47,7 @@
 -   Explicite au lieu d'implicite
 -   Exécution au runtime prévisible
 -   Permet le developpement stable de logiciel en général 
--   Pragmatism et intégration facile
+-   Pragmatisme et intégration facile
 -   Projet approchable 
 
 ---
@@ -72,10 +72,10 @@ discuter de l'impact de plusieurs features sur de larges projets.
 
 ## Sûr
 
--   Rust est sûr du point de vue de la memoire
--   Pas d'accès illégal à la memoire
+-   Rust est sûr du point de vue de la mémoire
+-   Pas d'accès illégal à la mémoire
 -   La desallocation est automatique
--   Attention: Les fuites de memoires sont sûr par cette définition
+-   Attention: Les fuites de mémoires sont sûr par cette définition
 
 
 ## Concurrent
@@ -83,7 +83,7 @@ discuter de l'impact de plusieurs features sur de larges projets.
 
 -   "Parallèlisation sans peur"
 -   Le système de type detecte les accès concurrent aux données et requiert la synchronisation
--   Aussi Rust detecte quand les accès non syncronisé sont possibles!
+-   Aussi Rust detecte quand les accès non synchronisés sont possibles!
 -   Protections contre les data race!
 
 --- 
@@ -101,7 +101,7 @@ discuter de l'impact de plusieurs features sur de larges projets.
 ### Pragmatique
 
 
--   Un langage low-level pour les accès non sûr à la mémoire
+-   Un langage low-level pour les accès non sûrs à la mémoire
 -   Bonnes techniques pour les supporter
 -   Bon support des FFI
 -   Les messages d'erreurs du compilateur sont excellents.
@@ -115,8 +115,7 @@ discuter de l'impact de plusieurs features sur de larges projets.
 -   Rust est un language basé sur les expressions. Chaque expression a une valeur, qui peut être 
 assignée ou retournée.
 
--   "Paye ce que tu utilises": Rust a des features qui ont un coût au runtime explicitement. Les 
-    features non utilisés ne coûte rien.
+-   "Payes ce que tu utilises": Rust a des features qui ont un coût explicite au runtime. Les features non utilisés ne coûte rien.
 
 -   Abstraction sans coût
 
