@@ -1,1 +1,74 @@
-initial commit
+# Basic types
+[Table of Contents](toc/english.html)
+
+---
+
+## Entiers
+
+Rust comes with all standard int types, with and without sign
+
+-   i8, u8
+-   i16, u16
+-   i32, u32
+-   i64, u64
+-   i128, u128
+
+---
+
+## Architecture-dependent numbers
+
+Rust comes with 2 architecture-dependent number types:
+
+-   isize, usize
+
+---
+
+## Casts
+
+Casts between number are possible, *also shortening casts*:
+
+<pre><code data-source="chapters/shared/code/basic-types/1.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+Si une taille n'est pqs donne ou ne peut pas etre deduite, le default des ints est `i32`.
+
+---
+
+## Overflows
+
+Overflows déclenche une faute dans le mode Debug, mais pas en mode release. Cette This behaviour can be configured.
+
+---
+
+## Float
+
+Rust possede aussi des Float dans des tailles plus standards: f32, f64
+
+<pre><code data-source="chapters/shared/code/basic-types/2.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Arrays
+
+Les Arrays de taille fixe ont la notation suivante:
+
+<pre><code data-source="chapters/shared/code/basic-types/3.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## Array des taille dynamique
+
+En rust les Arrays de taille dynamique sont representés comme des slices.
+
+Les Slices possèdent un pointeur vers l'Array et une longueur. La taille d'une Slice ne peut etre modifiée.
+
+<pre><code data-source="chapters/shared/code/basic-types/4.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
+
+---
+
+## The Unit Type
+
+Les expressions qui ne retourne pas une valeur sont du type unit `()`.
+
+<pre><code data-source="chapters/shared/code/basic-types/5.rs" data-trim="hljs rust" class="lang-rust"></code></pre>
