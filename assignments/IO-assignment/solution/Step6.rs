@@ -27,7 +27,7 @@ fn main() {
             Ok(content) => content,
             Err(e) => panic!("Problem opening the file: {:?}", e),
         };
-        
+
         let line = is_line_empty(line);
 
         match line {
@@ -35,5 +35,5 @@ fn main() {
             None => continue
         };
     }
-    println!("{}", number);
+    println!("{}", line);
 }
