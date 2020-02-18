@@ -40,12 +40,11 @@ match VALUE {
 
 * Find out, what type the variable f is. Either your IDE shows you, or you can assign a random type to the variable, and run the program.
 * Match the two possible patterns, `Ok(file)` and `Err(e)` to an an appropriate expression, for example: `println!("File opened")` and `println!("Error: {}", e)`
-* To use the content of the file, bind the `match` statement to a variable.
-* Read the content of the file into a buffer and then into a `String`.
+* To use the content of the file, bind the `match` statement to a variable. Read the content of the file into a buffer and then into a `String`.
 * Print the entire content of the file.
 * Print the number of lines the file contains.
-* Print the content of the file line by line.
-* Use the `Option`- type to filter out the empty lines.
+* Print the content of the file line by line. The `lines()`- method returns the `Result`-Type, use it.
+* Use the `Option`- type to filter out the empty lines, and only print the the others.
 
 == Help (wip)
 
