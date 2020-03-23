@@ -1,3 +1,6 @@
+**Deprecated, the up-to-date version of the content is at:**</br>
+**https://github.com/ferrous-systems/teaching-material/**
+
 # Teach Rust
 
 "Teach Rust" is free workshop material to use to give a course introducing the Rust programming language. The time for the full course is around three to four days.
@@ -81,4 +84,3 @@ Want to be on this list: open an [issue](https://github.com/skade/rust-three-day
 ## License
 
 https://creativecommons.org/licenses/by-sa/4.0/
-
