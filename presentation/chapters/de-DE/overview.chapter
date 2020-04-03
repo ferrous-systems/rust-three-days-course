@@ -92,7 +92,7 @@ Viele Beispiele in diesem Kurs sind sehr klein, daher werden wir immer auch etwa
 
 ## Schnell
 
--   Obige Eigenschaften werden zur Kompilierzeit garantiert und haben keine Laufzeitkosten!
+-   Die zuvor genannten Eigenschaften werden zur Kompilierzeit garantiert und haben keine Laufzeitkosten!
 -   Optimierender Compiler basierend auf LLVM
 -   Features mit Laufzeitkosten sind explizit und werden nicht "aus Versehen" aktiviert
 -   Keine Reflektion (Vampirsprache)
