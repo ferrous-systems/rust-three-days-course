@@ -9,7 +9,7 @@ where Stringish: AsRef<str> {
     thing
 }
 
-// Enums too!
+// Structs too!
 struct GenericStruct<A> {
     value: A,
 }
