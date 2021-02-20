@@ -1,0 +1,55 @@
+= Exercise The Option and Result Type and URL parsing
+
+:icons: font
+:source-highlighter: pygments
+:pygments-style: borland
+
+:source-language: rust
+
+In this exercise, you will learn
+* how to handle errors using the `Result`-type.
+* how to use the `Option`-type.
+* how to read a file line by line.
+* how to count the number of lines in a file.
+
+
+Both types are similar in the way, that they can have two types of values, and
+depending on what those values are, the program continues in a different way.
+
+The Option Type can have the variant `Some(<some other type>)` or `None`.
+It is used, when you have to handle optional values, for example if you want to
+be able to leave a field of a struct empty, go assign the option type to it.
+If the field has a value, it is `Some(<value>)`, if it is empty, it is `None`.
+
+The variants of the Result type are `Ok()` and `Err(e)`. It is used to handle errors.
+If an operation was successful, `Ok()` is returned. `Ok()` can be empty or have a
+return value. `Err(e)` contains an error message that can be printed.
+
+# `match`
+
+Both types can be used with the `match` keyword. The received value is matched on patterns, each leads to the execution of a different expression.
+
+---
+match VALUE {
+    PATTERN => EXPRESSION,
+    PATTERN => EXPRESSION,
+    PATTERN => EXPRESSION,
+}
+---
+== Tasks
+
+* Find out, what type the variable f is. Either your IDE shows you, or you can assign a random type to the variable, and run the program.
+* Match the two possible patterns, `Ok(file)` and `Err(e)` to an an appropriate expression, for example: `println!("File opened")` and `println!("Error: {}", e)`
+* To use the content of the file, bind the `match` statement to a variable. Read the content of the file into a buffer and then into a `String`.
+* Print the entire content of the file.
+* Print the number of lines the file contains.
+* Print the content of the file line by line. The `lines()`- method returns the `Result`-Type, use it.
+* Use the `Option`- type to filter out the empty lines, and only print the the others.
+
+== Help (wip)
+
+
+Read
+3. If `match` is bound to a variable, both arms of the tree have to have the same type, except if one has a `continue` statement.
+4. Read
+5.
